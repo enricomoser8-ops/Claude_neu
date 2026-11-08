@@ -1,0 +1,296 @@
+{
+ "composition": "BallonShort",
+ "fps": 30,
+ "frames": 1475,
+ "shots": [
+  {
+   "shot": 1,
+   "f0": 0,
+   "f1": 85,
+   "light": "night",
+   "what": "hook: starry night, the patchwork balloon with its burner glow glides over the border strip (fence + watchtower far below)"
+  },
+  {
+   "shot": 2,
+   "f0": 86,
+   "f1": 174,
+   "light": "night",
+   "what": "close on the envelope: umbrella-silk band (f113), tent-nylon band (f149), slow pan up"
+  },
+  {
+   "shot": 3,
+   "f0": 175,
+   "f1": 253,
+   "light": "day",
+   "what": "border by day: double fence, watchtower, soldier with binoculars; the barrier slams down on 'dicht'"
+  },
+  {
+   "shot": 4,
+   "f0": 254,
+   "f1": 325,
+   "light": "day",
+   "what": "two fathers carry fabric rolls along the village street to their door, glance round, the door opens"
+  },
+  {
+   "shot": 5,
+   "f0": 326,
+   "f1": 393,
+   "light": "indoor",
+   "what": "sewing room: needle running, mother at the machine, fabric piled to the ceiling"
+  },
+  {
+   "shot": 6,
+   "f0": 394,
+   "f1": 443,
+   "light": "dusk",
+   "what": "calm glide over the sleepy village at dusk and the dark forest (follow button, lower centre calm)"
+  },
+  {
+   "shot": 7,
+   "f0": 444,
+   "f1": 597,
+   "light": "fog",
+   "what": "first attempt in night fog: plain balloon, one family; the fabric soaks dark, it sinks into the trees"
+  },
+  {
+   "shot": 8,
+   "f0": 598,
+   "f1": 637,
+   "light": "fog",
+   "what": "down in the clearing just before the fence line; the family sneaks off into the forest"
+  },
+  {
+   "shot": 9,
+   "f0": 638,
+   "f1": 779,
+   "light": "morning",
+   "what": "morning: men in grey coats round the crumpled balloon, magnifying glass, notebook; they look round"
+  },
+  {
+   "shot": 10,
+   "f0": 780,
+   "f1": 858,
+   "light": "indoor",
+   "what": "kitchen: a father looks into the lens and nods; both families nod, the fathers fist-bump"
+  },
+  {
+   "shot": 11,
+   "f0": 859,
+   "f1": 961,
+   "light": "indoor",
+   "what": "glide past small shop counters: each time one small roll of fabric is bought"
+  },
+  {
+   "shot": 12,
+   "f0": 962,
+   "f1": 1021,
+   "light": "dusk",
+   "what": "the new giant patchwork envelope lies on the meadow and inflates"
+  },
+  {
+   "shot": 13,
+   "f0": 1022,
+   "f1": 1127,
+   "light": "night",
+   "what": "night take-off: eight people crouch on the tiny platform, the burner roars, the balloon lifts off"
+  },
+  {
+   "shot": 14,
+   "f0": 1128,
+   "f1": 1257,
+   "light": "night",
+   "what": "watchtower at night: the searchlight swings up, the beam fades far below the balloon"
+  },
+  {
+   "shot": 15,
+   "f0": 1258,
+   "f1": 1333,
+   "light": "golden",
+   "what": "dawn: the balloon comes down softly in a forest clearing, the families stand up and hug"
+  },
+  {
+   "shot": 16,
+   "f0": 1334,
+   "f1": 1474,
+   "light": "golden",
+   "what": "outro: slow rise over the forest and the deflated balloon at sunrise (logo + button overlay)"
+  }
+ ],
+ "sound": [
+  {
+   "f": 0,
+   "t": 0.0,
+   "what": "night wind high up, burner hiss"
+  },
+  {
+   "f": 60,
+   "t": 2.0,
+   "what": "burner burst (roar, 0.8 s)"
+  },
+  {
+   "f": 86,
+   "t": 2.87,
+   "what": "cut: close on the fabric (fabric flutter, rope creak)"
+  },
+  {
+   "f": 175,
+   "t": 5.83,
+   "what": "cut: border by day (wind, distant birds; binoculars)"
+  },
+  {
+   "f": 238,
+   "t": 7.93,
+   "what": "barrier boom slams down (metal clang + rattle)"
+  },
+  {
+   "f": 254,
+   "t": 8.47,
+   "what": "cut: village street (birds, footsteps of two men until 300)"
+  },
+  {
+   "f": 296,
+   "t": 9.87,
+   "what": "the fathers glance round (hush)"
+  },
+  {
+   "f": 312,
+   "t": 10.4,
+   "what": "front door creaks open"
+  },
+  {
+   "f": 326,
+   "t": 10.87,
+   "what": "cut: sewing room: sewing machine rattle (continuous to 394)"
+  },
+  {
+   "f": 394,
+   "t": 13.13,
+   "what": "cut: village at dusk (evening birds, distant dog)"
+  },
+  {
+   "f": 444,
+   "t": 14.8,
+   "what": "cut: night fog (muffled wind, burner hiss until 556)"
+  },
+  {
+   "f": 515,
+   "t": 17.17,
+   "what": "fabric goes heavy and dark (dripping)"
+  },
+  {
+   "f": 556,
+   "t": 18.53,
+   "what": "balloon sinks (creak, branches rustle until 596)"
+  },
+  {
+   "f": 596,
+   "t": 19.87,
+   "what": "platform bumps down in the clearing"
+  },
+  {
+   "f": 600,
+   "t": 20.0,
+   "what": "family tiptoes away (soft footsteps until 638)"
+  },
+  {
+   "f": 638,
+   "t": 21.27,
+   "what": "cut: morning forest (birds, crows)"
+  },
+  {
+   "f": 724,
+   "t": 24.13,
+   "what": "magnifying-glass man bends down (coat rustle)"
+  },
+  {
+   "f": 746,
+   "t": 24.87,
+   "what": "the men look round (tense sting)"
+  },
+  {
+   "f": 780,
+   "t": 26.0,
+   "what": "cut: kitchen (clock tick)"
+  },
+  {
+   "f": 804,
+   "t": 26.8,
+   "what": "father nods, determined"
+  },
+  {
+   "f": 841,
+   "t": 28.03,
+   "what": "fist bump (soft thump)"
+  },
+  {
+   "f": 859,
+   "t": 28.63,
+   "what": "cut: shops (door bell, till)"
+  },
+  {
+   "f": 864,
+   "t": 28.8,
+   "what": "roll of fabric handed over (paper rustle)"
+  },
+  {
+   "f": 894,
+   "t": 29.8,
+   "what": "roll handed over"
+  },
+  {
+   "f": 926,
+   "t": 30.87,
+   "what": "roll handed over"
+  },
+  {
+   "f": 962,
+   "t": 32.07,
+   "what": "cut: meadow at dusk: the envelope fills with air (fabric whoosh until 1022)"
+  },
+  {
+   "f": 1022,
+   "t": 34.07,
+   "what": "cut: night meadow"
+  },
+  {
+   "f": 1030,
+   "t": 34.33,
+   "what": "burner ROARS (long, to 1128)"
+  },
+  {
+   "f": 1036,
+   "t": 34.53,
+   "what": "lift-off (platform creak, ropes tighten)"
+  },
+  {
+   "f": 1128,
+   "t": 37.6,
+   "what": "cut: watchtower at night"
+  },
+  {
+   "f": 1146,
+   "t": 38.2,
+   "what": "searchlight clicks on / swings up (motor hum)"
+  },
+  {
+   "f": 1258,
+   "t": 41.93,
+   "what": "cut: dawn clearing (birdsong), burner short burst until 1286"
+  },
+  {
+   "f": 1296,
+   "t": 43.2,
+   "what": "soft touchdown (thud, grass)"
+  },
+  {
+   "f": 1312,
+   "t": 43.73,
+   "what": "families hug (relieved laughter)"
+  },
+  {
+   "f": 1334,
+   "t": 44.47,
+   "what": "cut: sunrise outro (music swell)"
+  }
+ ]
+}
