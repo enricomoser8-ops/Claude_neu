@@ -57,7 +57,7 @@ B.hook = function (c, k) {
 // ---------- 2 vierzig Jahre ----------
 B.jahre = function (c, k) {
   paperBase(c);
-  var n = odometer(c, "40", F_SERIF_B, 520, INK, [CX, 900], k.vierzig - f2s(6), f2s(18));
+  var n = odometer(c, "40", F_NUM, 520, INK, [CX, 880], k.vierzig - f2s(6), f2s(18));
   yellowPop(n, k.vierzig + f2s(10));
   var j = txt(c, "JAHRE", F_SANS_B, 120, INK, [CX, 1070], ParagraphJustification.CENTER_JUSTIFY, 220);
   j.inPoint = k.jahre - f2s(2);
@@ -127,7 +127,7 @@ B.lupe = function (c, k) {
   lp.moveToBeginning(); lp.anchorPoint.setValue([0, 0]);
   keys(lp.position, [0, k.warum, k.schlau], [[CX - 380, 700], [CX + 120, 760], [CX - 120, 900]], [[10, 10], [80, 80], [90, 90]]);
   edgeBoil(lp, 12);
-  focalBlur(c, 0, k.schlau, [CX - 380, 700], [CX - 120, 900], 9);
+  focalBlur(c, 0, k.schlau, [CX - 380, 700], [CX - 120, 900], 4);
   var qm = txt(c, "?", F_SERIF_BI, 360, INK, [CX + 330, 560]);
   qm.inPoint = k.schlau - f2s(2); yellowPop(qm, k.schlau - f2s(2));
   camRig(c, CX, 860, { punchIn: 116, s0: 100, s1: 105, dx: 0, dy: 0 });
@@ -144,7 +144,7 @@ B.stuecke = function (c, k) {
   try { tr.property("ADBE Vector Trim Type").setValue(1); } catch (e) {}
   keys(tr.property("ADBE Vector Trim End"), [k.schneidet, k.schneidet + 0.9], [0, 100], 30);
   edgeBoil(cl, 5);
-  var n = counter(c, 0, 240, k.zahl - f2s(2), k.zahl + 1.0, F_SERIF_B, 220, RED, [CX, 450]);
+  var n = counter(c, 0, 240, k.zahl - f2s(2), k.zahl + 1.0, F_NUM, 220, RED, [CX, 450]);
   n.inPoint = k.zahl - f2s(2);
   var st = txt(c, "Stücke", F_SERIF_BI, 90, INK, [CX, 560]); typeOn(st, k.zahl + 0.4, 24);
   // harter Schnitt in der Szene: Glaeser
@@ -206,8 +206,8 @@ B.kansas = function (c, k) {
   var cc = contrastCallout(c, k.kansas - f2s(3), c.duration, kc[0], kc[1], 150, 110, false); cc.name = "Callout Kansas";
   var pin = shape(c, "Pin Wichita"), gp = grp(pin); ellipseG(gp, 22, 22, wi[0], wi[1]); fill(gp, RED); stroke(gp, "#FFFFFF", 4);
   pin.inPoint = k.kansas;
-  var yr = odometer(c, "1978", F_SERIF_B, 170, INK, [CX, 520], k.dreiundzwanzig, f2s(16));
-  sourceBar(c, "Wichita, Kansas", "1978", k.kansas, 300);
+  var yr = odometer(c, "1978", F_NUM, 170, INK, [CX, 520], k.dreiundzwanzig, f2s(16)); yr.name = "FIX Jahr 1978";
+  sourceBar(c, "Wichita, Kansas", null, k.kansas, 300);
   var cam = camRig(c, kc[0], kc[1], { punchIn: 114, s0: 100, s1: 104 });
   keys(cam.scale, [k.kansas - f2s(3), k.kansas + 0.9], [[104, 104], [190, 190]], [[10, 10], [92, 92]]);
   voxSauce(c, "grafik");
@@ -247,15 +247,16 @@ B.reise = function (c, k) {
   var tr = g.addProperty("ADBE Vector Filter - Trim");
   tr.property("ADBE Vector Trim End").expression = "ease(time, " + t0 + ", " + t1 + ", 0, 100)";
   edgeBoil(rl, 7);
-  var car = shape(c, "Auto"), gc = grp(car, "Karosserie"); addPath(gc, SH.car.body, 0, 0, 0.42); fill(gc, "#F7F2E6"); stroke(gc, INK, 5);
-  var gw = grp(car, "Fenster"); addPath(gw, SH.car.win, 0, 0, 0.42); fill(gw, "#BFD3E0"); stroke(gw, INK, 3);
-  var gt = grp(car, "Kofferraum"); addPath(gt, SH.car.trunk, 0, 0, 0.42); fill(gt, YEL); stroke(gt, INK, 3);
-  for (var w = 0; w < 2; w++) { var gr = grp(car, "Rad " + w); ellipseG(gr, SH.car.r * 2 * 0.42, SH.car.r * 2 * 0.42, SH.car.wheels[w][0] * 0.42, SH.car.wheels[w][1] * 0.42); fill(gr, INK); }
+  var CS = 0.62;
+  var car = shape(c, "Auto"), gc = grp(car, "Karosserie"); addPath(gc, SH.car.body, 0, 0, CS); fill(gc, "#F7F2E6"); stroke(gc, INK, 5);
+  var gw = grp(car, "Fenster"); addPath(gw, SH.car.win, 0, 0, CS); fill(gw, "#BFD3E0"); stroke(gw, INK, 3);
+  var gt = grp(car, "Kofferraum"); addPath(gt, SH.car.trunk, 0, 0, CS); fill(gt, YEL); stroke(gt, INK, 3);
+  for (var w = 0; w < 2; w++) { var gr = grp(car, "Rad " + w); ellipseG(gr, SH.car.r * 2 * CS, SH.car.r * 2 * CS, SH.car.wheels[w][0] * CS, SH.car.wheels[w][1] * CS); fill(gr, INK); var gh = grp(car, "Nabe " + w); ellipseG(gh, SH.car.r * CS * 0.8, SH.car.r * CS * 0.8, SH.car.wheels[w][0] * CS, SH.car.wheels[w][1] * CS); fill(gh, "#D9D2C3"); }
   var trunkFill = car.property("ADBE Root Vectors Group").property("Kofferraum").property("ADBE Vectors Group").property("ADBE Vector Graphic - Fill").property("ADBE Vector Fill Opacity");
   keys(trunkFill, [k.kofferraum - f2s(3), k.kofferraum + f2s(2)], [0, 100], 50);
-  pathKeys(car.position, t0, t1, A, C, Bp, true);
+  pathKeys(car.position, t0, t1, A, C, [Bp[0] + 120, Bp[1]], true);
   edgeBoil(car, 5);
-  var yr = odometer(c, "1997", F_SERIF_B, 170, INK, [CX, 520], 0.1, f2s(16));
+  var yr = odometer(c, "1997", F_NUM, 170, INK, [CX, 520], 0.1, f2s(16)); yr.name = "FIX Jahr 1997";
   var pinA = shape(c, "Pin Princeton"), ga = grp(pinA); ellipseG(ga, 22, 22, A[0], A[1]); fill(ga, INK);
   var pinB = shape(c, "Pin Berkeley"), gbp = grp(pinB); ellipseG(gbp, 26, 26, Bp[0], Bp[1]); fill(gbp, RED); stroke(gbp, "#FFFFFF", 4);
   pinB.inPoint = k.enkelin - f2s(3);
@@ -276,7 +277,7 @@ B.reise = function (c, k) {
 // ---------- 11 Waage: ganz normal, etwas leichter ----------
 B.waage = function (c, k) {
   paperBase(c);
-  var S = SH.scale, x = CX, y = 680, s = 0.78, half = 380 * s;
+  var S = SH.scale, x = CX, y = 680, s = 0.68, half = 380 * s;
   pencil(c, "Staender", [S.stand, S.foot], INK, 8, null, null, x, y, s);
   var beam = shape(c, "Balken"), gb = grp(beam); addPath(gb, S.beam, 0, 0, s); stroke(gb, INK, 10);
   var gm = grp(beam); ellipseG(gm, 26, 26, 0, 0); fill(gm, INK);
@@ -292,8 +293,8 @@ B.waage = function (c, k) {
     edgeBoil(pan, 6);
     var bd = brainDraw(c, "Gehirn " + nm[i], seeds[i], 0, 0, 0.62 * s / 1.15, null, INK, 5);
     for (var b = 0; b < bd.length; b++) { bd[b].parent = pan; bd[b].position.setValue([0, 300 * s - 56]); }
-    var t1 = txt(c, nm[i], F_SERIF_BI, 50, INK, [0, 0]); t1.parent = pan; t1.position.setValue([0, 440 * s]);
-    var t2 = txt(c, gw[i], F_SANS_B, 60, i === 0 ? INK : GREY, [0, 0]); t2.parent = pan; t2.position.setValue([0, 440 * s + 72]);
+    var t1 = txt(c, nm[i], F_SERIF_BI, 46, INK, [0, 0]); t1.parent = pan; t1.position.setValue([0, 440 * s + 50]);
+    var t2 = txt(c, gw[i], F_SANS_B, 58, INK, [0, 0]); t2.parent = pan; t2.position.setValue([0, 440 * s + 120]);
     t1.inPoint = k.normal - f2s(2); t2.inPoint = k.leichter - f2s(2);
     if (i === 0) yellowPop(t2, k.leichter);
   }

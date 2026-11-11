@@ -10,6 +10,7 @@ function plog(m) {
 function rgb(h) { return [parseInt(h.substr(1, 2), 16) / 255, parseInt(h.substr(3, 2), 16) / 255, parseInt(h.substr(5, 2), 16) / 255]; }
 var INK = "#1D1B18", PAPER = "#FDFAF3", RED = "#C8102E", YEL = "#FFD23F", GREY = "#8A8273", DARK = "#151412";
 var F_SERIF = "Georgia", F_SERIF_I = "Georgia-Italic", F_SERIF_B = "Georgia-Bold", F_SERIF_BI = "Georgia-BoldItalic";
+var F_NUM = "TimesNewRomanPS-BoldMT"; // Zahlen mit Versalziffern (Georgia hat Mediaevalziffern, die 4 haengt nach unten)
 var F_SANS_B = "Arial-BoldMT", F_BLACK = "Arial-Black", F_MONO = "CourierNewPS-BoldMT";
 
 // ---------- Effekte sicher anlegen und Parameter per Name finden (Englisch + Deutsch) ----------
@@ -311,7 +312,7 @@ function focalBlur(comp, t0, t1, a, b, maxBlur) {
     setP(r, ["Start Color"], [0, 0, 0]); setP(r, ["End Color"], [1, 1, 1]);
     var sp = findP(r, ["Start of Ramp"]), ep = findP(r, ["End of Ramp"]);
     if (sp) keys(sp, [t0, t1], [a, b], [[15, 15], [95, 95]]);
-    if (ep) keys(ep, [t0, t1], [[a[0] + 520, a[1]], [b[0] + 520, b[1]]], [[15, 15], [95, 95]]);
+    if (ep) keys(ep, [t0, t1], [[a[0] + 760, a[1]], [b[0] + 760, b[1]]], [[15, 15], [95, 95]]);
   }
   g.enabled = false; g.guideLayer = true;
   var ad = adj(comp, "FIX Fokus-Unschaerfe");
@@ -511,7 +512,7 @@ function label(comp, s, x, y, size, t0, color, arrowTo) {
   var l = txt(comp, s, F_SERIF_BI, size || 64, color || INK, [x, y]);
   typeOn(l, t0, 30);
   if (arrowTo) {
-    var a = arrowTo, sx = x + (a[0] > x ? 40 : -40), sy = y + 20;
+    var a = arrowTo, sx = x + (a[0] > x ? 40 : -40), sy = a[1] < y ? y - (size || 64) * 0.95 : y + 20;
     var mx = (sx + a[0]) / 2, my = Math.min(sy, a[1]) - 60;
     var p = { v: [[sx, sy], [a[0], a[1]]], i: [[0, 0], [mx - a[0], my - a[1]]], o: [[mx - sx, my - sy], [0, 0]], c: false };
     var ang = Math.atan2(a[1] - my, a[0] - mx), L = 28;
