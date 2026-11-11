@@ -57,13 +57,13 @@ B.hook = function (c, k) {
 // ---------- 2 vierzig Jahre ----------
 B.jahre = function (c, k) {
   paperBase(c);
-  var n = odometer(c, "40", F_SERIF_B, 520, INK, [CX, 980], k.vierzig - f2s(6), f2s(18));
+  var n = odometer(c, "40", F_SERIF_B, 520, INK, [CX, 900], k.vierzig - f2s(6), f2s(18));
   yellowPop(n, k.vierzig + f2s(10));
-  var j = txt(c, "JAHRE", F_SANS_B, 120, INK, [CX, 1150], ParagraphJustification.CENTER_JUSTIFY, 220);
+  var j = txt(c, "JAHRE", F_SANS_B, 120, INK, [CX, 1070], ParagraphJustification.CENTER_JUSTIFY, 220);
   j.inPoint = k.jahre - f2s(2);
-  var y = txt(c, "1955 – 1998", F_SERIF_I, 64, GREY, [CX, 1250]);
+  var y = txt(c, "1955 – 1998", F_SERIF_I, 64, GREY, [CX, 1170]);
   typeOn(y, k.jahre + f2s(2), 30);
-  pencil(c, "Unterstrich", [line2([[CX - 260, 1180], [CX - 80, 1186], [CX + 120, 1178], [CX + 270, 1184]])], RED, 7, k.jahre + f2s(4), f2s(12));
+  pencil(c, "Unterstrich", [line2([[CX - 260, 1100], [CX - 80, 1106], [CX + 120, 1098], [CX + 270, 1104]])], RED, 7, k.jahre + f2s(4), f2s(12));
   focusHunt(c, 0);
   camRig(c, CX, 1000, { punchIn: 122, s0: 100, s1: 104 });
   voxSauce(c, "grafik");
@@ -83,17 +83,21 @@ B.zeitung = function (c, k) {
   if (it) { var ph = addItem(pc, it, 260, 760, 380 / it.width * 100); var bw = addFx(ph, "ADBE Black&White"); var hs = addFx(ph, "ADBE Brightness & Contrast 2"); if (hs) setP(hs, ["Contrast"], 25); ph.blendingMode = BlendingMode.MULTIPLY; }
   var body = ["Der berühmteste Forscher", "der Welt starb in der Nacht", "im Krankenhaus von", "Princeton. Er wurde", "76 Jahre alt.", "", "Sein Wunsch: Er wollte", "verbrannt werden, ohne", "Grab, damit niemand zu", "ihm pilgert."];
   for (var i = 0; i < body.length; i++) if (body[i]) txt(pc, body[i], F_SERIF, 30, "#2A2723", [480, 560 + i * 44], ParagraphJustification.LEFT_JUSTIFY);
-  for (var b2 = 0; b2 < 9; b2++) { var bl = shape(pc, "Spalte " + b2), gb = grp(bl); rectG(gb, 860 - (b2 % 3) * 40, 14, 470, 1080 + b2 * 30); fill(gb, "#BDB4A2"); }
+  var r2 = shape(pc, "Linie 2"), gr2 = grp(r2); addPath(gr2, line2([[40, 1010], [900, 1010]])); stroke(gr2, INK, 3);
+  txt(pc, "Trauer in aller Welt", F_SERIF_B, 46, INK, [60, 1070], ParagraphJustification.LEFT_JUSTIFY);
+  var body2 = ["Forscher, Politiker und Freunde erinnern an", "den Mann, der mit seiner Relativitätstheorie", "unser Bild von Raum und Zeit verändert hat."];
+  for (var b2 = 0; b2 < body2.length; b2++) txt(pc, body2[b2], F_SERIF, 30, "#2A2723", [60, 1130 + b2 * 44], ParagraphJustification.LEFT_JUSTIFY);
+  txt(pc, "nachgestellt", F_SERIF_I, 24, GREY, [840, 1310]);
   var hl1 = highlighter(pc, 470, 900, 820 - 9, k.verbrannt - f2s(3));
   var hl2 = highlighter(pc, 470, 850, 864 - 9, k.verbrannt + f2s(9));
   voxSauce(pc, "archiv", { vig: 18 });
-  var L = addItem(c, pc, CX, 860, 100);
+  var L = addItem(c, pc, CX, 970, 85);
   L.rotation.setValue(-2);
-  keys(L.position, [0, 0.9], [[CX + 60, 1000], [CX, 860]], [[10, 10], [90, 90]]);
+  keys(L.position, [0, 0.9], [[CX + 60, 1110], [CX, 970]], [[10, 10], [90, 90]]);
   sourceBar(c, "Princeton, USA", "18. April 1955", k.stirbt, 300);
   focusHunt(c, 0);
-  var cam = camRig(c, CX, 860, { punchIn: 116, s0: 100, s1: 110, dy: -40 });
-  punchAt(cam, k.verbrannt - f2s(4), 1.1);
+  var cam = camRig(c, CX, 970, { punchIn: 116, s0: 100, s1: 104, dy: -30 });
+  punchAt(cam, k.verbrannt - f2s(4), 1.05);
   credit(c, D.credits["einstein-1945-loc"]);
   voxSauce(c, "grafik");
 };
@@ -101,13 +105,13 @@ B.zeitung = function (c, k) {
 B.heraus = function (c, k) {
   paperBase(c, true);
   brainDraw(c, "Gehirn", SH.brain, CX, 820, 1.25, k.gehirn - f2s(6), "#F1ECE0", 7);
-  rings(c, CX, 820, k.heraus, 3, "#F1ECE0", 1100);
-  var q = txt(c, "Familie gefragt?", F_SERIF_BI, 76, "#F1ECE0", [CX - 60, 1260]);
+  rings(c, CX, 820, k.heraus, 2, "#F1ECE0", 1900);
+  var q = txt(c, "Familie gefragt?", F_SERIF_BI, 76, "#F1ECE0", [CX - 100, 1260]);
   q.inPoint = k.familie - f2s(4); jitter(q, 1.2);
-  var bx = shape(c, "Kaestchen"), gb = grp(bx); rectG(gb, 70, 70, CX + 330, 1236); stroke(gb, "#F1ECE0", 6);
+  var bx = shape(c, "Kaestchen"), gb = grp(bx); rectG(gb, 70, 70, CX + 280, 1236); stroke(gb, "#F1ECE0", 6);
   bx.inPoint = k.familie - f2s(4); edgeBoil(bx, 6);
   var circ = [];
-  for (var a = 0; a <= 26; a++) { var an = -0.5 + a / 26 * Math.PI * 2.25; circ.push([CX + 330 + Math.cos(an) * (80 + a * 0.8), 1236 + Math.sin(an) * (70 + a * 0.6)]); }
+  for (var a = 0; a <= 26; a++) { var an = -0.5 + a / 26 * Math.PI * 2.25; circ.push([CX + 280 + Math.cos(an) * (80 + a * 0.8), 1236 + Math.sin(an) * (70 + a * 0.6)]); }
   pencil(c, "Kreis rot", [line2(circ)], "#E2463A", 7, k.fragen - f2s(4), f2s(14));
   var cam = camRig(c, CX, 900, { punchIn: 120, s0: 100, s1: 104 });
   punchAt(cam, k.heraus, 1.07);
@@ -123,7 +127,7 @@ B.lupe = function (c, k) {
   lp.moveToBeginning(); lp.anchorPoint.setValue([0, 0]);
   keys(lp.position, [0, k.warum, k.schlau], [[CX - 380, 700], [CX + 120, 760], [CX - 120, 900]], [[10, 10], [80, 80], [90, 90]]);
   edgeBoil(lp, 12);
-  focalBlur(c, 0, k.schlau, [CX - 380, 700], [CX - 120, 900], 22);
+  focalBlur(c, 0, k.schlau, [CX - 380, 700], [CX - 120, 900], 9);
   var qm = txt(c, "?", F_SERIF_BI, 360, INK, [CX + 330, 560]);
   qm.inPoint = k.schlau - f2s(2); yellowPop(qm, k.schlau - f2s(2));
   camRig(c, CX, 860, { punchIn: 116, s0: 100, s1: 105, dx: 0, dy: 0 });
@@ -155,7 +159,7 @@ B.stuecke = function (c, k) {
     rectG(gq, 46, 34, jx, jy, 6); fill(gq, "#E9C9BE"); stroke(gq, INK, 3);
     bb.inPoint = tg + f2s(8 + q);
   }
-  focusHunt(c, tg);
+  focusHunt(c, tg, true);
   var cam = camRig(c, CX, 880, { punchIn: 118, s0: 100, s1: 106 });
   punchAt(cam, tg, 1.08);
   voxSauce(c, "grafik");
@@ -177,6 +181,7 @@ B.stelle = function (c, k) {
   var L = addItem(c, lc, CX, 880, 100); L.rotation.setValue(1.5);
   keys(L.position, [0, 0.8], [[CX, 1200], [CX, 880]], [[10, 10], [90, 90]]);
   pageTurn(L, tp, 0.75, 820, 1100);
+  L.outPoint = tp + 0.75 + f2s(1);
   var ds = addFx(L, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 90); setP(ds, ["Distance"], 14); setP(ds, ["Softness"], 30); }
   var circ = [];
   for (var a = 0; a <= 26; a++) { var an = -0.4 + a / 26 * Math.PI * 2.2; circ.push([CX + Math.cos(an) * (360 + a), 880 + Math.sin(an) * (280 + a * 0.8)]); }
@@ -221,7 +226,8 @@ B.karton = function (c, k) {
   edgeBoil(body, 6);
   var lab = shape(c, "Etikett"), gl = grp(lab); rectG(gl, 470, 140, x, y + 90, 6); fill(gl, "#F3E8CF"); stroke(gl, INK, 4);
   lab.inPoint = k.apfelwein - f2s(4);
-  var lt = txt(c, "APFELWEIN", F_BLACK, 82, "#3A2A1A", [x, y + 120], ParagraphJustification.CENTER_JUSTIFY, 60);
+  var lt = txt(c, "APFELWEIN", F_BLACK, 62, "#3A2A1A", [x, y + 112], ParagraphJustification.CENTER_JUSTIFY, 20);
+  fitWidth(lt, 410, c.duration - 0.05);
   typeOn(lt, k.apfelwein - f2s(2), 26);
   focusHunt(c, 0);
   var cam = camRig(c, x, y - 60, { punchIn: 120, s0: 100, s1: 107 });
@@ -247,8 +253,7 @@ B.reise = function (c, k) {
   for (var w = 0; w < 2; w++) { var gr = grp(car, "Rad " + w); ellipseG(gr, SH.car.r * 2 * 0.42, SH.car.r * 2 * 0.42, SH.car.wheels[w][0] * 0.42, SH.car.wheels[w][1] * 0.42); fill(gr, INK); }
   var trunkFill = car.property("ADBE Root Vectors Group").property("Kofferraum").property("ADBE Vectors Group").property("ADBE Vector Graphic - Fill").property("ADBE Vector Fill Opacity");
   keys(trunkFill, [k.kofferraum - f2s(3), k.kofferraum + f2s(2)], [0, 100], 50);
-  car.position.expression = "var u = ease(time, " + t0 + ", " + t1 + ", 0, 1); var A=[" + A + "], B=[" + Bp + "], C=[" + C + "];" +
-    " var p = [(1-u)*(1-u)*A[0]+2*(1-u)*u*C[0]+u*u*B[0], (1-u)*(1-u)*A[1]+2*(1-u)*u*C[1]+u*u*B[1]]; posterizeTime(12); p + [0, -18 + Math.sin(time*20)*1.5]";
+  pathKeys(car.position, t0, t1, A, C, Bp, true);
   edgeBoil(car, 5);
   var yr = odometer(c, "1997", F_SERIF_B, 170, INK, [CX, 520], 0.1, f2s(16));
   var pinA = shape(c, "Pin Princeton"), ga = grp(pinA); ellipseG(ga, 22, 22, A[0], A[1]); fill(ga, INK);
@@ -261,15 +266,17 @@ B.reise = function (c, k) {
   jg.inPoint = k.enkelin + f2s(4);
   var xx = Bp[0] + 120, yy = Bp[1] - 150;
   pencil(c, "Kreuz", [line2([[xx - 70, yy - 60], [xx + 70, yy + 60]]), line2([[xx + 70, yy - 60], [xx - 70, yy + 60]])], RED, 9, k.nicht - f2s(3), f2s(8));
-  var cam = camRig(c, CX, 860, { punchIn: 114, s0: 100, s1: 104 });
-  keys(cam.position, [k.enkelin - f2s(6), k.enkelin + 0.8], [[CX, 860], [CX + (CX - Bp[0]) * 0.5, 860 + (860 - Bp[1]) * 0.4]], [[10, 10], [90, 90]]);
-  keys(cam.scale, [k.enkelin - f2s(6), k.enkelin + 0.8], [[103, 103], [150, 150]], [[10, 10], [90, 90]]);
+  // Zoom auf Berkeley: Berkeley landet bei x 380, y 860 (Kamera-Ankerpunkt CX/860), Zoom fertig vor "nicht"
+  var ZS = 1.5, tz0 = k.enkelin - f2s(6), tz1 = Math.min(k.enkelin + 0.8, k.nicht - f2s(6));
+  var cam = camRig(c, CX, 860, { punchIn: 114, s0: 100, s1: ZS * 100, punchOut: false });
+  keys(cam.scale, [tz0, tz1], [[103, 103], [ZS * 100, ZS * 100]], [[10, 10], [90, 90]]);
+  keys(cam.position, [tz0, tz1], [[CX, 860], [380 - (Bp[0] - CX) * ZS, 860 - (Bp[1] - 860) * ZS]], [[10, 10], [90, 90]]);
   voxSauce(c, "grafik");
 };
 // ---------- 11 Waage: ganz normal, etwas leichter ----------
 B.waage = function (c, k) {
   paperBase(c);
-  var S = SH.scale, x = CX, y = 640, s = 1.15, half = 380 * s;
+  var S = SH.scale, x = CX, y = 680, s = 0.78, half = 380 * s;
   pencil(c, "Staender", [S.stand, S.foot], INK, 8, null, null, x, y, s);
   var beam = shape(c, "Balken"), gb = grp(beam); addPath(gb, S.beam, 0, 0, s); stroke(gb, INK, 10);
   var gm = grp(beam); ellipseG(gm, 26, 26, 0, 0); fill(gm, INK);
@@ -283,10 +290,10 @@ B.waage = function (c, k) {
     var gq = grp(pan); addPath(gq, S.pan, 0, 0, s); fill(gq, "#E4DACA"); stroke(gq, INK, 6);
     pan.position.expression = "var b = thisComp.layer('Balken'); var a = degreesToRadians(b.transform.rotation); b.transform.position + [" + (sides[i] * half) + "*Math.cos(a), " + (sides[i] * half) + "*Math.sin(a)]";
     edgeBoil(pan, 6);
-    var bd = brainDraw(c, "Gehirn " + nm[i], seeds[i], 0, 0, 0.62, null, INK, 5);
+    var bd = brainDraw(c, "Gehirn " + nm[i], seeds[i], 0, 0, 0.62 * s / 1.15, null, INK, 5);
     for (var b = 0; b < bd.length; b++) { bd[b].parent = pan; bd[b].position.setValue([0, 300 * s - 56]); }
-    var t1 = txt(c, nm[i], F_SERIF_BI, 56, INK, [0, 0]); t1.parent = pan; t1.position.setValue([0, 440 * s]);
-    var t2 = txt(c, gw[i], F_SANS_B, 66, i === 0 ? INK : GREY, [0, 0]); t2.parent = pan; t2.position.setValue([0, 440 * s + 80]);
+    var t1 = txt(c, nm[i], F_SERIF_BI, 50, INK, [0, 0]); t1.parent = pan; t1.position.setValue([0, 440 * s]);
+    var t2 = txt(c, gw[i], F_SANS_B, 60, i === 0 ? INK : GREY, [0, 0]); t2.parent = pan; t2.position.setValue([0, 440 * s + 72]);
     t1.inPoint = k.normal - f2s(2); t2.inPoint = k.leichter - f2s(2);
     if (i === 0) yellowPop(t2, k.leichter);
   }
@@ -299,8 +306,8 @@ B.waage = function (c, k) {
 B.outro = function (c, k) {
   paperBase(c);
   var tf = k.folge - f2s(3);
-  var ph = printPhoto(c, "archiv/einstein-1945-loc.jpg", CX, 820, 720, 880, 2, 0);
-  var ql = txt(c, "Wie hat er\rwirklich gedacht?", F_SERIF_BI, 84, INK, [CX, 1360]);
+  var ph = printPhoto(c, "archiv/einstein-1945-loc.jpg", CX, 720, 680, 760, 2, 0);
+  var ql = txt(c, "Wie hat er\rwirklich gedacht?", F_SERIF_BI, 80, INK, [CX, 1230]);
   var qd = ql.property("ADBE Text Properties").property("ADBE Text Document"), qv = qd.value; qv.autoLeading = false; qv.leading = 92; qd.setValue(qv);
   typeOn(ql, 0.15, 30);
   ph.outPoint = tf; ql.outPoint = tf;
@@ -308,25 +315,25 @@ B.outro = function (c, k) {
   // Folgen-Cover, Logo, Folgen-Klick
   var cv = imp("archiv/B-16x9-1280x720-youtube.jpg");
   if (cv) {
-    var card = addItem(c, cv, CX, 640, 960 / cv.width * 100);
-    card.inPoint = tf; keys(card.scale, [tf, tf + 0.3], [[960 / cv.width * 112, 960 / cv.width * 112], [960 / cv.width * 100, 960 / cv.width * 100]], [[10, 10], [85, 85]]);
+    var card = addItem(c, cv, CX, 600, 880 / cv.width * 100);
+    card.inPoint = tf; keys(card.scale, [tf, tf + 0.3], [[880 / cv.width * 112, 880 / cv.width * 112], [880 / cv.width * 100, 880 / cv.width * 100]], [[10, 10], [85, 85]]);
     var ds = addFx(card, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 110); setP(ds, ["Distance"], 18); setP(ds, ["Softness"], 40); }
   }
-  var f41 = txt(c, "Folge 41", F_SERIF_B, 110, INK, [CX, 1010]); f41.inPoint = tf; yellowPop(f41, tf + f2s(4));
-  var lk = txt(c, "Link in der Bio", F_SERIF_I, 64, INK, [CX, 1090]); lk.inPoint = k.link - f2s(4); typeOn(lk, k.link - f2s(4), 30);
+  var f41 = txt(c, "Folge 41", F_SERIF_B, 110, INK, [CX, 950]); f41.inPoint = tf; yellowPop(f41, tf + f2s(4));
+  var lk = txt(c, "Link in der Bio", F_SERIF_I, 64, INK, [CX, 1030]); lk.inPoint = k.link - f2s(4); typeOn(lk, k.link - f2s(4), 30);
   var lg = imp("archiv/logo.png");
-  if (lg) { var lo = addItem(c, lg, CX - 150, 1260, 170 / lg.width * 100); lo.inPoint = k.allgemeinwissen - f2s(4); keys(lo.scale, [lo.inPoint, lo.inPoint + 0.3], [[0, 0], [170 / lg.width * 100, 170 / lg.width * 100]], [[10, 10], [80, 80]]); }
-  var btn = shape(c, "Folgen-Knopf"), gb = grp(btn); rectG(gb, 300, 96, CX + 120, 1260, 48); var bfill = fill(gb, RED);
+  if (lg) { var lo = addItem(c, lg, CX - 150, 1170, 170 / lg.width * 100); lo.inPoint = k.allgemeinwissen - f2s(4); keys(lo.scale, [lo.inPoint, lo.inPoint + 0.3], [[0, 0], [170 / lg.width * 100, 170 / lg.width * 100]], [[10, 10], [80, 80]]); }
+  var btn = shape(c, "Folgen-Knopf"), gb = grp(btn); rectG(gb, 300, 96, CX + 120, 1170, 48); var bfill = fill(gb, RED);
   btn.inPoint = k.allgemeinwissen - f2s(2);
-  var b1 = txt(c, "+ Folgen", F_SANS_B, 46, "#FFFFFF", [CX + 120, 1276]); b1.inPoint = btn.inPoint;
+  var b1 = txt(c, "+ Folgen", F_SANS_B, 46, "#FFFFFF", [CX + 120, 1186]); b1.inPoint = btn.inPoint;
   var tc = k.link + f2s(6);
   b1.outPoint = tc;
-  var b2 = txt(c, "✓ Gefolgt", F_SANS_B, 46, "#FFFFFF", [CX + 120, 1276]); b2.inPoint = tc;
+  var b2 = txt(c, "✓ Gefolgt", F_SANS_B, 46, "#FFFFFF", [CX + 120, 1186]); b2.inPoint = tc;
   keys(bfill.property("ADBE Vector Fill Color"), [tc - f2s(1), tc], [rgb(RED), rgb("#6B655B")], 50);
   var cur = shape(c, "Mauszeiger"), gcu = grp(cur);
   addPath(gcu, line2([[0, 0], [0, 64], [16, 50], [28, 76], [40, 70], [28, 46], [50, 46]], true)); fill(gcu, "#FFFFFF"); stroke(gcu, INK, 4);
   cur.inPoint = k.link - f2s(8);
-  keys(cur.position, [k.link - f2s(8), tc - f2s(2)], [[CX + 420, 1560], [CX + 140, 1268]], [[10, 10], [85, 85]]);
+  keys(cur.position, [k.link - f2s(8), tc - f2s(2)], [[CX + 420, 1470], [CX + 140, 1178]], [[10, 10], [85, 85]]);
   keys(cur.scale, [tc - f2s(2), tc, tc + f2s(4)], [[100, 100], [82, 82], [100, 100]], 50);
   var cam = camRig(c, CX, 900, { punchIn: 116, s0: 100, s1: 104, punchOut: false });
   punchAt(cam, tf, 1.06);

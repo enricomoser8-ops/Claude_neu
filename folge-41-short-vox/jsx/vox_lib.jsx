@@ -308,7 +308,7 @@ function focalBlur(comp, t0, t1, a, b, maxBlur) {
   var r = addFx(g, "ADBE Ramp");
   if (r) {
     setP(r, ["Ramp Shape"], 2);
-    setP(r, ["Start Color"], [1, 1, 1]); setP(r, ["End Color"], [0, 0, 0]);
+    setP(r, ["Start Color"], [0, 0, 0]); setP(r, ["End Color"], [1, 1, 1]);
     var sp = findP(r, ["Start of Ramp"]), ep = findP(r, ["End of Ramp"]);
     if (sp) keys(sp, [t0, t1], [a, b], [[15, 15], [95, 95]]);
     if (ep) keys(ep, [t0, t1], [[a[0] + 520, a[1]], [b[0] + 520, b[1]]], [[15, 15], [95, 95]]);
@@ -406,7 +406,7 @@ function pageTurn(layer, t0, dur, w, h) {
   setP(e, ["Fold Radius"], 50); setP(e, ["Back Opacity"], 85);
   var bp = findP(e, ["Back Page"]); if (bp) { try { bp.setValue(layer.index); } catch (x) {} }
   var fp = findP(e, ["Fold Position"]);
-  if (fp) keys(fp, [t0, t0 + (dur || 0.7)], [[w + 40, h + 40], [-w * 0.9, -h * 0.4]], [[20, 20], [70, 70]]);
+  if (fp) keys(fp, [t0, t0 + (dur || 0.7)], [[w + 40, h + 40], [-w * 1.7, -h * 1.1]], [[20, 20], [70, 70]]);
   var pt = addFx(layer, "ADBE Posterize Time"); if (pt) setP(pt, ["Frame Rate"], 8);
   return e;
 }
@@ -445,7 +445,7 @@ function odometer(comp, s, font, size, color, pos, t0, dur) {
   var op = an.property("ADBE Text Animator Properties").addProperty("ADBE Text Opacity"); op.setValue(0);
   var sel = an.property("ADBE Text Selectors").addProperty("ADBE Text Selector");
   var off = sel.property("ADBE Text Percent Offset");
-  keys(off, [t0, t0 + (dur || 0.8)], [-100, 0], [[10, 10], [85, 85]]);
+  keys(off, [t0, t0 + (dur || 0.8)], [0, 100], [[10, 10], [85, 85]]);
   // Maske, damit die Ziffern aus einem "Fenster" rollen
   var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
   var rc = l.sourceRectAtTime(t0 + (dur || 0.8) + 0.1, false);
@@ -524,4 +524,20 @@ function step(name, fn) {
   plog("-> " + name);
   try { fn(); log.push("OK " + name); }
   catch (e) { log.push("FEHLER " + name + ": " + e.toString() + " (Zeile " + e.line + ")"); plog("FEHLER " + name + ": " + e.toString() + " (Zeile " + e.line + ")"); }
+}
+
+// Text auf Hoechstbreite skalieren (gemessen am Endzustand)
+function fitWidth(l, maxW, t) {
+  var r = l.sourceRectAtTime(t, false);
+  if (r.width > maxW) { var f = maxW / r.width * 100; l.scale.setValue([f, f]); }
+  return l;
+}
+// Bewegung entlang einer Bezier-Kurve als Keys (12 fps, Hold) statt Ausdruck; u mit weichem Start/Ende
+function pathKeys(prop, t0, t1, A, C, Bp, bob) {
+  var n = Math.max(2, Math.round((t1 - t0) * 12));
+  for (var i = 0; i <= n; i++) {
+    var x = i / n, u = x * x * (3 - 2 * x), t = t0 + (t1 - t0) * x;
+    var p = [(1 - u) * (1 - u) * A[0] + 2 * (1 - u) * u * C[0] + u * u * Bp[0], (1 - u) * (1 - u) * A[1] + 2 * (1 - u) * u * C[1] + u * u * Bp[1] + (bob ? -18 + Math.sin(t * 20) * 1.5 : 0)];
+    hold(prop, t, p);
+  }
 }
