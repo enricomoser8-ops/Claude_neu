@@ -11,11 +11,11 @@ function brainDraw(c, name, br, x, y, s, t0, color, width, gyriOnly) {
   var ce = pencil(c, name + " Kleinhirn", [br.cereb].concat(br.stem), color || INK, width || 6, t0 === null ? null : t0 + f2s(10), f2s(14), x, y, s);
   return [out, gy, ce];
 }
-function jarDraw(c, name, j, x, y, s, t0, color) {
+function jarDraw(c, name, j, x, y, s, t0, color, dur) {
   var body = shape(c, name), g = grp(body, "Glas");
   addPath(g, j.body, x, y, s); addPath(g, j.lid, x, y, s);
   stroke(g, color || INK, 6);
-  if (t0 !== null && t0 !== undefined) trimOn(g, t0, t0 + f2s(20));
+  if (t0 !== null && t0 !== undefined) trimOn(g, t0, t0 + (dur || f2s(20)));
   var g2 = grp(body, "Glanz"); addPath(g2, j.shine, x, y, s); stroke(g2, color || INK, 3);
   var gl = grp(body, "Fluessigkeit"); addPath(gl, line2([[j.body.v[0][0] + 6, j.body.v[0][1] + 60], [j.body.v[5][0] - 6, j.body.v[5][1] + 60], [j.body.v[4][0] - 4, j.body.v[4][1]], [j.body.v[3][0], j.body.v[3][1] - 4], [j.body.v[2][0], j.body.v[2][1] - 4], [j.body.v[1][0] + 4, j.body.v[1][1]]], true), x, y, s);
   fill(gl, "#CFE0D4", 45);
@@ -129,7 +129,7 @@ B.lupe = function (c, k) {
   edgeBoil(lp, 12);
   focalBlur(c, 0, k.schlau, [CX - 380, 700], [CX - 120, 900], 4);
   var qm = txt(c, "?", F_SERIF_BI, 360, INK, [CX + 330, 560]);
-  qm.inPoint = k.schlau - f2s(2); yellowPop(qm, k.schlau - f2s(2));
+  qm.inPoint = k.schlau - f2s(6); yellowPop(qm, k.schlau - f2s(6));
   camRig(c, CX, 860, { punchIn: 116, s0: 100, s1: 105, dx: 0, dy: 0 });
   voxSauce(c, "grafik");
 };
@@ -148,16 +148,16 @@ B.stuecke = function (c, k) {
   n.inPoint = k.zahl - f2s(2);
   var st = txt(c, "Stücke", F_SERIF_BI, 90, INK, [CX, 560]); typeOn(st, k.zahl + 0.4, 24);
   // harter Schnitt in der Szene: Glaeser
-  var tg = k.glaeser - f2s(4);
+  var tg = k.legt - f2s(2);   // Glaeser schon bei "legt", damit alles vor dem Schnitt fertig steht
   for (var b = 0; b < br.length; b++) br[b].outPoint = tg;
   cl.outPoint = tg; n.outPoint = tg; st.outPoint = tg;
-  var j1 = jarDraw(c, "Glas 1", SH.jarS, CX - 200, 900, 1.0, tg);
-  var j2 = jarDraw(c, "Glas 2", SH.jarS, CX + 200, 900, 1.0, tg + f2s(5));
+  var j1 = jarDraw(c, "Glas 1", SH.jarS, CX - 200, 900, 1.0, tg, null, f2s(12));
+  var j2 = jarDraw(c, "Glas 2", SH.jarS, CX + 200, 900, 1.0, tg + f2s(3), null, f2s(12));
   j1.inPoint = tg; j2.inPoint = tg;
   for (var q = 0; q < 14; q++) {
     var bb = shape(c, "Stueck " + q), gq = grp(bb), jx = (q < 7 ? CX - 200 : CX + 200) + ((q % 7) % 3 - 1) * 60, jy = 950 - Math.floor((q % 7) / 3) * 55;
     rectG(gq, 46, 34, jx, jy, 6); fill(gq, "#E9C9BE"); stroke(gq, INK, 3);
-    bb.inPoint = tg + f2s(8 + q);
+    bb.inPoint = tg + f2s(6 + q);
   }
   focusHunt(c, tg, true);
   var cam = camRig(c, CX, 880, { punchIn: 118, s0: 100, s1: 106 });
@@ -185,10 +185,10 @@ B.stelle = function (c, k) {
   var ds = addFx(L, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 90); setP(ds, ["Distance"], 14); setP(ds, ["Softness"], 30); }
   var circ = [];
   for (var a = 0; a <= 26; a++) { var an = -0.4 + a / 26 * Math.PI * 2.2; circ.push([CX + Math.cos(an) * (360 + a), 880 + Math.sin(an) * (280 + a * 0.8)]); }
-  pencil(c, "Kreis", [line2(circ)], RED, 8, k.behaelt - f2s(3), f2s(14));
+  pencil(c, "Kreis", [line2(circ)], RED, 8, k.behaelt - f2s(8), f2s(12));
   focusHunt(c, 0, true);
   var cam = camRig(c, CX, 880, { punchIn: 118, s0: 100, s1: 106 });
-  punchAt(cam, k.behaelt - f2s(3), 1.08);
+  punchAt(cam, k.behaelt - f2s(8), 1.08);
   voxSauce(c, "grafik");
 };
 // ---------- 8 Kansas 1978 ----------
@@ -208,8 +208,8 @@ B.kansas = function (c, k) {
   pin.inPoint = k.kansas;
   var yr = odometer(c, "1978", F_NUM, 170, INK, [CX, 520], k.dreiundzwanzig, f2s(16)); yr.name = "FIX Jahr 1978";
   sourceBar(c, "Wichita, Kansas", null, k.kansas, 300);
-  var cam = camRig(c, kc[0], kc[1], { punchIn: 114, s0: 100, s1: 104 });
-  keys(cam.scale, [k.kansas - f2s(3), k.kansas + 0.9], [[104, 104], [190, 190]], [[10, 10], [92, 92]]);
+  var cam = camRig(c, kc[0], kc[1], { punchIn: 114, s0: 100, s1: 190, punchOut: false });
+  keys(cam.scale, [k.kansas - f2s(3), Math.min(k.kansas + 0.9, c.duration - f2s(10))], [[104, 104], [190, 190]], [[10, 10], [92, 92]]);
   voxSauce(c, "grafik");
 };
 // ---------- 9 Karton fuer Apfelwein ----------
@@ -266,7 +266,7 @@ B.reise = function (c, k) {
   var jg = jarDraw(c, "Glas klein", SH.jarS, Bp[0] + 120, Bp[1] - 150, 0.36, k.enkelin + f2s(4));
   jg.inPoint = k.enkelin + f2s(4);
   var xx = Bp[0] + 120, yy = Bp[1] - 150;
-  pencil(c, "Kreuz", [line2([[xx - 70, yy - 60], [xx + 70, yy + 60]]), line2([[xx + 70, yy - 60], [xx - 70, yy + 60]])], RED, 9, k.nicht - f2s(3), f2s(8));
+  pencil(c, "Kreuz", [line2([[xx - 70, yy - 60], [xx + 70, yy + 60]]), line2([[xx + 70, yy - 60], [xx - 70, yy + 60]])], RED, 9, k.nicht - f2s(6), f2s(6));
   // Zoom auf Berkeley: Berkeley landet bei x 380, y 860 (Kamera-Ankerpunkt CX/860), Zoom fertig vor "nicht"
   var ZS = 1.5, tz0 = k.enkelin - f2s(6), tz1 = Math.min(k.enkelin + 0.8, k.nicht - f2s(6));
   var cam = camRig(c, CX, 860, { punchIn: 114, s0: 100, s1: ZS * 100, punchOut: false });
@@ -283,7 +283,7 @@ B.waage = function (c, k) {
   var gm = grp(beam); ellipseG(gm, 26, 26, 0, 0); fill(gm, INK);
   beam.position.setValue([x, y]); edgeBoil(beam, 10);
   var tilt = 9;
-  keys(beam.rotation, [k.leichter - f2s(4), k.leichter + 1.6], [0, tilt], [[20, 20], [80, 80]]);
+  keys(beam.rotation, [k.leichter - f2s(4), k.leichter + 0.9], [0, tilt], [[20, 20], [80, 80]]);
   beam.rotation.expression = "var t = time - " + (k.leichter - f2s(4)) + "; t > 0 ? value + Math.sin(t*7)*Math.exp(-t*2.2)*3 : value";
   var sides = [-1, 1], nm = ["Einstein", "Durchschnitt"], gw = ["1.230 g", "1.400 g"], seeds = [SH.brainS, SH.brainS2];
   for (var i = 0; i < 2; i++) {

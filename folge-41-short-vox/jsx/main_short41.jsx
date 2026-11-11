@@ -23,7 +23,8 @@ for (var si = 0; si < D.scenes.length; si++) {
   (function (s) {
     step(s.id, function () {
       var c = mkComp((si + 1 < 10 ? "0" : "") + (si + 1) + " " + s.id, W, H, s.dur);
-      B[s.id](c, s.k);
+      CURSCENE = s.id; B[s.id](c, s.k); CURSCENE = null;
+      var ca = checkAnims(s.id, s.dur); for (var q = 0; q < ca.length; q++) log.push(ca[q]);
       sceneComps.push([s, c]);
     });
   })(D.scenes[si]);
@@ -44,6 +45,9 @@ step("Master", function () {
     var wr = t.sourceRectAtTime(wd.s, false); if (wr.width > 960) t.scale.setValue([96000 / wr.width, 96000 / wr.width]);
     t.name = "UT " + wd.w; t.inPoint = wd.s; t.outPoint = Math.min(D.end, wd.e2);
   }
+  // Kanal-Logo rund oben links; weg, sobald im Schluss das grosse Logo kommt
+  var so = D.scenes[D.scenes.length - 1];
+  cornerLogo(m, "archiv/logo-ecke.png", 98, 196, 96, 0, so.start + so.k.allgemeinwissen - f2s(4));
   for (var a = 0; a < D.audio.length; a++) {
     var f = new File(BASE + D.audio[a]);
     if (!f.exists) { log.push("TON FEHLT: " + D.audio[a]); continue; }
@@ -56,5 +60,5 @@ step("Speichern", function () { proj.save(); });
 app.endSuppressDialogs(false);
 plog("Ende");
 var miss = []; for (var mk in FX_MISSING) miss.push(mk);
-var nErr = 0; for (var e = 0; e < log.length; e++) if (log[e].indexOf("FEHLER") === 0) nErr++;
-return nErr + " Fehler" + (miss.length ? " | FEHLENDE EFFEKTE: " + miss.join(", ") : " | alle Effekte da") + "\n" + log.join("\n");
+var nErr = 0, nCut = 0; for (var e = 0; e < log.length; e++) { if (log[e].indexOf("FEHLER") === 0) nErr++; if (log[e].indexOf("ABGESCHNITTEN") === 0) nCut++; }
+return nErr + " Fehler | " + nCut + " abgeschnittene Animationen" + (miss.length ? " | FEHLENDE EFFEKTE: " + miss.join(", ") : " | alle Effekte da") + "\n" + log.join("\n");

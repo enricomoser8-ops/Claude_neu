@@ -71,7 +71,30 @@ function ease(prop, k, inf, outf) {
   }
 }
 // keys(prop, [t...], [v...], infl)  infl: Zahl (alle) oder [[in,out],...]
+// ---------- Pruefung: jede Animation ist vor dem Schnitt fertig (ennos Regel) ----------
+// keys/typeOn/counter/pathKeys melden ihr Ende; checkAnims vergleicht mit Szenenende bzw. Ebenen-Ende.
+var ANIM = [], CURSCENE = null, MIN_STAND = 8, NOANIM = false;   // NOANIM: Kamera-Grundbewegung (Punch-Out ueber den Schnitt ist gewollt)   // fertiger Zustand steht mindestens 8 Frames
+function animLayer(prop) { try { return prop.propertyGroup(prop.propertyDepth); } catch (e) { return null; } }
+function noteAnim(prop, tEnd, layer) {
+  if (!CURSCENE || NOANIM) return;
+  var Ly = layer || animLayer(prop);
+  ANIM.push({ s: CURSCENE, l: Ly, n: Ly ? Ly.name : ((prop && prop.name) || "?"), t: tEnd });
+}
+function checkAnims(sid, dur) {
+  var out = [];
+  for (var i = 0; i < ANIM.length; i++) {
+    var a = ANIM[i]; if (a.s !== sid) continue;
+    if (/^(Kamera|Vox Sauce|Lichtleck|Vignette|FIX Focus|FIX Fokus|FIX gradient)/.test(a.n)) continue;
+    var lim = dur, why = "Szenenende";
+    try { if (a.l && a.l.outPoint < dur - 0.001 && a.l.outPoint > a.l.inPoint) { lim = a.l.outPoint; why = "Ebenen-Ende"; } } catch (e) {}
+    var rest = Math.round((lim - a.t) * FPS);
+    if (rest < 3) out.push("ABGESCHNITTEN " + sid + ": '" + a.n + "' endet " + (-rest) + " Frames nach " + why);
+    else if (rest < MIN_STAND) out.push("KNAPP " + sid + ": '" + a.n + "' steht nur " + rest + " Frames vor " + why);
+  }
+  return out;
+}
 function keys(prop, times, vals, infl) {
+  if (String(vals[0]) !== String(vals[vals.length - 1]) || vals.length > 2) noteAnim(prop, times[times.length - 1]);
   var idx = [];
   for (var k = 0; k < times.length; k++) idx.push(prop.addKey(times[k]));
   for (var k2 = 0; k2 < times.length; k2++) prop.setValueAtKey(idx[k2], vals[k2]);
@@ -278,8 +301,10 @@ function camRig(comp, ax, ay, opt) {
   else { T.push(0); V.push([s0, s0]); E.push([40, 40]); }
   if (opt.punchOut !== false && d > 1.2) { T.push(d - f2s(7)); V.push([s1, s1]); E.push([40, 40]); T.push(d); V.push([s1 * 1.07, s1 * 1.07]); E.push([5, 10]); }
   else { T.push(d); V.push([s1, s1]); E.push([60, 60]); }
+  NOANIM = true;
   keys(n.scale, T, V, E);
   if (opt.dx || opt.dy) keys(n.position, [0, d], [[ax, ay], [ax + (opt.dx || 0), ay + (opt.dy || 0)]], 40);
+  NOANIM = false;
   return n;
 }
 // zusaetzlicher Punch innerhalb einer Szene (Kamera-Null), z. B. auf ein Schluesselwort
@@ -389,7 +414,7 @@ function printPhoto(comp, rel, cx, cy, maxW, maxH, rot, t0) {
   var c = mkComp("Abzug " + rel.replace(/.*\//, ""), w, h, comp.duration, fPre);
   var ph = addItem(c, it, w / 2, h / 2, s * 100 * 1.04);
   homogenize(ph, c);
-  keys(ph.scale, [0, comp.duration], [[s * 104, s * 104], [s * 112, s * 112]], 30);
+  NOANIM = true; keys(ph.scale, [0, comp.duration], [[s * 104, s * 104], [s * 112, s * 112]], 30); NOANIM = false;   // langsame Fahrt durch den Schnitt ist gewollt
   var fr = shape(comp, "Rahmen " + rel), g = grp(fr); rectG(g, w + 36, h + 36, 0, 0); fill(g, "#FBF8F1");
   fr.position.setValue([cx, cy]);
   var ds = addFx(fr, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 110); setP(ds, ["Distance"], 16); setP(ds, ["Softness"], 34); }
@@ -433,6 +458,8 @@ function txtStroke(l, color, w) {
   d.applyStroke = true; d.strokeColor = rgb(color); d.strokeWidth = w; d.strokeOverFill = false; p.setValue(d);
 }
 function typeOn(l, t, cps) {
+  var n = 10; try { n = l.property("ADBE Text Properties").property("ADBE Text Document").value.text.length; } catch (e) {}
+  noteAnim(null, t + n / (cps || 28), l);
   l.property("ADBE Text Properties").property("ADBE Text Document").expression =
     "var s = value; var n = Math.max(0, Math.floor((time - " + t + ") * " + (cps || 28) + ")); n < s.length ? s.substr(0, n) : s;";
 }
@@ -456,6 +483,7 @@ function odometer(comp, s, font, size, color, pos, t0, dur) {
 // Zaehler (Zahl laeuft hoch)
 function counter(comp, from, to, t0, t1, font, size, color, pos, suffix) {
   var l = txt(comp, String(to) + (suffix || ""), font, size, color, pos);
+  noteAnim(null, t1, l);
   l.property("ADBE Text Properties").property("ADBE Text Document").expression =
     "var v = Math.round(linear(time, " + t0 + ", " + t1 + ", " + from + ", " + to + ")); posterizeTime(12); String(v) + '" + (suffix || "") + "';";
   return l;
@@ -465,7 +493,7 @@ function yellowPop(l, t) {
   var an = l.property("ADBE Text Properties").property("ADBE Text Animators").addProperty("ADBE Text Animator");
   an.name = "Gelb-Pop";
   var fc = an.property("ADBE Text Animator Properties").addProperty("ADBE Text Fill Color");
-  keys(fc, [t, t + f2s(3), t + 1.2], [rgb(INK), rgb("#E8B100"), rgb("#2E2B27")], 60);
+  keys(fc, [t, t + f2s(3), t + 0.7], [rgb(INK), rgb("#E8B100"), rgb("#2E2B27")], 60);
   an.property("ADBE Text Selectors").addProperty("ADBE Text Selector");
 }
 // Text-Jitter (Buchstaben zittern 12x pro Sekunde)
@@ -541,4 +569,17 @@ function pathKeys(prop, t0, t1, A, C, Bp, bob) {
     var p = [(1 - u) * (1 - u) * A[0] + 2 * (1 - u) * u * C[0] + u * u * Bp[0], (1 - u) * (1 - u) * A[1] + 2 * (1 - u) * u * C[1] + u * u * Bp[1] + (bob ? -18 + Math.sin(t * 20) * 1.5 : 0)];
     hold(prop, t, p);
   }
+  noteAnim(prop, t1);
+}
+
+// Rundes Kanal-Logo in der Ecke (ennos Regel ab 11.11.2026, Folgen und Shorts): ganz oben, ohne Sauce, leichter Schatten.
+// Shorts: oben links (Mitte 98/196, 96 px). Folgen 16:9: unten links (Mitte 88/996, 84 px).
+function cornerLogo(comp, rel, cx, cy, size, tIn, tOut) {
+  var it = imp(rel); if (!it) return null;
+  var l = comp.layers.add(it); l.name = "FIX Logo Ecke";
+  l.scale.setValue([size / it.width * 100, size / it.height * 100]); l.position.setValue([cx, cy]); l.opacity.setValue(95);
+  var ds = addFx(l, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 70); setP(ds, ["Distance"], 4); setP(ds, ["Softness"], 14); }
+  l.inPoint = tIn || 0; if (tOut) l.outPoint = tOut;
+  l.moveToBeginning();
+  return l;
 }
