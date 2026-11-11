@@ -245,7 +245,7 @@ B.reise = function (c, k) {
   var gw = grp(car, "Fenster"); addPath(gw, SH.car.win, 0, 0, 0.42); fill(gw, "#BFD3E0"); stroke(gw, INK, 3);
   var gt = grp(car, "Kofferraum"); addPath(gt, SH.car.trunk, 0, 0, 0.42); fill(gt, YEL); stroke(gt, INK, 3);
   for (var w = 0; w < 2; w++) { var gr = grp(car, "Rad " + w); ellipseG(gr, SH.car.r * 2 * 0.42, SH.car.r * 2 * 0.42, SH.car.wheels[w][0] * 0.42, SH.car.wheels[w][1] * 0.42); fill(gr, INK); }
-  var trunkFill = gt.property("ADBE Vector Graphic - Fill").property("ADBE Vector Fill Opacity");
+  var trunkFill = car.property("ADBE Root Vectors Group").property("Kofferraum").property("ADBE Vectors Group").property("ADBE Vector Graphic - Fill").property("ADBE Vector Fill Opacity");
   keys(trunkFill, [k.kofferraum - f2s(3), k.kofferraum + f2s(2)], [0, 100], 50);
   car.position.expression = "var u = ease(time, " + t0 + ", " + t1 + ", 0, 1); var A=[" + A + "], B=[" + Bp + "], C=[" + C + "];" +
     " var p = [(1-u)*(1-u)*A[0]+2*(1-u)*u*C[0]+u*u*B[0], (1-u)*(1-u)*A[1]+2*(1-u)*u*C[1]+u*u*B[1]]; posterizeTime(12); p + [0, -18 + Math.sin(time*20)*1.5]";

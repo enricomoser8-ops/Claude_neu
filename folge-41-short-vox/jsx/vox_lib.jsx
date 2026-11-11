@@ -352,11 +352,15 @@ function textContrast(comp, baseLayer, keyLayer, t) {
 function rings(comp, cx, cy, t0, n, color, maxR) {
   var l = shape(comp, "Ringe");
   for (var i = 0; i < (n || 3); i++) {
-    var g = grp(l, "Ring " + (i + 1)), e = ellipseG(g, 10, 10, cx, cy), st = stroke(g, color || INK, 6);
-    var t = t0 + i * 0.22;
-    keys(e.property("ADBE Vector Ellipse Size"), [t, t + 1.0], [[10, 10], [maxR || 520, maxR || 520]], [[5, 5], [80, 80]]);
-    keys(st.property("ADBE Vector Stroke Width"), [t, t + 1.0], [8, 0.5], 40);
-    keys(g.parentProperty.property("ADBE Vector Transform Group").property("ADBE Vector Group Opacity"), [t, t + 1.0], [100, 0], 40);
+    var g = grp(l, "Ring " + (i + 1)); ellipseG(g, 10, 10, cx, cy); stroke(g, color || INK, 6);
+  }
+  // Referenzen erst NACH allen addProperty-Aufrufen holen (AE macht aeltere Referenzen ungueltig: "Object is invalid")
+  var root = l.property("ADBE Root Vectors Group");
+  for (var j = 0; j < (n || 3); j++) {
+    var G = root.property(j + 1), C = G.property("ADBE Vectors Group"), t = t0 + j * 0.22;
+    keys(C.property("ADBE Vector Shape - Ellipse").property("ADBE Vector Ellipse Size"), [t, t + 1.0], [[10, 10], [maxR || 520, maxR || 520]], [[5, 5], [80, 80]]);
+    keys(C.property("ADBE Vector Graphic - Stroke").property("ADBE Vector Stroke Width"), [t, t + 1.0], [8, 0.5], 40);
+    keys(G.property("ADBE Vector Transform Group").property("ADBE Vector Group Opacity"), [t, t + 1.0], [100, 0], 40);
   }
   edgeBoil(l, 6);
   return l;

@@ -11,7 +11,9 @@ var rq = app.project.renderQueue; for (var r = rq.numItems; r >= 1; r--) if (rq.
 var item = rq.items.add(comp);
 try { item.applyTemplate("Best Settings"); } catch (e) {}
 var om = item.outputModule(1), tpl = null;
-for (var t = 0; t < om.templates.length; t++) if (/H\.264/.test(om.templates[t]) && /Match Render/.test(om.templates[t])) { tpl = om.templates[t]; break; }
+for (var t0i = 0; t0i < om.templates.length && !tpl; t0i++) if (/H\.264/.test(om.templates[t0i]) && /40 Mbps/.test(om.templates[t0i])) tpl = om.templates[t0i];
+for (var t1i = 0; t1i < om.templates.length && !tpl; t1i++) if (/H\.264/.test(om.templates[t1i]) && /15 Mbps/.test(om.templates[t1i])) tpl = om.templates[t1i];
+if (!tpl) for (var t = 0; t < om.templates.length; t++) if (/H\.264/.test(om.templates[t]) && /Match Render/.test(om.templates[t])) { tpl = om.templates[t]; break; }
 if (!tpl) for (var t2 = 0; t2 < om.templates.length; t2++) if (/H\.264/.test(om.templates[t2])) { tpl = om.templates[t2]; break; }
 if (tpl) om.applyTemplate(tpl);
 om.file = new File(BASE + "out/short41_vox" + (tpl ? ".mp4" : ".mov"));
