@@ -27,7 +27,7 @@ Ohne Node: in AE `Datei > Skripte > Skriptdatei ausfuehren` mit den `jsx\HAND_*.
 
 ## Ordner
 
-- `jsx/` vox_lib.jsx (Vorlage, unveraendert) + lib/scenes/main_weltkrieg.jsx -> build_weltkrieg.jsx (generiert), snap, render, HAND_*
+- `jsx/` vox_lib.jsx (Vorlage, ab Runde 2 angepasst: focalBlur, focusHunt, homogenize, credit, fxGet, inkReveal) + lib/scenes/main_weltkrieg.jsx -> build_weltkrieg.jsx (generiert), snap, render, HAND_*
 - `gen/` Generatoren: words (Wortzeiten), europa (Karte 1914 aus Natural Earth), shapes (Stadtplan Sarajevo, Icons), bilder (Zuschnitte + credits), gen (Build), aemock.js (Probelauf)
 - `data/` words.json, europa.json, bilder.json, timeline.json
 - `archiv/` Fotos + Logos, `archiv/credits.json` (Quelle + Lizenz jedes Bildes)
@@ -50,3 +50,13 @@ cd ../ton && python3 music_weltkrieg.py && python3 sfx_weltkrieg.py && python3 m
 - ff-auto-rathaus.jpg – Walter Tausch 1914, PD
 - lateinerbruecke-keystone.jpg – Library of Congress, Keystone View Co. (1923), "No known restrictions"
 - Europakarte 1914 und Stadtplan Sarajevo: eigene Zeichnung (Grenzen aus Natural Earth, PD, ungefaehr)
+
+## Fixes Runde 2 (12.11., nach Review 1 in AE)
+
+- **schuss schwarz ("Object is invalid", Zeile 31 = findP)**: `tn = addFx(Tint)` wurde nach dem zweiten `addFx(Brightness & Contrast)` auf derselben Ebene benutzt; AE macht die alte Effekt-Referenz dabei ungueltig. Jetzt erst anlegen, dann per Name frisch holen (`fxGet`). `main` ist ausfallsicher: wirft eine Szene, bleibt ihre Comp (mit Papier) im Master statt eines schwarzen Lochs.
+- **Dauer-Unschaerfe (thron, ecke)**: Compound Blur liest von der Karten-Ebene nur die Quelle, nicht deren Effekte -> das weisse Solid mit Ramp war fuer AE ganz weiss = ueberall volle Unschaerfe. Karte liegt jetzt in einer Precomp, die Unschaerfe zieht in max. 0,3 s scharf und endet. `homogenize` hatte zusaetzlich einen Fast Box Blur 6x3 auf dem GANZEN Foto (Randmaske gab es nie) -> raus. focusHunt jetzt 9 statt 18 Frames.
+- Hook-Foto gibt es auf Commons nur mit 800 px -> kleiner gezeigt (max. 110 % echte Pixel). Alle Fotos so gross, dass sie mit Kamera-Punch in x 60..1020 bleiben; Wagen-Foto faehrt von unten herein, heller statt dunkler Callout.
+- Ortsnamen nicht mehr im Plan-Precomp, sondern je Szene (`planLabels`): feste Groesse 40 px, so verschoben, dass sie mit Zoom im Bild bleiben, Lateinerbruecke entfaellt, wenn die Bruecke ausserhalb liegt. Krankenhaus-Symbol poppt aus seinem Fusspunkt (vorher aus der Bildecke). Kolonnen/Plaene, Ringe, Wagen-Endpunkt (waswaere), Bildquelle (rechte Kante 1008) nach innen.
+- Sarajevo-Karte: saubere Tusche-Blende (Linear Wipe) statt CC Burn Film (graue Flecken bei 3,5 s). Outro ohne blassen Stadtplan. "19 Jahre": dunkel, groesser, mit Abstand ueber dem Foto. schuss-Plan 1,35 statt 1,7 (weniger hochskaliert).
+- **aemock.js** strenger: Referenzen werden nach `addProperty` auf ihrer Gruppe ungueltig wie in AE; neue Pruefungen RAND (echte Bildschirm-Ausdehnung inkl. Skalierung, Anker, Rotation, Eltern, Kamera, Precomps; Textbreite geschaetzt), UNSCHAERFE (> 0,3 s am Stueck, Compound-Blur-Karte ohne Wirkung), HOCHSKALIERT (> 125 % echte Pixel). `AEMOCK_EXT=1` listet alle Ausdehnungen.
+- Probelauf (Cloud und PC-Build): `0 Fehler | 0 ABGESCHNITTEN | 0 KNAPP | alle Effekte da`, RAND 0, UNSCHAERFE 0, HOCHSKALIERT 0. Ton, Untertitel, Sprechzeiten unveraendert.

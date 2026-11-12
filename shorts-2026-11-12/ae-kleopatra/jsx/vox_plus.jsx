@@ -62,31 +62,69 @@ var CAMY = -220;   // Zeitstrahl liegt bei s = 1 auf y 1180
 function tlGrid(c, par) {
   var l = shape(c, "Raster Hintergrund"); place(l, par, [0, 0]);
   var g = grp(l, "Raster");
-  for (var x = -1600; x <= 6600; x += 160) addPath(g, line2([[x, -1700], [x, 1500]]));
-  for (var y = -1700; y <= 1500; y += 160) addPath(g, line2([[-1600, y], [6600, y]]));
+  for (var x = -1600; x <= 7000; x += 160) addPath(g, line2([[x, -1700], [x, 1500]]));
+  for (var y = -1700; y <= 1500; y += 160) addPath(g, line2([[-1600, y], [7000, y]]));
   stroke(g, "#D8CDB6", 2);
   l.opacity.setValue(60);
   var r = addFx(l, "ADBE Roughen Edges", "Raster rau"); if (r) { setP(r, ["Border"], 0.6); setP(r, ["Scale"], 60); }
   return l;
 }
-// t0/t1: Linie zeichnet sich (null = steht schon)
-function tlBase(c, par, t0, t1) {
-  var x0 = WX(-3100), x1 = WX(2150);
+// Randblende (Runde 2): Text blendet sich aus, bevor er den sicheren Bereich verlaesst (Szene x 70..1010 = 60..1020 nach dem
+// Gate Weave 102 % im Master). Kein harter Anschnitt mehr bei Kamerafahrten. Der Trockenlauf erkennt den Ausdruck am Wort EDGEFADE.
+function edgeFade(l) {
+  if (!l) return l;
+  l.opacity.expression = "// EDGEFADE: vor dem Bildrand ausblenden\n" +
+    "var r = sourceRectAtTime(time, false), y = r.top + r.height / 2;\n" +
+    "var a = toComp([r.left, y])[0], b = toComp([r.left + r.width, y])[0];\n" +
+    "var m = Math.min(Math.min(a, b) - 70, 1010 - Math.max(a, b));\n" +
+    "value * Math.max(0, Math.min(1, m / 50));";
+  return l;
+}
+// ruhiges Linien-Leben fuer duenne Linien, die stark verkleinert werden (Zeitstrahl): kein Roughen Edges, das fransen laesst
+function lightBoil(layer) {
+  var t1 = addFx(layer, "ADBE Turbulent Displace", "Linie leben");
+  if (t1) { setP(t1, ["Amount"], 4); setP(t1, ["Size"], 40); exprP(t1, ["Evolution"], "posterizeTime(4); time*200"); }
+  return layer;
+}
+// Wert eines (skalaren) Keyframe-Verlaufs wie in AE: Ease mit Geschwindigkeit 0 und Einfluss = kubische Bezier in der Zeit
+function bz3(a, b, c2, d, s) { var m = 1 - s; return m * m * m * a + 3 * m * m * s * b + 3 * m * s * s * c2 + s * s * s * d; }
+function keyAt(times, vals, infl, t) {
+  if (t <= times[0]) return vals[0];
+  var n = times.length; if (t >= times[n - 1]) return vals[n - 1];
+  var i = 0; while (times[i + 1] < t) i++;
+  var io = (infl instanceof Array) ? infl[i][1] : (infl || 80), ii = (infl instanceof Array) ? infl[i + 1][0] : (infl || 80);
+  var u = (t - times[i]) / (times[i + 1] - times[i]), lo = 0, hi = 1;
+  for (var k = 0; k < 30; k++) { var mid = (lo + hi) / 2; if (bz3(0, io / 100, 1 - ii / 100, 1, mid) < u) lo = mid; else hi = mid; }
+  return vals[i] + (vals[i + 1] - vals[i]) * bz3(0, 0, 1, 1, (lo + hi) / 2);
+}
+// dr: Linie zeichnet sich von heute rueckwaerts (rechts -> links); dr = {t: [...], tip: [Weltpunkte der Zeichenspitze], infl} oder null (steht schon)
+var TL_X0 = WX(-3100), TL_X1 = WX(2700);
+function tlBase(c, par, dr) {
+  var x0 = TL_X0, x1 = TL_X1;
   var ln = shape(c, "Zeitstrahl Linie"); place(ln, par, [0, 0]);
-  var g = grp(ln, "Linie"); addPath(g, line2([[x0, 0], [WX(-400), 3], [x1, -2]])); stroke(g, INK, 9);
-  if (t0 !== null && t0 !== undefined) trimOn(g, t0, t1);
-  edgeBoil(ln, 9);
+  var g = grp(ln, "Linie"); addPath(g, line2([[x1, -2], [WX(-400), 3], [x0, 0]])); stroke(g, INK, 12);
   var tk = shape(c, "Zeitstrahl Striche"); place(tk, par, [0, 0]);
   var gt = grp(tk, "Striche");
-  for (var y = -3000; y <= 2100; y += 100) { var big = (y % 500 === 0); addPath(gt, line2([[WX(y), big ? -28 : -13], [WX(y), big ? 28 : 13]])); }
-  stroke(gt, INK, 5);
-  if (t0 !== null && t0 !== undefined) trimOn(gt, t0 + f2s(4), t1 + f2s(4));
-  edgeBoil(tk, 5);
+  for (var y = 2600; y >= -3000; y -= 100) { var big = (y % 500 === 0); addPath(gt, line2([[WX(y), big ? -30 : -15], [WX(y), big ? 30 : 15]])); }
+  stroke(gt, INK, 7);
+  if (dr) {
+    var pv = [], i0;
+    for (i0 = 0; i0 < dr.tip.length; i0++) pv.push((x1 - dr.tip[i0]) / (x1 - x0) * 100);
+    var tr = g.addProperty("ADBE Vector Filter - Trim");
+    keys(tr.property("ADBE Vector Trim End"), dr.t, pv, dr.infl);
+    var tt = [], tr2 = gt.addProperty("ADBE Vector Filter - Trim");
+    for (i0 = 0; i0 < dr.t.length; i0++) tt.push(dr.t[i0] + f2s(2));
+    try { tr2.property("ADBE Vector Trim Type").setValue(2); } catch (eT) {}   // Einzeln: Striche nacheinander statt alle halb (das sah ausgefranst aus)
+    keys(tr2.property("ADBE Vector Trim End"), tt, pv, dr.infl);
+  }
+  lightBoil(ln); lightBoil(tk);
   var lab = [[-2000, "2000 v. Chr."], [-1500, "1500 v. Chr."], [-1000, "1000 v. Chr."], [-500, "500 v. Chr."], [500, "500 n. Chr."], [1000, "1000 n. Chr."], [1500, "1500 n. Chr."]];
   for (var i = 0; i < lab.length; i++) {
-    var tl = wtxt(c, par, lab[i][1], F_SERIF_I, 38, GREY, [WX(lab[i][0]), 82]);
-    tl.name = "Jahr " + lab[i][1];
-    if (t0 !== null && t0 !== undefined) tl.inPoint = t0 + (WX(lab[i][0]) - x0) / (x1 - x0) * (t1 - t0) + f2s(4);
+    var tl = wtxt(c, par, lab[i][1], F_SERIF_I, 38, GREY, [WX(lab[i][0]), 84]);
+    tl.name = "Jahr " + lab[i][1]; edgeFade(tl);
+    if (dr) {   // erscheint, sobald die Zeichenspitze vorbei ist
+      for (var f = 0; f < c.duration * FPS; f++) if (keyAt(dr.t, dr.tip, dr.infl, f / FPS) <= WX(lab[i][0]) + 60) { tl.inPoint = f / FPS + f2s(2); break; }
+    }
   }
   return ln;
 }

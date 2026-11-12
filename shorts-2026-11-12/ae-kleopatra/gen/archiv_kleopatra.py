@@ -9,8 +9,11 @@ meta = json.load(open(os.path.join(SRC, 'meta.json'), encoding='utf-8'))
 def load(k): return Image.open(os.path.join(SRC, meta[k]['file'])).convert('RGB')
 def fit(im, m=1600):
     im = im.copy(); im.thumbnail((m, m), Image.LANCZOS); return im
-for k in ('cheops-pyramide', 'apollo11-aldrin', 'alexander-mosaik', 'hieroglyphen', 'kleopatra-buste'):
+for k in ('cheops-pyramide', 'apollo11-aldrin', 'alexander-mosaik', 'kleopatra-buste'):
     fit(load(k)).save(os.path.join(OUT, k + '.jpg'), quality=92)
+# Runde 2: Hieroglyphen fuellen die ganze Bildhoehe (1920 px + Kamera-Push) -> 2880 x 1920 statt 1600 x 1067 (war ~180 % hochskaliert = matschig).
+# Download dafuer: Commons-Vorschau 3840 px (upload.wikimedia.org/.../thumb/7/74/<Datei>/3840px-<Datei>)
+fit(load('hieroglyphen'), 2880).save(os.path.join(OUT, 'hieroglyphen.jpg'), quality=90)
 from rembg import remove, new_session
 ses = new_session('u2net')
 for k in ('kleopatra-buste', 'ptolemaios-i'):

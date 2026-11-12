@@ -22,17 +22,19 @@ function planComp() {
   for (var s2 = 0; s2 < PL.side.length; s2++) addPath(gs, PL.side[s2]);
   stroke(gs, INK, 5);
   edgeBoil(st, 5);
-  var lab = [["Appel-Kai", 1500, ry(1500) - 150], ["Lateinerbrücke", PL.xl, ry(PL.xl) + 108]];
-  for (var l = 0; l < lab.length; l++) { var t = txt(c, lab[l][0], F_SERIF_I, 38, GREY, [lab[l][1], lab[l][2]]); t.name = "Ort " + lab[l][0]; }
+  // Runde 2: Ortsnamen NICHT mehr im Plan (wurden mit dem Plan skaliert und an den Raendern abgeschnitten) -> planLabels() je Szene
   // Rathaus (Osten) und Krankenhaus-Gebaeude (Westen, das rote Kreuz kommt in der Szene)
   bldg(c, "Rathaus", SH.rathaus, PL.x_rathaus, ry(PL.x_rathaus) - 150, 1.0);
   return PLANC = c;
 }
 function ry(x) { var k = Math.max(0, Math.min(PL.w, Math.round(x / 10) * 10)); return PL.ry[String(k)]; }
 function qy(x) { return ry(x) - 95; }                 // Kai-Mitte (Fahrlinie)
+// Runde 2: um den eigenen Fusspunkt gezeichnet und per Position platziert (vorher absolute Koordinaten mit Anker 0/0:
+// popIn skalierte das Krankenhaus aus der linken oberen Bildecke heraus)
 function bldg(c, name, B, x, y, s) {
-  var l = shape(c, name), g = grp(l, "Haus"); addPath(g, B.base, x, y, s); addPath(g, B.top, x, y, s); fill(g, "#F3EDE0"); stroke(g, INK, 4);
-  var g2 = grp(l, "Fenster"); for (var i = 0; i < B.wins.length; i++) addPath(g2, B.wins[i], x, y, s); stroke(g2, INK, 3);
+  var l = shape(c, name), g = grp(l, "Haus"); addPath(g, B.base, 0, 0, s); addPath(g, B.top, 0, 0, s); fill(g, "#F3EDE0"); stroke(g, INK, 4);
+  var g2 = grp(l, "Fenster"); for (var i = 0; i < B.wins.length; i++) addPath(g2, B.wins[i], 0, 0, s); stroke(g2, INK, 3);
+  l.position.setValue([x, y]);
   edgeBoil(l, 4);
   return l;
 }
@@ -41,6 +43,23 @@ function planAt(c, fx, fy, sx, sy, s) {
   var L = addItem(c, planComp(), sx - (fx - PL.w / 2) * s, sy - (fy - PL.h / 2) * s, s * 100);
   L.name = "Stadtplan";
   return { x: sx - (fx - PL.w / 2) * s, y: sy - (fy - PL.h / 2) * s, s: s, L: L };
+}
+// Ortsnamen je Szene (Runde 2): feste Bildschirmgroesse, in x so verschoben, dass sie auch mit Kamera-Zoom Z um ax
+// in 60..1020 bleiben. Liegt der Ort selbst zu weit draussen (Lateinerbruecke), entfaellt das Schild.
+// which: Liste der Namen (Standard beide). Muss VOR camRig kommen, damit die Kamera die Schilder mitnimmt.
+var PLAN_LABELS = { "Appel-Kai": { p: [1500, -150], free: true }, "Lateinerbrücke": { p: [820, 108], free: false } };
+function planLabels(c, P, ax, Z, which, size) {
+  which = which || ["Appel-Kai", "Lateinerbrücke"]; Z = Z || 1.2; ax = ax === undefined ? CX : ax;
+  var out = [];
+  for (var i = 0; i < which.length; i++) {
+    var D0 = PLAN_LABELS[which[i]], px = D0.p[0], py = ry(px) + D0.p[1], q = pp(P, [px, py]);
+    var t = txt(c, which[i], F_SERIF_I, size || 40, "#6E675B", q); t.name = "Ort " + which[i];
+    var r = t.sourceRectAtTime(0, false), hw = r.width / 2 + 6;
+    var lo = ax - (ax - 72) / Z + hw, hi = ax + (1008 - ax) / Z - hw, x = Math.max(lo, Math.min(hi, q[0]));
+    if (lo > hi || (!D0.free && Math.abs(x - q[0]) > 40) || q[1] < 120 || q[1] > 1300) { t.remove(); continue; }
+    t.position.setValue([x, q[1]]); out.push(t);
+  }
+  return out;
 }
 function pp(P, p) { return [(p[0] - PL.w / 2) * P.s + P.x, (p[1] - PL.h / 2) * P.s + P.y]; }
 function ppl(P, pts) { var o = []; for (var i = 0; i < pts.length; i++) o.push(pp(P, pts[i])); return o; }
@@ -196,6 +215,12 @@ function euAt(c, fx, fy, sx, sy, s) {
   return { x: sx - (fx - EU.w / 2) * s, y: sy - (fy - EU.h / 2) * s, s: s, L: L };
 }
 function eup(E, p) { return [(p[0] - EU.w / 2) * E.s + E.x, (p[1] - EU.h / 2) * E.s + E.y]; }
+// Bildschirmpunkt eines relativen Bildpunkts (rx, ry in 0..1) in einem Abzug wie printPhoto ihn legt (ohne Drehung)
+function photoXY(rel, cx, cy, maxW, maxH, rx, ry0) {
+  var it = imp(rel); if (!it) return [cx, cy, maxW, maxH];
+  var s = Math.min(maxW / it.width, maxH / it.height), w = Math.round(it.width * s), h = Math.round(it.height * s);
+  return [cx - w / 2 + rx * w, cy - h / 2 + ry0 * h, w, h];
+}
 // Seite (Vollbild-Precomp) mit Foto-Abzug, fuer Umblaettern
 function photoPage(name, rel, cx, cy, maxW, maxH, rot, dur) {
   var pc = mkComp(name, W, H, dur, fPre);

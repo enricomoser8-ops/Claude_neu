@@ -18,6 +18,11 @@ function addFx(layer, match, label) {
   try { var e = layer.property("ADBE Effect Parade").addProperty(match); if (label) e.name = label; return e; }
   catch (err) { FX_MISSING[match] = true; return null; }
 }
+// Effekt einer Ebene per Name/matchName FRISCH holen. In AE macht jedes weitere addProperty auf der Effekt-Liste
+// alle vorher gemerkten Effekt-Referenzen ungueltig ("Object is invalid") -> nach dem Anlegen immer so neu holen.
+function fxGet(layer, name) {
+  try { var fx = layer.property("ADBE Effect Parade"); return fx ? fx.property(name) : null; } catch (e) { return null; }
+}
 function findP(group, names) {
   if (!group) return null;
   for (var i = 1; i <= group.numProperties; i++) {
@@ -329,29 +334,35 @@ function contrastCallout(comp, t0, t1, cx, cy, rx, ry, dark) {
   return l;
 }
 // Fokus-Unschaerfe (Compound Blur + versteckte radiale Gradient-Karte), Blickpunkt wandert A -> B
+// Runde 2 (12.11.): (1) Die Karte liegt jetzt in einer eigenen Precomp. Compound Blur liest von einer Karten-Ebene nur die
+// QUELLE, nicht deren Effekte -> ein weisses Solid mit Ramp-Effekt war fuer AE einfach weiss = ueberall volle Unschaerfe (Szene thron/ecke).
+// (2) Die Unschaerfe wirkt nur noch kurz (max. 0,3 s, Schaerfe zieht auf den Blickpunkt), danach ist das Bild scharf und die Ebene endet.
 function focalBlur(comp, t0, t1, a, b, maxBlur) {
-  var g = solid(comp, "FIX gradient map", "#FFFFFF");
+  var te = t0 + Math.min(0.3, Math.max(f2s(5), t1 - t0));
+  var mc = mkComp("FIX Fokus-Karte " + comp.name, comp.width, comp.height, comp.duration, fPre);
+  var g = solid(mc, "Karte", "#FFFFFF");
   var r = addFx(g, "ADBE Ramp");
   if (r) {
     setP(r, ["Ramp Shape"], 2);
     setP(r, ["Start Color"], [0, 0, 0]); setP(r, ["End Color"], [1, 1, 1]);
-    var sp = findP(r, ["Start of Ramp"]), ep = findP(r, ["End of Ramp"]);
-    if (sp) keys(sp, [t0, t1], [a, b], [[15, 15], [95, 95]]);
-    if (ep) keys(ep, [t0, t1], [[a[0] + 760, a[1]], [b[0] + 760, b[1]]], [[15, 15], [95, 95]]);
+    var sp = findP(r, ["Start of Ramp"]); if (sp) keys(sp, [t0, te], [a, b], [[15, 15], [95, 95]]);
+    var ep = findP(r, ["End of Ramp"]); if (ep) keys(ep, [t0, te], [[a[0] + 760, a[1]], [b[0] + 760, b[1]]], [[15, 15], [95, 95]]);
   }
-  g.enabled = false; g.guideLayer = true;
+  var ml = addItem(comp, mc, comp.width / 2, comp.height / 2, 100); ml.name = "FIX gradient map";
+  ml.enabled = false; ml.guideLayer = true;
   var ad = adj(comp, "FIX Fokus-Unschaerfe");
-  var cb = addFx(ad, "ADBE Compound Blur");
+  addFx(ad, "ADBE Compound Blur", "Fokus");
+  var cb = fxGet(ad, "Fokus");                         // nach dem Anlegen frisch holen (AE: "Object is invalid")
   if (cb) {
-    var bl = findP(cb, ["Blur Layer"]); if (bl) { try { bl.setValue(g.index); } catch (e) { log.push("Compound Blur Ebene: " + e); } }
-    setP(cb, ["Maximum Blur"], maxBlur || 15);
+    var bl = findP(cb, ["Blur Layer"]); if (bl) { try { bl.setValue(ml.index); } catch (e) { log.push("Compound Blur Ebene: " + e); } }
     setP(cb, ["Stretch Map to Fit", "If Layer Sizes Differ"], 1);
     setP(cb, ["Invert Blur"], 0);
+    var mb = findP(cb, ["Maximum Blur"]); if (mb) keys(mb, [t0, te], [maxBlur || 12, 0], [[20, 20], [80, 80]]);
   }
-  ad.inPoint = Math.max(0, t0 - 0.01);
+  ad.inPoint = Math.max(0, t0 - 0.01); ad.outPoint = Math.min(comp.duration, te + f2s(1));
   return ad;
 }
-// Focus Hunting: Fast Box Blur Iterations 8, Radius 0/8/18/5/0 bei Frame 0/4/8/13/18
+// Focus Hunting: Fast Box Blur Iterations 8, Radius 0/8/14/4/0 bei Frame 0/3/5/7/9 (Runde 2: vorher 18 Frames, zu lang)
 function focusHunt(comp, t, soft) {
   var a = adj(comp, "FIX Focus Hunting");
   var b = addFx(a, "ADBE Box Blur2");
@@ -359,10 +370,12 @@ function focusHunt(comp, t, soft) {
     setP(b, ["Iterations"], soft ? 3 : 8);
     var r = findP(b, ["Blur Radius"]);
     if (r) {
-      if (soft) keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(12)], [0, 4, 6, 0], 50);
-      else keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(13), t + f2s(18)], [0, 8, 18, 5, 0], 50);
+      // Runde 2: kuerzer (Unschaerfe max. ~0,3 s), danach endet die Ebene
+      if (soft) keys(r, [t, t + f2s(3), t + f2s(5), t + f2s(8)], [0, 4, 6, 0], 50);
+      else keys(r, [t, t + f2s(3), t + f2s(5), t + f2s(7), t + f2s(9)], [0, 8, 14, 4, 0], 50);
     }
   }
+  a.inPoint = Math.max(0, t - 0.01); a.outPoint = Math.min(comp.duration, t + f2s(10));
   return a;
 }
 // Text Contrast: Text darunter 100 -> 20 %, Schluesselwort-Kopie darueber per Linear Wipe (270 deg, Feather 55)
@@ -395,11 +408,8 @@ function rings(comp, cx, cy, t0, n, color, maxR) {
 // ---------- Saeule 6: Archivfoto vereinheitlichen ----------
 function homogenize(layer, comp) {
   var bw = addFx(layer, "ADBE Black&White");
-  var bb = addFx(layer, "ADBE Box Blur2", "Randunschaerfe");
-  if (bb) {
-    setP(bb, ["Blur Radius"], 6); setP(bb, ["Iterations"], 3);
-    // invertierte, weich gefederte Ellipsenmaske auf Effektebene geht nicht direkt -> Kanten via zweite Kopie
-  }
+  // Runde 2: die "Randunschaerfe" (Fast Box Blur 6 x 3 auf dem GANZEN Foto, die Randmaske gab es nie) ist raus -
+  // sie hat jedes Archivfoto weich gemacht (Review 12.11.: Hook, Wagen, Krankenhaus, Princip-Foto unscharf).
   var cba = addFx(layer, "CC Ball Action", "Pixelraster");
   if (cba) { setP(cba, ["Grid Spacing"], 0); setP(cba, ["Ball Size"], 100); }
   chroma(layer, 2);
@@ -434,6 +444,14 @@ function pageTurn(layer, t0, dur, w, h) {
   var fp = findP(e, ["Fold Position"]);
   if (fp) keys(fp, [t0, t0 + (dur || 0.7)], [[w + 40, h + 40], [-w * 1.7, -h * 1.1]], [[20, 20], [70, 70]]);
   var pt = addFx(layer, "ADBE Posterize Time"); if (pt) setP(pt, ["Frame Rate"], 8);
+  return e;
+}
+// Saubere Tusche-Blende (Runde 2, statt burnReveal auf Karten: CC Burn Film liess graue Flecken/Fetzen stehen)
+function inkReveal(layer, t0, dur, angle) {
+  var e = addFx(layer, "ADBE Linear Wipe", "Tusche-Blende");
+  if (!e) return null;
+  setP(e, ["Wipe Angle"], angle === undefined ? 200 : angle); setP(e, ["Feather"], 180);
+  var c = findP(e, ["Transition Completion"]); if (c) keys(c, [t0, t0 + (dur || 0.35)], [100, 0], [[20, 20], [80, 80]]);
   return e;
 }
 function burnReveal(layer, t0) {
@@ -525,14 +543,15 @@ function sourceBar(comp, l1, l2, t0, y) {
   }
   return a;
 }
-// kleine Quellenangabe (Bildrechte) unten rechts
+// kleine Quellenangabe (Bildrechte) unten rechts (Runde 2: rechte Kante bei 1008 statt 1040, Schild endet vor x 1020)
+var CREDIT_X = 1008;
 function credit(comp, s) {
   if (!s) return null;
-  var l = txt(comp, s, "ArialMT", 20, "#FFFFFF", [1040, 1880], ParagraphJustification.RIGHT_JUSTIFY, 10);
+  var l = txt(comp, s, "ArialMT", 20, "#FFFFFF", [CREDIT_X, 1880], ParagraphJustification.RIGHT_JUSTIFY, 10);
   l.name = "FIX Bildquelle";
   var rc = l.sourceRectAtTime(0, false);
   var pl = shape(comp, "FIX Bildquelle Schild"), g = grp(pl); rectG(g, rc.width + 20, rc.height + 12, 0, 0, 4); fill(g, "#141210");
-  pl.position.setValue([1040 + rc.left + rc.width / 2, 1880 + rc.top + rc.height / 2]); pl.opacity.setValue(55); pl.moveAfter(l);
+  pl.position.setValue([CREDIT_X + rc.left + rc.width / 2, 1880 + rc.top + rc.height / 2]); pl.opacity.setValue(55); pl.moveAfter(l);
   return l;
 }
 // Hand-Label (kursive Serif) mit Pfeil, Pfeil zeichnet sich

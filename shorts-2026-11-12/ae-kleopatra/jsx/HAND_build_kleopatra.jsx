@@ -360,17 +360,19 @@ function focalBlur(comp, t0, t1, a, b, maxBlur) {
   ad.inPoint = Math.max(0, t0 - 0.01);
   return ad;
 }
-// Focus Hunting: Fast Box Blur Iterations 8, Radius 0/8/18/5/0 bei Frame 0/4/8/13/18
+// Focus Hunting: Fast Box Blur. Runde 2 (Review 1): Unschaerfe hoechstens ~0,3 s im Bild (vorher 0,6 s mit Radius 18 = ganzes Bild matschig)
+// hart: Radius 0/9/3/0 bei Frame 0/3/6/9; weich: 0/4/2/0 bei Frame 0/3/5/8
 function focusHunt(comp, t, soft) {
   var a = adj(comp, "FIX Focus Hunting");
   var b = addFx(a, "ADBE Box Blur2");
   if (b) {
-    setP(b, ["Iterations"], soft ? 3 : 8);
+    setP(b, ["Iterations"], soft ? 3 : 6);
     var r = findP(b, ["Blur Radius"]);
     if (r) {
-      if (soft) keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(12)], [0, 4, 6, 0], 50);
-      else keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(13), t + f2s(18)], [0, 8, 18, 5, 0], 50);
+      if (soft) keys(r, [t, t + f2s(3), t + f2s(5), t + f2s(8)], [0, 4, 2, 0], 50);
+      else keys(r, [t, t + f2s(3), t + f2s(6), t + f2s(9)], [0, 9, 3, 0], 50);
     }
+    a.inPoint = Math.max(0, t); a.outPoint = Math.min(comp.duration, t + f2s(10));   // Ebene endet direkt nach dem Fokus-Ruck
   }
   return a;
 }
@@ -404,11 +406,7 @@ function rings(comp, cx, cy, t0, n, color, maxR) {
 // ---------- Saeule 6: Archivfoto vereinheitlichen ----------
 function homogenize(layer, comp) {
   var bw = addFx(layer, "ADBE Black&White");
-  var bb = addFx(layer, "ADBE Box Blur2", "Randunschaerfe");
-  if (bb) {
-    setP(bb, ["Blur Radius"], 6); setP(bb, ["Iterations"], 3);
-    // invertierte, weich gefederte Ellipsenmaske auf Effektebene geht nicht direkt -> Kanten via zweite Kopie
-  }
+  // Runde 2: der Box Blur "Randunschaerfe" (Radius 6) lag ohne Kantenmaske auf dem GANZEN Foto = jedes Abzug-Foto dauerhaft weich -> entfernt
   var cba = addFx(layer, "CC Ball Action", "Pixelraster");
   if (cba) { setP(cba, ["Grid Spacing"], 0); setP(cba, ["Ball Size"], 100); }
   chroma(layer, 2);
@@ -657,31 +655,69 @@ var CAMY = -220;   // Zeitstrahl liegt bei s = 1 auf y 1180
 function tlGrid(c, par) {
   var l = shape(c, "Raster Hintergrund"); place(l, par, [0, 0]);
   var g = grp(l, "Raster");
-  for (var x = -1600; x <= 6600; x += 160) addPath(g, line2([[x, -1700], [x, 1500]]));
-  for (var y = -1700; y <= 1500; y += 160) addPath(g, line2([[-1600, y], [6600, y]]));
+  for (var x = -1600; x <= 7000; x += 160) addPath(g, line2([[x, -1700], [x, 1500]]));
+  for (var y = -1700; y <= 1500; y += 160) addPath(g, line2([[-1600, y], [7000, y]]));
   stroke(g, "#D8CDB6", 2);
   l.opacity.setValue(60);
   var r = addFx(l, "ADBE Roughen Edges", "Raster rau"); if (r) { setP(r, ["Border"], 0.6); setP(r, ["Scale"], 60); }
   return l;
 }
-// t0/t1: Linie zeichnet sich (null = steht schon)
-function tlBase(c, par, t0, t1) {
-  var x0 = WX(-3100), x1 = WX(2150);
+// Randblende (Runde 2): Text blendet sich aus, bevor er den sicheren Bereich verlaesst (Szene x 70..1010 = 60..1020 nach dem
+// Gate Weave 102 % im Master). Kein harter Anschnitt mehr bei Kamerafahrten. Der Trockenlauf erkennt den Ausdruck am Wort EDGEFADE.
+function edgeFade(l) {
+  if (!l) return l;
+  l.opacity.expression = "// EDGEFADE: vor dem Bildrand ausblenden\n" +
+    "var r = sourceRectAtTime(time, false), y = r.top + r.height / 2;\n" +
+    "var a = toComp([r.left, y])[0], b = toComp([r.left + r.width, y])[0];\n" +
+    "var m = Math.min(Math.min(a, b) - 70, 1010 - Math.max(a, b));\n" +
+    "value * Math.max(0, Math.min(1, m / 50));";
+  return l;
+}
+// ruhiges Linien-Leben fuer duenne Linien, die stark verkleinert werden (Zeitstrahl): kein Roughen Edges, das fransen laesst
+function lightBoil(layer) {
+  var t1 = addFx(layer, "ADBE Turbulent Displace", "Linie leben");
+  if (t1) { setP(t1, ["Amount"], 4); setP(t1, ["Size"], 40); exprP(t1, ["Evolution"], "posterizeTime(4); time*200"); }
+  return layer;
+}
+// Wert eines (skalaren) Keyframe-Verlaufs wie in AE: Ease mit Geschwindigkeit 0 und Einfluss = kubische Bezier in der Zeit
+function bz3(a, b, c2, d, s) { var m = 1 - s; return m * m * m * a + 3 * m * m * s * b + 3 * m * s * s * c2 + s * s * s * d; }
+function keyAt(times, vals, infl, t) {
+  if (t <= times[0]) return vals[0];
+  var n = times.length; if (t >= times[n - 1]) return vals[n - 1];
+  var i = 0; while (times[i + 1] < t) i++;
+  var io = (infl instanceof Array) ? infl[i][1] : (infl || 80), ii = (infl instanceof Array) ? infl[i + 1][0] : (infl || 80);
+  var u = (t - times[i]) / (times[i + 1] - times[i]), lo = 0, hi = 1;
+  for (var k = 0; k < 30; k++) { var mid = (lo + hi) / 2; if (bz3(0, io / 100, 1 - ii / 100, 1, mid) < u) lo = mid; else hi = mid; }
+  return vals[i] + (vals[i + 1] - vals[i]) * bz3(0, 0, 1, 1, (lo + hi) / 2);
+}
+// dr: Linie zeichnet sich von heute rueckwaerts (rechts -> links); dr = {t: [...], tip: [Weltpunkte der Zeichenspitze], infl} oder null (steht schon)
+var TL_X0 = WX(-3100), TL_X1 = WX(2700);
+function tlBase(c, par, dr) {
+  var x0 = TL_X0, x1 = TL_X1;
   var ln = shape(c, "Zeitstrahl Linie"); place(ln, par, [0, 0]);
-  var g = grp(ln, "Linie"); addPath(g, line2([[x0, 0], [WX(-400), 3], [x1, -2]])); stroke(g, INK, 9);
-  if (t0 !== null && t0 !== undefined) trimOn(g, t0, t1);
-  edgeBoil(ln, 9);
+  var g = grp(ln, "Linie"); addPath(g, line2([[x1, -2], [WX(-400), 3], [x0, 0]])); stroke(g, INK, 12);
   var tk = shape(c, "Zeitstrahl Striche"); place(tk, par, [0, 0]);
   var gt = grp(tk, "Striche");
-  for (var y = -3000; y <= 2100; y += 100) { var big = (y % 500 === 0); addPath(gt, line2([[WX(y), big ? -28 : -13], [WX(y), big ? 28 : 13]])); }
-  stroke(gt, INK, 5);
-  if (t0 !== null && t0 !== undefined) trimOn(gt, t0 + f2s(4), t1 + f2s(4));
-  edgeBoil(tk, 5);
+  for (var y = 2600; y >= -3000; y -= 100) { var big = (y % 500 === 0); addPath(gt, line2([[WX(y), big ? -30 : -15], [WX(y), big ? 30 : 15]])); }
+  stroke(gt, INK, 7);
+  if (dr) {
+    var pv = [], i0;
+    for (i0 = 0; i0 < dr.tip.length; i0++) pv.push((x1 - dr.tip[i0]) / (x1 - x0) * 100);
+    var tr = g.addProperty("ADBE Vector Filter - Trim");
+    keys(tr.property("ADBE Vector Trim End"), dr.t, pv, dr.infl);
+    var tt = [], tr2 = gt.addProperty("ADBE Vector Filter - Trim");
+    for (i0 = 0; i0 < dr.t.length; i0++) tt.push(dr.t[i0] + f2s(2));
+    try { tr2.property("ADBE Vector Trim Type").setValue(2); } catch (eT) {}   // Einzeln: Striche nacheinander statt alle halb (das sah ausgefranst aus)
+    keys(tr2.property("ADBE Vector Trim End"), tt, pv, dr.infl);
+  }
+  lightBoil(ln); lightBoil(tk);
   var lab = [[-2000, "2000 v. Chr."], [-1500, "1500 v. Chr."], [-1000, "1000 v. Chr."], [-500, "500 v. Chr."], [500, "500 n. Chr."], [1000, "1000 n. Chr."], [1500, "1500 n. Chr."]];
   for (var i = 0; i < lab.length; i++) {
-    var tl = wtxt(c, par, lab[i][1], F_SERIF_I, 38, GREY, [WX(lab[i][0]), 82]);
-    tl.name = "Jahr " + lab[i][1];
-    if (t0 !== null && t0 !== undefined) tl.inPoint = t0 + (WX(lab[i][0]) - x0) / (x1 - x0) * (t1 - t0) + f2s(4);
+    var tl = wtxt(c, par, lab[i][1], F_SERIF_I, 38, GREY, [WX(lab[i][0]), 84]);
+    tl.name = "Jahr " + lab[i][1]; edgeFade(tl);
+    if (dr) {   // erscheint, sobald die Zeichenspitze vorbei ist
+      for (var f = 0; f < c.duration * FPS; f++) if (keyAt(dr.t, dr.tip, dr.infl, f / FPS) <= WX(lab[i][0]) + 60) { tl.inPoint = f / FPS + f2s(2); break; }
+    }
   }
   return ln;
 }
@@ -835,26 +871,26 @@ function timeline(c, R, st) {
   o.grid = tlGrid(c, R.p[0.55]);
   if (st.mark1 !== undefined) o.mark1 = tlMark(c, P, "Pyramide-Kleopatra", X_PYR, X_KLEO, st.mark1 === true ? null : st.mark1[0], st.mark1 === true ? null : st.mark1[1], YEL, st.mark1.infl);
   if (st.mark2 !== undefined) o.mark2 = tlMark(c, P, "Kleopatra-Mond", X_KLEO, X_MOND, st.mark2 === true ? null : st.mark2[0], st.mark2 === true ? null : st.mark2[1], "#FFC94A");
-  o.line = tlBase(c, P, st.draw ? st.draw[0] : null, st.draw ? st.draw[1] : null);
+  o.line = tlBase(c, P, st.draw || null);
   if (st.pyr !== undefined) {
     o.pinP = tlPin(c, P, "Pyramide", X_PYR, st.pyr === true ? null : st.pyr);
-    o.labP = wtxt(c, P, "ca. 2600 v. Chr.", F_NUM, 72, INK, [X_PYR, -170]); o.labP.name = "Jahr Pyramide";
+    o.labP = wtxt(c, P, "ca. 2600 v. Chr.", F_NUM, 72, INK, [X_PYR, -170]); o.labP.name = "Jahr Pyramide"; edgeFade(o.labP);
     if (st.pyrLab !== undefined && st.pyrLab !== true) typeOn(o.labP, st.pyrLab, 28);
     o.cardP = wPrint(c, P, "archiv/cheops-pyramide.jpg", X_PYR, -500, 600, 420, -3, true);
     if (st.pyrCard !== undefined && st.pyrCard !== true) dropIn(o.cardP, st.pyrCard, 160, 0.4);
   }
   if (st.kleo !== undefined) {
     o.pinK = tlPin(c, P, "Kleopatra", X_KLEO, st.kleo === true ? null : st.kleo);
-    o.labK = wtxt(c, P, "69 v. Chr.", F_NUM, 72, INK, [X_KLEO, -170]); o.labK.name = "Jahr Kleopatra";
+    o.labK = wtxt(c, P, "69 v. Chr.", F_NUM, 72, INK, [X_KLEO, -170]); o.labK.name = "Jahr Kleopatra"; edgeFade(o.labK);
     if (st.kleoLab !== undefined && st.kleoLab !== true) typeOn(o.labK, st.kleoLab, 28);
-    o.cardK = cutout(c, "archiv/kleopatra-buste-frei.png", 0, 0, 500, "Kleopatra Bueste");
-    place(o.cardK, P, [X_KLEO + 20, -500], o.cardK.scale.value[0], 0);
+    o.cardK = cutout(c, "archiv/kleopatra-buste-frei.png", 0, 0, 460, "Kleopatra Bueste");
+    place(o.cardK, P, [X_KLEO + 20, -470], o.cardK.scale.value[0], 0);
     if (st.kleoCard !== undefined && st.kleoCard !== true) popIn(o.cardK, st.kleoCard, -6);
   }
   if (st.mond !== undefined) {
     o.pinM = tlPin(c, P, "Mond", X_MOND, st.mond === true ? null : st.mond, "#2B5C8A");
-    if (st.mondLab === true) { o.labM = wtxt(c, P, "1969", F_NUM, 90, INK, [X_MOND, -170]); o.labM.name = "Jahr Mondlandung"; }
-    else if (st.mondLab !== undefined) { o.labM = odometer(c, "1969", F_NUM, 90, INK, [X_MOND, -170], st.mondLab, f2s(16)); place(o.labM, P, [X_MOND, -170]); o.labM.name = "Jahr Mondlandung"; }
+    if (st.mondLab === true) { o.labM = wtxt(c, P, "1969", F_NUM, 90, INK, [X_MOND, -170]); o.labM.name = "Jahr Mondlandung"; edgeFade(o.labM); }
+    else if (st.mondLab !== undefined) { o.labM = odometer(c, "1969", F_NUM, 90, INK, [X_MOND, -170], st.mondLab, f2s(16)); place(o.labM, P, [X_MOND, -170]); o.labM.name = "Jahr Mondlandung"; edgeFade(o.labM); }
     o.cardM = wPrint(c, P, "archiv/apollo11-aldrin.jpg", X_MOND, -520, 440, 440, 2.5, false);
     if (st.mondCard !== undefined && st.mondCard !== true) {
       keys(o.cardM.position, [st.mondCard, st.mondCard + 0.4], [[X_MOND + 900, -580], [X_MOND, -520]], [[5, 5], [95, 95]]);
@@ -867,11 +903,27 @@ function timeline(c, R, st) {
 // Mond im Hintergrund (Tiefe 0.55): steht bei Kamera auf 1969 (s 0.95) oben rechts
 function moonBg(c, R, t) {
   var m = cutout(c, "archiv/mond-frei.png", 0, 0, 330, "Mond (Hintergrund)", true);
-  place(m, R.p[0.55], [2839, -784], m.scale.value[0], 0);
+  place(m, R.p[0.55], [2790, -784], m.scale.value[0], 0);
   if (t !== undefined && t !== null) popIn(m, t, 8);
   return m;
 }
 
+// Jahresanzeige oben + roter Lesezeiger in der Bildmitte: zeigt das Jahr unter der Bildmitte (aus der Pan-Null der Weltkamera,
+// Tiefe 1: Kamera-Weltpunkt = 540 - Position). Runde 2: haelt die Fahrten ueber leere Strecken des Zeitstrahls lesbar.
+function yearReadout(c, widest, tIn, tOut) {
+  var rd = txt(c, widest, F_NUM, 104, INK, [CX, 330]); rd.name = "FIX Jahr Anzeige";
+  rd.property("ADBE Text Properties").property("ADBE Text Document").expression =
+    "posterizeTime(12); var p = thisComp.layer(\"Kamera Pan 1\").transform.position; var y = Math.round(540 - p[0] - 2600);" +
+    " if (p.speed > 1) y = Math.round(y / 10) * 10; y >= 0 ? String(y) : (-y) + \" v. Chr.\";";
+  popIn(rd, tIn);
+  var ph = shape(c, "FIX Lesezeiger"), gp = grp(ph, "Zeiger"); ph.anchorPoint.setValue([CX, 400]); ph.position.setValue([CX, 400]);
+  addPath(gp, line2([[CX - 16, 382], [CX + 16, 382], [CX, 404]], true)); fill(gp, RED);
+  var gl = grp(ph, "Linie"); addPath(gl, line2([[CX, 412], [CX, 1000]])); stroke(gl, RED, 4, 12, 12);
+  popIn(ph, tIn + f2s(2));
+  if (tOut) { keys(rd.opacity, [tOut, tOut + f2s(6)], [100, 0], 50); keys(ph.opacity, [tOut, tOut + f2s(6)], [80, 0], 50); }
+  else ph.opacity.setValue(80);
+  return rd;
+}
 // ---------- 1 Hook: Kleopatra, der Mond ganz nah, die Pyramide weit weg ----------
 B.hook = function (c, k) {
   paperBase(c);
@@ -880,9 +932,9 @@ B.hook = function (c, k) {
   var mo = cutout(c, "archiv/mond-frei.png", 790, 420, 300, "Mond");
   popIn(mo, k.mond - f2s(4), 10);
   pencil(c, "Strich zum Mond", [line2([[590, 610], [636, 566], [676, 530]])], INK, 7, k.mond + f2s(4), f2s(12));
-  printPhoto(c, "archiv/cheops-pyramide.jpg", 1200, 1480, 520, 360, 3, k.bau - f2s(2));
+  printPhoto(c, "archiv/cheops-pyramide.jpg", 1060, 1480, 520, 360, 3, k.bau - f2s(2));
   var rl = shape(c, "Strich zur Pyramide"), g = grp(rl);
-  addPath(g, { v: [[560, 1090], [1000, 1330]], i: [[0, 0], [-260, -20]], o: [[120, 160], [0, 0]], c: false });
+  addPath(g, { v: [[560, 1090], [880, 1340]], i: [[0, 0], [-220, -20]], o: [[120, 160], [0, 0]], c: false });
   stroke(g, RED, 7, 18, 14); trimOn(g, k.bau + f2s(10), k.bau + f2s(24)); edgeBoil(rl, 7);
   creditKeys(c, ["kleopatra-buste", "mond", "cheops-pyramide"]);
   focusHunt(c, 0);
@@ -891,16 +943,20 @@ B.hook = function (c, k) {
   lensLeak(c, 10);
   voxSauce(c, "archiv");
 };
-// ---------- 2 Klingt verrueckt? Rechnen wir nach: der Zeitstrahl zeichnet sich, Fahrt zum Anfang ----------
+// ---------- 2 Klingt verrueckt? Rechnen wir nach: Jahresanzeige oben, Kamera faehrt von heute zurueck bis zur Pyramide ----------
+// Runde 2: vorher 1 s fast leeres Papier + ausgefranster Zeitstrahl. Jetzt zeichnet sich die Linie direkt vor der Kamera
+// (rechts -> links, Striche einzeln nacheinander), oben laeuft die Jahreszahl der Bildmitte mit (heute 2026 -> 2600 v. Chr.).
 B.rechnen = function (c, k) {
   paperBase(c);
   var R = worldRig(c, [0.55, 1]);
-  timeline(c, R, { draw: [0.03, 0.6] });
-  rigPan(R, [0, 1.3], [[2700, CAMY], [250, CAMY]], [[40, 40], [92, 92]]);
-  rigZoom(R, [0, 1.3], [0.42, 0.95], [[60, 60], [90, 90]]);
-  var q = txt(c, "?", F_SERIF_BI, 300, RED, [870, 560]); q.name = "FIX Fragezeichen";
+  var T = [0, 0.3, 1.33], CAM = [X_HEUTE, X_HEUTE, X_PYR], IN = [[30, 30], [30, 30], [85, 85]];
+  timeline(c, R, { draw: { t: T, tip: [TL_X1, X_HEUTE - 260, X_PYR - 600], infl: IN } });
+  rigPan(R, T, [[CAM[0], CAMY], [CAM[1], CAMY], [CAM[2], CAMY]], IN);
+  rigZoom(R, [0, 0.3, 0.82, 1.33], [0.9, 0.9, 0.5, 0.95], [[30, 30], [30, 30], [50, 50], [85, 85]]);
+  yearReadout(c, "2600 v. Chr.", 0.02, null);
+  var q = txt(c, "?", F_SERIF_BI, 260, RED, [880, 700]); q.name = "FIX Fragezeichen";
   q.inPoint = k.verrueckt - f2s(2); q.outPoint = k.rechnen; jitter(q, 2);
-  camRig(c, CX, SCY, { punchIn: 112, s0: 100, s1: 102 });
+  camRig(c, CX, SCY, { punchIn: 108, s0: 100, s1: 102 });
   voxSauce(c, "grafik");
 };
 // ---------- 3 Cheops-Pyramide: Abzug mit gerissenem Rand faellt ein, Nadel, Jahreszahl tippt ----------
@@ -912,7 +968,7 @@ B.pyramide = function (c, k) {
   rigZoom(R, [0, c.duration], [0.98, 1.04], 30);
   var ul = pencil(c, "Unterstrich Jahr", [line2([[X_PYR - 250, -152], [X_PYR - 40, -146], [X_PYR + 250, -154]])], RED, 7, 3.15, f2s(12));
   place(ul, R.p[1], [0, 0]);
-  sourceBar(c, "Cheops-Pyramide", "Ägypten", k.cheops, 300);
+  sourceBar(c, "Cheops-Pyramide", "Ägypten", k.cheops, 350);
   focusHunt(c, 0.12);
   var cam = camRig(c, CX, SCY, { punchIn: 114, s0: 100, s1: 104 });
   punchAt(cam, k.zahl - f2s(2), 1.05);
@@ -928,10 +984,10 @@ B.kleo = function (c, k) {
   timeline(c, R, { mark1: m1, pyr: true, pyrLab: true, pyrCard: true, kleo: 1.85, kleoLab: k.jahre + f2s(2), kleoCard: 2.4 });
   rigPan(R, [t0, t1], [[90, CAMY], [X_KLEO, CAMY]], P);
   rigZoom(R, [t0, 1.0, t1], [1.04, 0.62, 0.92], [[20, 20], [50, 50], [85, 85]]);
-  var n = counterF(c, 0, 2500, t0, t1, F_NUM, 150, INK, [CX, 380], "~"); n.name = "FIX Zaehler 2500";
+  var n = counterF(c, 0, 2500, t0, t1, F_NUM, 150, INK, [CX, 330], "~"); n.name = "FIX Zaehler 2500";
   yellowPop(n, t1 + f2s(2));
-  var j = txt(c, "Jahre", F_SERIF_I, 58, INK, [CX, 448]); j.name = "FIX Jahre"; j.inPoint = t0;
-  var cam = camRig(c, CX, SCY, { punchIn: 116, s0: 100, s1: 104 });
+  var j = txt(c, "Jahre", F_SERIF_I, 58, INK, [CX, 396]); j.name = "FIX Jahre"; j.inPoint = 0.9;
+  var cam = camRig(c, CX, SCY, { punchIn: 108, s0: 100, s1: 104 });
   punchAt(cam, k.jahre - f2s(2), 1.04);
   creditKeys(c, ["cheops-pyramide", "kleopatra-buste"]);
   voxSauce(c, "grafik");
@@ -940,7 +996,7 @@ B.kleo = function (c, k) {
 B.uralt = function (c, k) {
   paperBase(c, true);
   var ap = [540, 400], bl = [120, 1080], br = [960, 1080], mid = [640, 1080];
-  pencil(c, "Pyramide Umriss", [line2([bl, ap, br]), line2([[60, 1084], [1020, 1078]])], CHALK, 8, 0.03, f2s(16));
+  pencil(c, "Pyramide Umriss", [line2([bl, ap, br]), line2([[112, 1084], [968, 1078]])], CHALK, 8, 0.03, f2s(16));
   var courses = [];
   for (var i = 1; i <= 7; i++) {
     var y = 400 + i * 85, f = (y - 400) / 680;
@@ -960,8 +1016,8 @@ B.uralt = function (c, k) {
   addPath(gs, line2([[300, 0], [304, 1920]])); addPath(gs, line2([[760, 0], [757, 1920]])); stroke(gs, CHALK, 2);
   sc.opacity.setValue(35); sc.inPoint = k.uralt - f2s(2);
   sc.position.expression = "posterizeTime(8); seedRandom(Math.floor(time*8), true); [random(-260, 260), 0]";
-  var cam = camRig(c, CX, 800, { punchIn: 120, s0: 100, s1: 106 });
-  punchAt(cam, k.uralt - f2s(1), 1.06);
+  var cam = camRig(c, CX, 800, { punchIn: 120, s0: 100, s1: 103 });
+  punchAt(cam, k.uralt - f2s(1), 1.04);
   voxSauce(c, "archiv");
 };
 // ---------- 6 Mitte-Aufruf: ruhige Fahrt weiter, Folgen-Knopf wird geklickt ----------
@@ -984,12 +1040,14 @@ B.mond = function (c, k) {
   var o = timeline(c, R, { mark1: true, pyr: true, pyrLab: true, pyrCard: true, kleo: true, kleoLab: true, kleoCard: true,
                    mond: 2.05, mondLab: k.zahl - f2s(2), mondCard: k.mond - f2s(2) });
   mb.moveBefore(o.grid);   // Mond ueber dem Raster, unter dem Zeitstrahl
-  rigPan(R, [0.2, 2.5], [[X_KLEO + 420, CAMY], [X_MOND, CAMY]], [[40, 40], [85, 85]]);
-  rigZoom(R, [0.2, 1.25, 2.5], [0.78, 0.36, 0.95], [[40, 40], [60, 60], [85, 85]]);
-  camRig(c, CX, SCY, { punchIn: 112, s0: 100, s1: 103 });
+  rigPan(R, [0.15, 1.95], [[X_KLEO, CAMY], [X_MOND, CAMY]], [[40, 40], [85, 85]]);
+  yearReadout(c, "60 v. Chr.", 0.05, k.mond - f2s(5));   // blendet aus, bevor Mond + Apollo-Foto kommen
+  rigZoom(R, [0.15, 1.0, 1.95], [0.78, 0.55, 0.95], [[40, 40], [60, 60], [85, 85]]);
+  camRig(c, CX, SCY, { punchIn: 106, s0: 100, s1: 103 });
   creditKeys(c, ["apollo11-aldrin", "mond", "kleopatra-buste"]);
   voxSauce(c, "grafik");
 };
+var ZW_CAM = 3580, ZW_Z0 = 0.37, ZW_Z1 = 0.355;
 // ---------- 8 Nur etwa 2.000 Jahre: zweiter Textmarker, Ziffern rollen ein ----------
 B.zweitausend = function (c, k) {
   paperBase(c);
@@ -997,11 +1055,11 @@ B.zweitausend = function (c, k) {
   var mb = moonBg(c, R, null);
   var o = timeline(c, R, { mark1: true, mark2: [0.08, 0.6], pyr: true, pyrLab: true, pyrCard: true, kleo: true, kleoLab: true, kleoCard: true, mond: true, mondLab: true, mondCard: true });
   mb.moveBefore(o.grid);
-  rigPan(R, [0], [[3570, CAMY]]);
-  rigZoom(R, [0, c.duration], [0.43, 0.39], 40);
-  var n = odometer(c, "~2.000", F_NUM, 150, INK, [CX, 380], k.zahl - f2s(4), f2s(14)); n.name = "FIX Zahl 2000";
-  var j = txt(c, "Jahre", F_SERIF_I, 58, INK, [CX, 448]); j.name = "FIX Jahre"; j.inPoint = k.zahl;
-  camRig(c, CX, SCY, { punchIn: 116, s0: 100, s1: 104 });
+  rigPan(R, [0], [[ZW_CAM, CAMY]]);
+  rigZoom(R, [0, c.duration], [ZW_Z0, ZW_Z1], 40);
+  var n = odometer(c, "~2.000", F_NUM, 150, INK, [CX, 330], k.zahl - f2s(4), f2s(14)); n.name = "FIX Zahl 2000";
+  var j = txt(c, "Jahre", F_SERIF_I, 58, INK, [CX, 396]); j.name = "FIX Jahre"; j.inPoint = k.zahl;
+  camRig(c, CX, SCY, { punchIn: 104, s0: 100, s1: 102 });
   creditKeys(c, ["kleopatra-buste", "apollo11-aldrin", "mond"]);
   voxSauce(c, "grafik");
 };
@@ -1012,33 +1070,36 @@ function ellPath(cx, cy, rx, ry) {
   return { v: [[cx, cy - ry], [cx + rx, cy], [cx, cy + ry], [cx - rx, cy]], i: [[-kx, 0], [0, -ky], [kx, 0], [0, ky]], o: [[kx, 0], [0, ky], [-kx, 0], [0, -ky]], c: true };
 }
 function barsDiagram(c, k, anim) {
-  var S0 = 0.2, S1 = 0.34, P0 = [583, 860], P1 = [950, 860];
+  // Runde 2: Diagramm mittig und kleiner (S1 0.34 -> 0.30), damit Pyramiden-Abzug, Kreis und "heute" links nicht mehr unter x 60 geraten
+  var S0 = 0.19, S1 = 0.30, P0 = [581, 860], P1 = [904, 860];
   var d = c.layers.addNull(c.duration); d.name = "Diagramm"; d.anchorPoint.setValue([0, 0]);
   if (anim) { keys(d.scale, [k.f0, k.f1], [[S0 * 100, S0 * 100], [S1 * 100, S1 * 100]], [[40, 40], [85, 85]]); keys(d.position, [k.f0, k.f1], [P0, P1], [[40, 40], [85, 85]]); linPath(d.position); }
   else { d.scale.setValue([S1 * 100, S1 * 100]); d.position.setValue(P1); }
   var A = shape(c, "Balken Pyramide-Kleopatra"); place(A, d, [0, 0]);
   var ga = grp(A); addPath(ga, line2([[0, 0], [-2531, 0]])); var sa = stroke(ga, YEL, 150);
   try { sa.property("ADBE Vector Stroke Line Cap").setValue(1); } catch (e) {}
-  if (anim) trimOn(ga, 0.08, 0.5);
+  if (anim) trimOn(ga, 0.0, 0.4);
   A.blendingMode = BlendingMode.MULTIPLY;
   var Bb = shape(c, "Balken Kleopatra-heute"); place(Bb, d, [0, 0]);
   var gb = grp(Bb); addPath(gb, line2([[0, 0], [2095, 0]])); var sb = stroke(gb, "#F2A65A", 150);
   try { sb.property("ADBE Vector Stroke Line Cap").setValue(1); } catch (e2) {}
-  if (anim) { trimOn(gb, 0.25, 0.65); keys(Bb.scale, [k.f0, k.f1], [[100, 100], [-100, 100]], [[40, 40], [85, 85]]); keys(Bb.position, [k.f0, k.f1], [[0, 0], [0, 300]], [[40, 40], [85, 85]]); }
+  if (anim) { trimOn(gb, 0.1, 0.5); keys(Bb.scale, [k.f0, k.f1], [[100, 100], [-100, 100]], [[40, 40], [85, 85]]); keys(Bb.position, [k.f0, k.f1], [[0, 0], [0, 300]], [[40, 40], [85, 85]]); }
   else { Bb.scale.setValue([-100, 100]); Bb.position.setValue([0, 300]); }
   Bb.blendingMode = BlendingMode.MULTIPLY;
   edgeBoil(A, 8); edgeBoil(Bb, 8);
   var hinge = shape(c, "Gelenk"); place(hinge, d, [0, 0]); var gh = grp(hinge); ellipseG(gh, 70, 70, 0, 0); fill(gh, RED); stroke(gh, INK, 14);
-  var tj = wtxt(c, d, "~2.500 Jahre", F_SERIF_BI, 150, INK, [-1265, -150]);
-  if (anim) typeOn(tj, 0.6, 30);
+  var tj = wtxt(c, d, "~2.500 Jahre", F_SERIF_BI, 170, INK, [-1265, -150]);
+  if (anim) typeOn(tj, 0.08, 30);
   var kb = cutout(c, "archiv/kleopatra-buste-frei.png", 0, 0, 520, "Kleopatra klein");
   place(kb, d, [0, -340], kb.scale.value[0], 0);
-  if (anim) popIn(kb, 0.2, -6);
+  if (anim) popIn(kb, 0.0, -6);
   var pt = wPrint(c, d, "archiv/cheops-pyramide.jpg", -2350, -330, 480, 330, -3, true);
   if (anim) popIn(pt, k.pyramide - f2s(4), 5);
-  var circ = pencil(c, "Kreis Ueberschuss", [ellPath(-2313, 40, 330, 240)], RED, 22, anim ? k.aelter + f2s(2) : null, f2s(13));
-  place(circ, d, [0, 0]);
-  var he = wtxt(c, d, "heute", F_SERIF_BI, 150, INK, [-2215, 350], ParagraphJustification.RIGHT_JUSTIFY);
+  // Kreis um den Ueberschuss von Balken A: flacher (traf vorher "heute"), duenner, ohne Roughen Edges (die liessen rote Reste stehen)
+  var circ = shape(c, "Kreis Ueberschuss"), gc = grp(circ, "Kreis"); addPath(gc, ellPath(-2313, 0, 310, 140)); stroke(gc, RED, 16);
+  if (anim) trimOn(gc, k.aelter + f2s(2), k.aelter + f2s(15));
+  lightBoil(circ); place(circ, d, [0, 0]);
+  var he = wtxt(c, d, "heute", F_SERIF_BI, 150, INK, [-2170, 540], ParagraphJustification.LEFT_JUSTIFY);
   if (anim) typeOn(he, k.heute - f2s(3), 30);
   return d;
 }
@@ -1046,7 +1107,7 @@ B.balken = function (c, k) {
   paperBase(c);
   k.f0 = 1.5; k.f1 = 2.15;
   barsDiagram(c, k, true);
-  var cam = camRig(c, CX, 880, { punchIn: 114, s0: 100, s1: 104 });
+  var cam = camRig(c, CX, 880, { punchIn: 106, s0: 100, s1: 104 });
   punchAt(cam, k.kleo2 - f2s(2), 1.04);
   creditKeys(c, ["cheops-pyramide", "kleopatra-buste"]);
   voxSauce(c, "grafik");
@@ -1068,8 +1129,16 @@ function mapComp() {
   return MAPK = c;
 }
 function mapPt(p) { var K = D.karte; return [(p[0] - K.w / 2) * MS + MX, (p[1] - K.h / 2) * MS + MY]; }
+var MAP_YB = 1225;   // Karten-y (Datenkoordinaten), ab dem die Karte nach unten weich ausblendet (Runde 2: frei fuer die Untertitel)
+function softBottom(l, x0, x1, y0, yb) {
+  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.property("ADBE Mask Shape").setValue(mkShape(line2([[x0, y0], [x1, y0], [x1, yb], [x0, yb]], true)));
+  m.property("ADBE Mask Feather").setValue([70, 70]);
+  return m;
+}
 function mapLayer(c) {
   var L = addItem(c, mapComp(), MX, MY, MS * 100); L.name = "Karte Mittelmeer";
+  softBottom(L, -300, D.karte.w + 300, -300, MAP_YB);
   var ds = addFx(L, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 80); setP(ds, ["Distance"], 10); setP(ds, ["Softness"], 30); }
   return L;
 }
@@ -1080,8 +1149,12 @@ B.seltsam = function (c, k) {
   var pc = mkComp("Balken Seite", W, H, c.duration, fPre);
   paperBase(pc); barsDiagram(pc, {}, false);
   var L = addItem(c, pc, CX, H / 2, 100); L.name = "Balken Seite";
-  pageTurn(L, 0.05, 0.7, W, H);
-  L.outPoint = 0.75 + f2s(9);
+  // Runde 2: CC Page Turn liess beim Uebergang eine weisse Diagonale oben links stehen -> Seite wird mit Schwung nach links oben
+  // weggezogen (nur Keyframes, nichts bleibt stehen), Schatten gibt Tiefe
+  var sd = addFx(L, "ADBE Drop Shadow"); if (sd) { setP(sd, ["Opacity"], 110); setP(sd, ["Distance"], 24); setP(sd, ["Softness"], 60); }
+  keys(L.position, [0.05, 0.55], [[CX, H / 2], [-700, H / 2 - 420]], [[35, 35], [80, 80]]);
+  keys(L.rotation, [0.05, 0.55], [0, -14], [[35, 35], [80, 80]]);
+  L.outPoint = 0.55 + f2s(9);
   var cam = camRig(c, MX, MY, { punchIn: false, s0: 100, s1: 104 });
   punchAt(cam, k.seltsamer, 1.06);
   creditKeys(c, [], "Karte: Natural Earth, gemeinfrei");
@@ -1099,6 +1172,7 @@ B.griechen = function (c, k) {
   for (var r = 0; r < D.karte.egypt.length; r++) { var ring = [], src = D.karte.egypt[r]; for (var i = 0; i < src.length; i++) ring.push(mapPt(src[i])); addPath(ge, line2(ring, true)); }
   fill(ge, "#E8A93A"); stroke(ge, "#9A6A1E", 3); eg.blendingMode = BlendingMode.MULTIPLY; eg.opacity.setValue(85);
   eg.inPoint = k.aegyptens - 0.15; burnReveal(eg, k.aegyptens - 0.15);
+  softBottom(eg, -300, W + 300, -300, mapPt([0, MAP_YB])[1]);
   var A = mapPt(D.karte.orte["Alexandria"]), Pe = mapPt(D.karte.orte["Pella"]);
   dot(c, "Punkt Alexandria", A, k.koenigin - f2s(4));
   var kb = cutout(c, "archiv/kleopatra-buste-frei.png", A[0] + 10, A[1] - 175, 300, "Kleopatra auf der Karte");
@@ -1119,13 +1193,16 @@ B.griechen = function (c, k) {
 // ---------- 12 Vorfahre war General von Alexander dem Grossen: Mosaik, Bueste Ptolemaios, Contrast Callout aufs Gesicht ----------
 B.alexander = function (c, k) {
   paperBase(c);
-  var FACE = [410, 450];
-  printPhoto(c, "archiv/alexander-mosaik.jpg", CX, 600, 1000, 640, -1.5, 0);
-  var pt = cutout(c, "archiv/ptolemaios-i-frei.png", 290, 1030, 540, "Ptolemaios I.");
+  // Runde 2: Mosaik kleiner (war 1000 px breit = ragte schon ohne Zoom ueber x 60..1020), alles so gesetzt, dass es auch beim
+  // Push auf das Gesicht (bis ~113 %) in x 60..1020 bleibt; Bueste endet ueber den Untertiteln; Beschriftungen liegen UEBER dem
+  // Kontrast-Callout (vorher grau auf grau)
+  var FACE = [424, 443];
+  printPhoto(c, "archiv/alexander-mosaik.jpg", 528, 560, 780, 470, -1.5, 0);
+  var pt = cutout(c, "archiv/ptolemaios-i-frei.png", 260, 960, 480, "Ptolemaios I.");
   popIn(pt, k.vorfahre - f2s(2), 6);
-  label(c, "General Ptolemaios", 730, 1010, 54, k.general - f2s(2), INK);
-  contrastCallout(c, k.alexander, c.duration, FACE[0], FACE[1], 150, 175, false);
-  var nm = txt(c, "Alexander der Große", F_SERIF_BI, 52, INK, [730, 232]); typeOn(nm, k.alexander + f2s(3), 30);
+  contrastCallout(c, k.alexander, c.duration, FACE[0], FACE[1], 120, 140, false);
+  label(c, "General Ptolemaios", 672, 1062, 50, k.general - f2s(2), INK);
+  var nm = txt(c, "Alexander der Große", F_SERIF_BI, 52, INK, [560, 272]); typeOn(nm, k.alexander + f2s(3), 30);
   focusHunt(c, 0);
   var cam = camRig(c, FACE[0], FACE[1], { punchIn: 116, s0: 100, s1: 105 });
   punchAt(cam, k.alexander, 1.08);
@@ -1135,20 +1212,25 @@ B.alexander = function (c, k) {
 // ---------- 13 Am Hof sprach man Griechisch, ueber 200 Jahre: griechische Inschrift, Lupe faehrt ueber die Zeilen ----------
 B.hof = function (c, k) {
   paperBase(c);
+  // Runde 2: der Streifen wirkte in den Standbildern "unscharf" (1401 px Scan auf 0,74 verkleinert = winzige Buchstaben,
+  // dazu dunkle Textur multipliziert). Jetzt Ausschnitt 860 x 430, Scan auf 85 % (vorher 74 %), helle Papiertextur, mehr Kontrast;
+  // Streifen bleibt mit Kamera-Push in x 60..1020. Lupe 1,35-fach mit "Transformationen falten" = rechnet direkt aus dem Scan
+  // (zusammen hoechstens ~123 % der echten Pixel; ein groesserer Scan war von Commons wegen Rate-Limit nicht zu holen)
   var gi = imp("archiv/griechisch-rosette.jpg");
-  var sc = mkComp("Griechisch Scan", gi ? gi.width : 1401, gi ? gi.height : 550, c.duration, fPre);
-  solid(sc, "Papier Scan", "#F4EEDF");
-  if (gi) { var gl = addItem(sc, gi, sc.width / 2, sc.height / 2, 100); gl.blendingMode = BlendingMode.MULTIPLY; }
-  var tx = imp("tex/paper338.jpg"); if (tx) { var tl = cover(sc, tx, 1.0); tl.blendingMode = BlendingMode.MULTIPLY; tl.opacity.setValue(50); }
-  var SS = 0.74, SP = [CX, 700];
+  var sc = mkComp("Griechisch Scan", 860, 430, c.duration, fPre);
+  solid(sc, "Papier Scan", "#F6F0E2");
+  if (gi) { var gl = addItem(sc, gi, sc.width / 2 + 60, sc.height / 2, 85); gl.blendingMode = BlendingMode.MULTIPLY;
+    var gc = addFx(gl, "ADBE Brightness & Contrast 2"); if (gc) { setP(gc, ["Contrast"], 25); setP(gc, ["Brightness"], 6); } }
+  var tx = imp("tex/paper300.jpg"); if (tx) { var tl = cover(sc, tx, 1.0); tl.blendingMode = BlendingMode.MULTIPLY; tl.opacity.setValue(40); }
+  var SS = 1.0, SP = [CX, 700];
   var L = addItem(c, sc, SP[0], SP[1], SS * 100); L.name = "Griechische Inschrift";
   var re = addFx(L, "ADBE Roughen Edges", "Papierriss"); if (re) { setP(re, ["Border"], 14); setP(re, ["Scale"], 30); setP(re, ["Complexity"], 4); }
   var ds = addFx(L, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 90); setP(ds, ["Distance"], 12); setP(ds, ["Softness"], 30); }
   // Lupe: Precomp mit doppelt vergroessertem Scan, Position gegenlaeufig zur Lupe (gleiche Keys, gleiches Easing)
-  var M = 2.0, LR = 180, lc = mkComp("Lupe", LR * 2, LR * 2, c.duration, fPre);
+  var M = 1.35, LR = 180, lc = mkComp("Lupe", LR * 2, LR * 2, c.duration, fPre);
   solid(lc, "Lupe Grund", "#F4EEDF");
-  var inner = addItem(lc, sc, LR, LR, SS * M * 100); inner.name = "Scan vergroessert";
-  var LT = [0.35, 1.0, 1.75], LP = [[300, 640], [620, 770], [800, 660]], IP = [], EI = [[20, 20], [60, 60], [85, 85]];
+  var inner = addItem(lc, sc, LR, LR, SS * M * 100); inner.name = "Scan vergroessert"; inner.collapseTransformation = true;
+  var LT = [0.35, 1.0, 1.75], LP = [[330, 640], [540, 760], [690, 650]], IP = [], EI = [[20, 20], [60, 60], [85, 85]];   // Griff bleibt im Bild
   for (var i = 0; i < LP.length; i++) IP.push([LR - (LP[i][0] - SP[0]) * M, LR - (LP[i][1] - SP[1]) * M]);
   keys(inner.position, LT, IP, EI); linPath(inner.position);
   var lu = addItem(c, lc, LP[0][0], LP[0][1], 100); lu.name = "Lupe";
@@ -1166,41 +1248,53 @@ B.hof = function (c, k) {
   var z = txt(c, "200", F_NUM, 210, INK, [530, 1232]); slam(z, k.zahl - f2s(2)); yellowPop(z, k.zahl + f2s(1));
   var j = txt(c, "Jahre", F_SERIF_I, 66, INK, [830, 1200]); j.inPoint = k.jahre - f2s(2);
   focusHunt(c, 0, true);
-  camRig(c, CX, 820, { punchIn: 116, s0: 100, s1: 105 });
+  camRig(c, CX, 820, { punchIn: 110, s0: 100, s1: 105 });
   creditKeys(c, ["rosetta"]);
   voxSauce(c, "archiv");
 };
+var HX0 = 215, HDX = 122;   // Kopfreihe (Runde 2: erster Kopf lag nach dem Push unter x 60)
 // ---------- 14 Erste ihrer Familie, die Aegyptisch lernte: Kreide-Koepfe vor unscharfen Hieroglyphen, dann scharf ----------
 B.aegyptisch = function (c, k) {
   solid(c, "Grund dunkel", DARK);
   var hi = imp("archiv/hieroglyphen.jpg"), ta = k.aeg - f2s(1);
   if (hi) {
     var h = addItem(c, hi, 137, 960, 1920 / hi.height * 100); h.name = "Hieroglyphen";
-    var bb = addFx(h, "ADBE Box Blur2", "Fokus"); if (bb) { setP(bb, ["Iterations"], 3); var br = findP(bb, ["Blur Radius"]); if (br) keys(br, [ta, ta + f2s(4), ta + f2s(8), ta + f2s(13)], [26, 0, 8, 0], 50); }
+    var bb = addFx(h, "ADBE Box Blur2", "Fokus"); if (bb) { setP(bb, ["Iterations"], 3); var br = findP(bb, ["Blur Radius"]); if (br) keys(br, [ta, ta + f2s(3), ta + f2s(7)], [0, 4, 0], 50); }   // Runde 2: vorher Radius 26 = 3,5 s sehr unscharf; jetzt nur ein kurzer Fokus-Ruck (0,2 s)
     var bc = addFx(h, "ADBE Brightness & Contrast 2"); if (bc) { var bp = findP(bc, ["Brightness"]); if (bp) keys(bp, [ta, ta + f2s(9)], [-48, 0], 60); setP(bc, ["Contrast"], 10); }
     chroma(h, 2);
   }
   var heads = [];
   for (var i = 0; i < 6; i++) {
-    var hd = pencil(c, "Kopf " + (i + 1), headPaths(140 + i * 144, 800, 44), CHALK, 6, 0.05 + i * f2s(4), f2s(12));
+    var hd = pencil(c, "Kopf " + (i + 1), headPaths(HX0 + i * HDX, 800, 38), CHALK, 6, 0.05 + i * f2s(4), f2s(12));
     heads.push(hd);
     if (i < 5) keys(hd.opacity, [k.familie, k.familie + f2s(8), ta - f2s(3), ta + f2s(5)], [100, 30, 30, 0], 60);
   }
-  var circ = pencil(c, "Kreis Kleopatra", [ellPath(860, 840, 120, 140)], "#E2463A", 8, k.erste - f2s(2), f2s(12));
-  var nm = txt(c, "Kleopatra", F_SERIF_BI, 56, CHALK, [860, 1040]); typeOn(nm, k.erste + f2s(3), 30);
+  var KX = HX0 + 5 * HDX;
+  var circ = pencil(c, "Kreis Kleopatra", [ellPath(KX, 836, 104, 124)], "#E2463A", 8, k.erste - f2s(2), f2s(12));
+  var nm = txt(c, "Kleopatra", F_SERIF_BI, 54, CHALK, [KX - 20, 1010]); typeOn(nm, k.erste + f2s(3), 30);
   var last = [heads[5], circ, nm];
   for (var g = 0; g < last.length; g++) keys(last[g].opacity, [ta - f2s(3), ta + f2s(5)], [100, 0], 60);
-  sourceBar(c, "Laut Plutarch", null, k.soll - f2s(3), 300);
-  var cam = camRig(c, 700, 600, { punchIn: 112, s0: 100, s1: 106 });
+  sourceBar(c, "Laut Plutarch", null, k.soll - f2s(3), 350);
+  var cam = camRig(c, CX, 780, { punchIn: 110, s0: 100, s1: 104 });
   punchAt(cam, ta, 1.06);
   creditKeys(c, ["hieroglyphen"]);
   voxSauce(c, "archiv");
 };
+// weicher dunkler Streifen hinter der Untertitelzone (y ~1370), nur wo ein helles Bild darunter liegt (Runde 2)
+function utShade(c) {
+  var l = solid(c, "FIX UT-Schatten", "#000000");
+  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.property("ADBE Mask Shape").setValue(mkShape(line2([[150, 1318], [930, 1318], [930, 1428], [150, 1428]], true)));
+  m.property("ADBE Mask Feather").setValue([110, 50]);
+  l.opacity.setValue(52);
+  return l;
+}
 // ---------- 15 Haettest du das gewusst? Bueste ganz nah, langsamer Push-in ----------
 B.gewusst = function (c, k) {
   paperBase(c);
-  cutout(c, "archiv/kleopatra-buste-frei.png", 400, 1060, 1500, "Kleopatra nah");
-  var q = txt(c, "?", F_SERIF_BI, 300, RED, [900, 560]); popIn(q, 0.25, 12);
+  cutout(c, "archiv/kleopatra-buste-frei.png", 400, 1060, 1420, "Kleopatra nah");   // Runde 2: 1500 -> 1420 (sonst > 125 % der Pixel)
+  var q = txt(c, "?", F_SERIF_BI, 280, RED, [850, 560]); q.name = "FIX Fragezeichen"; popIn(q, 0.25, 12);
+  utShade(c);
   focusHunt(c, 0, true);
   camRig(c, 600, 900, { punchIn: 114, s0: 100, s1: 110, punchOut: false });
   creditKeys(c, ["kleopatra-buste"]);

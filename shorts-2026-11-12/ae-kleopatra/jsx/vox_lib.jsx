@@ -352,17 +352,19 @@ function focalBlur(comp, t0, t1, a, b, maxBlur) {
   ad.inPoint = Math.max(0, t0 - 0.01);
   return ad;
 }
-// Focus Hunting: Fast Box Blur Iterations 8, Radius 0/8/18/5/0 bei Frame 0/4/8/13/18
+// Focus Hunting: Fast Box Blur. Runde 2 (Review 1): Unschaerfe hoechstens ~0,3 s im Bild (vorher 0,6 s mit Radius 18 = ganzes Bild matschig)
+// hart: Radius 0/9/3/0 bei Frame 0/3/6/9; weich: 0/4/2/0 bei Frame 0/3/5/8
 function focusHunt(comp, t, soft) {
   var a = adj(comp, "FIX Focus Hunting");
   var b = addFx(a, "ADBE Box Blur2");
   if (b) {
-    setP(b, ["Iterations"], soft ? 3 : 8);
+    setP(b, ["Iterations"], soft ? 3 : 6);
     var r = findP(b, ["Blur Radius"]);
     if (r) {
-      if (soft) keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(12)], [0, 4, 6, 0], 50);
-      else keys(r, [t, t + f2s(4), t + f2s(8), t + f2s(13), t + f2s(18)], [0, 8, 18, 5, 0], 50);
+      if (soft) keys(r, [t, t + f2s(3), t + f2s(5), t + f2s(8)], [0, 4, 2, 0], 50);
+      else keys(r, [t, t + f2s(3), t + f2s(6), t + f2s(9)], [0, 9, 3, 0], 50);
     }
+    a.inPoint = Math.max(0, t); a.outPoint = Math.min(comp.duration, t + f2s(10));   // Ebene endet direkt nach dem Fokus-Ruck
   }
   return a;
 }
@@ -396,11 +398,7 @@ function rings(comp, cx, cy, t0, n, color, maxR) {
 // ---------- Saeule 6: Archivfoto vereinheitlichen ----------
 function homogenize(layer, comp) {
   var bw = addFx(layer, "ADBE Black&White");
-  var bb = addFx(layer, "ADBE Box Blur2", "Randunschaerfe");
-  if (bb) {
-    setP(bb, ["Blur Radius"], 6); setP(bb, ["Iterations"], 3);
-    // invertierte, weich gefederte Ellipsenmaske auf Effektebene geht nicht direkt -> Kanten via zweite Kopie
-  }
+  // Runde 2: der Box Blur "Randunschaerfe" (Radius 6) lag ohne Kantenmaske auf dem GANZEN Foto = jedes Abzug-Foto dauerhaft weich -> entfernt
   var cba = addFx(layer, "CC Ball Action", "Pixelraster");
   if (cba) { setP(cba, ["Grid Spacing"], 0); setP(cba, ["Ball Size"], 100); }
   chroma(layer, 2);

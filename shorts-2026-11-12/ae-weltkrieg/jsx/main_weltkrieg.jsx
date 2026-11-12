@@ -22,12 +22,21 @@ var fScenes = proj.items.addFolder("WK Szenen"); fScenes.parentFolder = fRoot;
 var sceneComps = [];
 for (var si = 0; si < D.scenes.length; si++) {
   (function (s) {
+    // Runde 2: ausfallsicher. Wirft eine Szene, bleibt ihre Comp trotzdem im Master (alles bis zum Fehler ist sichtbar,
+    // mindestens Papier + Kamera-Rest), statt eines schwarzen Lochs. Der Fehler steht weiter als FEHLER im Bericht.
+    var c = null;
     step(s.id, function () {
-      var c = mkComp("WK " + (si + 1 < 10 ? "0" : "") + (si + 1) + " " + s.id, W, H, s.dur);
-      CURSCENE = s.id; B[s.id](c, s.k); CURSCENE = null;
+      c = mkComp("WK " + (si + 1 < 10 ? "0" : "") + (si + 1) + " " + s.id, W, H, s.dur);
+      CURSCENE = s.id;
+      try { B[s.id](c, s.k); } finally { CURSCENE = null; NOANIM = false; }
       var ca = checkAnims(s.id, s.dur); for (var q = 0; q < ca.length; q++) log.push(ca[q]);
-      sceneComps.push([s, c]);
     });
+    if (c) {
+      var hasPaper = false;
+      try { for (var j = 1; j <= c.numLayers; j++) if (c.layer(j).name === "Papier Grund") hasPaper = true; } catch (e0) {}
+      if (!hasPaper) { try { var n0 = c.numLayers; paperBase(c); var nP = c.numLayers - n0; if (n0 > 0) for (var z = 0; z < nP; z++) c.layer(1).moveToEnd(); } catch (e1) { log.push("FEHLER " + s.id + " Notfall-Papier: " + e1.toString()); } }
+      sceneComps.push([s, c]);
+    }
   })(D.scenes[si]);
 }
 // Untertitel (enno 12.11.): EIN Wort, weiss, halbfett (Arial Bold), ~52 px, keine Kontur, nur weicher Schatten, Mitte y ~1370
@@ -50,7 +59,7 @@ step("Master", function () {
   for (var w = 0; w < D.words.length; w++) subtitle(m, D.words[w]);
   // rundes Kanal-Logo oben links; weg, sobald im Schluss das grosse Logo kommt
   var so = D.scenes[D.scenes.length - 1];
-  cornerLogo(m, "archiv/logo-ecke.png", 98, 196, 96, 0, so.start + so.k.allgemeinwissen - f2s(4));
+  cornerLogo(m, "archiv/logo-ecke.png", 98, 196, 96, 0, so.start + (OUTRO_LOGO_T !== null ? OUTRO_LOGO_T : so.k.allgemeinwissen - f2s(4)));
   for (var a = 0; a < D.audio.length; a++) {
     var f = new File(BASE + D.audio[a]);
     if (!f.exists) { log.push("TON FEHLT: " + D.audio[a]); continue; }
