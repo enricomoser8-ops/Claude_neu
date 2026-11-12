@@ -135,6 +135,10 @@ B.kleo = function (c, k) {
   var n = counterF(c, 0, 2500, t0, t1, F_NUM, 150, INK, [CX, 330], "~"); n.name = "FIX Zaehler 2500";
   yellowPop(n, t1 + f2s(2));
   var j = txt(c, "Jahre", F_SERIF_I, 58, INK, [CX, 396]); j.name = "FIX Jahre"; j.inPoint = 0.9;
+  // Runde 4 (Review 3: 11.4/12.4 halbes Bild leer zwischen "Jahre" und Zeitstrahl): Zaehler steht waehrend der Fahrt in der Bildmitte
+  // (sobald der Pyramiden-Abzug aus dem Bild ist) und rueckt wieder nach oben, wenn die Bueste kommt
+  keys(n.position, [0.4, 0.75, 2.2, 2.5], [[CX, 330], [CX, 640], [CX, 640], [CX, 330]], [[40, 40], [85, 85], [40, 40], [85, 85]]);
+  keys(j.position, [0.4, 0.75, 2.2, 2.5], [[CX, 396], [CX, 706], [CX, 706], [CX, 396]], [[40, 40], [85, 85], [40, 40], [85, 85]]);
   var cam = camRig(c, CX, SCY, { punchIn: 108, s0: 100, s1: 104 });
   punchAt(cam, k.jahre - f2s(2), 1.04);
   creditKeys(c, ["cheops-pyramide", "kleopatra-buste"]);
@@ -211,6 +215,7 @@ B.zweitausend = function (c, k) {
   var sK = o.cardK.scale.value[0] * 520 / 460;
   place(o.cardK, R.p[1], zwW(305, 712), sK / ZW_Z0, 0);
   place(o.cardM, R.p[1], zwW(742, 690), 100 * 400 / 440 / ZW_Z0, 2.5);
+  for (var yi = 1; yi <= c.numLayers; yi++) if (/^Jahr -?[0-9]/.test(c.layer(yi).name)) c.layer(yi).enabled = false;   // Runde 4: winzige Skalenjahre (unlesbar) aus
   rigPan(R, [0], [[ZW_CAM, ZW_CY]]);
   rigZoom(R, [0, c.duration], [ZW_Z0, ZW_Z1], 40);
   var n = odometer(c, "~2.000", F_NUM, 150, INK, [CX, 330], k.zahl - f2s(4), f2s(14)); n.name = "FIX Zahl 2000";
@@ -240,12 +245,12 @@ function barsDiagram(c, k, anim) {
   var A = shape(c, "Balken Pyramide-Kleopatra"); place(A, d, [0, 0]);
   var ga = grp(A); addPath(ga, line2([[0, 0], [-2531, 0]])); var sa = stroke(ga, YEL, BW);
   try { sa.property("ADBE Vector Stroke Line Cap").setValue(1); } catch (e) {}
-  if (anim) trimOn(ga, 0.0, 0.4);
+  if (anim) trimOn(ga, 0.0, 0.25);   // Runde 4: schneller (23.4 Uebergang fast leer)
   A.blendingMode = BlendingMode.MULTIPLY;
   var Bb = shape(c, "Balken Kleopatra-heute"); place(Bb, d, [0, 0]);
   var gb = grp(Bb); addPath(gb, line2([[0, 0], [2095, 0]])); var sb = stroke(gb, "#F2A65A", BW);
   try { sb.property("ADBE Vector Stroke Line Cap").setValue(1); } catch (e2) {}
-  if (anim) { trimOn(gb, 0.1, 0.5); keys(Bb.scale, [k.f0, k.f1], [[100, 100], [-100, 100]], E2); keys(Bb.position, [k.f0, k.f1], [[0, 0], [0, DB]], E2); }
+  if (anim) { trimOn(gb, 0.05, 0.3); keys(Bb.scale, [k.f0, k.f1], [[100, 100], [-100, 100]], E2); keys(Bb.position, [k.f0, k.f1], [[0, 0], [0, DB]], E2); }
   else { Bb.scale.setValue([-100, 100]); Bb.position.setValue([0, DB]); }
   Bb.blendingMode = BlendingMode.MULTIPLY;
   edgeBoil(A, 8); edgeBoil(Bb, 8);
@@ -363,7 +368,10 @@ B.alexander = function (c, k) {
   // Push auf das Gesicht (bis ~113 %) in x 60..1020 bleibt; Bueste endet ueber den Untertiteln; Beschriftungen liegen UEBER dem
   // Kontrast-Callout (vorher grau auf grau)
   var FACE = [424, 443];
-  printPhoto(c, "archiv/alexander-mosaik.jpg", 528, 560, 780, 470, -1.5, 0);
+  var mos = printPhoto(c, "archiv/alexander-mosaik.jpg", 528, 560, 780, 470, -1.5, 0);
+  var mph = c.layer(1);   // Runde 4: Mosaik heller/kontrastreicher (wirkte dunkel und flach); Ebene 1 = Foto-Precomp des Abzugs (zuletzt angelegt)
+  if (mos && mph.name.indexOf("Abzug") >= 0) { var mbc = addFx(mph, "ADBE Brightness & Contrast 2", "Mosaik heller"); if (mbc) { setP(mbc, ["Brightness"], 22); setP(mbc, ["Contrast"], 18); } }
+  else log.push("FEHLER alexander: Mosaik-Foto nicht gefunden");
   var pt = cutout(c, "archiv/ptolemaios-i-frei.png", 260, 960, 480, "Ptolemaios I.");
   popIn(pt, k.vorfahre - f2s(2), 6);
   contrastCallout(c, k.alexander, c.duration, FACE[0], FACE[1], 120, 140, false);
@@ -388,7 +396,7 @@ B.hof = function (c, k) {
   if (gi) { var gl = addItem(sc, gi, sc.width / 2 + 60, sc.height / 2, 85); gl.blendingMode = BlendingMode.MULTIPLY;
     var gc = addFx(gl, "ADBE Brightness & Contrast 2"); if (gc) { setP(gc, ["Contrast"], 25); setP(gc, ["Brightness"], 6); } }
   var tx = imp("tex/paper300.jpg"); if (tx) { var tl = cover(sc, tx, 1.0); tl.blendingMode = BlendingMode.MULTIPLY; tl.opacity.setValue(40); }
-  var SS = 1.0, SP = [CX, 700];
+  var SS = 0.96, SP = [CX, 700];   // Runde 4: 0.96 (linke Steinkante bei x ~56 im Push-Out)
   var L = addItem(c, sc, SP[0], SP[1], SS * 100); L.name = "Griechische Inschrift";
   var re = addFx(L, "ADBE Roughen Edges", "Papierriss"); if (re) { setP(re, ["Border"], 14); setP(re, ["Scale"], 30); setP(re, ["Complexity"], 4); }
   var ds = addFx(L, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 90); setP(ds, ["Distance"], 12); setP(ds, ["Softness"], 30); }
@@ -410,11 +418,11 @@ B.hof = function (c, k) {
   var g2 = grp(ring, "Griff"); addPath(g2, line2([[LR * 0.7, LR * 0.7], [LR * 1.45, LR * 1.45]])); stroke(g2, INK, 30);
   ring.inPoint = 0.3; edgeBoil(ring, 12);
   // ueber 200 Jahre
-  var u = txt(c, "über", F_SERIF_I, 66, INK, [235, 1126]);   // Runde 3: Reihe 74 px hoeher, "lang" klebte darunter u.inPoint = k.zahl - f2s(2);
+  var u = txt(c, "über", F_SERIF_I, 66, INK, [235, 1126]); u.inPoint = k.zahl - f2s(2);   // Runde 3: Reihe 74 px hoeher, "lang" klebte darunter
   var z = txt(c, "200", F_NUM, 210, INK, [530, 1158]); slam(z, k.zahl - f2s(2)); yellowPop(z, k.zahl + f2s(1));
   var j = txt(c, "Jahre", F_SERIF_I, 66, INK, [830, 1126]); j.inPoint = k.jahre - f2s(2);
   focusHunt(c, 0, true);
-  camRig(c, CX, 820, { punchIn: 110, s0: 100, s1: 105 });
+  camRig(c, CX, 820, { punchIn: 110, s0: 100, s1: 104 });
   creditKeys(c, ["rosetta"]);
   voxSauce(c, "archiv");
 };
@@ -479,7 +487,7 @@ B.gewusst = function (c, k) {
   var bu = cutout(c, "archiv/kleopatra-buste-frei.png", 540, 1160, 1300, "Kleopatra Bueste gross");
   opaqueUnder(c, bu);
   var q = txt(c, "?", F_SERIF_BI, 240, RED, [905, 440]); q.name = "FIX Fragezeichen"; popIn(q, 0.25, 12);
-  bottomDark(c, 34);
+  bottomDark(c, 58, 1100);   // Runde 4: kraeftiger (Untertitel lagen hell auf Wange/Kinn)
   focusHunt(c, 0, true);
   camRig(c, 600, 900, { punchIn: 108, s0: 100, s1: 104, punchOut: false });
   creditKeys(c, ["kleopatra-buste"]);

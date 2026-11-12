@@ -74,3 +74,12 @@ cd ../ton && python3 music_weltkrieg.py && python3 sfx_weltkrieg.py && python3 m
 - ecke: Portraet des 19-Jaehrigen (Haftfoto 2. Juli 1914, Commons, gemeinfrei, in credits.json) statt Stadtansicht 1923; kein Name, nur "19 Jahre" + Bildquelle; Kreis um das Gesicht auf "vor", Kamera-Punch auf "Attentaetern" (passt zu den vorhandenen SFX).
 - Outro: roter Bleistift-Kreis zeichnet sich ab Szenenbeginn, das Logo poppt hinein (kein leeres Papier bei 44,5 s, Logo-SFX unveraendert).
 - aemock.js: neue Pruefung PLANRAND (Stadtplan muss die ganze Bildbreite decken). Probelauf Cloud + PC-Build: 0 Fehler | 0 ABGESCHNITTEN | 0 KNAPP | alle Effekte da, RAND/UNSCHAERFE/HOCHSKALIERT/PLANRAND 0. Ton, Untertitel, Sprechzeiten unveraendert.
+
+## Fixes Runde 4 (12.11., nach Review 3 in AE)
+
+- wagen (10,5-11,5 s): Kontrast-Callout entfernt - seine helle Wolke ausserhalb der Ellipse machte das Foto weich und die Mitte zum "dunklen Fleck". Foto jetzt als kleiner gerahmter Abzug (620 px, ~66 % der echten Pixel), Label "offener Wagen" mit rotem Pfeil, darunter faehrt das gelbe Wagen-Symbol der folgenden Plan-Szenen durchs Bild. Auf dem Foto liegen nur noch die ueblichen Abzug-Effekte (S/W, Pixelraster, CA, Belichtung, Kontrast) - keine Unschaerfe, keine Vignette.
+- bombe: "Appel-Kai" steht jetzt links (x ~330), nicht mehr unter der Silhouette des Werfers (`planLabels(..., at)`).
+- Untertitel (Vorgabe fuer beide Shorts): Drop Shadow schwarz 230/255, 135 Grad, Abstand 3, Weichheit 16 + zweiter Drop Shadow schwarz 90/255, Abstand 0, Weichheit 40, keine Kontur.
+- `subShade`: kein grauer Streifen mehr, sondern sanfte Vignette von unten (Verlauf weiss -> dunkel, Multiplizieren 40 %, keine Kanten).
+- Kosmetik: Bildquelle endet bei x 1008 (Text 998); Krankenhaus-Szene mit groesserem Krankenhaus und Strassennamen (Plan 0,6); Wagen und Figur in abbiegen/waswaere/schuss 1,3x; Russland in der Europa-Karte mit weicher Maske (keine gerade Schnittkante unter dem Kalender).
+- Probelauf Cloud + PC-Build: 0 Fehler | 0 ABGESCHNITTEN | 0 KNAPP | alle Effekte da, RAND/UNSCHAERFE/HOCHSKALIERT/PLANRAND 0. Ton und Sprechzeiten unveraendert.

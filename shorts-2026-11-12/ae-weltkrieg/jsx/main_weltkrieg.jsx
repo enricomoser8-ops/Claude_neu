@@ -42,8 +42,13 @@ for (var si = 0; si < D.scenes.length; si++) {
 // Untertitel (enno 12.11.): EIN Wort, weiss, halbfett (Arial Bold), ~52 px, keine Kontur, nur weicher Schatten, Mitte y ~1370
 function subtitle(m, wd) {
   var t = txt(m, wd.w, F_SANS_B, 52, "#FFFFFF", [W / 2, 1388]);
-  var ds = addFx(t, "ADBE Drop Shadow");
-  if (ds) { setP(ds, ["Shadow Color"], [0, 0, 0]); setP(ds, ["Opacity"], 153); setP(ds, ["Direction"], 180); setP(ds, ["Distance"], 3); setP(ds, ["Softness"], 8); }
+  // Runde 4 (Vorgabe, gleich fuer beide Shorts): Schatten 1 schwarz 230/255, 135 Grad, Abstand 3, Weichheit 16;
+  // Schatten 2 schwarz 90/255, Abstand 0, Weichheit 40; keine Kontur. Erst beide anlegen, dann frisch holen (AE: "Object is invalid").
+  addFx(t, "ADBE Drop Shadow", "UT Schatten"); addFx(t, "ADBE Drop Shadow", "UT Schein");
+  var d1 = fxGet(t, "UT Schatten");
+  if (d1) { setP(d1, ["Shadow Color"], [0, 0, 0]); setP(d1, ["Opacity"], 230); setP(d1, ["Direction"], 135); setP(d1, ["Distance"], 3); setP(d1, ["Softness"], 16); }
+  var d2 = fxGet(t, "UT Schein");
+  if (d2) { setP(d2, ["Shadow Color"], [0, 0, 0]); setP(d2, ["Opacity"], 90); setP(d2, ["Direction"], 135); setP(d2, ["Distance"], 0); setP(d2, ["Softness"], 40); }
   var wr = t.sourceRectAtTime(wd.s, false); if (wr.width > 900) t.scale.setValue([90000 / wr.width, 90000 / wr.width]);
   t.name = "UT " + wd.w; t.inPoint = wd.s; t.outPoint = Math.min(D.end, wd.e2);
   return t;

@@ -77,3 +77,15 @@ kuerzere zaehlen nicht als leer). Ergebnis: `0 Fehler | 0 ABGESCHNITTEN | 0 KNAP
   weniger Kamerafahrt.
 GOOD-Teile unveraendert. Ton, Untertitel-Look und Szenen-Zeiten unveraendert. Nicht ohne AE pruefbar: wie dunkel B&C -72/-38 auf dem
 Relief wirklich wirkt, und ob das "Raster" in 15 von der Bueste kam (Alpha ist deckend; vermutlich Korn auf dem hellen Marmor).
+
+## Fixes Runde 4 (nach Review 3 in AE, 12.11.)
+- Untertitel (weiss auf hellem Papier zu schwach): gleicher Schatten wie Weltkrieg - Drop Shadow schwarz, Opacity 230, Richtung 135,
+  Abstand 3, Weichheit 16, plus zweiter Drop Shadow "Schein dunkel" (schwarz, Opacity 90, Abstand 0, Weichheit 40). Keine Kontur, kein Band,
+  sonst gleicher Look (Arial Bold 52, weiss, y 1370).
+- 15 gewusst (44.4-45 Untertitel auf heller Wange): UT-Abdunklung kraeftiger (58 %, Verlauf ab y ~950).
+- Kosmetik: 8 zweitausend ohne die winzigen Skalenjahre; 9 balken zeichnet die Balken schneller (kein fast leerer Uebergang);
+  4 kleo: Zaehler steht waehrend der Fahrt in der Bildmitte und rueckt hoch, wenn die Bueste kommt; 12 alexander: Mosaik heller
+  (B&C +22 / +18); 13 hof: Inschrift 96 % und Push 104 % (linke Kante bleibt >= x 60), "ueber" wieder erst ab "200" sichtbar
+  (Runde-3-Regression: inPoint war versehentlich auskommentiert).
+- Nicht geaendert (Kosmetik, teurer): Karte ohne Beschriftung 28.4-29.4, Rosetta-Streifen vor der Lupe.
+Probelauf (build + HAND_build): 0 Fehler | 0 ABGESCHNITTEN | 0 KNAPP, alle Geometrie-Zaehler 0.

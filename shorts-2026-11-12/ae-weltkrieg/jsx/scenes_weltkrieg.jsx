@@ -27,11 +27,11 @@ function arcKeys(l, A, Bp, h, t0, t1, spin) {
   }
   noteAnim(l.position, t1, l);
 }
-function spitalIcon(c, P, t) {
-  var at = pp(P, [PL.x_kh, ry(PL.x_kh) - 150]);
-  var l = bldg(c, "Krankenhaus", SH.spital, at[0], at[1], P.s * 1.25);
+function spitalIcon(c, P, t, big) {
+  var at = pp(P, [PL.x_kh, ry(PL.x_kh) - 150]), z = P.s * 1.25 * (big || 1);
+  var l = bldg(c, "Krankenhaus", SH.spital, at[0], at[1], z);
   if (t !== null && t !== undefined) popIn(l, t);
-  redCross(c, "Krankenhaus Kreuz", at[0], at[1] - SH.spital.h * P.s * 1.25 - 46 * P.s * 1.25, (t === null || t === undefined) ? null : t + f2s(6));
+  redCross(c, "Krankenhaus Kreuz", at[0], at[1] - SH.spital.h * z - 46 * z, (t === null || t === undefined) ? null : t + f2s(6), big ? z / (P.s * 1.25) : 1);
   return l;
 }
 
@@ -84,15 +84,18 @@ B.thron = function (c, k) {
   voxSauce(c, "archiv");
 };
 // ---------- 4 der offene Wagen ----------
-// Runde 3: Ausschnitt ohne den bewegungsunscharfen Mann links und ohne das dunkle Rad unten (Review 2: "weich, dunkler
-// runder Fleck unten Mitte" = das Rad im Originalfoto), Callout auf die Insassen im offenen Wagen.
+// Runde 4 (Review 3): kein Kontrast-Callout mehr (die helle Wolke ausserhalb der Ellipse liess das Foto weich und die Mitte
+// wie einen dunklen Fleck wirken). Foto kleiner als gerahmter Abzug (~53 % der echten Pixel), Label "offener Wagen" mit Pfeil,
+// darunter faehrt das Wagen-Symbol der folgenden Stadtplan-Szenen durchs Bild (kein leeres Papier).
 B.wagen = function (c, k) {
   paperBase(c);
-  var PX = [CX, 800, 740, 640];
+  var PX = [CX, 690, 620, 400];
   var fr = printPhoto(c, IMG.wagen, PX[0], PX[1], PX[2], PX[3], -1.5, 0);
-  keys(fr.position, [0, 0.4], [[CX, 900], [CX, 800]], [[10, 10], [92, 92]]);
-  var C = photoXY(IMG.wagen, PX[0], PX[1], PX[2], PX[3], IMG.wagenRel[0], IMG.wagenRel[1]);
-  var cc = contrastCallout(c, k.offenen, c.duration, C[0], C[1], C[2] * IMG.wagenRel[2], C[3] * IMG.wagenRel[3], false); cc.name = "Callout Wagen";   // ohne FIX: folgt der Kamera wie das Foto
+  keys(fr.position, [0, 0.4], [[CX, 790], [CX, 690]], [[10, 10], [92, 92]]);
+  var lb = txt(c, "offener Wagen", F_SERIF_BI, 52, INK, [380, 1010]); lb.name = "Label offener Wagen"; typeOn(lb, k.offenen, 30);
+  arrowPath(c, "Pfeil offener Wagen", [[566, 958], [572, 902], [578, 848], [586, 792]], RED, 6, k.offenen + 0.2, f2s(10), true);
+  var car = carIcon(c, "Wagen Symbol", true, 2.3);
+  drive(car, [[250, 1170], [520, 1168], [800, 1170]], k.wagen - f2s(3), k.stadt + f2s(2), 0, "out");
   credit(c, D.credits[IMG.wagenKey]);
   var cam = camRig(c, CX, 800, { punchIn: 120, s0: 100, s1: 105 });
   punchAt(cam, k.offenen, 1.05);
@@ -103,7 +106,7 @@ B.wagen = function (c, k) {
 B.bombe = function (c, k) {
   paperBase(c);
   var IC = 1.4, P = planAt(c, X_BOMB - 40, qy(X_BOMB) - 20, CX, 860, 1.0);
-  planLabels(c, P, CX, 1.2, null, 44);
+  planLabels(c, P, CX, 1.2, null, 44, { "Appel-Kai": 330 });     // Runde 4: links, nicht unter der Silhouette des Werfers
   var path = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2, IC), tEnd = k.bombe - f2s(1);
   for (var i = 0; i < cars.length; i++) drive(cars[i], path, 0, tEnd, i * GAP * P.s, "out");
   var sp = pp(P, [X_BOMB + 170, ry(X_BOMB + 170) - 52]);
@@ -178,10 +181,11 @@ B.cta = function (c, k) {
 // ---------- 9 Krankenhaus: Foto blaettert um, darunter der Plan ----------
 B.krankenhaus = function (c, k) {
   paperBase(c);
-  var P = planAt(c, 960, qy(1200) - 60, CX, 880, 0.58);         // Runde 3: 0,58 statt 0,43 (Plan deckt die Breite, kein Planrand bei 22,5 s)
+  var P = planAt(c, 900, qy(1200) - 60, CX, 880, 0.6);          // Runde 3/4: 0,6 statt 0,43 (Plan deckt die Breite, kein Planrand bei 22,5 s)
+  planLabels(c, P, CX, 1.1, null, 40);                           // Runde 4: Strassennamen auch hier
   var tk = k.krankenhaus - f2s(3);
-  spitalIcon(c, P, tk);
-  var dash = pencil(c, "Weg zum Krankenhaus", [line2(quayScreen(P, 1650, PL.x_kh + 70))], INK, 6, tk + f2s(8), f2s(14));
+  spitalIcon(c, P, tk, 1.25);                                     // Runde 4: Krankenhaus groesser
+  var dash = pencil(c, "Weg zum Krankenhaus", [line2(quayScreen(P, 1580, PL.x_kh + 70))], INK, 6, tk + f2s(8), f2s(14));
   var st = dash.property("ADBE Root Vectors Group").property(1).property("ADBE Vectors Group").property("ADBE Vector Graphic - Stroke");
   try { var ds = st.property("ADBE Vector Stroke Dashes"); ds.addProperty("ADBE Vector Stroke Dash 1").setValue(16); ds.addProperty("ADBE Vector Stroke Gap 1").setValue(12); } catch (e) {}
   var pg = photoPage("Seite Abfahrt Rathaus", IMG.kh, CX, 820, 760, 700, 1.2, c.duration);   // Runde 2: 760 statt 960 px (Rand)
@@ -193,7 +197,7 @@ B.krankenhaus = function (c, k) {
   // Runde 3: Bildquelle bleibt, bis die Seite ganz weggeblaettert ist (Review 2: fehlte bei 21,5 s, Foto noch halb zu sehen)
   if (crd) for (var j = 1; j <= c.numLayers; j++) if (c.layer(j).name.indexOf("FIX Bildquelle") === 0) c.layer(j).outPoint = tp + 0.7 + f2s(9);
   focusHunt(c, 0, true);
-  subShade(c, 28);
+  subShade(c);
   var cam = camRig(c, CX, 880, { punchIn: 108, s0: 100, s1: 103 });
   voxSauce(c, "grafik");
 };
@@ -234,7 +238,7 @@ B.abbiegen = function (c, k) {
   var P = cornerPlan(c);
   planLabels(c, P, CX, 1.18);
   var path = ppl(P, quay(1560, SX).concat([CORNER, UP]));
-  var car = carIcon(c, "Wagen Thronfolger", true, P.s);
+  var car = carIcon(c, "Wagen Thronfolger", true, P.s * 1.3);   // Runde 4: Wagen 1,3x
   var t1 = k.falsch + 0.3;
   drive(car, path, 0, t1, 0, "out");
   arrowPath(c, "Pfeil falsch", ppl(P, quay(1300, SX + 10).concat([[SX, qy(SX) - 120], [SX, UP[1] - 70]])), RED, 9, k.biegt - f2s(4), t1 - k.biegt + f2s(2), true);
@@ -292,9 +296,9 @@ B.schuss = function (c, k) {
   paperBase(c);
   var P = planAt(c, SX + 30, qy(SX) - 160, CX, 860, 1.35);     // Runde 2: 1,35 statt 1,7 (Plan-Precomp sonst stark hochskaliert = weich)
   planLabels(c, P, CX, 1.12);
-  var car = carIcon(c, "Wagen Thronfolger", true, P.s); var cp = pp(P, CORNER); car.position.setValue(cp); car.rotation.setValue(-90);
-  var sp = pp(P, [SX + 78, qy(SX) - 128]);
-  silhouetteIcon(c, "Silhouette", sp[0], sp[1], 0.5 * P.s);
+  var car = carIcon(c, "Wagen Thronfolger", true, P.s * 1.3); var cp = pp(P, CORNER); car.position.setValue(cp); car.rotation.setValue(-90);
+  var sp = pp(P, [SX + 92, qy(SX) - 128]);                         // Runde 4: Wagen und Figur 1,3x
+  silhouetteIcon(c, "Silhouette", sp[0], sp[1], 0.5 * P.s * 1.3);
   var t1 = k.schiesst + f2s(2), t2 = t1 + f2s(11);
   whiteFlash(c, t1, "Blitz 1"); whiteFlash(c, t2, "Blitz 2");
   // Runde 2 (Fehler in AE "Object is invalid", Szene schwarz): tn war nach dem 2. addFx auf derselben Ebene ungueltig.
@@ -336,10 +340,10 @@ B.krieg = function (c, k) {
   var CL = addItem(c, cc, CX, 400, cs * 100); CL.name = "Kalender"; CL.rotation.setValue(-3);
   var ds = addFx(CL, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 100); setP(ds, ["Distance"], 12); setP(ds, ["Softness"], 26); }
   var t0 = k.spaeter - f2s(2), order = [["AH", 0], ["SRB", 3], ["DE", 7], ["RU", 9], ["FR", 11], ["BE", 13], ["UK", 14]];
-  for (var j = 0; j < order.length; j++) euFill(c, order[j][0], E, t0 + f2s(order[j][1]));
+  for (var j = 0; j < order.length; j++) euFill(c, order[j][0], E, t0 + f2s(order[j][1]), null, order[j][0] === "RU");
   var cam = camRig(c, CX, 1010, { punchIn: 114, s0: 100, s1: 104 });
   punchAt(cam, k.spaeter, 1.04);
-  subShade(c, 30);                                 // Runde 3: Untertitel auf der Karte ruhiger
+  subShade(c);                                     // Runde 3/4: Untertitel auf der Karte ruhiger (sanfte Vignette unten)
   voxSauce(c, "grafik");
 };
 // ---------- 18 was waere passiert? Pfeil spult zurueck, Wagen faehrt richtig ----------
@@ -347,7 +351,7 @@ B.waswaere = function (c, k) {
   paperBase(c);
   var P = cornerPlan(c);
   planLabels(c, P, CX, 1.16);
-  var car = carIcon(c, "Wagen Thronfolger", true, P.s);
+  var car = carIcon(c, "Wagen Thronfolger", true, P.s * 1.3);   // Runde 4: wie in abbiegen
   var cp = pp(P, CORNER); car.position.setValue(cp); car.rotation.setValue(-90);
   var wrong = arrowPath(c, "Pfeil falsch", ppl(P, quay(1300, SX + 10).concat([[SX, qy(SX) - 120], [SX, UP[1] - 70]])), RED, 9, null, null, true);
   var tr = k.passiert - f2s(2);
@@ -363,7 +367,7 @@ B.waswaere = function (c, k) {
   arrowPath(c, "Pfeil richtig", ppl(P, quay(1100, 690)), "#2E6B4F", 9, tg2, f2s(16));
   var q = txt(c, "?", F_SERIF_BI, 260, INK, [CX + 300, 560]); popIn(q, k.abgebogen - f2s(4)); yellowPop(q, k.abgebogen - f2s(4));
   var cam = camRig(c, CX, 900, { punchIn: 116, s0: 100, s1: 105 });
-  subShade(c, 30);
+  subShade(c);
   voxSauce(c, "grafik");
 };
 // ---------- 19 Schluss: grosses Logo, Bio-Hinweis, Folgen-Klick ----------

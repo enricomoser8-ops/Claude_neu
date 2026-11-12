@@ -550,7 +550,7 @@ function sourceBar(comp, l1, l2, t0, y) {
   return a;
 }
 // kleine Quellenangabe (Bildrechte) unten rechts (Runde 2: rechte Kante bei 1008 statt 1040, Schild endet vor x 1020)
-var CREDIT_X = 1008;
+var CREDIT_X = 998;   // Runde 4: Schild endet sicher vor x 1020 (Review 3: ~1024)
 function credit(comp, s) {
   if (!s) return null;
   var l = txt(comp, s, "ArialMT", 20, "#FFFFFF", [CREDIT_X, 1880], ParagraphJustification.RIGHT_JUSTIFY, 10);

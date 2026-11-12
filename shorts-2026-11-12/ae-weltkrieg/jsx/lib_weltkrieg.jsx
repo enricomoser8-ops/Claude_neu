@@ -48,14 +48,16 @@ function planAt(c, fx, fy, sx, sy, s) {
 // in 60..1020 bleiben. Liegt der Ort selbst zu weit draussen (Lateinerbruecke), entfaellt das Schild.
 // which: Liste der Namen (Standard beide). Muss VOR camRig kommen, damit die Kamera die Schilder mitnimmt.
 var PLAN_LABELS = { "Appel-Kai": { p: [1500, -150], free: true }, "Lateinerbrücke": { p: [820, 108], free: false } };
-function planLabels(c, P, ax, Z, which, size) {
+// at (Runde 4): {Name: Bildschirm-x} erzwingt die Lage eines frei verschiebbaren Schilds (z. B. nicht unter der Silhouette)
+function planLabels(c, P, ax, Z, which, size, at) {
   which = which || ["Appel-Kai", "Lateinerbrücke"]; Z = Z || 1.2; ax = ax === undefined ? CX : ax;
   var out = [];
   for (var i = 0; i < which.length; i++) {
     var D0 = PLAN_LABELS[which[i]], px = D0.p[0], py = ry(px) + D0.p[1], q = pp(P, [px, py]);
     var t = txt(c, which[i], F_SERIF_I, size || 40, "#6E675B", q); t.name = "Ort " + which[i];
     var r = t.sourceRectAtTime(0, false), hw = r.width / 2 + 6;
-    var lo = ax - (ax - 72) / Z + hw, hi = ax + (1008 - ax) / Z - hw, x = Math.max(lo, Math.min(hi, q[0]));
+    var want = (at && at[which[i]] !== undefined && D0.free) ? at[which[i]] : q[0];
+    var lo = ax - (ax - 72) / Z + hw, hi = ax + (1008 - ax) / Z - hw, x = Math.max(lo, Math.min(hi, want));
     if (lo > hi || (!D0.free && Math.abs(x - q[0]) > 40) || q[1] < 120 || q[1] > 1300) { t.remove(); continue; }
     t.position.setValue([x, q[1]]); out.push(t);
   }
@@ -154,12 +156,18 @@ function redCross(c, name, x, y, t, sc) {
 }
 // Runde 3: weicher dunkler Schatten unter der Untertitel-Zone (y ~1310-1460), damit die weissen Untertitel auf hellen
 // Plan-/Kartenflaechen lesbar sind. FIX: haengt nicht an der Kamera.
+// Runde 4: kein Streifen mehr, sondern eine sanfte Vignette von unten (Verlauf weiss -> dunkel, Multiplizieren, keine Kanten)
 function subShade(c, op) {
-  var l = solid(c, "FIX UT-Schatten", "#1D1B18");
-  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
-  m.property("ADBE Mask Shape").setValue(mkShape(rectP(c.width + 300, 120, c.width / 2, 1384)));
-  m.property("ADBE Mask Feather").setValue([90, 90]);
-  l.opacity.setValue(op || 34);
+  var l = solid(c, "FIX UT-Schatten", "#FFFFFF");
+  addFx(l, "ADBE Ramp", "UT Verlauf");
+  var r = fxGet(l, "UT Verlauf");
+  if (r) {
+    setP(r, ["Ramp Shape"], 1);
+    setP(r, ["Start of Ramp"], [c.width / 2, 1150]); setP(r, ["Start Color"], [1, 1, 1]);
+    setP(r, ["End of Ramp"], [c.width / 2, 1760]); setP(r, ["End Color"], rgb("#4A443C"));
+  }
+  l.blendingMode = BlendingMode.MULTIPLY;
+  l.opacity.setValue(op || 40);
   return l;
 }
 // Bombe (schwarze Kugel mit Lunte)
@@ -209,7 +217,8 @@ function europeComp() {
   return EUC = c;
 }
 // Faerbung einer Gruppe als eigene Ebene in der Szene (ueber der Karte), gleiche Abbildung wie die Karte
-function euFill(c, k, E, t, color) {
+// fade (Runde 4): weiche Maske, die die geraden Schnittkanten an Karten-Oberkante/-rechts ausblendet (Russland)
+function euFill(c, k, E, t, color, fade) {
   var l = shape(c, "Land " + k), g = grp(l, k);
   for (var r = 0; r < EU.groups[k].length; r++) {
     var R = EU.groups[k][r], q = [];
@@ -218,6 +227,12 @@ function euFill(c, k, E, t, color) {
   }
   fill(g, color || EU_COL[k]); stroke(g, INK, 2.5 * E.s);
   l.blendingMode = BlendingMode.MULTIPLY; l.inPoint = t;
+  if (fade) {
+    var a0 = eup(E, [0, 0]), a1 = eup(E, [EU.w, EU.h]);
+    var mk = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+    mk.property("ADBE Mask Shape").setValue(mkShape(line2([[a0[0] - 600, a0[1] + 70], [a1[0] - 70, a0[1] + 70], [a1[0] - 70, a1[1] + 600], [a0[0] - 600, a1[1] + 600]], true)));
+    mk.property("ADBE Mask Feather").setValue([140, 140]);
+  }
   keys(l.opacity, [t, t + f2s(4)], [0, 88], 40);
   return l;
 }

@@ -42,8 +42,11 @@ step("Master", function () {
   for (var w = 0; w < D.words.length; w++) {
     var wd = D.words[w];
     var t = txt(m, wd.w, F_SANS_B, 52, "#FFFFFF", [W / 2, 1370]);
+    // Runde 4 (Review 3: weiss auf hellem Papier zu schwach): Schatten wie Weltkrieg - kraeftiger weicher Schatten + zweiter weiter dunkler Schein, keine Kontur
     var sh = addFx(t, "ADBE Drop Shadow", "Schatten weich");
-    if (sh) { setP(sh, ["Shadow Color"], [0, 0, 0]); setP(sh, ["Opacity"], 153); setP(sh, ["Direction"], 150); setP(sh, ["Distance"], 3); setP(sh, ["Softness"], 8); }
+    if (sh) { setP(sh, ["Shadow Color"], [0, 0, 0]); setP(sh, ["Opacity"], 230); setP(sh, ["Direction"], 135); setP(sh, ["Distance"], 3); setP(sh, ["Softness"], 16); }
+    var sh2 = addFx(t, "ADBE Drop Shadow", "Schein dunkel");
+    if (sh2) { setP(sh2, ["Shadow Color"], [0, 0, 0]); setP(sh2, ["Opacity"], 90); setP(sh2, ["Distance"], 0); setP(sh2, ["Softness"], 40); }
     var wr = t.sourceRectAtTime(wd.s, false); if (wr.width > 960) t.scale.setValue([96000 / wr.width, 96000 / wr.width]);
     t.name = "UT " + wd.w; t.inPoint = wd.s; t.outPoint = Math.min(D.end, wd.e2);
   }
