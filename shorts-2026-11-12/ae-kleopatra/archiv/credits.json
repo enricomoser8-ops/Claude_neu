@@ -1,0 +1,99 @@
+{
+ "kleopatra-buste": {
+  "kurz": "Foto: Louis le Grand, gemeinfrei",
+  "was": "Kleopatra VII., Altes Museum Berlin",
+  "dateien": [
+   "kleopatra-buste.jpg",
+   "kleopatra-buste-frei.png"
+  ],
+  "commons": "File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg",
+  "autor": "Louis le Grand",
+  "lizenz": "Public domain",
+  "quelle": "own work / Altes Museum Berlin (Berliner Museumsinsel)"
+ },
+ "cheops-pyramide": {
+  "kurz": "Foto: Nina Aldin Thune, CC BY 2.5",
+  "was": "Cheops-Pyramide, Gizeh",
+  "dateien": [
+   "cheops-pyramide.jpg"
+  ],
+  "commons": "File:Kheops-Pyramid.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Kheops-Pyramid.jpg",
+  "autor": "Nina",
+  "lizenz": "CC BY 2.5",
+  "quelle": "Own work"
+ },
+ "apollo11-aldrin": {
+  "kurz": "Foto: NASA / Neil Armstrong, gemeinfrei",
+  "was": "Buzz Aldrin auf dem Mond (Apollo 11)",
+  "dateien": [
+   "apollo11-aldrin.jpg"
+  ],
+  "commons": "File:Aldrin Apollo 11 original.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11_original.jpg",
+  "autor": "Neil Armstrong",
+  "lizenz": "Public domain",
+  "quelle": "http://www.hq.nasa.gov/alsj/a11/AS11-40-5903HR.jpg http://www.archive.org/details/AS11-40-5903 (TIFF image) NASA Image and Video Library"
+ },
+ "mond": {
+  "kurz": "Foto: Gregory H. Revera, CC BY-SA 3.0",
+  "was": "Vollmond",
+  "dateien": [
+   "mond-frei.png"
+  ],
+  "commons": "File:FullMoon2010.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg",
+  "autor": "Gregory H. Revera",
+  "lizenz": "CC BY-SA 3.0",
+  "quelle": "Own work"
+ },
+ "alexander-mosaik": {
+  "kurz": "Alexandermosaik, gemeinfrei",
+  "was": "Alexander der Große, Alexandermosaik (Pompeji)",
+  "dateien": [
+   "alexander-mosaik.jpg"
+  ],
+  "commons": "File:Alexander the Great mosaic.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Alexander_the_Great_mosaic.jpg",
+  "autor": "Unknown authorUnknown author",
+  "lizenz": "Public domain",
+  "quelle": "The Guardian (DEA/G Nimatallah/De Agostini/Getty Images)"
+ },
+ "ptolemaios-i": {
+  "kurz": "Foto: Marie-Lan Nguyen, gemeinfrei",
+  "was": "Ptolemaios I., Louvre",
+  "dateien": [
+   "ptolemaios-i-frei.png"
+  ],
+  "commons": "File:Ptolemy I Soter Louvre Ma849.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Ptolemy_I_Soter_Louvre_Ma849.jpg",
+  "autor": "Marie-Lan Nguyen",
+  "lizenz": "Public domain",
+  "quelle": "Own work"
+ },
+ "rosetta": {
+  "kurz": "Foto: Hans Hillewaert, CC BY-SA 4.0",
+  "was": "Stein von Rosette (griechischer Teil, bearbeitet)",
+  "dateien": [
+   "griechisch-rosette.jpg"
+  ],
+  "commons": "File:Rosetta Stone.JPG",
+  "url": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
+  "autor": "Hans Hillewaert",
+  "lizenz": "CC BY-SA 4.0",
+  "quelle": "Own work"
+ },
+ "hieroglyphen": {
+  "kurz": "Foto: Vyacheslav Argenberg, CC BY 4.0",
+  "was": "Hieroglyphen, Medinet Habu",
+  "dateien": [
+   "hieroglyphen.jpg"
+  ],
+  "commons": "File:Thebes, Medinet Habu, Egypt, Temple of Ramesses III, Egyptian hieroglyphs, Ancient Egypt.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Egyptian_hieroglyphs,_Ancient_Egypt.jpg",
+  "autor": "Vyacheslav Argenberg",
+  "lizenz": "CC BY 4.0",
+  "quelle": "Own work"
+ }
+}

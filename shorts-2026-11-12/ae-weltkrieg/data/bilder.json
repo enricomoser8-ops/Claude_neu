@@ -1,0 +1,30 @@
+{
+ "hookKey": "ff-sophie-einsteigen",
+ "thronKey": "ff-sophie-treppe",
+ "wagenKey": "ff-auto-rathaus",
+ "khKey": "ff-sophie-treppe",
+ "eckeKey": "lateinerbruecke-keystone",
+ "todKey": "ff-sophie-treppe",
+ "thronY": 800,
+ "eckeY": 830,
+ "hook": "archiv/ff-sophie-einsteigen.jpg",
+ "thron": "archiv/ff-sophie-treppe.jpg",
+ "wagen": "archiv/ff-auto-rathaus.jpg",
+ "kh": "archiv/ff-sophie-treppe.jpg",
+ "ecke": "archiv/lateinerbruecke-keystone.jpg",
+ "tod": "archiv/ff-sophie-treppe.jpg",
+ "thronFF": [
+  767,
+  667
+ ],
+ "eckeXY": [
+  846,
+  995
+ ],
+ "wagenC": [
+  658,
+  870,
+  330,
+  220
+ ]
+}
