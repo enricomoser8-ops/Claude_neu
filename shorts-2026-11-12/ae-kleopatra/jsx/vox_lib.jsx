@@ -63,6 +63,7 @@ function chroma(layer, amt) {
 
 // ---------- Keyframes ----------
 function ease(prop, k, inf, outf) {
+  inf = Math.max(0.1, Math.min(100, inf)); outf = Math.max(0.1, Math.min(100, outf));   // AE wirft bei Einfluss > 100
   for (var d = 1; d <= 3; d++) {
     try {
       var a = [], b = [];

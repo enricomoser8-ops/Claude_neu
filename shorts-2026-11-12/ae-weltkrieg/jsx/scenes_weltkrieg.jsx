@@ -11,9 +11,9 @@ var CORNER = [SX, qy(SX) - 150];            // Ecke an der Lateinerbruecke, hier
 var UP = [SX, qy(SX) - 360];                // so weit faehrt er in die Seitenstrasse
 
 // Kolonne: Wagen i steht/faehrt i*GAP hinter der Spitze; Thronfolger-Wagen = Index 2
-function convoy(c, P, n, main) {
+function convoy(c, P, n, main, ic) {
   var L = [];
-  for (var i = 0; i < n; i++) L.push(carIcon(c, i === main ? "Wagen Thronfolger" : "Wagen " + (i + 1), i === main, P.s));
+  for (var i = 0; i < n; i++) L.push(carIcon(c, i === main ? "Wagen Thronfolger" : "Wagen " + (i + 1), i === main, P.s * (ic || 1)));
   return L;
 }
 function quayScreen(P, xa, xb) { return ppl(P, quay(xa, xb)); }
@@ -57,7 +57,7 @@ B.sarajevo = function (c, k) {
   pin.position.setValue([CX, 940]); popIn(pin, k.sarajevo + f2s(2));
   var nm = txt(c, "SARAJEVO", F_MONO, 76, INK, [CX, 760], ParagraphJustification.CENTER_JUSTIFY, 80); nm.name = "FIX Ort";
   typeOn(nm, k.sarajevo + f2s(4), 26);
-  var yr = odometer(c, "1914", F_NUM, 200, INK, [CX, 600], k.jahr - f2s(4), f2s(16)); yr.name = "FIX Jahr 1914";
+  var yr = odometer(c, "1914", F_NUM, 200, INK, [CX, 600], k.jahr - f2s(4), f2s(16), true); yr.name = "FIX Jahr 1914";   // Runde 3: snap (kein Splitter)
   var cam = camRig(c, CX, 940, { punchIn: false, s0: 100, s1: 250, punchOut: false });
   keys(cam.scale, [0.12, k.jahr - f2s(2)], [[100, 100], [250, 250]], [[30, 30], [90, 90]]);
   voxSauce(c, "grafik");
@@ -72,7 +72,10 @@ B.thron = function (c, k) {
   var circ = [];
   for (var a = 0; a <= 26; a++) { var an = -1.9 + a / 26 * Math.PI * 2.15; circ.push([F[0] + Math.cos(an) * (70 + a * 0.5), F[1] + 24 + Math.sin(an) * (100 + a * 0.4)]); }
   pencil(c, "Kreis Franz Ferdinand", [line2(circ)], RED, 8, k.franz + f2s(6), f2s(14));
-  label(c, "Franz Ferdinand", 470, 462, 62, k.franz + f2s(26), INK, [F[0] - 60, F[1] - 96]);
+  // Runde 3: Pfeil nicht mehr durch "Ferdinand": startet rechts neben dem Namen und laeuft aussen herum zum Kreis
+  var tl0 = k.franz + f2s(26);
+  label(c, "Franz Ferdinand", 470, 462, 62, tl0, INK);
+  arrowPath(c, "Pfeil Franz Ferdinand", [[792, 428], [842, 470], [852, 540], [F[0] + 58, F[1] - 72]], INK, 5, tl0 + 0.25, f2s(14), true);
   var th = txt(c, "Thronfolger", F_SERIF_I, 52, GREY, [470, 530]); typeOn(th, k.kaiser - f2s(3), 30);
   yellowPop(th, k.oesterreich);
   focalBlur(c, 0, 0.3, [F[0] - 160, F[1]], [F[0], F[1]], 10);
@@ -81,101 +84,104 @@ B.thron = function (c, k) {
   voxSauce(c, "archiv");
 };
 // ---------- 4 der offene Wagen ----------
-// Runde 2: Foto kleiner (in 60..1020 auch beim Punch 120 %), faehrt von unten statt von rechts herein,
-// heller Callout statt 62 % Schwarz (Review: "dunkel, matschig").
+// Runde 3: Ausschnitt ohne den bewegungsunscharfen Mann links und ohne das dunkle Rad unten (Review 2: "weich, dunkler
+// runder Fleck unten Mitte" = das Rad im Originalfoto), Callout auf die Insassen im offenen Wagen.
 B.wagen = function (c, k) {
   paperBase(c);
   var PX = [CX, 800, 740, 640];
   var fr = printPhoto(c, IMG.wagen, PX[0], PX[1], PX[2], PX[3], -1.5, 0);
   keys(fr.position, [0, 0.4], [[CX, 900], [CX, 800]], [[10, 10], [92, 92]]);
-  var C = photoXY(IMG.wagen, PX[0], PX[1], PX[2], PX[3], 0.62, 0.62), f = C[2] / 980;
-  var cc = contrastCallout(c, k.offenen, c.duration, C[0], C[1], 330 * f, 220 * f, false); cc.name = "Callout Wagen";   // ohne FIX: folgt der Kamera wie das Foto
+  var C = photoXY(IMG.wagen, PX[0], PX[1], PX[2], PX[3], IMG.wagenRel[0], IMG.wagenRel[1]);
+  var cc = contrastCallout(c, k.offenen, c.duration, C[0], C[1], C[2] * IMG.wagenRel[2], C[3] * IMG.wagenRel[3], false); cc.name = "Callout Wagen";   // ohne FIX: folgt der Kamera wie das Foto
   credit(c, D.credits[IMG.wagenKey]);
   var cam = camRig(c, CX, 800, { punchIn: 120, s0: 100, s1: 105 });
   punchAt(cam, k.offenen, 1.05);
   voxSauce(c, "archiv");
 };
 // ---------- 5 ein junger Mann wirft eine Bombe (Stadtplan, Kolonne am Appel-Kai) ----------
+// Runde 3: naeher ran (Plan 1,0 statt 0,78), Symbole 1,4x groesser, Schatten unter den Untertiteln.
 B.bombe = function (c, k) {
   paperBase(c);
-  var P = planAt(c, X_BOMB, qy(X_BOMB), CX, 860, 0.78);
-  planLabels(c, P, CX, 1.18);
-  var path = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2), tEnd = k.bombe - f2s(1);
+  var IC = 1.4, P = planAt(c, X_BOMB - 40, qy(X_BOMB) - 20, CX, 860, 1.0);
+  planLabels(c, P, CX, 1.2, null, 44);
+  var path = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2, IC), tEnd = k.bombe - f2s(1);
   for (var i = 0; i < cars.length; i++) drive(cars[i], path, 0, tEnd, i * GAP * P.s, "out");
   var sp = pp(P, [X_BOMB + 170, ry(X_BOMB + 170) - 52]);
-  var sil = silhouetteIcon(c, "Silhouette", sp[0], sp[1], 0.5 * P.s * 1.3);
+  var sil = silhouetteIcon(c, "Silhouette", sp[0], sp[1], 0.5 * P.s * 1.3 * 1.25);
   popIn(sil, k.mann - f2s(3));
-  var bm = bombIcon(c, "Bombe"); bm.scale.setValue([P.s * 100, P.s * 100]);
+  var bm = bombIcon(c, "Bombe"); bm.scale.setValue([P.s * 100 * IC, P.s * 100 * IC]);
   var F = pp(P, [X_BOMB, qy(X_BOMB)]);
   bm.inPoint = k.wirft;
-  arcKeys(bm, [sp[0], sp[1] - 70 * P.s], F, 120, k.wirft, tEnd, 540);
+  arcKeys(bm, [sp[0], sp[1] - 90 * P.s], F, 120, k.wirft, tEnd, 540);
   var cam = camRig(c, CX, 860, { punchIn: 118, s0: 100, s1: 105 });
   punchAt(cam, k.wirft, 1.06);
+  subShade(c);
   voxSauce(c, "grafik");
 };
 // ---------- 6 sie prallt ab, explodiert vor dem Wagen dahinter ----------
+// Runde 3: Symbole 1,25x groesser (Wagen, Bombe, Explosion, Kreuze), Schatten unter den Untertiteln.
 B.abprall = function (c, k) {
   paperBase(c);
-  var P = planAt(c, X_BOMB + 20, qy(X_BOMB), CX, 820, 1.3);     // Runde 2: 80 Plan-px nach rechts, erster Wagen nicht mehr am Rand
-  planLabels(c, P, CX, 1.16);
-  var path = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2);
+  var IC = 1.25, P = planAt(c, X_BOMB + 20, qy(X_BOMB), CX, 820, 1.3);
+  planLabels(c, P, CX, 1.16, null, 44);
+  var path = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2, IC);
   for (var i = 0; i < cars.length; i++) place(cars[i], path, i * GAP * P.s);
   var F = pp(P, [X_BOMB, qy(X_BOMB)]), G = pp(P, [X_BOMB - GAP * 0.55, qy(X_BOMB - GAP * 0.55) + 18]);
-  var bm = bombIcon(c, "Bombe"); bm.scale.setValue([P.s * 100, P.s * 100]); bm.position.setValue(F);
+  var bm = bombIcon(c, "Bombe"); bm.scale.setValue([P.s * 100 * IC, P.s * 100 * IC]); bm.position.setValue(F);
   var tb = k.prallt + f2s(3), tx = k.ab;
   arcKeys(bm, F, G, 150, tb, tx - f2s(9), -400);           // liegt 9 Frames, dann Explosion
   bm.outPoint = tx;
-  var bu = pencil(c, "Explosion", SH.burst, "#E8A93A", 9, tx, f2s(4), G[0], G[1], P.s);
+  var bu = pencil(c, "Explosion", SH.burst, "#E8A93A", 10, tx, f2s(4), G[0], G[1], P.s * IC);
   var trS = bu.property("ADBE Root Vectors Group").property(1).property("ADBE Vectors Group").property("ADBE Vector Filter - Trim");
   keys(trS.property("ADBE Vector Trim Start"), [tx + f2s(6), tx + f2s(14)], [0, 100], 40);
-  var soot = shape(c, "Russfleck"), gs = grp(soot); ellipseG(gs, 120 * P.s, 70 * P.s, G[0], G[1]); fill(gs, "#4A443C", 55);
+  var soot = shape(c, "Russfleck"), gs = grp(soot); ellipseG(gs, 120 * P.s * IC, 70 * P.s * IC, G[0], G[1]); fill(gs, "#4A443C", 55);
   soot.inPoint = tx; edgeBoil(soot, 4);
   whiteFlash(c, tx, "Blitz Explosion");
   var back = pAt(path, plen(path) - 3 * GAP * P.s).p;
-  redCross(c, "Verletzte 1", back[0] - 30, back[1] - 70, k.menschen - f2s(2));
-  redCross(c, "Verletzte 2", back[0] + 34, back[1] - 82, k.menschen + f2s(6));
+  redCross(c, "Verletzte 1", back[0] - 40, back[1] - 84, k.menschen - f2s(2), 1.35);
+  redCross(c, "Verletzte 2", back[0] + 44, back[1] - 98, k.menschen + f2s(6), 1.35);
   var cam = camRig(c, CX, 820, { punchIn: 114, s0: 100, s1: 104 });
   shake(cam, tx, 0.5, 16);
+  subShade(c);
   voxSauce(c, "grafik");
 };
 // ---------- 7 der Anschlag ist gescheitert: der Thronfolger faehrt weiter zum Rathaus ----------
+// Runde 3: naeher ran (0,85 statt 0,62), nur die drei vorderen Wagen fahren weiter (die hinteren liegen ausserhalb),
+// Symbole 1,4x, Schatten unter den Untertiteln.
 B.gescheitert = function (c, k) {
   paperBase(c);
-  var P = planAt(c, 1620, qy(1620) - 40, CX, 860, 0.62);     // Runde 2: letzter Wagen nicht mehr am linken Rand
-  planLabels(c, P, CX, 1.12);
-  var path0 = quayScreen(P, 260, X_BOMB + 2 * GAP), cars = convoy(c, P, 5, 2);
+  var IC = 1.4, P = planAt(c, 1720, qy(1720) - 40, CX, 860, 0.85);
+  planLabels(c, P, CX, 1.12, null, 44);
+  var cars = convoy(c, P, 3, 2, IC);
   var pathR = quayScreen(P, X_BOMB - 2 * GAP, PL.x_rathaus - 60);
-  for (var i = 0; i < cars.length; i++) {
-    if (i < 3) { place(cars[i], path0, i * GAP * P.s); drive(cars[i], pathR, f2s(2), k.gescheitert - f2s(2), i * GAP * P.s, "inout", false, 4 * GAP * P.s); }
-    else place(cars[i], path0, i * GAP * P.s);
-  }
-  var back = pAt(path0, plen(path0) - 3 * GAP * P.s).p;
-  redCross(c, "Verletzte", back[0], back[1] - 50, null);
-  var soot = shape(c, "Russfleck"), gs = grp(soot); var G = pp(P, [X_BOMB - GAP * 0.55, qy(X_BOMB - GAP * 0.55) + 18]); ellipseG(gs, 120 * P.s, 70 * P.s, G[0], G[1]); fill(gs, "#4A443C", 55);
+  for (var i = 0; i < cars.length; i++) drive(cars[i], pathR, f2s(2), k.gescheitert - f2s(2), i * GAP * P.s, "inout", false, 5 * GAP * P.s);
   var fin = pAt(pathR, plen(pathR) - 2 * GAP * P.s).p, circ = [];
-  for (var a = 0; a <= 24; a++) { var an = -0.6 + a / 24 * Math.PI * 2.2; circ.push([fin[0] + Math.cos(an) * (70 + a * 0.8), fin[1] + Math.sin(an) * (52 + a * 0.5)]); }
+  for (var a = 0; a <= 24; a++) { var an = -0.6 + a / 24 * Math.PI * 2.2; circ.push([fin[0] + Math.cos(an) * (84 + a * 0.8), fin[1] + Math.sin(an) * (62 + a * 0.5)]); }
   pencil(c, "Kreis Thronfolger", [line2(circ)], INK, 6, k.gescheitert, f2s(10));
   var cam = camRig(c, CX, 860, { punchIn: 110, s0: 100, s1: 104 });
+  subShade(c);
   voxSauce(c, "grafik");
 };
 // ---------- 8 Mitte-Aufruf: Folgen-Klick ueber ruhiger Fahrt auf dem Stadtplan ----------
+// Runde 3: naeher ran (0,9 statt 0,6) auf die Kolonne vor dem Rathaus, Symbole 1,4x, Schatten unter den Untertiteln.
 B.cta = function (c, k) {
   paperBase(c);
-  var P = planAt(c, 1500, qy(1500) - 120, CX, 980, 0.6);
-  planLabels(c, P, CX, 1.18, null, 42);
-  var path = quayScreen(P, X_BOMB - 2 * GAP, PL.x_rathaus - 60), cars = convoy(c, P, 3, 2);
+  var P = planAt(c, 1780, qy(1780) - 120, CX, 980, 0.9);
+  planLabels(c, P, CX, 1.18, null, 44);
+  var path = quayScreen(P, X_BOMB - 2 * GAP, PL.x_rathaus - 60), cars = convoy(c, P, 3, 2, 1.4);
   for (var i = 0; i < cars.length; i++) place(cars[i], path, i * GAP * P.s);
   followButton(c, CX, 640, k.folge, k.schlauer + f2s(8));
   camRig(c, CX, 980, { punchIn: 112, s0: 100, s1: 104, dx: -40 });
+  subShade(c);
   voxSauce(c, "grafik");
 };
 // ---------- 9 Krankenhaus: Foto blaettert um, darunter der Plan ----------
 B.krankenhaus = function (c, k) {
   paperBase(c);
-  var P = planAt(c, 1050, qy(1200) - 60, CX, 880, 0.43);        // Runde 2: Krankenhaus nicht mehr am linken Rand
+  var P = planAt(c, 960, qy(1200) - 60, CX, 880, 0.58);         // Runde 3: 0,58 statt 0,43 (Plan deckt die Breite, kein Planrand bei 22,5 s)
   var tk = k.krankenhaus - f2s(3);
   spitalIcon(c, P, tk);
-  var dash = pencil(c, "Weg zum Krankenhaus", [line2(quayScreen(P, 1900, PL.x_kh + 70))], INK, 6, tk + f2s(8), f2s(14));
+  var dash = pencil(c, "Weg zum Krankenhaus", [line2(quayScreen(P, 1650, PL.x_kh + 70))], INK, 6, tk + f2s(8), f2s(14));
   var st = dash.property("ADBE Root Vectors Group").property(1).property("ADBE Vectors Group").property("ADBE Vector Graphic - Stroke");
   try { var ds = st.property("ADBE Vector Stroke Dashes"); ds.addProperty("ADBE Vector Stroke Dash 1").setValue(16); ds.addProperty("ADBE Vector Stroke Gap 1").setValue(12); } catch (e) {}
   var pg = photoPage("Seite Abfahrt Rathaus", IMG.kh, CX, 820, 760, 700, 1.2, c.duration);   // Runde 2: 760 statt 960 px (Rand)
@@ -184,22 +190,24 @@ B.krankenhaus = function (c, k) {
   pageTurn(L, tp, 0.7, W, H);
   L.outPoint = tp + 0.7 + f2s(9);
   var crd = credit(c, D.credits[IMG.khKey]);
-  if (crd) for (var j = 1; j <= c.numLayers; j++) if (c.layer(j).name.indexOf("FIX Bildquelle") === 0) c.layer(j).outPoint = tp;
+  // Runde 3: Bildquelle bleibt, bis die Seite ganz weggeblaettert ist (Review 2: fehlte bei 21,5 s, Foto noch halb zu sehen)
+  if (crd) for (var j = 1; j <= c.numLayers; j++) if (c.layer(j).name.indexOf("FIX Bildquelle") === 0) c.layer(j).outPoint = tp + 0.7 + f2s(9);
   focusHunt(c, 0, true);
-  var cam = camRig(c, CX, 880, { punchIn: 116, s0: 100, s1: 105 });
+  subShade(c, 28);
+  var cam = camRig(c, CX, 880, { punchIn: 108, s0: 100, s1: 103 });
   voxSauce(c, "grafik");
 };
 // ---------- 10 die Route wird geaendert ----------
 B.route = function (c, k) {
   paperBase(c);
-  var P = planAt(c, 850, qy(1000) - 170, CX, 900, 0.6);         // Runde 2: Krankenhaus + Routen innerhalb 60..1020
+  var P = planAt(c, 900, qy(1000) - 170, CX, 900, 0.6);         // Runde 2/3: Krankenhaus + Routen in 60..1020, Planrand ausserhalb des Bildes
   spitalIcon(c, P, null);
   var old = ppl(P, quay(1520, SX).concat([[SX, qy(SX) - 150], UP]));
   pencil(c, "alte Route", [line2(old)], RED, 7, null);
   var m = pp(P, [SX, qy(SX) - 260]);
   pencil(c, "alte Route gestrichen", [line2([[m[0] - 50, m[1] - 50], [m[0] + 50, m[1] + 50]]), line2([[m[0] + 50, m[1] - 50], [m[0] - 50, m[1] + 50]])], INK, 9, k.route - f2s(3), f2s(7));
   arrowPath(c, "neue Route", quayScreen(P, 1520, PL.x_kh + 90), "#2E6B4F", 8, k.geaendert - f2s(2), f2s(12));
-  var cam = camRig(c, CX, 900, { punchIn: 116, s0: 100, s1: 104 });
+  var cam = camRig(c, CX, 900, { punchIn: 113, s0: 100, s1: 104 });
   focusHunt(c, 0, true);
   voxSauce(c, "grafik");
 };
@@ -260,23 +268,23 @@ B.sekunden = function (c, k) {
   punchAt(cam, k.still - f2s(10), 1.05);
   voxSauce(c, "grafik");
 };
-// ---------- 14 genau vor einem Neunzehnjaehrigen (Lateinerbruecke, Fokus auf die Ecke) ----------
-// Runde 2: Foto kleiner und tiefer (passt mit Zoom in 60..1020), Kamera-Anker zwischen Bildmitte und Ecke,
-// Fokus-Unschaerfe nur 0,3 s, "19 Jahre" dunkel, groesser und mit Abstand ueber dem Foto.
+// ---------- 14 genau vor einem Neunzehnjaehrigen ----------
+// Runde 3 (Review 2): Portraet des 19-Jaehrigen (Haftfoto 2. Juli 1914, gemeinfrei) statt der Stadtansicht von 1923.
+// Kein Name (das Skript nennt ihn nicht), nur "19 Jahre" und die Bildquelle. Schaerfe zieht in 0,3 s auf das Gesicht,
+// roter Bleistift-Kreis um das Gesicht auf "vor" (Kritzel-SFX), Kamera-Punch auf "Attentaetern" (dumpfer SFX).
 B.ecke = function (c, k) {
   paperBase(c);
-  var PX = [CX, 900, 720, 610], X = photoXY(IMG.ecke, PX[0], PX[1], PX[2], PX[3], 0.8125, 0.701);
+  var PX = [CX, 890, 560, 660], X = photoXY(IMG.ecke, PX[0], PX[1], PX[2], PX[3], IMG.eckeFace[0], IMG.eckeFace[1]);
   printPhoto(c, IMG.ecke, PX[0], PX[1], PX[2], PX[3], -1, 0);
-  focalBlur(c, 0, Math.min(0.3, k.vor), [CX - 300, PX[1] - 120], [X[0], X[1]], 12);
-  var circ = [];
-  for (var a = 0; a <= 24; a++) { var an = -0.4 + a / 24 * Math.PI * 2.2; circ.push([X[0] + Math.cos(an) * (66 + a * 0.8), X[1] + Math.sin(an) * (56 + a * 0.5)]); }
-  pencil(c, "Kreis Ecke", [line2(circ)], RED, 8, k.vor, f2s(12));
+  focalBlur(c, 0, Math.min(0.3, k.vor), [CX - 260, PX[1] + 200], [X[0], X[1]], 12);
   var n19 = odometer(c, "19", F_NUM, 230, INK, [CX - 70, 400], k.neunzehn - f2s(4), f2s(14)); n19.name = "FIX Alter 19";
   var jl = txt(c, "Jahre", F_SERIF_I, 66, "#3A352E", [CX + 92, 400], ParagraphJustification.LEFT_JUSTIFY); jl.name = "FIX Alter Jahre"; typeOn(jl, k.neunzehn + f2s(12), 30);
-  var sil = silhouetteIcon(c, "Silhouette Ecke", X[0] + 4, X[1] + 36, 0.56);
-  popIn(sil, k.attentaeter - f2s(3));
+  var circ = [], rx = X[2] * 0.25, ryy = X[3] * 0.25;
+  for (var a = 0; a <= 26; a++) { var an = -1.0 + a / 26 * Math.PI * 2.15; circ.push([X[0] + Math.cos(an) * (rx + a * 0.6), X[1] + Math.sin(an) * (ryy + a * 0.5)]); }
+  pencil(c, "Kreis Gesicht", [line2(circ)], RED, 8, k.vor, f2s(12));
   credit(c, D.credits[IMG.eckeKey]);
-  var cam = camRig(c, (X[0] + CX) / 2, X[1], { punchIn: 116, s0: 100, s1: 108 });
+  var cam = camRig(c, X[0], X[1], { punchIn: 112, s0: 100, s1: 104 });
+  punchAt(cam, k.attentaeter - f2s(3), 1.04);
   voxSauce(c, "archiv");
 };
 // ---------- 15 er schiesst zweimal: zwei Weissblitze, das Bild wird grau ----------
@@ -331,6 +339,7 @@ B.krieg = function (c, k) {
   for (var j = 0; j < order.length; j++) euFill(c, order[j][0], E, t0 + f2s(order[j][1]));
   var cam = camRig(c, CX, 1010, { punchIn: 114, s0: 100, s1: 104 });
   punchAt(cam, k.spaeter, 1.04);
+  subShade(c, 30);                                 // Runde 3: Untertitel auf der Karte ruhiger
   voxSauce(c, "grafik");
 };
 // ---------- 18 was waere passiert? Pfeil spult zurueck, Wagen faehrt richtig ----------
@@ -354,6 +363,7 @@ B.waswaere = function (c, k) {
   arrowPath(c, "Pfeil richtig", ppl(P, quay(1100, 690)), "#2E6B4F", 9, tg2, f2s(16));
   var q = txt(c, "?", F_SERIF_BI, 260, INK, [CX + 300, 560]); popIn(q, k.abgebogen - f2s(4)); yellowPop(q, k.abgebogen - f2s(4));
   var cam = camRig(c, CX, 900, { punchIn: 116, s0: 100, s1: 105 });
+  subShade(c, 30);
   voxSauce(c, "grafik");
 };
 // ---------- 19 Schluss: grosses Logo, Bio-Hinweis, Folgen-Klick ----------
@@ -363,6 +373,10 @@ B.outro = function (c, k) {
   paperBase(c);
   var lg = imp("archiv/logo.png"), tl = k.allgemeinwissen - f2s(4);   // Zeitpunkt wie bisher (Logo-SFX liegt darauf)
   OUTRO_LOGO_T = tl;
+  // Runde 3: gleich ab Szenenbeginn zeichnet sich ein roter Bleistift-Kreis, in den das Logo hineinpoppt (kein leeres Papier bei 44,5 s)
+  var ring = [];
+  for (var a = 0; a <= 30; a++) { var an = -1.2 + a / 30 * Math.PI * 2.12; ring.push([CX + Math.cos(an) * (300 + a * 0.6), 700 + Math.sin(an) * (296 + a * 0.4)]); }
+  pencil(c, "Kreis Logo", [crv(ring)], RED, 9, f2s(1), Math.max(f2s(8), tl - f2s(2)));
   if (lg) { var lo = addItem(c, lg, CX, 700, 520 / lg.width * 100); lo.name = "Logo gross"; popIn(lo, tl, 520 / lg.width * 100);
     var ds = addFx(lo, "ADBE Drop Shadow"); if (ds) { setP(ds, ["Opacity"], 90); setP(ds, ["Distance"], 14); setP(ds, ["Softness"], 34); } }
   var lk = txt(c, "Link in der Bio", F_SERIF_I, 68, INK, [CX, 1060]); typeOn(lk, k.bio - f2s(4), 30);

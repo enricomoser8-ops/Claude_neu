@@ -9,6 +9,7 @@
 //  - UNSCHAERFE: ein Weichzeichner (Fast Box Blur, Compound Blur, Gaussian) darf hoechstens 0,3 s am Stueck wirken;
 //    Compound Blur mit einer Karten-Ebene, deren Effekte AE ignoriert (Solid + Effekt statt Precomp), zaehlt als volle Unschaerfe.
 //  - HOCHSKALIERT: Archivfotos nicht ueber 125 % ihrer echten Pixel (inkl. Precomp-Zoom und Kamera).
+//  - PLANRAND (Runde 3): der Stadtplan deckt zu jeder Zeit die ganze Bildbreite (keine sichtbare Plankante).
 const fs = require('fs');
 const src = fs.readFileSync(process.argv[2], 'utf8');
 const problems = [];
@@ -276,7 +277,7 @@ function toParent(L, p, t) {
 function toComp(L, p, t) { let q = p, l = L, n = 0; while (l && n++ < 20) { q = toParent(l, q, t); l = l.parent; } return q; }
 function opac(L, t) { let o = 1, l = L, n = 0; while (l && n++ < 20) { o *= tv(l, 'ADBE Opacity', t) / 100; l = l.parent; } return o; }
 const SKIP = /^(Papier|Halftone|Vignette|Lichtleck|Kamera|Vox Sauce|Master Sauce|FIX gradient|FIX Fokus|FIX Focus|FIX Entsaettigen|FIX Blitz|FIX Callout|Stadtplan|Europa 1914|Land |Blatt|Kopf|Haeuserbloecke|Fluss|Strassen und Ufer|Grenzen 1914)/;
-const rand = {}, upsc = {}, run = {}, ext = {};
+const rand = {}, upsc = {}, run = {}, ext = {}, planr = {};
 function boundsCheck(sc) {
   function visit(c, outer, tOff, sceneT, depth, tag) {
     for (const L of c.layers) {
@@ -290,6 +291,12 @@ function boundsCheck(sc) {
       if (L.kind === 'comp' && S && S.isComp) {
         const big = S.width >= 1080 || S.height >= 1920;
         if (big || /^Abzug/.test(S.name)) visit(S, map, tOff + L.startTime, sceneT, depth + 1, (tag ? tag + ' > ' : '') + L.name);
+        if (big && depth === 0 && /^Stadtplan/.test(L.name)) {
+          // PLANRAND (Runde 3): der Stadtplan muss die ganze Bildbreite decken, sonst sieht man seine Kante (Review 2, 22,5 s)
+          const xs = [[0, 0], [S.width, 0], [0, S.height], [S.width, S.height]].map(p => map(p)[0]);
+          const lo = Math.min(...xs), hi = Math.max(...xs), key = sc.name + ' | ' + L.name;
+          if (lo > 0.5 || hi < 1079.5) { const over = Math.max(lo, 1080 - hi); if (!planr[key] || planr[key].over < over) planr[key] = { over, lo, hi, t: sceneT }; }
+        }
         if (big) continue;
       }
       if (L.kind === 'item' && S && S.isFootage) {
@@ -346,8 +353,9 @@ const scenes = COMPS.filter(c => /^WK \d\d /.test(c.name));
 for (const c of COMPS) blurCheck(c);
 for (const sc of scenes) boundsCheck(sc);
 for (const k in rand) { const r = rand[k]; problems.push('RAND ' + k + ': x ' + Math.round(r.lo) + '..' + Math.round(r.hi) + ' (' + Math.round(r.over) + ' px draussen, t=' + r.t.toFixed(2) + ' s' + (r.moving ? ', in Bewegung > 12 Frames' : '') + ')'); }
+for (const k in planr) { const r = planr[k]; problems.push('PLANRAND ' + k + ': Plan deckt nur x ' + Math.round(r.lo) + '..' + Math.round(r.hi) + ' (t=' + r.t.toFixed(2) + ' s)'); }
 for (const k in upsc) if (upsc[k].f > 1.25) problems.push('HOCHSKALIERT ' + k + ': ' + Math.round(upsc[k].f * 100) + ' % der echten Pixel (t=' + upsc[k].t.toFixed(2) + ' s), max 125 %');
 if (process.env.AEMOCK_EXT) { for (const k in ext) console.log('  EXT ' + k + ': x ' + Math.round(ext[k].lo) + '..' + Math.round(ext[k].hi)); for (const k in upsc) console.log('  SKAL ' + k + ': ' + Math.round(upsc[k].f * 100) + ' %'); }
 const cnt = (re) => problems.filter(p => re.test(p)).length;
-console.log('Comps:', COMPS.length, '| Probleme:', problems.length, '| RAND:', cnt(/^RAND/), '| UNSCHAERFE:', cnt(/^UNSCHAERFE|^KARTE/), '| HOCHSKALIERT:', cnt(/^HOCHSKALIERT/));
+console.log('Comps:', COMPS.length, '| Probleme:', problems.length, '| RAND:', cnt(/^RAND/), '| UNSCHAERFE:', cnt(/^UNSCHAERFE|^KARTE/), '| HOCHSKALIERT:', cnt(/^HOCHSKALIERT/), '| PLANRAND:', cnt(/^PLANRAND/));
 problems.forEach(p => console.log('  ' + p));

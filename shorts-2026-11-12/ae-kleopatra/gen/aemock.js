@@ -6,12 +6,20 @@
 //   RAND      wichtiges Element ragt (teilweise sichtbar) ueber x 60..1020 hinaus (nach Kamera, Eltern, Master-Gate-Weave 102 %)
 //   LEER      >= 0,3 s nichts Lesbares (kein Text >= 28 px Glyphenhoehe, < 6 % Bildflaeche aus Bildern/Zeichnungen)
 //   LOGO      Element im Logo-Bereich oben links (bis y 262)
-//   UT        Bild / Flaeche in der Untertitelzone (y 1325..1405, x 300..780), ausser ein weicher Schatten 'FIX UT-Schatten' liegt dahinter
+//   UT        Bild / Flaeche in der Untertitelzone (y 1325..1405, x 300..780), ausser eine weiche Abdunklung 'FIX UT-Abdunklung' liegt dahinter
 //   KOLLISION Text liegt auf einem Bild (Freisteller/Abzug)
 //   Referenzen wie in AE: addProperty auf einer Gruppe (auch 2. Effekt / 2. Maske auf derselben Ebene) macht vorher geholte
 //             Referenzen auf deren Kinder ungueltig -> Zugriff wirft "Object is invalid" (Idee aus ae-weltkrieg/gen/aemock.js)
 //   UNSCHAERFE Weichzeichner (Fast Box Blur, Gaussian, Compound) wirkt > 0,3 s am Stueck
 //   HOCHSKALIERT Archivfoto ueber 125 % seiner echten Pixel (inkl. Precomp, Kamera, Gate Weave)
+//   Wertebereiche wie in AE (Runde 3): Trim Start/End/Opacity 0..100, Ease-Einfluss 0.1..100 -> sonst Fehler wie in AE
+//             ("Value 101,72 out of range 0 to 100"); Keys naeher als 1/2 Frame -> KEYS ZU NAH
+//   KLEIN     >= 0,5 s ist das groesste Bild/Grafik-Element (Text nur ab 100 px Hoehe, ohne duenne Linien) kleiner als 60.000 px2 (z. B. 300 x 200)
+//             UND alles zusammen deckt < 15 % des Bildes = Grafik zu klein / zu viel leeres Papier (Review 2: 18-28 s)
+//   UTNAH     Bildtext liegt in/direkt ueber der Untertitelzone (y 1285..1405, x 300..780)
+//   BLASS     Label mit Randblende (EDGEFADE) steht ruhig im Bild, ist aber nur 5..90 % sichtbar (= halb angeschnitten)
+//   SCHWENK   Reissschwenk (Zeitstrahl-Linie > 30 px/Frame): zaehlt fuer LEER/KLEIN nicht (Bewegungsunschaerfe fuellt das Bild),
+//             darf aber hoechstens 0,7 s dauern, sonst SCHWENK-Problem
 // Uebergaenge: erste 3 und letzte 7 Frames je Szene sowie schnell bewegte Elemente (> 10 px/Frame) zaehlen nicht (Bewegung im Standbild ist ok).
 // Ebenen mit Opacity-Ausdruck "EDGEFADE" blenden sich vor dem Rand selbst aus und gelten als sicher.
 const fs = require('fs'), path = require('path'), cp = require('child_process');
@@ -76,19 +84,27 @@ function invalidateBelow(n0, by) {
     for (const c of ch) { c._inv = st; c._invBy = by; rec(c); }
   })(n0);
 }
+const RANGE = { 'ADBE Vector Trim End': [0, 100], 'ADBE Vector Trim Start': [0, 100], 'ADBE Opacity': [0, 100], 'ADBE Vector Fill Opacity': [0, 100], 'ADBE Vector Group Opacity': [0, 100], 'ADBE Mask Opacity': [0, 100] };
+function rng(p, v) {
+  const r = RANGE[p.matchName]; if (!r || typeof v !== 'number') return;
+  if (v < r[0] - 1e-9 || v > r[1] + 1e-9) throw new Error('After Effects error: Value ' + v.toFixed(2) + ' out of range ' + r[0] + ' to ' + r[1] + ' (' + p.matchName + ')');
+}
 function prop(name, matchName, dflt) {
   const p = { name, matchName: matchName || name, propertyType: 6212, keys: [], expression: '', numKeys: 0, _v: dflt === undefined ? 0 : dflt, _inv: 0, _invBy: '',
     added: [], kids: {},
-    setValue(v) { chk(v, this.name); this._v = v; }, get value() { return this._v; },
+    setValue(v) { chk(v, this.name); rng(this, v); this._v = v; }, get value() { return this._v; },
     addKey(t) {
       chk(t, this.name + ' key');
-      for (let i = 0; i < this.keys.length; i++) if (Math.abs(this.keys[i].t - t) < 1e-6) return i + 1;
+      for (let i = 0; i < this.keys.length; i++) {
+        const d = Math.abs(this.keys[i].t - t); if (d < 1e-6) return i + 1;
+        if (d < 0.5 / 30) problems.push('KEYS ZU NAH bei ' + this.name + ': ' + this.keys[i].t.toFixed(4) + ' / ' + t.toFixed(4) + ' s');
+      }
       const k = { t, v: this._v, inInf: null, outInf: null, hold: false };
       let i = 0; while (i < this.keys.length && this.keys[i].t < t) i++;
       this.keys.splice(i, 0, k); this.numKeys = this.keys.length; return i + 1;
     },
     keyTime(i) { return this.keys[i - 1].t; }, keyValue(i) { return this.keys[i - 1].v; },
-    setValueAtKey(i, v) { chk(v, this.name + ' keyval'); if (this.keys[i - 1]) this.keys[i - 1].v = v; },
+    setValueAtKey(i, v) { chk(v, this.name + ' keyval'); rng(this, v); if (this.keys[i - 1]) this.keys[i - 1].v = v; },
     setValueAtTime(t, v) { chk(t, this.name); chk(v, this.name); const i = this.addKey(t); this.keys[i - 1].v = v; },
     nearestKeyIndex(t) { let best = 1, bd = 1e9; this.keys.forEach((k, i) => { const d = Math.abs(k.t - t); if (d < bd) { bd = d; best = i + 1; } }); return best; },
     setTemporalEaseAtKey(i, a, b) {
@@ -125,7 +141,7 @@ function mkGroup(n) {
   g.parentProperty = { property: (x) => mkGroup(String(x)) };
   return g;
 }
-global.KeyframeEase = function (s, i) { if (!(i >= 0.1 && i <= 100)) problems.push('Ease-Influence ausserhalb 0.1-100: ' + i); this.speed = s; this.influence = i; };
+global.KeyframeEase = function (s, i) { if (!(i >= 0.1 && i <= 100)) throw new Error('After Effects error: Ease-Einfluss ' + i + ' ausserhalb 0.1..100'); if (!isFinite(s)) throw new Error('Ease-Geschwindigkeit ungueltig: ' + s); this.speed = s; this.influence = i; };
 function effect(match) {
   const e = prop(match, match); e.propertyType = 6213; const list = [];
   const spec = FXP[match] || null;
@@ -280,7 +296,7 @@ function screenBox(L, t) {
 }
 // BG: reiner Hintergrund/Effekt (kein Inhalt, keine Pruefung). BLEED: laeuft bewusst ueber den Rand (Inhalt, aber keine RAND-/LOGO-Pruefung).
 // THIN: duenne Linien, zaehlen nicht als Flaeche. UTOK: dunkel genug fuer weisse Untertitel.
-const BG = /^(Papier|Halftone|Vignette|Lichtleck|Raster|Kamera|Vox Sauce|FIX Bildquelle|FIX gradient|FIX Callout|FIX Focus|FIX alter Film|FIX Kratzer|FIX UT|Meer|Grund|Einschlag|Null)/;
+const BG = /^(Papier|Halftone|Vignette|Lichtleck|Raster|Kamera|Vox Sauce|FIX Bildquelle|FIX gradient|FIX Callout|FIX Abdunklung|FIX Focus|FIX alter Film|FIX Kratzer|FIX UT|Meer|Grund|Einschlag|Null)/;
 const BLEED = /^(Zeitstrahl|Textmarker|Karte Mittelmeer|Balken Seite|Kleopatra nah|Hieroglyphen|Diagramm)/;
 const THIN = /^(Zeitstrahl|Textmarker|Strich|Pfeil|Unterstrich|Route|Nadel)/;
 const UTOK = /^(Zeitstrahl|Textmarker|Hieroglyphen|Balken Seite)/;
@@ -294,7 +310,7 @@ function visible(L, t) {
 }
 const master = COMPS.find(c => / \(9x16\)$/.test(c.name));
 const scenes = master ? master.layers.filter(l => l.kind === 'comp').map(l => ({ c: l.source, start: l.startTime })).sort((a, b) => a.start - b.start) : [];
-const W = 1080, Hh = 1920, F = 30, out = { RAND: [], LEER: [], LOGO: [], UT: [], KOLLISION: [] };
+const W = 1080, Hh = 1920, F = 30, out = { RAND: [], LEER: [], KLEIN: [], LOGO: [], UT: [], UTNAH: [], SCHWENK: [], BLASS: [], KOLLISION: [] };
 function runs(map, kind, sc, minLen) {
   for (const key in map) {
     const fr = map[key].f.sort((a, b) => a - b); let s = fr[0], p = fr[0];
@@ -304,13 +320,15 @@ function runs(map, kind, sc, minLen) {
   }
 }
 for (const sc of scenes) {
-  const c = sc.c, nF = Math.round(c.duration * F), rand = {}, logo = {}, ut = {}, kol = {}, leer = [];
+  const utn = {};
+  const c = sc.c, nF = Math.round(c.duration * F), rand = {}, logo = {}, ut = {}, kol = {}, leer = [], klein = [], schwenk = [], blass = {}; let covSum = 0, mainMin = 1e9;
   for (let f = 0; f < nF; f++) {
     const t = f / F, tr = f < 3 || f >= nF - 7;
     let txtOK = false, area = 0; const boxes = [];
-    let shade = false;
+    let shade = false, whip = false;
     for (const L of c.layers) {
-      if (/^FIX UT-Schatten/.test(L.name) && t >= L.inPoint && t < L.outPoint) shade = true;
+      if (/^FIX UT-(Schatten|Abdunklung)/.test(L.name) && t >= L.inPoint && t < L.outPoint) shade = true;
+      if (L.name === 'Zeitstrahl Linie' && visible(L, t)) { const p = screenBox(L, t), q = screenBox(L, Math.min(c.duration, t + 1 / F)); if (p && q && Math.abs(q.x0 - p.x0) > 30 && Math.abs(q.x1 - p.x1) > 30) whip = true; }
       const vis = visible(L, t); if (!vis) continue;
       if (BG.test(L.name)) continue;
       const b = screenBox(L, t); if (!b) continue;
@@ -319,23 +337,38 @@ for (const sc of scenes) {
       if (vis !== 'fade') { if (L.kind === 'text') { if (b.h >= 28 && cw > 30) txtOK = true; } else if (!THIN.test(L.name) && (L.kind !== 'comp' || !/^kleopatra Abzug /.test(L.source.name || ''))) area += cw * ch; }
       boxes.push({ L, b, vis });
     }
-    if (!txtOK && area < 0.06 * W * Hh && !tr) leer.push(f);
+    if (whip) schwenk.push(f);
+    if (!txtOK && area < 0.06 * W * Hh && !tr && !whip) leer.push(f);
+    let cov = 0; for (const { L, b, vis } of boxes) if (vis !== 'fade' && !THIN.test(L.name) && !(L.kind === 'text' && b.h < 28) && !(L.kind === 'comp' && /^kleopatra Abzug /.test(L.source.name || ''))) cov += Math.max(0, Math.min(W, b.x1) - Math.max(0, b.x0)) * Math.max(0, Math.min(Hh, b.y1) - Math.max(0, b.y0));
+    cov /= W * Hh; covSum += cov;
+    let main = 0; for (const { L, b, vis } of boxes) if (vis !== 'fade' && (L.kind !== 'text' || b.h >= 100) && !THIN.test(L.name) && !/^Kopf /.test(L.name) && !(L.kind === 'comp' && /^kleopatra Abzug /.test(L.source.name || ''))) main = Math.max(main, Math.max(0, Math.min(W, b.x1) - Math.max(0, b.x0)) * Math.max(0, Math.min(Hh, b.y1) - Math.max(0, b.y0)));
+    mainMin = Math.min(mainMin, tr ? 1e9 : main);
+    if (main < 60000 && cov < 0.15 && !tr && !whip) klein.push(f);
     if (tr) continue;
     for (const { L, b, vis } of boxes) {
-      if (vis === 'fade') continue;
       const b2 = screenBox(L, Math.min(c.duration, t + 1 / F));
+      if (vis === 'fade') {   // EDGEFADE-Text halb ausgeblendet und ruhig = sichtbar blasses / angeschnittenes Label
+        const g = (Math.min(Math.min(b.x0, b.x1) - 70, 1010 - Math.max(b.x0, b.x1))) / 50, mv = b2 && (Math.abs(b2.x0 - b.x0) > 6 || Math.abs(b2.x1 - b.x1) > 6);
+        if (g > 0.05 && g < 0.9 && !mv && b.y1 > 0 && b.y0 < Hh) { const r = blass[L.name] = blass[L.name] || { f: [], lo: 9, why() { return 'nur ' + Math.round(this.lo * 100) + ' % sichtbar'; } }; r.f.push(f); r.lo = Math.min(r.lo, g); }
+        continue;
+      }
       const fast = b2 && (Math.abs(b2.x0 - b.x0) > 10 || Math.abs(b2.x1 - b.x1) > 10), fastY = b2 && (Math.abs(b2.y0 - b.y0) > 10 || Math.abs(b2.y1 - b.y1) > 10);
       const bleed = BLEED.test(L.name);
       if (!bleed && (b.x0 < 60 || b.x1 > 1020) && !fast) { const r = rand[L.name] = rand[L.name] || { f: [], lo: 1e9, hi: -1e9, why() { return 'x ' + Math.round(this.lo) + '..' + Math.round(this.hi); } }; r.f.push(f); r.lo = Math.min(r.lo, b.x0); r.hi = Math.max(r.hi, b.x1); }
       if (!bleed && b.x0 < 162 && b.y0 < 262 && b.x1 > 34 && b.y1 > 132 && !fast && !fastY) (logo[L.name] = logo[L.name] || { f: [], why: () => 'im Logo-Bereich' }).f.push(f);
       if (!shade && !UTOK.test(L.name) && L.kind !== 'text' && !/^FIX /.test(L.name) && b.x0 < 780 && b.x1 > 300 && b.y0 < 1405 && b.y1 > 1325 && !fast && !fastY) (ut[L.name] = ut[L.name] || { f: [], why: () => 'in der Untertitelzone' }).f.push(f);
+      if (L.kind === 'text' && !/^FIX (Bildquelle|Quelle)/.test(L.name) && b.x0 < 780 && b.x1 > 300 && b.y0 < 1405 && b.y1 > 1285 && !fast && !fastY) (utn[L.name] = utn[L.name] || { f: [], why: () => 'Text klebt an den Untertiteln' }).f.push(f);
     }
     for (const A of boxes) if (A.L.kind === 'text' && A.vis !== 'fade') for (const Bx of boxes) if (IMGLIKE(Bx.L) && Bx.L !== A.L) {
       const ox = Math.min(A.b.x1, Bx.b.x1) - Math.max(A.b.x0, Bx.b.x0), oy = Math.min(A.b.y1, Bx.b.y1) - Math.max(A.b.y0, Bx.b.y0);
       if (ox > 12 && oy > 12) { const k = A.L.name + "' auf '" + Bx.L.name; (kol[k] = kol[k] || { f: [], why: () => '' }).f.push(f); }
     }
   }
-  runs(rand, 'RAND', sc); runs(logo, 'LOGO', sc); runs(ut, 'UT', sc); runs(kol, 'KOLLISION', sc);
+  runs(rand, 'RAND', sc); runs(logo, 'LOGO', sc); runs(ut, 'UT', sc); runs(kol, 'KOLLISION', sc); runs(utn, 'UTNAH', sc);
+  runs(klein.length ? { 'Hauptelement zu klein': { f: klein, why: () => '' } } : {}, 'KLEIN', sc, 15);
+  if (process.argv.includes('--cov')) console.log('  Deckung ' + c.name.replace(/^kleopatra /, '').padEnd(16) + (100 * covSum / nF).toFixed(1) + ' % im Mittel, kleinstes Hauptelement ' + Math.round(mainMin / 1000) + 'k px2');
+  runs(blass, 'BLASS', sc, 9);
+  runs(schwenk.length ? { 'Reissschwenk zu lang': { f: schwenk, why: () => '' } } : {}, 'SCHWENK', sc, 22);
   runs(leer.length ? { 'kaum Inhalt': { f: leer, why: () => '' } } : {}, 'LEER', sc, 9);
 }
 // ---------- UNSCHAERFE (> 0,3 s am Stueck) und HOCHSKALIERT (> 125 % der echten Pixel) ----------
@@ -365,8 +398,8 @@ for (const sc of scenes) for (let f = 0; f < Math.round(sc.c.duration * F) - 7; 
 const UPMAX = 1.25;
 for (const k in upsc) if (upsc[k].f > UPMAX + 1e-6) out.HOCHSKALIERT.push('HOCHSKALIERT ' + k + ': ' + Math.round(upsc[k].f * 100) + ' % der echten Pixel (bei ' + upsc[k].t.toFixed(2) + ' s in der Szene), max ' + Math.round(UPMAX * 100) + ' %');
 if (process.argv.includes('--skal')) for (const k in upsc) console.log('  SKAL ' + k + ': ' + Math.round(upsc[k].f * 100) + ' %');
-const nGeo = out.UNSCHAERFE.length + out.HOCHSKALIERT.length + out.RAND.length + out.LEER.length + out.LOGO.length + out.UT.length + out.KOLLISION.length;
-console.log('Geometrie (' + scenes.length + ' Szenen): ' + out.RAND.length + ' RAND | ' + out.LEER.length + ' LEER | ' + out.LOGO.length + ' LOGO | ' + out.UT.length + ' UT | ' + out.KOLLISION.length + ' KOLLISION | ' + out.UNSCHAERFE.length + ' UNSCHAERFE | ' + out.HOCHSKALIERT.length + ' HOCHSKALIERT');
+const nGeo = out.BLASS.length + out.SCHWENK.length + out.KLEIN.length + out.UTNAH.length + out.UNSCHAERFE.length + out.HOCHSKALIERT.length + out.RAND.length + out.LEER.length + out.LOGO.length + out.UT.length + out.KOLLISION.length;
+console.log('Geometrie (' + scenes.length + ' Szenen): ' + out.RAND.length + ' RAND | ' + out.LEER.length + ' LEER | ' + out.KLEIN.length + ' KLEIN | ' + out.LOGO.length + ' LOGO | ' + out.UT.length + ' UT | ' + out.UTNAH.length + ' UTNAH | ' + out.SCHWENK.length + ' SCHWENK | ' + out.BLASS.length + ' BLASS | ' + out.KOLLISION.length + ' KOLLISION | ' + out.UNSCHAERFE.length + ' UNSCHAERFE | ' + out.HOCHSKALIERT.length + ' HOCHSKALIERT');
 for (const k in out) out[k].forEach(s => console.log('  ' + s));
 if (process.argv.includes('--dump')) {   // --dump <szene> <sekunde Master>: alle Ebenen-Rahmen zu dieser Zeit
   const i = process.argv.indexOf('--dump'), sid = process.argv[i + 1], tt = parseFloat(process.argv[i + 2]);

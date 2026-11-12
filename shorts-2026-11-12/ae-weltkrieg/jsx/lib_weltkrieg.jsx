@@ -145,10 +145,21 @@ function whiteFlash(c, t, name) {
   return w;
 }
 // rotes Kreuz (Sanitaet) als Symbol
-function redCross(c, name, x, y, t) {
+function redCross(c, name, x, y, t, sc) {
   var l = shape(c, name), g = grp(l); addPath(g, SH.cross); fill(g, "#FFFFFF"); stroke(g, RED, 4);
   var g2 = grp(l); addPath(g2, SH.cross, 0, 0, 0.62); fill(g2, RED);
-  l.position.setValue([x, y]); if (t !== null && t !== undefined) popIn(l, t);
+  l.position.setValue([x, y]); sc = sc || 1;
+  if (t !== null && t !== undefined) popIn(l, t, sc * 100); else l.scale.setValue([sc * 100, sc * 100]);
+  return l;
+}
+// Runde 3: weicher dunkler Schatten unter der Untertitel-Zone (y ~1310-1460), damit die weissen Untertitel auf hellen
+// Plan-/Kartenflaechen lesbar sind. FIX: haengt nicht an der Kamera.
+function subShade(c, op) {
+  var l = solid(c, "FIX UT-Schatten", "#1D1B18");
+  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.property("ADBE Mask Shape").setValue(mkShape(rectP(c.width + 300, 120, c.width / 2, 1384)));
+  m.property("ADBE Mask Feather").setValue([90, 90]);
+  l.opacity.setValue(op || 34);
   return l;
 }
 // Bombe (schwarze Kugel mit Lunte)

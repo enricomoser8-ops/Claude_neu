@@ -482,7 +482,9 @@ function typeOn(l, t, cps) {
     "var s = value; var n = Math.max(0, Math.floor((time - " + t + ") * " + (cps || 28) + ")); n < s.length ? s.substr(0, n) : s;";
 }
 // Odometer: Ziffern rollen ein (Range Selector Offset -100 -> 0 %, Position y)
-function odometer(comp, s, font, size, color, pos, t0, dur) {
+// snap (Runde 3): Ziffern springen einzeln ganz ein (Range-Selector Smoothness 0). Ohne snap stand eine halb
+// eingerollte Ziffer als "Splitter" unten im Fenster (Review 2: Dreieck neben "191" = Spitze der 4).
+function odometer(comp, s, font, size, color, pos, t0, dur, snap) {
   var l = txt(comp, s, font, size, color, pos);
   var an = l.property("ADBE Text Properties").property("ADBE Text Animators").addProperty("ADBE Text Animator");
   an.name = "Odometer";
@@ -492,6 +494,10 @@ function odometer(comp, s, font, size, color, pos, t0, dur) {
   var sel = an.property("ADBE Text Selectors").addProperty("ADBE Text Selector");
   var off = sel.property("ADBE Text Percent Offset");
   keys(off, [t0, t0 + (dur || 0.8)], [0, 100], [[10, 10], [85, 85]]);
+  if (snap) {
+    try { sel.property("ADBE Text Range Advanced").property("ADBE Text Selector Smoothness").setValue(0); }
+    catch (e) { var sm = findP(sel, ["Smoothness", "ADBE Text Selector Smoothness"]); if (sm) { try { sm.setValue(0); } catch (e2) {} } else log.push("Odometer: Smoothness nicht gefunden"); }
+  }
   // Maske, damit die Ziffern aus einem "Fenster" rollen
   var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
   var rc = l.sourceRectAtTime(t0 + (dur || 0.8) + 0.1, false);

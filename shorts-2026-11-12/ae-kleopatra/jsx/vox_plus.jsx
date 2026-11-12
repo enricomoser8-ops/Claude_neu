@@ -109,7 +109,7 @@ function tlBase(c, par, dr) {
   stroke(gt, INK, 7);
   if (dr) {
     var pv = [], i0;
-    for (i0 = 0; i0 < dr.tip.length; i0++) pv.push((x1 - dr.tip[i0]) / (x1 - x0) * 100);
+    for (i0 = 0; i0 < dr.tip.length; i0++) pv.push(Math.max(0, Math.min(100, (x1 - dr.tip[i0]) / (x1 - x0) * 100)));   // AE: Trim nur 0..100
     var tr = g.addProperty("ADBE Vector Filter - Trim");
     keys(tr.property("ADBE Vector Trim End"), dr.t, pv, dr.infl);
     var tt = [], tr2 = gt.addProperty("ADBE Vector Filter - Trim");
