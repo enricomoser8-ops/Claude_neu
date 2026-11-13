@@ -1,0 +1,106 @@
+{
+ "paris-bau-1883": {
+  "datei": "paris-bau-1883.jpg",
+  "titel": "Assemblage of the Statue of Liberty in Paris (bottom half under scaffolding)",
+  "autor": "Albert Fernique (1883)",
+  "quelle": "https://www.loc.gov/item/2020634761/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: A. Fernique 1883, LOC"
+ },
+ "paris-bau-1883-detail": {
+  "datei": "paris-bau-1883-detail.jpg",
+  "titel": "Assemblage of the Statue of Liberty in Paris (Ausschnitt: Kopf und Fackelhand)",
+  "autor": "Albert Fernique (1883)",
+  "quelle": "https://www.loc.gov/item/2020634761/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: A. Fernique 1883, LOC"
+ },
+ "eiffel-geruest-1881": {
+  "datei": "eiffel-geruest-1881.jpg",
+  "titel": "Statue de la Liberte - Pile interieure (Framework. Elevations)",
+  "autor": "Gustave Eiffel (Buero Eiffel), 1881",
+  "quelle": "https://www.loc.gov/item/2010649598/",
+  "lizenz": "gemeinfrei (LOC)",
+  "kurz": "Plan: G. Eiffel 1881, LOC"
+ },
+ "eiffel-portraet": {
+  "datei": "eiffel-portraet.jpg",
+  "titel": "A. Gustave Eiffel",
+  "autor": "Bain News Service (vor 1921)",
+  "quelle": "https://www.loc.gov/item/2014712901/",
+  "lizenz": "gemeinfrei (No known restrictions, Bain Collection, LOC)",
+  "kurz": "Foto: Bain News Service, LOC"
+ },
+ "eiffelturm-1889": {
+  "datei": "eiffelturm-1889.jpg",
+  "titel": "Eiffel Tower, looking toward Trocadero Palace, Paris Exposition, 1889",
+  "autor": "unbekannt (1889)",
+  "quelle": "https://www.loc.gov/item/92519630/",
+  "lizenz": "gemeinfrei (LOC)",
+  "kurz": "Foto 1889, LOC"
+ },
+ "statue-gruen-heute": {
+  "datei": "statue-gruen-heute.jpg",
+  "titel": "Statue of Liberty, New York",
+  "autor": "Carol M. Highsmith (1980)",
+  "quelle": "https://www.loc.gov/item/2011632115/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC"
+ },
+ "zeitung-1906-wilmington": {
+  "datei": "zeitung-1906-wilmington.jpg",
+  "titel": "Evening Journal (Wilmington, Del.), 17. Okt. 1906, S. 3: \"America's Rusted Goddess\"",
+  "autor": "Evening Journal",
+  "quelle": "https://www.loc.gov/resource/sn85042354/1906-10-17/ed-1/?sp=3",
+  "lizenz": "gemeinfrei (US-Zeitung 1906, Chronicling America, LOC)",
+  "kurz": "Evening Journal 1906, LOC"
+ },
+ "ki-kupfermuenze": {
+  "datei": "ki-kupfermuenze-frei.png",
+  "titel": "Kupfermuenze (KI-Bild, Gegenstand)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell), erzeugt fuer den Kanal",
+  "quelle": "ki-bilder/ki-kupfermuenze.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "ki-farbeimer": {
+  "datei": "ki-farbeimer-frei.png",
+  "titel": "Farbeimer mit Pinsel (KI-Bild, Gegenstand)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-farbeimer.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "ki-statue-kupfer": {
+  "datei": "ki-statue-kupfer-frei.png",
+  "titel": "Freiheitsstatue in frischem Kupferbraun (KI-Rekonstruktion)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-statue-kupfer.png",
+  "lizenz": "eigenes KI-Bild, im Video als \"Rekonstruktion\" beschriftet",
+  "kurz": "KI-Rekonstruktion"
+ },
+ "ki-patina-makro": {
+  "datei": "ki-patina-makro.jpg",
+  "titel": "Gruene Patina auf Kupfer, Makro (KI-Bild)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-patina-makro.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "karte": {
+  "datei": "(Formebenen)",
+  "titel": "Karten New York / Atlantik",
+  "autor": "Natural Earth 1:10m/1:50m (world-atlas@2.0.2), US Census Cartographic Boundary 1:500k + TIGER/Line 2023 AREAWATER",
+  "quelle": "https://www.naturalearthdata.com/ ; https://www.census.gov/geographies/mapping-files.html",
+  "lizenz": "gemeinfrei",
+  "kurz": "Karte: Natural Earth, US Census"
+ },
+ "globus": {
+  "datei": "tex/globus_ny.jpg, tex/satellit_ny.jpg",
+  "titel": "Blue Marble Next Generation, Dezember 2004 (topo + bathy)",
+  "autor": "NASA Earth Observatory (Reto Stoeckli)",
+  "quelle": "https://visibleearth.nasa.gov/images/73909/december-blue-marble-next-generation-w-topography-and-bathymetry",
+  "lizenz": "gemeinfrei (NASA)",
+  "kurz": "Globus: NASA Blue Marble"
+ }
+}
