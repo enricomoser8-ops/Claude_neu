@@ -230,7 +230,7 @@ function comp(name, w, h, par, dur, fps) {
   const c = { name, width: w, height: h, duration: dur, frameRate: fps, layers: [], parentFolder: null, resolutionFactor: [1, 1], motionBlur: false, numLayers: 0, openInViewer() {} };
   const add = (n, k, s) => { const l = layer(c, n, k, s); c.layers.unshift(l); c.numLayers = c.layers.length; c.layers.forEach((x, i) => x.index = i + 1); return l; };
   c.layers.add = (it) => add(it.name, it.duration !== undefined && it.layers ? 'comp' : 'item', it);
-  c.layers.addSolid = (col, n, sw, sh) => { chk(col, 'solid color ' + n); return add(n, 'solid', { width: sw || w, height: sh || h }); };
+  c.layers.addSolid = (col, n, sw, sh) => { chk(col, 'solid color ' + n); return add(n, 'solid', { width: sw || w, height: sh || h, color: col }); };
   c.layers.addShape = () => add('Shape', 'shape'); c.layers.addText = (s) => { const l = add(s, 'text'); l._tdoc._v = { text: s, resetCharStyle() {} }; return l; }; c.layers.addNull = () => add('Null', 'null');
   c.layer = (i) => c.layers[i - 1];
   compCount++; COMPS.push(c); return c;
@@ -247,6 +247,7 @@ global.Shape = function () {};
 global.FolderItem = function () {};
 global.PropertyType = { INDEXED_GROUP: 6214, NAMED_GROUP: 6213, PROPERTY: 6212 };
 global.BlendingMode = new Proxy({}, { get: (t, k) => k }); global.ParagraphJustification = new Proxy({}, { get: (t, k) => k });
+global.MaskMode = { NONE: 'NONE', ADD: 'ADD', SUBTRACT: 'SUBTRACT', INTERSECT: 'INTERSECT', LIGHTEN: 'LIGHTEN', DARKEN: 'DARKEN', DIFFERENCE: 'DIFFERENCE' };
 global.KeyframeInterpolationType = { HOLD: 1, LINEAR: 2, BEZIER: 3 }; global.CloseOptions = { SAVE_CHANGES: 1, DO_NOT_SAVE_CHANGES: 2 }; global.TrackMatteType = {};
 global.$ = { fileName: 'x' };
 let ALERT = null; global.alert = (m) => { ALERT = String(m); };   // HAND_*-Versionen melden per alert
@@ -334,7 +335,7 @@ function screenBox(L, t) {
 }
 // BG: reiner Hintergrund/Effekt (kein Inhalt, keine Pruefung). BLEED: laeuft bewusst ueber den Rand (Inhalt, aber keine RAND-/LOGO-Pruefung).
 // THIN: duenne Linien, zaehlen nicht als Flaeche. UTOK: dunkel genug fuer weisse Untertitel.
-const BG = /^(Papier|Halftone|Vignette|Lichtleck|Raster|Kamera|Vox Sauce|FIX Bildquelle|FIX gradient|FIX Callout|FIX Abdunklung|FIX Focus|FIX alter Film|FIX Kratzer|FIX UT|Meer|Grund|Einschlag|Null|Karte Meer|Karte Leben)/;
+const BG = /^(Farbe |Papier|Halftone|Vignette|Lichtleck|Raster|Kamera|Vox Sauce|FIX Bildquelle|FIX gradient|FIX Callout|FIX Abdunklung|FIX Focus|FIX alter Film|FIX Kratzer|FIX UT|Meer|Grund|Einschlag|Null|Karte Meer|Karte Leben)/;
 const BLEED = /^(Zeitstrahl|Textmarker|Karte |Globus|Satellit|Route|Strich Faden|Balken Seite|Diagramm)/;
 const THIN = /^(Zeitstrahl|Textmarker|Strich|Pfeil|Unterstrich|Route|Nadel|Karte Staaten|Karte Grenzen|Kreis|Kreuz|Trennlinie|Lupe Fang|Schutzlinie)/;
 const UTOK = /^(Zeitstrahl|Textmarker|Karte |Globus|Satellit|Route|Strich Faden)/;
@@ -395,13 +396,17 @@ for (const sc of scenes) {
       boxes.push({ L, b, vis });
     }
     if (!grundDeckt(c, t)) grund.push(f);
+    // Runde 2 (Hintergrund-Vox): das Foto ist das Bild. Ein sichtbares Vox-Geraet AM FOTO (Callout, Farbsweep, Lupe, Fokus, Kreis/Pfeil am
+    // Grund Anker, Textmarker auf der Zeitungsseite, Parallax, Seite, Brand) macht es zum Hauptelement -> zaehlt fuer LEER/KLEIN als Inhalt
+    const vf = c.layers.some(L => /(^|;)VOX:/.test(L.comment || '') && L.enabled && t >= L.inPoint - 1e-6 && t < L.outPoint - 1e-6 && (/^(Grund |FIX Fokus|FIX Callout)/.test(L.name) || (L.parent && L.parent.name === 'Grund Anker')));
+    if (vf) { txtOK = true; area = Math.max(area, 0.2 * W * Hh); }
     if (whip) schwenk.push(f);
     if (!txtOK && area < 0.06 * W * Hh && !tr && !whip) leer.push(f);
     let cov = 0; for (const { L, b, vis } of boxes) if (vis !== 'fade' && !THIN.test(L.name) && !(L.kind === 'text' && b.h < 28) && !(L.kind === 'comp' && /^freiheit Abzug /.test(L.source.name || ''))) cov += Math.max(0, Math.min(W, b.x1) - Math.max(0, b.x0)) * Math.max(0, Math.min(Hh, b.y1) - Math.max(0, b.y0));
     cov /= W * Hh; covSum += cov;
     let main = 0; for (const { L, b, vis } of boxes) if (vis !== 'fade' && (L.kind !== 'text' || b.h >= 100) && !THIN.test(L.name) && !/^Kopf /.test(L.name) && !(L.kind === 'comp' && /^freiheit Abzug /.test(L.source.name || ''))) main = Math.max(main, Math.max(0, Math.min(W, b.x1) - Math.max(0, b.x0)) * Math.max(0, Math.min(Hh, b.y1) - Math.max(0, b.y0)));
     mainMin = Math.min(mainMin, tr ? 1e9 : main);
-    if (main < 60000 && cov < 0.15 && !tr && !whip) klein.push(f);
+    if (main < 60000 && cov < 0.15 && !tr && !whip && !vf) klein.push(f);
     if (tr) continue;
     for (const { L, b, vis } of boxes) {
       const b2 = screenBox(L, Math.min(c.duration, t + 1 / F));
@@ -433,9 +438,19 @@ for (const sc of scenes) {
 }
 // ---------- UNSCHAERFE (> 0,3 s am Stueck) und HOCHSKALIERT (> 125 % der echten Pixel) ----------
 const BLUR = { 'ADBE Box Blur2': 'Blur Radius', 'ADBE Gaussian Blur 2': 'Blurriness', 'ADBE Compound Blur': 'Maximum Blur' };
+// Runde 2 (enno: Fokus-Unschaerfe mit kleinem Radius erlaubt): Fast Box Blur <= 8 px auf 'FIX Fokus-Unschaerfe' mit invertierter Maske
+// (scharfe Stelle bleibt) und <= 2,0 s, oder 'FIX Focus Hunting' <= 9 px und <= 0,4 s, gilt nicht als teuer / zu lange unscharf
+function fokusOK(L, e, c) {
+  if (e.matchName !== 'ADBE Box Blur2') return false;
+  const p = e._list.find(x => x.name === 'Blur Radius'); if (!p) return false;
+  const mx = p.keys.length ? Math.max(...p.keys.map(k => k.v)) : p._v, dur = Math.min(c.duration, L.outPoint) - Math.max(0, L.inPoint);
+  if (/^FIX Fokus-Unschaerfe/.test(L.name)) return mx <= 8 && dur <= 2.0 + 1e-6 && L._masks.some(m => m.inverted);
+  if (/^FIX Focus Hunting/.test(L.name)) return mx <= 9 && dur <= 0.4 + 1e-6;
+  return false;
+}
 out.UNSCHAERFE = []; out.HOCHSKALIERT = [];
 for (const c of COMPS) for (const L of c.layers) for (const e of L._fx) {
-  const pn = BLUR[e.matchName]; if (!pn) continue; const p = e._list.find(x => x.name === pn); if (!p) continue;
+  const pn = BLUR[e.matchName]; if (!pn) continue; const p = e._list.find(x => x.name === pn); if (!p) continue; if (fokusOK(L, e, c)) continue;
   let run = 0, worst = 0, at = 0;
   for (let t = Math.max(0, L.inPoint); t < Math.min(c.duration, L.outPoint) - 1e-6; t += 1 / F) { if (V(p, t) > 1.0) { run += 1 / F; if (run > worst) { worst = run; at = t; } } else run = 0; }
   if (worst > 0.3 + 1e-6) out.UNSCHAERFE.push('UNSCHAERFE ' + c.name + ': "' + L.name + '" / ' + (e.name || e.matchName) + ' wirkt ' + worst.toFixed(2) + ' s am Stueck (bis ' + at.toFixed(2) + ' s)');
@@ -495,6 +510,7 @@ else {
         if (c !== master || !L.adjustmentLayer || L.index !== 1) out.LEISTUNG.push('LEISTUNG Quick Chromatic Aberration nicht auf der obersten Einstellungsebene des Masters: ' + c.name + ' / ' + L.name + ' (Ebene ' + L.index + ')');
       }
       if (/CC Sphere|Deep ?Glow|PEDG|Grain Implant|Add Grain|Match Grain/i.test(m)) out.LEISTUNG.push('LEISTUNG teurer Effekt ' + m + ': ' + c.name + ' / ' + L.name);
+      if (BLUR[m] && fokusOK(L, e, c)) continue;
       if (BLUR[m]) { const sw = (L.source && L.source.width) || 0, sh = (L.source && L.source.height) || 0; if (L.adjustmentLayer || L.kind === 'solid' || sw * sh > 0.25 * W * Hh) out.LEISTUNG.push('LEISTUNG Weichzeichner auf grosser Ebene: ' + c.name + ' / ' + L.name); }
     }
   }
@@ -503,7 +519,7 @@ else {
 }
 // ---------- STRICH / KREUZ deckt sein Ziel ----------
 for (const c of COMPS) for (const L of c.layers) {
-  const m = /^ZIEL:(.+)\|(strich|kreuz)$/.exec(L.comment || ''); if (!m) continue;
+  const m = /^ZIEL:([^;]+)\|(strich|kreuz)(;|$)/.exec(L.comment || ''); if (!m) continue;
   const Z = c.layers.find(x => x.name === m[1]); const tag = c.name + ': "' + L.name + '"';
   if (!Z) { out.STRICH.push('STRICH ' + tag + ': Ziel "' + m[1] + '" fehlt'); continue; }
   let n = 0, worst = '';
@@ -537,13 +553,94 @@ for (const c of COMPS) for (const L of c.layers) for (const e of L._fx) if (ENTF
   if (L.adjustmentLayer) { const u = c.layers.filter(x => x.index > L.index && bunt(x)); if (u.length) out.FARBE.push('FARBE ' + c.name + ': Einstellungsebene "' + L.name + '" (' + e.matchName + ') entfaerbt ' + u.map(x => x.source.name).join(', ')); }
   else if (bunt(L)) out.FARBE.push('FARBE ' + c.name + ': ' + e.matchName + ' auf Farbfoto ' + L.source.name);
 }
+// ---------- FOTO (Runde 2, enno: "zugepflastert mit Bildern"): Vordergrund-Fotos je Szene ----------
+// Zaehlt Abzuege (Precomp 'Abzug ...') und Bild-Ebenen im Vordergrund. Nicht gezaehlt: Hintergrund ('Grund ...', auch Lupe/Kopien),
+// Zeitungsausschnitte ('Zeitung ...' = Vox), Logo. Regel: hoechstens 1 je Szene, hoechstens 3 Szenen mit irgendeinem Foto/Freisteller.
+out.FOTO = []; out.VOX = [];
+{
+  let mit = [];
+  for (const sc of scenes) {
+    const n = sc.c.layers.filter(L => L.enabled && ((L.kind === 'comp' && /Abzug /.test(L.source.name || '')) || (L.kind === 'item' && !/^(Grund|Zeitung|Logo)/.test(L.name) && !/^logo/.test(L.source.name || ''))));
+    if (n.length > 1) out.FOTO.push('FOTO ' + sc.c.name + ': ' + n.length + ' Vordergrund-Fotos (' + n.map(L => L.name).join(', ') + '), max 1');
+    if (n.length) mit.push(sc.c.name.replace(/^freiheit /, '') + ' (' + n.map(L => L.kind === 'comp' ? L.source.name.replace(/^freiheit Abzug /, '') : L.source.name).join(', ') + ')');
+  }
+  if (mit.length > 3) out.FOTO.push('FOTO ' + mit.length + ' Szenen mit Vordergrund-Fotos (max 3): ' + mit.join('; '));
+  if (process.argv.includes('--foto')) console.log('  Szenen mit Vordergrund-Foto: ' + (mit.join('; ') || 'keine'));
+}
+// ---------- VOX: jede Szene hat >= 1 Geraet, das auf das Hintergrundfoto wirkt; genau 1 Hauptgeraet; nie zweimal dasselbe hintereinander;
+// keine roten Stempel mehr (enno) ----------
+{
+  const anFoto = (L) => { if (/^(Grund |FIX Fokus|FIX Callout)/.test(L.name)) return true; let x = L.parent; while (x) { if (x.name === 'Grund Anker') return true; x = x.parent; } return false; };
+  let vor = null; const tab = [];
+  for (const sc of scenes) {
+    const nm = sc.c.name.replace(/^freiheit /, ''), dev = [], haupt = [];
+    for (const L of sc.c.layers) {
+      if (/^Stempel/.test(L.name)) out.VOX.push('VOX ' + nm + ': roter Stempel "' + L.name + '" (nicht mehr erlaubt)');
+      const m = /(^|;)VOX:(\w+)(\|HAUPT)?/.exec(L.comment || ''); if (!m) continue;
+      dev.push({ L, art: m[2], fot: anFoto(L) }); if (m[3]) haupt.push(m[2]);
+    }
+    if (!dev.some(d => d.fot)) out.VOX.push('VOX ' + nm + ': kein Vox-Geraet wirkt auf das Hintergrundfoto');
+    if (haupt.length !== 1) out.VOX.push('VOX ' + nm + ': ' + haupt.length + ' Hauptgeraete (soll 1)');
+    else { if (vor === haupt[0]) out.VOX.push('VOX ' + nm + ': Hauptgeraet "' + haupt[0] + '" wie in der Szene davor'); vor = haupt[0]; }
+    tab.push(nm.padEnd(12) + ' HAUPT ' + (haupt[0] || '-').padEnd(10) + ' | ' + [...new Set(dev.map(d => d.art + (d.fot ? '*' : '')))].join(', '));
+  }
+  if (process.argv.includes('--vox')) tab.forEach(t => console.log('  ' + t));
+}
 for (const c of COMPS) if (Math.abs(c.frameRate - 25) > 1e-6) out.FPS.push('FPS ' + c.name + ': ' + c.frameRate + ' statt 25');
-const nGeo = out.GRUND.length + out.STIL.length + out.LEISTUNG.length + out.STRICH.length + out.LEISTE.length + out.FARBE.length + out.FPS.length + out.BLASS.length + out.SCHWENK.length + out.KLEIN.length + out.UTNAH.length + out.UNSCHAERFE.length + out.HOCHSKALIERT.length + out.RAND.length + out.LEER.length + out.LOGO.length + out.UT.length + out.KOLLISION.length;
-console.log('Geometrie (' + scenes.length + ' Szenen): ' + out.GRUND.length + ' GRUND | ' + out.STIL.length + ' STIL | ' + out.LEISTUNG.length + ' LEISTUNG | ' + out.STRICH.length + ' STRICH | ' + out.LEISTE.length + ' LEISTE | ' + out.FARBE.length + ' FARBE | ' + out.FPS.length + ' FPS | ' + out.RAND.length + ' RAND | ' + out.LEER.length + ' LEER | ' + out.KLEIN.length + ' KLEIN | ' + out.LOGO.length + ' LOGO | ' + out.UT.length + ' UT | ' + out.UTNAH.length + ' UTNAH | ' + out.SCHWENK.length + ' SCHWENK | ' + out.BLASS.length + ' BLASS | ' + out.KOLLISION.length + ' KOLLISION | ' + out.UNSCHAERFE.length + ' UNSCHAERFE | ' + out.HOCHSKALIERT.length + ' HOCHSKALIERT');
+const nGeo = out.FOTO.length + out.VOX.length + out.GRUND.length + out.STIL.length + out.LEISTUNG.length + out.STRICH.length + out.LEISTE.length + out.FARBE.length + out.FPS.length + out.BLASS.length + out.SCHWENK.length + out.KLEIN.length + out.UTNAH.length + out.UNSCHAERFE.length + out.HOCHSKALIERT.length + out.RAND.length + out.LEER.length + out.LOGO.length + out.UT.length + out.KOLLISION.length;
+console.log('Geometrie (' + scenes.length + ' Szenen): ' + out.FOTO.length + ' FOTO | ' + out.VOX.length + ' VOX | ' + out.GRUND.length + ' GRUND | ' + out.STIL.length + ' STIL | ' + out.LEISTUNG.length + ' LEISTUNG | ' + out.STRICH.length + ' STRICH | ' + out.LEISTE.length + ' LEISTE | ' + out.FARBE.length + ' FARBE | ' + out.FPS.length + ' FPS | ' + out.RAND.length + ' RAND | ' + out.LEER.length + ' LEER | ' + out.KLEIN.length + ' KLEIN | ' + out.LOGO.length + ' LOGO | ' + out.UT.length + ' UT | ' + out.UTNAH.length + ' UTNAH | ' + out.SCHWENK.length + ' SCHWENK | ' + out.BLASS.length + ' BLASS | ' + out.KOLLISION.length + ' KOLLISION | ' + out.UNSCHAERFE.length + ' UNSCHAERFE | ' + out.HOCHSKALIERT.length + ' HOCHSKALIERT');
 for (const k in out) out[k].forEach(s => console.log('  ' + s));
 if (process.argv.includes('--dump')) {   // --dump <szene> <sekunde Master>: alle Ebenen-Rahmen zu dieser Zeit
   const i = process.argv.indexOf('--dump'), sid = process.argv[i + 1], tt = parseFloat(process.argv[i + 2]);
   const sc = scenes.find(s => s.c.name.indexOf(sid) >= 0);
   if (sc) for (const L of sc.c.layers) { const v = visible(L, tt - sc.start); const b = v && screenBox(L, tt - sc.start); if (b) console.log('   ' + L.name.padEnd(34) + ' x ' + Math.round(b.x0) + '..' + Math.round(b.x1) + '  y ' + Math.round(b.y0) + '..' + Math.round(b.y1) + (v === 'fade' ? ' (Randblende)' : '')); }
+}
+// ---------- --render <out.json> <t1,t2,...>: Anzeigeliste der Master-Comp zu diesen Zeiten (fuer die PIL-Vorschau gen/vorschau_render.py) ----------
+if (process.argv.includes('--render')) {
+  const i = process.argv.indexOf('--render'), outF = process.argv[i + 1], TT = process.argv[i + 2].split(',').map(Number);
+  const val = (p, t) => { if (!p) return undefined; const v = p.keys && p.keys.length ? p.valueAtTime(t) : p._v; return v; };
+  const shp = (v) => v && v.vertices ? { v: v.vertices, i: v.inTangents, o: v.outTangents, c: !!v.closed } : null;
+  function evalText(L, t) {
+    const d = L._doc(), ex = L._tdoc.expression; let s = String(d.text);
+    if (ex) { try { s = String((new Function('time', 'value', 'linear', 'ease', 'posterizeTime', 'return eval(arguments[5]);'))(t, s,
+      (x, a, b, c0, c1) => x <= a ? c0 : x >= b ? c1 : c0 + (c1 - c0) * (x - a) / (b - a), (x, a, b, c0, c1) => { const u = Math.max(0, Math.min(1, (x - a) / (b - a))); return c0 + (c1 - c0) * (u * u * (3 - 2 * u)); }, () => 0, ex)); } catch (e) { s = '[EXPR ' + e.message + ']'; } }
+    return { s, font: d.font, size: d.fontSize, color: d.fillColor, just: String(d.justification || ''), tracking: d.tracking || 0, stroke: d.applyStroke ? { c: d.strokeColor, w: d.strokeWidth } : null };
+  }
+  function walkShape(node, t) {
+    const out = { paths: [], ell: [], rect: [], stroke: null, fill: null, trim: null, groups: [], op: 100 };
+    for (const c of node.added) {
+      const m = c.matchName;
+      if (m === 'ADBE Vector Group') { const g = walkShape(c.property('ADBE Vectors Group').__node, t); const tg = c.kids['ADBE Vector Transform Group']; if (tg && tg.kids['ADBE Vector Group Opacity']) g.op = val(tg.kids['ADBE Vector Group Opacity'], t); out.groups.push(g); }
+      else if (m === 'ADBE Vector Shape - Group') out.paths.push(shp(val(c.kids['ADBE Vector Shape'], t)));
+      else if (m === 'ADBE Vector Shape - Ellipse') out.ell.push({ s: val(c.kids['ADBE Vector Ellipse Size'], t), p: val(c.kids['ADBE Vector Ellipse Position'], t) || [0, 0] });
+      else if (m === 'ADBE Vector Shape - Rect') out.rect.push({ s: val(c.kids['ADBE Vector Rect Size'], t), p: val(c.kids['ADBE Vector Rect Position'], t) || [0, 0], r: val(c.kids['ADBE Vector Rect Roundness'], t) || 0 });
+      else if (m === 'ADBE Vector Graphic - Stroke') { const ds = c.kids['ADBE Vector Stroke Dashes']; let dash = null; if (ds && ds.added.length) dash = ds.added.map(x => x._v); out.stroke = { c: val(c.kids['ADBE Vector Stroke Color'], t), w: val(c.kids['ADBE Vector Stroke Width'], t), dash }; }
+      else if (m === 'ADBE Vector Graphic - Fill') out.fill = { c: val(c.kids['ADBE Vector Fill Color'], t), op: c.kids['ADBE Vector Fill Opacity'] ? val(c.kids['ADBE Vector Fill Opacity'], t) : 100 };
+      else if (m === 'ADBE Vector Filter - Trim') out.trim = { s: c.kids['ADBE Vector Trim Start'] ? val(c.kids['ADBE Vector Trim Start'], t) : 0, e: c.kids['ADBE Vector Trim End'] ? val(c.kids['ADBE Vector Trim End'], t) : 100 };
+    }
+    return out;
+  }
+  function fxList(L, t) {
+    return L._fx.map(e => { const p = {}; const rec = (lst) => { for (const q of lst) { if (q._list) rec(q._list); else p[q.name] = val(q, t); } }; rec(e._list); return { m: e.matchName, n: e.name, p }; });
+  }
+  function dumpComp(c, t) {
+    const res = [];
+    for (let k = c.layers.length - 1; k >= 0; k--) {
+      const L = c.layers[k];
+      if (!L.enabled || L.guideLayer || L.kind === 'null' || t < L.inPoint - 1e-6 || t >= L.outPoint - 1e-6 || /^Ton:/.test(L.name)) continue;
+      const e = { kind: L.kind, name: L.name, M: mat(L, t), op: val(L.opacity, t), blend: String(L.blendingMode || 'NORMAL'), adj: !!L.adjustmentLayer,
+        masks: L._masks.map(m => ({ s: shp(val(m.kids['ADBE Mask Shape'], t)), inv: !!m.inverted, f: m.kids['ADBE Mask Feather'] ? val(m.kids['ADBE Mask Feather'], t) : 0, mode: m.maskMode || 'ADD' })),
+        fx: fxList(L, t) };
+      if (L.kind === 'item') { e.src = L.source.name; e.w = L.source.width; e.h = L.source.height; }
+      if (L.kind === 'solid') { e.w = L.source.width; e.h = L.source.height; e.color = L.source.color; }
+      if (L.kind === 'text') e.text = evalText(L, t);
+      if (L.kind === 'shape') e.shape = L._root ? walkShape(L._root, t) : null;
+      if (L.kind === 'comp') { e.w = L.source.width; e.h = L.source.height; e.layers = dumpComp(L.source, t - L.startTime); }
+      res.push(e);
+    }
+    return res;
+  }
+  fs.writeFileSync(outF, JSON.stringify({ frames: TT.map(t => ({ t, layers: dumpComp(master, t) })) }));
+  console.log('Anzeigeliste geschrieben: ' + outF + ' (' + TT.length + ' Zeiten)');
 }
 process.exitCode = problems.length || nGeo ? 1 : 0;

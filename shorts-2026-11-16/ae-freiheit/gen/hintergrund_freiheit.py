@@ -26,13 +26,13 @@ QUELLEN = {
  'paris-kopf-1878': dict(datei='97502744.jpg', loc='97502744', titel='Head of the Statue of Liberty on display at Champ-de-Mars, Paris 1878', autor='unbekannt (1878/1883)', kurz='Foto: Paris 1878, LOC', gueltig=(0.11, 0.11, 0.89, 0.90), farbe=0.0),
  'werkstatt-paris': dict(datei='97502750.jpg', loc='97502750', titel='Workmen constructing the Statue of Liberty, hammering copper (Gaget, Gauthier & Co., Paris)', autor='Pierre Petit (1881-1883)', kurz='Foto: Pierre Petit, LOC', gueltig=(0.01, 0.025, 0.99, 0.97), farbe=0.0),
  'geruest-paris': dict(datei='2020634761.jpg', loc='2020634761', titel='Assemblage of the Statue of Liberty in Paris (Geruest)', autor='Albert Fernique (1883)', kurz='Foto: A. Fernique 1883, LOC', gueltig=(0.03, 0.02, 0.97, 0.98), farbe=0.0),
- 'insel-1890': dict(datei='2016801649.jpg', loc='2016801649', titel='Statue of Liberty, New York harbor', autor='Detroit Publishing Co. (um 1890)', kurz='Foto: Detroit Publishing Co., LOC', gueltig=(0.075, 0.045, 0.915, 0.945), farbe=0.0),
+ 'insel-1890': dict(datei='2016801649.jpg', loc='2016801649', titel='Statue of Liberty, New York harbor', autor='Detroit Publishing Co. (um 1890)', kurz='Foto: Detroit Publishing Co., LOC', gueltig=(0.075, 0.075, 0.915, 0.945), farbe=0.0),
  'wolken-1910': dict(datei='2016814203.jpg', loc='2016814203', titel='Statue of Liberty, New York harbor (Wolken)', autor='Detroit Publishing Co. (um 1910)', kurz='Foto: Detroit Publishing Co., LOC', gueltig=(0.065, 0.125, 0.935, 0.875), farbe=0.0),
- 'gewand-heute': dict(datei='2011630662_hr.jpg', loc='2011630662', titel='Statue of Liberty, New York (Nahaufnahme)', autor='Carol M. Highsmith (1980er)', kurz='Foto: Carol M. Highsmith, LOC', gueltig=(0.0, 0.0, 1.0, 1.0), farbe=0.30),
+ 'gewand-heute': dict(datei='2011630662_hr.jpg', loc='2011630662', titel='Statue of Liberty, New York (Nahaufnahme)', autor='Carol M. Highsmith (1980er)', kurz='Foto: Carol M. Highsmith, LOC', gueltig=(0.0, 0.0, 1.0, 1.0), farbe=0.34, warm=(1.04, 1.03, 0.97)),
  'photochrom-1905': dict(datei='2008679689.jpg', loc='2008679689', titel='Statue of Liberty, New York Harbor (Photochrom)', autor='Detroit Photographic Co. (um 1905)', kurz='Photochrom um 1905, LOC', gueltig=(0.025, 0.035, 0.975, 0.965), farbe=0.30),
  'kapitol-1902': dict(datei='2025164878.jpg', loc='2025164878', titel='The Capitol, Washington', autor='Detroit Publishing Co. (1902)', kurz='Foto: Detroit Publishing Co. 1902, LOC', gueltig=(0.06, 0.075, 0.94, 0.925), farbe=0.0),
  'zeitung-seite': dict(datei='np_ej_1906_hr.jpg', loc=None, url='https://www.loc.gov/resource/sn85042354/1906-10-17/ed-1/?sp=3', titel='Evening Journal (Wilmington, Del.), 17. Okt. 1906, S. 3 (ganze Seite)', autor='Evening Journal', kurz='Evening Journal 1906, LOC', gueltig=(0.03, 0.02, 0.97, 0.97), farbe=0.0),
- 'statue-nah': dict(datei='2017882051_hr.jpg', loc='2017882051', titel='The Statue of Liberty on Liberty Island (Luftbild nah)', autor='Carol M. Highsmith (2017)', kurz='Foto: Carol M. Highsmith, LOC', gueltig=(0.0, 0.0, 1.0, 1.0), farbe=0.32),
+ 'statue-nah': dict(datei='2017882051_hr.jpg', loc='2017882051', titel='The Statue of Liberty on Liberty Island (Luftbild nah)', autor='Carol M. Highsmith (2017)', kurz='Foto: Carol M. Highsmith, LOC', gueltig=(0.0, 0.0, 1.0, 1.0), farbe=0.34, warm=(1.04, 1.03, 0.97)),
  'wolken-1905': dict(datei='2016799950.jpg', loc='2016799950', titel='Statue of Liberty, New York harbor (Wolken)', autor='Detroit Publishing Co. (um 1905)', kurz='Foto: Detroit Publishing Co., LOC', gueltig=(0.065, 0.095, 0.935, 0.905), farbe=0.0),
  'insel-luft': dict(datei='2011632948.jpg', loc='2011632948', titel='Statue of Liberty, New York (Luftbild)', autor='Carol M. Highsmith (1980er)', kurz='Foto: Carol M. Highsmith, LOC', gueltig=(0.0, 0.0, 1.0, 1.0), farbe=0.25),
 }
@@ -48,29 +48,29 @@ TDIVE = 1.48
 G = {
  # 1 Einstieg: Hafen weit (Manhattan, Insel), Sturzflug nach rechts auf die Statue; weit -> nah ueberblendet
  'hook': dict(keys=[(0.0, (0.50, 0.47), (540, 960), 0.99), (TDIVE, LIB_Q, LIB_P, 0.62), ('E', LIB_Q, LIB_P, 0.60)],
-              infl=[[33, 72], [38, 60], [60, 33]], ebenen=[('hafen-heute', 'weit', 0.0, 0.80, 0.0), ('hafen-heute', 'mittel', 0.66, 1.12, 0.14), ('hafen-heute', 'nah', 0.98, 'E', 0.14)],
+              infl=[[33, 72], [38, 60], [60, 33]], ebenen=[('hafen-heute', 'weit', 0.0, 0.80, 0.0), ('hafen-heute', 'mittel', 0.66, 1.12, 0.14), ('hafen-heute', 'nah', 0.98, 'E', 0.14)], hell=0.68,
               pin={'Liberty Island': LIB_Q}),
  'braun': dict(keys=[(0.0, (0.47, 0.47), (560, 960), 0.91), ('E', (0.47, 0.45), (540, 960), 0.85)], ebenen=[('bedloe-1886', 'bild', 0, 'E', 0)]),
  # 3 Geschenk: schneller Zoom auf den Kopf (Paris 1878) zum Whoosh bei "Geschenk"
  'geschenk': dict(keys=[(0.0, (0.47, 0.50), (540, 960), 0.77), (k('geschenk', 'geschenk') - 0.08, (0.47, 0.49), (540, 960), 0.76),
                         (k('geschenk', 'geschenk') + 0.54, (0.45, 0.42), (540, 820), 0.60), ('E', (0.45, 0.42), (540, 820), 0.585)],
                   infl=[[40, 40], [20, 20], [85, 40], [40, 40]], ebenen=[('paris-kopf-1878', 'bild', 0, 'E', 0)]),
- 'haut': dict(keys=[(0.0, (0.44, 0.55), (540, 960), 0.92), ('E', (0.48, 0.55), (540, 960), 0.86)], ebenen=[('werkstatt-paris', 'bild', 0, 'E', 0)]),
+ 'haut': dict(keys=[(0.0, (0.44, 0.55), (540, 960), 0.92), ('E', (0.48, 0.55), (540, 960), 0.86)], ebenen=[('werkstatt-paris', 'bild', 0, 'E', 0)], hell=0.86),
  # 5 Eiffel: langsam am eisernen Geruest hinauf
- 'eiffel': dict(keys=[(0.0, (0.50, 0.55), (540, 960), 0.90), ('E', (0.52, 0.42), (540, 960), 0.78)], ebenen=[('geruest-paris', 'bild', 0, 'E', 0)]),
- 'folge': dict(keys=[(0.0, (0.45, 0.48), (540, 960), 0.87), ('E', (0.45, 0.47), (540, 960), 0.84)], ebenen=[('insel-1890', 'bild', 0, 'E', 0)]),
+ 'eiffel': dict(keys=[(0.0, (0.50, 0.55), (540, 960), 0.90), ('E', (0.52, 0.42), (540, 960), 0.78)], ebenen=[('geruest-paris', 'bild', 0, 'E', 0)], hell=0.70),
+ 'folge': dict(keys=[(0.0, (0.45, 0.50), (540, 960), 0.80), ('E', (0.45, 0.50), (540, 960), 0.77)], ebenen=[('insel-1890', 'bild', 0, 'E', 0)], hell=0.70),
  'regen': dict(keys=[(0.0, (0.47, 0.50), (540, 960), 0.73), ('E', (0.46, 0.48), (540, 960), 0.68)], ebenen=[('wolken-1910', 'bild', 0, 'E', 0)]),
- 'patina': dict(keys=[(0.0, (0.66, 0.80), (540, 960), 0.36), ('E', (0.64, 0.78), (540, 960), 0.33)], ebenen=[('gewand-heute', 'gewand', 0, 'E', 0)]),
+ 'patina': dict(keys=[(0.0, (0.66, 0.80), (540, 960), 0.36), ('E', (0.64, 0.78), (540, 960), 0.33)], ebenen=[('gewand-heute', 'gewand', 0, 'E', 0)], hell=0.70),
  'rost': dict(keys=[(0.0, (0.475, 0.52), (540, 960), 0.90), ('E', (0.475, 0.50), (540, 960), 0.83)], ebenen=[('photochrom-1905', 'bild', 0, 'E', 0)]),
  'kongress': dict(keys=[(0.0, (0.505, 0.37), (540, 640), 0.83), ('E', (0.505, 0.37), (540, 640), 0.75)], ebenen=[('kapitol-1902', 'bild', 0, 'E', 0)],
                   pin={'Kapitol': (0.505, 0.37)}),
- 'protest': dict(keys=[(0.0, (0.29, 0.44), (540, 960), 0.44), ('E', (0.31, 0.44), (540, 960), 0.41)], ebenen=[('zeitung-seite', 'bild', 0, 'E', 0)]),
- 'pruefen': dict(keys=[(0.0, (0.50, 0.52), (540, 960), 0.96), ('E', (0.505, 0.50), (540, 960), 0.90)], ebenen=[('statue-nah', 'bild', 0, 'E', 0)]),
- 'ergebnis': dict(keys=[(0.0, (0.56, 0.60), (540, 960), 0.40), ('E', (0.56, 0.58), (540, 960), 0.37)], ebenen=[('gewand-heute', 'krone', 0, 'E', 0)]),
+ 'protest': dict(keys=[(0.0, (0.632, 0.624), (540, 860), 0.300), ('E', (0.636, 0.624), (540, 860), 0.268)], ebenen=[('zeitung-seite', 'spalte', 0, 'E', 0)], hell=0.74),
+ 'pruefen': dict(keys=[(0.0, (0.50, 0.52), (540, 960), 0.96), ('E', (0.505, 0.50), (540, 960), 0.90)], ebenen=[('statue-nah', 'bild', 0, 'E', 0)], hell=0.70),
+ 'ergebnis': dict(keys=[(0.0, (0.56, 0.60), (540, 960), 0.40), ('E', (0.56, 0.58), (540, 960), 0.37)], ebenen=[('gewand-heute', 'krone', 0, 'E', 0)], hell=0.70),
  # 14 bleibt: dieselbe Ansicht wie am Ende des Einstiegs (Statue links unten, Abzug "heute" oben rechts)
- 'bleibt': dict(keys=[(0.0, LIB_Q, LIB_P, 0.62), ('E', LIB_Q, LIB_P, 0.59)], ebenen=[('hafen-heute', 'nah', 0, 'E', 0)], pin={'Liberty Island': LIB_Q}),
+ 'bleibt': dict(keys=[(0.0, LIB_Q, LIB_P, 0.62), ('E', LIB_Q, LIB_P, 0.59)], ebenen=[('hafen-heute', 'nah', 0, 'E', 0)], pin={'Liberty Island': LIB_Q}, hell=0.68),
  'frage': dict(keys=[(0.0, (0.47, 0.50), (540, 960), 0.79), ('E', (0.47, 0.49), (540, 960), 0.75)], ebenen=[('wolken-1905', 'bild', 0, 'E', 0)]),
- 'outro': dict(keys=[(0.0, (0.45, 0.50), (540, 960), 0.99), ('E', (0.45, 0.48), (540, 960), 0.93)], ebenen=[('insel-luft', 'bild', 0, 'E', 0)], hell=0.50),
+ 'outro': dict(keys=[(0.0, (0.45, 0.50), (540, 960), 0.99), ('E', (0.45, 0.48), (540, 960), 0.93)], ebenen=[('insel-luft', 'bild', 0, 'E', 0)], hell=0.62),
 }
 
 # ---------- AE-Ease nachrechnen (Geschwindigkeit 0, Einfluss): wie gen/aemock.js ----------
@@ -100,16 +100,18 @@ def sepia_map(L):
     xs = [s[0] for s in STOPS]
     for c in range(3): out[..., c] = np.interp(L, xs, [s[1][c] / 255.0 for s in STOPS])
     return out
-def grade(im, farbe, hell):
+def tonwerte(im):   # Schwarz-/Weisspunkt aus dem ganzen Quellbild (Runde 2: sonst passen Ausschnitte/Lupe derselben Quelle nicht zusammen)
+    a = np.asarray(im.convert('L').resize((max(1, im.width // 4), max(1, im.height // 4)))).astype(np.float32) / 255.0
+    return np.percentile(a, 1.0), np.percentile(a, 99.3)
+def grade(im, farbe, hell, lo, hi, warm=(1.06, 1.0, 0.90)):
     a = np.asarray(im.convert('RGB')).astype(np.float32) / 255.0
     L = 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]
-    lo, hi = np.percentile(L, 1.0), np.percentile(L, 99.3)
     Ln = np.clip((L - lo) / max(0.05, hi - lo), 0, 1)
     Ld = np.clip(Ln ** 1.18 * hell, 0, 1)
     sep = sepia_map(Ld)
     if farbe > 0:   # Originalfarbe (gleich hell wie der Sepia-Wert), leicht angewaermt
         col = a / np.maximum(L[..., None], 1e-3) * Ld[..., None]
-        col = col * np.array([1.06, 1.0, 0.90], np.float32)
+        col = col * np.array(warm, np.float32)
         sep = sep * (1 - farbe) + np.clip(col, 0, 1) * farbe
     return Image.fromarray((np.clip(sep, 0, 1) * 255 + 0.5).astype(np.uint8))
 
@@ -160,6 +162,7 @@ for (q, name), b in need.items():
 if err: sys.exit('%d Fehler' % err)
 
 # ---------- schreiben ----------
+TW = {q: tonwerte(Image.open(os.path.join(DL, v['datei']))) for q, v in QUELLEN.items()}
 for (q, name), bi in bilder.items():
     v = QUELLEN[q]; im = Image.open(os.path.join(DL, v['datei']))
     x0, y0 = bi['o']; sw = bi['size'][0] / bi['r']; sh = bi['size'][1] / bi['r']
@@ -167,7 +170,7 @@ for (q, name), bi in bilder.items():
     hell = 0.60
     for g in G.values():
         if any((e[0], e[1]) == (q, name) for e in g['ebenen']) and 'hell' in g: hell = g['hell']
-    gi = grade(im, v['farbe'], hell)
+    gi = grade(im, v['farbe'], hell, *TW[q], warm=v.get('warm', (1.06, 1.0, 0.90)))
     gi.save(os.path.join(ROOT, bi['rel']), quality=86, optimize=True)
     m = np.asarray(gi).mean() / 255
     print('%-34s %4d x %4d  r %.3f  max %3.0f %% echte Pixel  mittlere Helligkeit %.2f' % (bi['rel'], bi['size'][0], bi['size'][1], bi['r'], bi['up'] * 100, m))
@@ -185,6 +188,23 @@ for sid, g in G.items():
         P = [last[2][0] + (Qp[0] - last[1][0]) * last[3], last[2][1] + (Qp[1] - last[1][1]) * last[3]]
         pins[n] = [round(P[0], 1), round(P[1], 1)]
     GR[sid] = {'keys': ks, 'infl': g['infl'], 'ebenen': eb, 'pin': pins, 'quelle': 'bg-' + q}
+# ---------- Lupen (Runde 2): Ausschnitt in echter Aufloesung (r = 1) um einen Bildpunkt, gleich gegradet wie der Hintergrund ----------
+# sid: (Bildschirmpunkt zur Zeit tref, tref, Vergroesserung m, Lupenradius R auf dem Bildschirm). Die Lupe sitzt genau ueber dem Punkt.
+LUPE = {'hook': ((338, 800), 2.4, 1.55, 200), 'pruefen': ((590, 960), 1.2, 1.85, 215)}
+for sid, (S, tref, m, Rr) in LUPE.items():
+    g = G[sid]; q = g['ebenen'][-1][0]; Q, P, z = state(g, tref, q)
+    D = (Q[0] + (S[0] - P[0]) / z, Q[1] + (S[1] - P[1]) / z)
+    up = z * m * GW
+    if up > MAXUP + 1e-6: sys.exit('FEHLER Lupe %s: %.0f %% der echten Pixel' % (sid, up * 100))
+    hw = int(math.ceil(Rr / (z * m) * 1.25 + 12))
+    v = QUELLEN[q]; im = Image.open(os.path.join(DL, v['datei']))
+    x0, y0 = int(round(D[0])) - hw, int(round(D[1])) - hw
+    crop = im.crop((x0, y0, x0 + 2 * hw, y0 + 2 * hw))
+    hell = g.get('hell', 0.60)
+    gi = grade(crop, v['farbe'], hell, *TW[q], warm=v.get('warm', (1.06, 1.0, 0.90)))
+    rel = 'archiv/lupe-%s.jpg' % sid; gi.save(os.path.join(ROOT, rel), quality=90)
+    GR[sid]['lupe'] = {'rel': rel, 'o': [x0, y0], 'D': [round(D[0], 1), round(D[1], 1)], 'm': m, 'R': Rr, 'tref': tref}
+    print('Lupe %s: %s  D %.0f/%.0f  %d x %d  %.0f %% echte Pixel' % (sid, rel, D[0], D[1], 2 * hw, 2 * hw, up * 100))
 json.dump(GR, open(os.path.join(ROOT, 'data', 'grund.json'), 'w'), indent=1)
 # Bildnachweise ergaenzen
 cp = os.path.join(OUT, 'credits.json'); C = json.load(open(cp, encoding='utf-8'))

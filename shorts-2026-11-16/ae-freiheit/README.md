@@ -33,7 +33,68 @@ Untertitel (ein Wort, Arial Bold 52, weiß, y 1370, zwei Drop Shadows 230/135°/
 - Render: Vorlage H.264 `Match Render Settings - 40 Mbps`, bricht ab, wenn die Comp nicht 25 fps hat. Andere Aufträge der Renderliste werden
   nur abgehakt (nicht gelöscht). `render_freiheit_teile.jsx` (`TEILE = true`, `SPLIT = 25`) rendert beide Hälften nacheinander, mit Purge dazwischen.
 
-## Neuer Stil: Hintergrund-Vox (16.11.)
+## Runde 2 (16.11.): weniger Fotos, mehr Vox
+Rückmeldung zum Render: "mit Bildern zugekleistert", zu wenig Vox. Jetzt gilt: **das Hintergrundfoto ist DAS Bild**.
+- Vordergrund-Abzüge sind raus. Übrig sind nur das Porträt Gustave Eiffel (eiffel) und die Kupfermünze (KI, braun). Dazu kommen echte Zeitungsausschnitte 1906.
+  Raus sind auch: KI-Statue mit Leiste, Farbeimer, Patina-Makro, Gerüst-Plan, Abzug Paris 1883, Nadeln mit Faden und alle roten Schablonen-Stempel
+  (NEIN! / PROTEST! / NICHT ANSTREICHEN! / ROST? / NICHTS GESTRICHEN).
+- Jede Szene hat mindestens ein Vox-Mittel, das **auf dem Hintergrund** wirkt (Kind des Nulls `Grund Anker`, klebt in Quellpixeln am Foto, fährt mit).
+  Hauptmittel nie zweimal hintereinander gleich. Die Bibliothek steht in `jsx/grund_lib.jsx`:
+  - `spot`: Callout, eine schwarze Fläche mit weicher inverser Maske
+  - `farbSweep`: Farbe über die echte Statue, Modus Farbe, mit Wisch-Maske
+  - `gKreis` / `gStrich` / `gPfeil` / `gLabel`: Bleistift
+  - `gLupe`: Lupe mit echtem Ausschnitt in voller Auflösung (`archiv/lupe-*.jpg`)
+  - `gFokus`: Fokus-Unschärfe, Fast Box Blur 6, inverse Maske
+  - `gParallax`, `gMass` (Messlinie), `gMarker` (Textmarker auf der Seite)
+  - `gSchaelen`: CC Page Turn, Haut schält sich ab
+  - `gBrand`: CC Burn Film
+  - `zeitung` + `zMarker` / `zKreis`: Tint Papier, gerissener Rand, Stop-Motion-Rutschen
+  - `tippen`: Schreibmaschine mit Cursor
+  - `punchCut`: Punch-in am Schnitt
+- Die Typografie nutzt die Bausteine aus `vox_plus.jsx`: Zählwerk-Jahre, große Zahlen, Chips, roter Quellenbalken "LAUT …".
+  Der Strich in bleibt ist ein sauberer roter Strich, ganz und mittig durch das getippte Wort **STREICHEN**.
+- PC-Fixes:
+  - Der halb verdeckte rote Unterstrich in eiffel ist weg.
+  - Heller (Abdunklung etwa ⅓ weniger, Richtung Kleopatra-Sepia): folge, outro, ergebnis, pruefen, patina, hook, außerdem haut.
+  - folge zoomt am hellen Plattenrand vorbei.
+  - Logo im outro 360 statt 420 px.
+  - Grüne Nahaufnahmen wärmer statt oliv (Farbanteil 0,34, warm 1,04/1,03/0,97).
+- Leistung:
+  - kein CC Sphere, kein 3D, kein Deep Glow
+  - QCA einmal oben im Master
+  - Callouts nur über Masken
+  - Fokus-Unschärfe: Box Blur höchstens 6, nur bis 2 s
+  - Purge in Snap und Render, Viertel-Auflösung beim Bauen
+
+| # | Szene | Hauptmittel | weitere Mittel auf dem Foto | Typo / Zeitung |
+|---|-------|-------------|-----------------------------|----------------|
+| 1 | hook | Lupe (echter Ausschnitt) | Callout Statue | getippt "New York", "Liberty Island"; Chip IMMER GRÜN durchgestrichen; "?" |
+| 2 | braun | Farbsweep kupferbraun von oben | Glanzstreifen (Add) | Zählwerk 1886, Chip KUPFERBRAUN, Kupfermünze (KI) + "neue Münze"; Punch |
+| 3 | geschenk | Bleistiftkreis Kopf | Pfeil-Label "aus Kupfer" | getippt "Paris, 1878", Kachel Cu, Chips FRANKREICH → USA |
+| 4 | haut | Messlinie | Callout Kupferblech, Label Kupferhaut | getippt "≈ 2,4 mm", Chip = 2 MÜNZEN; Punch |
+| 5 | eiffel | Fokus-Unschärfe am Gerüst hoch | gelbe Linien zeichnen das Gerüst nach, Label Eisen | Porträt Eiffel (einziger Mensch) + Bauchbinde, "Eiffelturm, 1889" |
+| 6 | folge | Parallax (Statue löst sich vom Hafen) | – | Folgen-Knopf |
+| 7 | regen | Callout Statue | Pfeil KUPFER, Labels Luft / Regen, Regenstriche | "Regen" |
+| 8 | patina | Farbsweep: Kupfer zieht sich nach oben zurück, grün bleibt | Label Patina | Zähler 1886 → 1906, Chip GRÜN |
+| 9 | rost | Zeitung Evening Journal 1906 rutscht ein, "Rusted" eingekreist | Callout + Kreis Statue | Zählwerk 1906, Chip SO GRÜN, getippt "verrostet?", Quellenbalken |
+| 10 | kongress | Callout Kuppel | Pfeil US-KONGRESS | echter Ausschnitt mit Textmarker "Congress" / "$62,800", getippt NEU ANSTREICHEN; Punch |
+| 11 | protest | Textmarker direkt auf der Zeitungsseite | Brand-Übergang aus kongress | LAUT EVENING JOURNAL, Chip BRIEFE ÜBER BRIEFE |
+| 12 | pruefen | Lupe (echter Ausschnitt) | Focus Hunting | getippt "Fachleute prüfen", Chip GRÜNE SCHICHT; Punch |
+| 13 | ergebnis | Seite: Patina schält sich ab (Page Turn), Kupfer darunter | Kreis + Label Patina, Label Kupfer | getippt "Ergebnis:", Chip SCHÜTZT |
+| 14 | bleibt | sauberer roter Strich durch getipptes STREICHEN | Callout + Kreis Statue heute, Pfeil | Chip BIS HEUTE: GRÜN; Punch |
+| 15 | frage | Farbsweep geteilt: links braun, rechts grün | Trennlinie | "?", Chips BRAUN / GRÜN |
+| 16 | outro | Brand-Übergang aus frage | – | Logo 360 px, getippt "In der Bio", Folgen-Knopf |
+
+Neu im Mock: **FOTO** (höchstens 1 Vordergrund-Abzug je Szene, höchstens 3 Szenen, Zeitung zählt nicht; `--foto` listet sie)
+und **VOX** (jede Szene hat ein Mittel mit HAUPT auf dem Foto; kein Stempel; Hauptmittel nie zweimal hintereinander; `--vox` zeigt die Tabelle).
+Die Fokus-Unschärfe ist von UNSCHAERFE/LEISTUNG ausgenommen, solange Box Blur ≤ 8, ≤ 2 s und die Maske invers ist.
+Neu ist auch `--render <json> <t1,t2,…>`: Es schreibt die Anzeigeliste. `gen/vorschau_render.py <json> <ordner> [skala]` rendert sie mit PIL nach.
+Das ist eine Näherung: ohne Edge Boil, Korn, QCA und Posterize; Page Turn und Burn Film sind vereinfacht.
+`vorschau_runde2.jpg` zeigt 12 Szenen daraus.
+
+Ältere Fassung (Runde 1), nur zum Nachlesen:
+
+## Neuer Stil: Hintergrund-Vox (16.11., Runde 1)
 Globus (CC Sphere) und Papierkarte sind ganz raus. Jede Szene liegt auf einem **vollflächigen Hintergrundfoto** (echte Archivfotos der
 Library of Congress, kein KI-Hintergrund) mit langsamer Ken-Burns-Fahrt (Zoom + Drift), abgedunkelt, warm/Sepia gegradet, mit Vignette –
 Ansatz wie beim Kleopatra-Short. Das Grading ist **in die JPGs eingebacken** (keine Effekte auf dem Hintergrund); in AE gibt es pro Szene
@@ -75,7 +136,8 @@ Hintergründe max. 2200 px lange Seite, JPG.
 2. `gen/archiv_freiheit.py <dl>`: Abzüge zuschneiden, KI-Freisteller, `archiv/credits.json` (unverändert seit 13.11.)
 3. `gen/hintergrund_freiheit.py <dl>`: LOC-Downloads → `archiv/bg-*.jpg` (Ausschnitt, ≤ 2200 px, Grading eingebacken), `data/grund.json`
    (Fahrt-Keys je Szene), Zeitungsausschnitt `archiv/zeitung-1906-kongress.jpg`, Einträge `bg-*` in `archiv/credits.json`.
-   Bricht ab, wenn ein Ausschnitt über 120 % hochskaliert würde.
+   Bricht ab, wenn ein Ausschnitt über 120 % hochskaliert würde. Runde 2: Lupen-Ausschnitte `archiv/lupe-hook.jpg` und `lupe-pruefen.jpg`
+   (in voller Auflösung, 114 % / 113 %), protest liegt auf der Spalte `archiv/bg-zeitung-seite-spalte.jpg`, Tonwerte aus dem ganzen Quellbild.
 4. `gen/gen_freiheit.py` → `data/timeline.json`, `jsx/build_freiheit.jsx`, `snap`, `render`, `render_teile`, `HAND_*`
 5. Ton (nur bei Änderungen): `ton/music_freiheit.py`, `ton/sfx_freiheit.py`, `ton/mix_freiheit.py` → `audio/freiheit_mix.wav`
 6. Probelauf: `cd gen && node aemock.js ../jsx/build_freiheit.jsx` (auch `../jsx/HAND_build_freiheit.jsx`)
@@ -90,6 +152,8 @@ Hintergründe max. 2200 px lange Seite, JPG.
 Im Bild steht je Szene eine kleine Quellenzeile unten rechts. Für 16.11. wurden keine neuen KI-Bilder erzeugt.
 
 ## Nicht ohne AE prüfbar
+- Runde 2: Page Turn (ergebnis), Burn Film (protest/outro), Roughen Edges der Zeitungen und die Fokus-Unschärfe sind in der PIL-Vorschau nur
+  genähert; in AE ansehen (Snap-Stills). Lupen-Ring und Callout-Weichheit ggf. über die Masken-Federung nachregeln.
 - Wie hell/warm die Hintergründe in AE wirken (Cloud-Vorschau mit PIL sah gut aus). Nachregeln je Szene über `Grund Abdunklung (Regler)`.
 - Der Hook-Flug nutzt beim mittleren Ausschnitt bis 119 % der echten Pixel (kurz, in Bewegung).
 - Snap/Render mit Purge und die Zwei-Hälften-Variante sind nur im Mock geprüft (Syntax), nicht in AE.

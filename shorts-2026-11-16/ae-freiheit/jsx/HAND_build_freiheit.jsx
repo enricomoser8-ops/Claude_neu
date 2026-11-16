@@ -5,7 +5,7 @@ var __r = (function () {
 // Lauf ueber die Bridge: node edit-tools\ae.mjs <diese Datei> 900000
 var BASE = "C:/Users/Enrico/Claude/Podcast-Shorts/tage/2026-11-16/ae-freiheit/";
 var FPS = 25, W = 1080, H = 1920;
-var D = {"title":"Short 16.11. Freiheitsstatue (freiheit)","key":"freiheit","end":49.88,"scenes":[{"id":"hook","start":0.0,"end":4.0,"dur":4.0,"k":{"hafen":0.24,"newyork":0.72,"statue":1.52,"und":2.64,"nicht":3.12,"gruen":3.44}},{"id":"braun","start":4.0,"end":7.04,"dur":3.04,"k":{"anfang":0.24,"glaenzt":0.56,"braun":1.28,"muenze":2.24}},{"id":"geschenk","start":7.04,"end":10.16,"dur":3.12,"k":{"kupfer":0.64,"geschenk":1.28,"frankreich":1.84,"usa":2.64}},{"id":"haut","start":10.16,"end":12.64,"dur":2.48,"k":{"kupferhaut":0.16,"dick":1.36,"zwei":1.84,"muenzen":2.08}},{"id":"eiffel","start":12.64,"end":17.36,"dur":4.72,"k":{"geruest":0.24,"eisen":0.88,"gustave":1.28,"mann":2.72,"turm":3.2,"gibt":4.0,"halt":4.4}},{"id":"folge","start":17.36,"end":18.88,"dur":1.52,"k":{"schlauer":0.64}},{"id":"regen","start":18.88,"end":21.2,"dur":2.32,"k":{"kupfer":0.24,"reagiert":0.8,"luft":1.44,"regen":1.92}},{"id":"patina","start":21.2,"end":24.08,"dur":2.88,"k":{"gruene":1.2,"schicht":1.6,"patina":2.16}},{"id":"rost","start":24.08,"end":28.0,"dur":3.92,"k":{"statue":1.2,"gruen":2.16,"viele":2.72,"rost":3.2}},{"id":"kongress","start":28.0,"end":30.96,"dur":2.96,"k":{"kongress":0.24,"geld":1.12,"streichen":2.24}},{"id":"protest","start":30.96,"end":32.32,"dur":1.36,"k":{"menschen":0.4,"protest":0.72}},{"id":"pruefen","start":32.32,"end":34.32,"dur":2.0,"k":{"fachleute":0.24,"pruefen":0.88,"gruene":1.36,"schicht":1.68}},{"id":"ergebnis","start":34.32,"end":37.6,"dur":3.28,"k":{"ergebnis":0.32,"patina":1.2,"schuetzt":1.92,"kupfer":2.48,"darunter":2.96}},{"id":"bleibt","start":37.6,"end":41.68,"dur":4.08,"k":{"nichts":0.64,"gestrichen":0.88,"und":1.6,"statue":1.92,"bleibt":2.96,"heute":3.44,"gruen":3.68}},{"id":"frage","start":41.68,"end":44.24,"dur":2.56,"k":{"farbe":0.4,"schoener":1.12,"braun":1.68,"gruen":2.24}},{"id":"outro","start":44.24,"end":49.88,"dur":5.64,"k":{"allgemeinwissen":0.64,"bio":2.08,"folgen":3.36}}],"words":[{"w":"Im","s":0.0,"e2":0.24},{"w":"Hafen","s":0.24,"e2":0.56},{"w":"von","s":0.56,"e2":0.72},{"w":"New","s":0.72,"e2":0.88},{"w":"York","s":0.88,"e2":1.2},{"w":"steht","s":1.2,"e2":1.44},{"w":"die","s":1.44,"e2":1.52},{"w":"Freiheitsstatue","s":1.52,"e2":2.28},{"w":"Und","s":2.64,"e2":2.8},{"w":"sie","s":2.8,"e2":2.96},{"w":"war","s":2.96,"e2":3.12},{"w":"nicht","s":3.12,"e2":3.28},{"w":"immer","s":3.28,"e2":3.44},{"w":"grün","s":3.44,"e2":4.08},{"w":"Am","s":4.08,"e2":4.24},{"w":"Anfang","s":4.24,"e2":4.56},{"w":"glänzt","s":4.56,"e2":5.12},{"w":"sie","s":5.12,"e2":5.28},{"w":"braun","s":5.28,"e2":5.68},{"w":"wie","s":5.68,"e2":5.84},{"w":"eine","s":5.84,"e2":6.0},{"w":"neue","s":6.0,"e2":6.24},{"w":"Kupfermünze","s":6.24,"e2":6.72},{"w":"Denn","s":7.12,"e2":7.36},{"w":"sie","s":7.36,"e2":7.44},{"w":"ist","s":7.44,"e2":7.52},{"w":"aus","s":7.52,"e2":7.68},{"w":"Kupfer","s":7.68,"e2":8.16},{"w":"ein","s":8.16,"e2":8.32},{"w":"Geschenk","s":8.32,"e2":8.72},{"w":"von","s":8.72,"e2":8.88},{"w":"Frankreich","s":8.88,"e2":9.36},{"w":"an","s":9.36,"e2":9.52},{"w":"die","s":9.52,"e2":9.68},{"w":"USA","s":9.68,"e2":10.24},{"w":"Die","s":10.24,"e2":10.32},{"w":"Kupferhaut","s":10.32,"e2":11.04},{"w":"ist","s":11.04,"e2":11.2},{"w":"nur","s":11.2,"e2":11.36},{"w":"so","s":11.36,"e2":11.52},{"w":"dick","s":11.52,"e2":11.84},{"w":"wie","s":11.84,"e2":12.0},{"w":"zwei","s":12.0,"e2":12.24},{"w":"Münzen","s":12.24,"e2":12.72},{"w":"Ein","s":12.72,"e2":12.88},{"w":"Gerüst","s":12.88,"e2":13.36},{"w":"aus","s":13.36,"e2":13.52},{"w":"Eisen","s":13.52,"e2":13.84},{"w":"von","s":13.84,"e2":13.92},{"w":"Gustave","s":13.92,"e2":14.48},{"w":"Eiffel","s":14.48,"e2":15.2},{"w":"dem","s":15.2,"e2":15.36},{"w":"Mann","s":15.36,"e2":15.6},{"w":"hinter","s":15.6,"e2":15.76},{"w":"dem","s":15.76,"e2":15.84},{"w":"Eiffelturm","s":15.84,"e2":16.36},{"w":"gibt","s":16.64,"e2":16.88},{"w":"ihr","s":16.88,"e2":17.04},{"w":"Halt","s":17.04,"e2":17.44},{"w":"Folge","s":17.44,"e2":17.84},{"w":"um","s":17.84,"e2":18.0},{"w":"schlauer","s":18.0,"e2":18.48},{"w":"zu","s":18.48,"e2":18.64},{"w":"werden","s":18.64,"e2":18.96},{"w":"Doch","s":18.96,"e2":19.12},{"w":"Kupfer","s":19.12,"e2":19.68},{"w":"reagiert","s":19.68,"e2":20.16},{"w":"mit","s":20.16,"e2":20.32},{"w":"Luft","s":20.32,"e2":20.64},{"w":"und","s":20.64,"e2":20.8},{"w":"Regen","s":20.8,"e2":21.28},{"w":"Langsam","s":21.28,"e2":21.76},{"w":"bildet","s":21.76,"e2":22.08},{"w":"sich","s":22.08,"e2":22.24},{"w":"eine","s":22.24,"e2":22.4},{"w":"grüne","s":22.4,"e2":22.8},{"w":"Schicht","s":22.8,"e2":23.28},{"w":"die","s":23.28,"e2":23.36},{"w":"Patina","s":23.36,"e2":23.84},{"w":"1906","s":24.16,"e2":25.04},{"w":"ist","s":25.04,"e2":25.2},{"w":"die","s":25.2,"e2":25.28},{"w":"Statue","s":25.28,"e2":25.84},{"w":"schon","s":25.84,"e2":26.0},{"w":"so","s":26.0,"e2":26.24},{"w":"grün","s":26.24,"e2":26.64},{"w":"dass","s":26.64,"e2":26.8},{"w":"viele","s":26.8,"e2":27.12},{"w":"an","s":27.12,"e2":27.28},{"w":"Rost","s":27.28,"e2":27.76},{"w":"denken","s":27.76,"e2":28.08},{"w":"Der","s":28.08,"e2":28.24},{"w":"Kongress","s":28.24,"e2":28.64},{"w":"gibt","s":28.64,"e2":28.88},{"w":"sogar","s":28.88,"e2":29.12},{"w":"Geld","s":29.12,"e2":29.44},{"w":"frei","s":29.44,"e2":29.68},{"w":"um","s":29.68,"e2":29.84},{"w":"sie","s":29.84,"e2":30.0},{"w":"neu","s":30.0,"e2":30.24},{"w":"anzustreichen","s":30.24,"e2":30.92},{"w":"Aber","s":31.04,"e2":31.2},{"w":"die","s":31.2,"e2":31.36},{"w":"Menschen","s":31.36,"e2":31.68},{"w":"protestieren","s":31.68,"e2":32.16},{"w":"Und","s":32.4,"e2":32.56},{"w":"Fachleute","s":32.56,"e2":33.2},{"w":"prüfen","s":33.2,"e2":33.6},{"w":"die","s":33.6,"e2":33.68},{"w":"grüne","s":33.68,"e2":34.0},{"w":"Schicht","s":34.0,"e2":34.4},{"w":"Ihr","s":34.4,"e2":34.64},{"w":"Ergebnis","s":34.64,"e2":35.16},{"w":"Die","s":35.36,"e2":35.52},{"w":"Patina","s":35.52,"e2":36.24},{"w":"schützt","s":36.24,"e2":36.64},{"w":"das","s":36.64,"e2":36.8},{"w":"Kupfer","s":36.8,"e2":37.28},{"w":"darunter","s":37.28,"e2":37.68},{"w":"Also","s":37.68,"e2":38.0},{"w":"wird","s":38.0,"e2":38.24},{"w":"nichts","s":38.24,"e2":38.48},{"w":"gestrichen","s":38.48,"e2":39.04},{"w":"und","s":39.2,"e2":39.36},{"w":"die","s":39.36,"e2":39.52},{"w":"Freiheitsstatue","s":39.52,"e2":40.56},{"w":"bleibt","s":40.56,"e2":40.8},{"w":"bis","s":40.8,"e2":41.04},{"w":"heute","s":41.04,"e2":41.28},{"w":"grün","s":41.28,"e2":41.76},{"w":"Welche","s":41.76,"e2":42.08},{"w":"Farbe","s":42.08,"e2":42.4},{"w":"findest","s":42.4,"e2":42.64},{"w":"du","s":42.64,"e2":42.8},{"w":"schöner","s":42.8,"e2":43.36},{"w":"braun","s":43.36,"e2":43.68},{"w":"oder","s":43.68,"e2":43.92},{"w":"grün","s":43.92,"e2":44.32},{"w":"Du","s":44.32,"e2":44.4},{"w":"willst","s":44.4,"e2":44.64},{"w":"dein","s":44.64,"e2":44.88},{"w":"Allgemeinwissen","s":44.88,"e2":45.6},{"w":"verbessern","s":45.6,"e2":46.08},{"w":"In","s":46.08,"e2":46.16},{"w":"der","s":46.16,"e2":46.32},{"w":"Bio","s":46.32,"e2":46.8},{"w":"findest","s":46.8,"e2":47.12},{"w":"du","s":47.12,"e2":47.28},{"w":"ganze","s":47.28,"e2":47.6},{"w":"Folgen","s":47.6,"e2":48.0},{"w":"von","s":48.0,"e2":48.16},{"w":"uns","s":48.16,"e2":48.64}],"grund":{"hook":{"keys":[{"t":0.0,"Q":[3258.0,2168.2],"P":[540,960],"z":0.446453},{"t":1.48,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.712885},{"t":4.0,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.736648}],"infl":[[33,72],[38,60],[60,33]],"ebenen":[{"rel":"archiv/bg-hafen-heute-weit.jpg","o":[2039,8],"r":0.509415,"tin":0.0,"tout":0.8,"fade":0.0},{"rel":"archiv/bg-hafen-heute-mittel.jpg","o":[2602,133],"r":0.564876,"tin":0.66,"tout":1.12,"fade":0.14},{"rel":"archiv/bg-hafen-heute-nah.jpg","o":[3627,321],"r":0.676009,"tin":0.98,"tout":null,"fade":0.14}],"pin":{"Liberty Island":[300.0,1200.0]},"quelle":"bg-hafen-heute"},"braun":{"keys":[{"t":0.0,"Q":[1208.37,1532.13],"P":[560,960],"z":0.659341},{"t":3.04,"Q":[1208.37,1440.0],"P":[540,960],"z":0.705882}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-bedloe-1886.jpg","o":[352,70],"r":0.719734,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-bedloe-1886"},"geschenk":{"keys":[{"t":0.0,"Q":[1226.23,1600.0],"P":[540,960],"z":0.779221},{"t":1.2,"Q":[1226.23,1578.13],"P":[540,960],"z":0.789474},{"t":1.82,"Q":[1174.05,1344.0],"P":[540,820],"z":1.0},{"t":3.12,"Q":[1174.05,1344.0],"P":[540,820],"z":1.025641}],"infl":[[40,40],[20,20],[85,40],[40,40]],"ebenen":[{"rel":"archiv/bg-paris-kopf-1878.jpg","o":[528,357],"r":0.886901,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-paris-kopf-1878"},"haut":{"keys":[{"t":0.0,"Q":[1408.0,1144.44],"P":[540,960],"z":0.923024},{"t":2.48,"Q":[1536.0,1212.84],"P":[540,960],"z":0.987421}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-werkstatt-paris.jpg","o":[818,100],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-werkstatt-paris"},"eiffel":{"keys":[{"t":0.0,"Q":[1033.0,1684.0],"P":[540,960],"z":0.666667},{"t":4.72,"Q":[1074.32,1344.0],"P":[540,960],"z":0.769231}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-geruest-paris.jpg","o":[217,90],"r":0.723652,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-geruest-paris"},"folge":{"keys":[{"t":0.0,"Q":[1133.1,1547.6],"P":[540,960],"z":0.689655},{"t":1.52,"Q":[1133.1,1504.0],"P":[540,960],"z":0.714286}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-insel-1890.jpg","o":[344,149],"r":0.728771,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-insel-1890"},"regen":{"keys":[{"t":0.0,"Q":[1504.0,1280.0],"P":[540,960],"z":1.027397},{"t":2.32,"Q":[1472.0,1228.8],"P":[540,960],"z":1.102941}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-wolken-1910.jpg","o":[974,341],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-wolken-1910"},"patina":{"keys":[{"t":0.0,"Q":[3300.0,5040.0],"P":[540,960],"z":0.846561},{"t":2.88,"Q":[3200.0,4914.0],"P":[540,960],"z":0.923521}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-gewand-heute-gewand.jpg","o":[2610,3870],"r":0.942236,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-gewand-heute"},"rost":{"keys":[{"t":0.0,"Q":[1520.0,1283.75],"P":[540,960],"z":0.849595},{"t":3.92,"Q":[1520.0,1255.5],"P":[540,960],"z":0.921248}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-photochrom-1905.jpg","o":[879,149],"r":0.939938,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-photochrom-1905"},"kongress":{"keys":[{"t":0.0,"Q":[1616.0,944.45],"P":[540,640],"z":0.901853},{"t":2.96,"Q":[1616.0,949.05],"P":[540,640],"z":0.998051}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-kapitol-1902.jpg","o":[1012,230],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{"Kapitol":[540.0,640.0]},"quelle":"bg-kapitol-1902"},"protest":{"keys":[{"t":0.0,"Q":[1514.96,3104.64],"P":[540,960],"z":0.618429},{"t":1.36,"Q":[1619.44,3104.64],"P":[540,960],"z":0.66368}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-zeitung-seite.jpg","o":[635,1545],"r":0.677008,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-zeitung-seite"},"pruefen":{"keys":[{"t":0.0,"Q":[2606.0,1793.1],"P":[540,960],"z":0.57554},{"t":2.0,"Q":[2632.06,1737.5],"P":[540,960],"z":0.613909}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-statue-nah.jpg","o":[1660,118],"r":0.626321,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-statue-nah"},"ergebnis":{"keys":[{"t":0.0,"Q":[2800.0,3780.0],"P":[540,960],"z":0.761905},{"t":3.28,"Q":[2800.0,3654.0],"P":[540,960],"z":0.823681}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-gewand-heute-krone.jpg","o":[2086,2483],"r":0.840448,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-gewand-heute"},"bleibt":{"keys":[{"t":0.0,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.712885},{"t":4.08,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.749134}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-hafen-heute-nah.jpg","o":[3627,321],"r":0.676009,"tin":0,"tout":null,"fade":0}],"pin":{"Liberty Island":[300.0,1200.0]},"quelle":"bg-hafen-heute"},"frage":{"keys":[{"t":0.0,"Q":[1504.0,1257.0],"P":[540,960],"z":0.966738},{"t":2.56,"Q":[1504.0,1231.86],"P":[540,960],"z":1.018298}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-wolken-1905.jpg","o":[941,259],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-wolken-1905"},"outro":{"keys":[{"t":0.0,"Q":[680.4,1144.5],"P":[540,960],"z":0.847267},{"t":5.64,"Q":[680.4,1098.72],"P":[540,960],"z":0.901929}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-insel-luft.jpg","o":[38,6],"r":0.919844,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-insel-luft"}},"alpha":{"ki-farbeimer-frei.png":[6,6,672,682],"ki-kupfermuenze-frei.png":[6,6,680,577],"ki-statue-kupfer-frei.png":[6,6,420,719],"logo-ecke.png":[0,0,256,256]},"credits":{"paris-bau-1883":"Foto: A. Fernique 1883, LOC","paris-bau-1883-detail":"Foto: A. Fernique 1883, LOC","eiffel-geruest-1881":"Plan: G. Eiffel 1881, LOC","eiffel-portraet":"Foto: Bain News Service, LOC","eiffelturm-1889":"Foto 1889, LOC","statue-gruen-heute":"Foto: Carol M. Highsmith, LOC","zeitung-1906-wilmington":"Evening Journal 1906, LOC","ki-kupfermuenze":"KI-Bild","ki-farbeimer":"KI-Bild","ki-statue-kupfer":"KI-Rekonstruktion","ki-patina-makro":"KI-Bild","bg-hafen-heute":"Foto: Carol M. Highsmith, LOC","bg-bedloe-1886":"Druck 1886, LOC","bg-paris-kopf-1878":"Foto: Paris 1878, LOC","bg-werkstatt-paris":"Foto: Pierre Petit, LOC","bg-geruest-paris":"Foto: A. Fernique 1883, LOC","bg-insel-1890":"Foto: Detroit Publishing Co., LOC","bg-wolken-1910":"Foto: Detroit Publishing Co., LOC","bg-gewand-heute":"Foto: Carol M. Highsmith, LOC","bg-photochrom-1905":"Photochrom um 1905, LOC","bg-kapitol-1902":"Foto: Detroit Publishing Co. 1902, LOC","bg-zeitung-seite":"Evening Journal 1906, LOC","bg-statue-nah":"Foto: Carol M. Highsmith, LOC","bg-wolken-1905":"Foto: Detroit Publishing Co., LOC","bg-insel-luft":"Foto: Carol M. Highsmith, LOC","zeitung-1906-kongress":"Evening Journal 1906, LOC"},"audio":["audio/freiheit_mix.wav"]};
+var D = {"title":"Short 16.11. Freiheitsstatue (freiheit)","key":"freiheit","end":49.88,"scenes":[{"id":"hook","start":0.0,"end":4.0,"dur":4.0,"k":{"hafen":0.24,"newyork":0.72,"statue":1.52,"und":2.64,"nicht":3.12,"gruen":3.44}},{"id":"braun","start":4.0,"end":7.04,"dur":3.04,"k":{"anfang":0.24,"glaenzt":0.56,"braun":1.28,"muenze":2.24}},{"id":"geschenk","start":7.04,"end":10.16,"dur":3.12,"k":{"kupfer":0.64,"geschenk":1.28,"frankreich":1.84,"usa":2.64}},{"id":"haut","start":10.16,"end":12.64,"dur":2.48,"k":{"kupferhaut":0.16,"dick":1.36,"zwei":1.84,"muenzen":2.08}},{"id":"eiffel","start":12.64,"end":17.36,"dur":4.72,"k":{"geruest":0.24,"eisen":0.88,"gustave":1.28,"mann":2.72,"turm":3.2,"gibt":4.0,"halt":4.4}},{"id":"folge","start":17.36,"end":18.88,"dur":1.52,"k":{"schlauer":0.64}},{"id":"regen","start":18.88,"end":21.2,"dur":2.32,"k":{"kupfer":0.24,"reagiert":0.8,"luft":1.44,"regen":1.92}},{"id":"patina","start":21.2,"end":24.08,"dur":2.88,"k":{"gruene":1.2,"schicht":1.6,"patina":2.16}},{"id":"rost","start":24.08,"end":28.0,"dur":3.92,"k":{"statue":1.2,"gruen":2.16,"viele":2.72,"rost":3.2}},{"id":"kongress","start":28.0,"end":30.96,"dur":2.96,"k":{"kongress":0.24,"geld":1.12,"streichen":2.24}},{"id":"protest","start":30.96,"end":32.32,"dur":1.36,"k":{"menschen":0.4,"protest":0.72}},{"id":"pruefen","start":32.32,"end":34.32,"dur":2.0,"k":{"fachleute":0.24,"pruefen":0.88,"gruene":1.36,"schicht":1.68}},{"id":"ergebnis","start":34.32,"end":37.6,"dur":3.28,"k":{"ergebnis":0.32,"patina":1.2,"schuetzt":1.92,"kupfer":2.48,"darunter":2.96}},{"id":"bleibt","start":37.6,"end":41.68,"dur":4.08,"k":{"nichts":0.64,"gestrichen":0.88,"und":1.6,"statue":1.92,"bleibt":2.96,"heute":3.44,"gruen":3.68}},{"id":"frage","start":41.68,"end":44.24,"dur":2.56,"k":{"farbe":0.4,"schoener":1.12,"braun":1.68,"gruen":2.24}},{"id":"outro","start":44.24,"end":49.88,"dur":5.64,"k":{"allgemeinwissen":0.64,"bio":2.08,"folgen":3.36}}],"words":[{"w":"Im","s":0.0,"e2":0.24},{"w":"Hafen","s":0.24,"e2":0.56},{"w":"von","s":0.56,"e2":0.72},{"w":"New","s":0.72,"e2":0.88},{"w":"York","s":0.88,"e2":1.2},{"w":"steht","s":1.2,"e2":1.44},{"w":"die","s":1.44,"e2":1.52},{"w":"Freiheitsstatue","s":1.52,"e2":2.28},{"w":"Und","s":2.64,"e2":2.8},{"w":"sie","s":2.8,"e2":2.96},{"w":"war","s":2.96,"e2":3.12},{"w":"nicht","s":3.12,"e2":3.28},{"w":"immer","s":3.28,"e2":3.44},{"w":"grün","s":3.44,"e2":4.08},{"w":"Am","s":4.08,"e2":4.24},{"w":"Anfang","s":4.24,"e2":4.56},{"w":"glänzt","s":4.56,"e2":5.12},{"w":"sie","s":5.12,"e2":5.28},{"w":"braun","s":5.28,"e2":5.68},{"w":"wie","s":5.68,"e2":5.84},{"w":"eine","s":5.84,"e2":6.0},{"w":"neue","s":6.0,"e2":6.24},{"w":"Kupfermünze","s":6.24,"e2":6.72},{"w":"Denn","s":7.12,"e2":7.36},{"w":"sie","s":7.36,"e2":7.44},{"w":"ist","s":7.44,"e2":7.52},{"w":"aus","s":7.52,"e2":7.68},{"w":"Kupfer","s":7.68,"e2":8.16},{"w":"ein","s":8.16,"e2":8.32},{"w":"Geschenk","s":8.32,"e2":8.72},{"w":"von","s":8.72,"e2":8.88},{"w":"Frankreich","s":8.88,"e2":9.36},{"w":"an","s":9.36,"e2":9.52},{"w":"die","s":9.52,"e2":9.68},{"w":"USA","s":9.68,"e2":10.24},{"w":"Die","s":10.24,"e2":10.32},{"w":"Kupferhaut","s":10.32,"e2":11.04},{"w":"ist","s":11.04,"e2":11.2},{"w":"nur","s":11.2,"e2":11.36},{"w":"so","s":11.36,"e2":11.52},{"w":"dick","s":11.52,"e2":11.84},{"w":"wie","s":11.84,"e2":12.0},{"w":"zwei","s":12.0,"e2":12.24},{"w":"Münzen","s":12.24,"e2":12.72},{"w":"Ein","s":12.72,"e2":12.88},{"w":"Gerüst","s":12.88,"e2":13.36},{"w":"aus","s":13.36,"e2":13.52},{"w":"Eisen","s":13.52,"e2":13.84},{"w":"von","s":13.84,"e2":13.92},{"w":"Gustave","s":13.92,"e2":14.48},{"w":"Eiffel","s":14.48,"e2":15.2},{"w":"dem","s":15.2,"e2":15.36},{"w":"Mann","s":15.36,"e2":15.6},{"w":"hinter","s":15.6,"e2":15.76},{"w":"dem","s":15.76,"e2":15.84},{"w":"Eiffelturm","s":15.84,"e2":16.36},{"w":"gibt","s":16.64,"e2":16.88},{"w":"ihr","s":16.88,"e2":17.04},{"w":"Halt","s":17.04,"e2":17.44},{"w":"Folge","s":17.44,"e2":17.84},{"w":"um","s":17.84,"e2":18.0},{"w":"schlauer","s":18.0,"e2":18.48},{"w":"zu","s":18.48,"e2":18.64},{"w":"werden","s":18.64,"e2":18.96},{"w":"Doch","s":18.96,"e2":19.12},{"w":"Kupfer","s":19.12,"e2":19.68},{"w":"reagiert","s":19.68,"e2":20.16},{"w":"mit","s":20.16,"e2":20.32},{"w":"Luft","s":20.32,"e2":20.64},{"w":"und","s":20.64,"e2":20.8},{"w":"Regen","s":20.8,"e2":21.28},{"w":"Langsam","s":21.28,"e2":21.76},{"w":"bildet","s":21.76,"e2":22.08},{"w":"sich","s":22.08,"e2":22.24},{"w":"eine","s":22.24,"e2":22.4},{"w":"grüne","s":22.4,"e2":22.8},{"w":"Schicht","s":22.8,"e2":23.28},{"w":"die","s":23.28,"e2":23.36},{"w":"Patina","s":23.36,"e2":23.84},{"w":"1906","s":24.16,"e2":25.04},{"w":"ist","s":25.04,"e2":25.2},{"w":"die","s":25.2,"e2":25.28},{"w":"Statue","s":25.28,"e2":25.84},{"w":"schon","s":25.84,"e2":26.0},{"w":"so","s":26.0,"e2":26.24},{"w":"grün","s":26.24,"e2":26.64},{"w":"dass","s":26.64,"e2":26.8},{"w":"viele","s":26.8,"e2":27.12},{"w":"an","s":27.12,"e2":27.28},{"w":"Rost","s":27.28,"e2":27.76},{"w":"denken","s":27.76,"e2":28.08},{"w":"Der","s":28.08,"e2":28.24},{"w":"Kongress","s":28.24,"e2":28.64},{"w":"gibt","s":28.64,"e2":28.88},{"w":"sogar","s":28.88,"e2":29.12},{"w":"Geld","s":29.12,"e2":29.44},{"w":"frei","s":29.44,"e2":29.68},{"w":"um","s":29.68,"e2":29.84},{"w":"sie","s":29.84,"e2":30.0},{"w":"neu","s":30.0,"e2":30.24},{"w":"anzustreichen","s":30.24,"e2":30.92},{"w":"Aber","s":31.04,"e2":31.2},{"w":"die","s":31.2,"e2":31.36},{"w":"Menschen","s":31.36,"e2":31.68},{"w":"protestieren","s":31.68,"e2":32.16},{"w":"Und","s":32.4,"e2":32.56},{"w":"Fachleute","s":32.56,"e2":33.2},{"w":"prüfen","s":33.2,"e2":33.6},{"w":"die","s":33.6,"e2":33.68},{"w":"grüne","s":33.68,"e2":34.0},{"w":"Schicht","s":34.0,"e2":34.4},{"w":"Ihr","s":34.4,"e2":34.64},{"w":"Ergebnis","s":34.64,"e2":35.16},{"w":"Die","s":35.36,"e2":35.52},{"w":"Patina","s":35.52,"e2":36.24},{"w":"schützt","s":36.24,"e2":36.64},{"w":"das","s":36.64,"e2":36.8},{"w":"Kupfer","s":36.8,"e2":37.28},{"w":"darunter","s":37.28,"e2":37.68},{"w":"Also","s":37.68,"e2":38.0},{"w":"wird","s":38.0,"e2":38.24},{"w":"nichts","s":38.24,"e2":38.48},{"w":"gestrichen","s":38.48,"e2":39.04},{"w":"und","s":39.2,"e2":39.36},{"w":"die","s":39.36,"e2":39.52},{"w":"Freiheitsstatue","s":39.52,"e2":40.56},{"w":"bleibt","s":40.56,"e2":40.8},{"w":"bis","s":40.8,"e2":41.04},{"w":"heute","s":41.04,"e2":41.28},{"w":"grün","s":41.28,"e2":41.76},{"w":"Welche","s":41.76,"e2":42.08},{"w":"Farbe","s":42.08,"e2":42.4},{"w":"findest","s":42.4,"e2":42.64},{"w":"du","s":42.64,"e2":42.8},{"w":"schöner","s":42.8,"e2":43.36},{"w":"braun","s":43.36,"e2":43.68},{"w":"oder","s":43.68,"e2":43.92},{"w":"grün","s":43.92,"e2":44.32},{"w":"Du","s":44.32,"e2":44.4},{"w":"willst","s":44.4,"e2":44.64},{"w":"dein","s":44.64,"e2":44.88},{"w":"Allgemeinwissen","s":44.88,"e2":45.6},{"w":"verbessern","s":45.6,"e2":46.08},{"w":"In","s":46.08,"e2":46.16},{"w":"der","s":46.16,"e2":46.32},{"w":"Bio","s":46.32,"e2":46.8},{"w":"findest","s":46.8,"e2":47.12},{"w":"du","s":47.12,"e2":47.28},{"w":"ganze","s":47.28,"e2":47.6},{"w":"Folgen","s":47.6,"e2":48.0},{"w":"von","s":48.0,"e2":48.16},{"w":"uns","s":48.16,"e2":48.64}],"grund":{"hook":{"keys":[{"t":0.0,"Q":[3258.0,2168.2],"P":[540,960],"z":0.446453},{"t":1.48,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.712885},{"t":4.0,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.736648}],"infl":[[33,72],[38,60],[60,33]],"ebenen":[{"rel":"archiv/bg-hafen-heute-weit.jpg","o":[2039,8],"r":0.509415,"tin":0.0,"tout":0.8,"fade":0.0},{"rel":"archiv/bg-hafen-heute-mittel.jpg","o":[2602,133],"r":0.564876,"tin":0.66,"tout":1.12,"fade":0.14},{"rel":"archiv/bg-hafen-heute-nah.jpg","o":[3627,321],"r":0.676009,"tin":0.98,"tout":null,"fade":0.14}],"pin":{"Liberty Island":[300.0,1200.0]},"quelle":"bg-hafen-heute","lupe":{"rel":"archiv/lupe-hook.jpg","o":[5019,1378],"D":[5256.0,1614.8],"m":1.55,"R":200,"tref":2.4}},"braun":{"keys":[{"t":0.0,"Q":[1208.37,1532.13],"P":[560,960],"z":0.659341},{"t":3.04,"Q":[1208.37,1440.0],"P":[540,960],"z":0.705882}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-bedloe-1886.jpg","o":[352,70],"r":0.719734,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-bedloe-1886"},"geschenk":{"keys":[{"t":0.0,"Q":[1226.23,1600.0],"P":[540,960],"z":0.779221},{"t":1.2,"Q":[1226.23,1578.13],"P":[540,960],"z":0.789474},{"t":1.82,"Q":[1174.05,1344.0],"P":[540,820],"z":1.0},{"t":3.12,"Q":[1174.05,1344.0],"P":[540,820],"z":1.025641}],"infl":[[40,40],[20,20],[85,40],[40,40]],"ebenen":[{"rel":"archiv/bg-paris-kopf-1878.jpg","o":[528,357],"r":0.886901,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-paris-kopf-1878"},"haut":{"keys":[{"t":0.0,"Q":[1408.0,1144.44],"P":[540,960],"z":0.923024},{"t":2.48,"Q":[1536.0,1212.84],"P":[540,960],"z":0.987421}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-werkstatt-paris.jpg","o":[818,100],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-werkstatt-paris"},"eiffel":{"keys":[{"t":0.0,"Q":[1033.0,1684.0],"P":[540,960],"z":0.666667},{"t":4.72,"Q":[1074.32,1344.0],"P":[540,960],"z":0.769231}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-geruest-paris.jpg","o":[217,90],"r":0.723652,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-geruest-paris"},"folge":{"keys":[{"t":0.0,"Q":[1133.1,1600.0],"P":[540,960],"z":0.75},{"t":1.52,"Q":[1133.1,1600.0],"P":[540,960],"z":0.779221}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-insel-1890.jpg","o":[407,314],"r":0.794766,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-insel-1890"},"regen":{"keys":[{"t":0.0,"Q":[1504.0,1280.0],"P":[540,960],"z":1.027397},{"t":2.32,"Q":[1472.0,1228.8],"P":[540,960],"z":1.102941}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-wolken-1910.jpg","o":[974,341],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-wolken-1910"},"patina":{"keys":[{"t":0.0,"Q":[3300.0,5040.0],"P":[540,960],"z":0.846561},{"t":2.88,"Q":[3200.0,4914.0],"P":[540,960],"z":0.923521}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-gewand-heute-gewand.jpg","o":[2610,3870],"r":0.942236,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-gewand-heute"},"rost":{"keys":[{"t":0.0,"Q":[1520.0,1283.75],"P":[540,960],"z":0.849595},{"t":3.92,"Q":[1520.0,1255.5],"P":[540,960],"z":0.921248}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-photochrom-1905.jpg","o":[879,149],"r":0.939938,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-photochrom-1905"},"kongress":{"keys":[{"t":0.0,"Q":[1616.0,944.45],"P":[540,640],"z":0.901853},{"t":2.96,"Q":[1616.0,949.05],"P":[540,640],"z":0.998051}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-kapitol-1902.jpg","o":[1012,230],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{"Kapitol":[540.0,640.0]},"quelle":"bg-kapitol-1902"},"protest":{"keys":[{"t":0.0,"Q":[3301.57,4402.94],"P":[540,860],"z":0.907029},{"t":1.36,"Q":[3322.46,4402.94],"P":[540,860],"z":1.015332}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-zeitung-seite-spalte.jpg","o":[2701,3450],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-zeitung-seite"},"pruefen":{"keys":[{"t":0.0,"Q":[2606.0,1793.1],"P":[540,960],"z":0.57554},{"t":2.0,"Q":[2632.06,1737.5],"P":[540,960],"z":0.613909}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-statue-nah.jpg","o":[1660,118],"r":0.626321,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-statue-nah","lupe":{"rel":"archiv/lupe-pruefen.jpg","o":[2451,1502],"D":[2706.0,1757.4],"m":1.85,"R":215,"tref":1.2}},"ergebnis":{"keys":[{"t":0.0,"Q":[2800.0,3780.0],"P":[540,960],"z":0.761905},{"t":3.28,"Q":[2800.0,3654.0],"P":[540,960],"z":0.823681}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-gewand-heute-krone.jpg","o":[2086,2483],"r":0.840448,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-gewand-heute"},"bleibt":{"keys":[{"t":0.0,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.712885},{"t":4.08,"Q":[5203.03,2172.0],"P":[300,1200],"z":0.749134}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-hafen-heute-nah.jpg","o":[3627,321],"r":0.676009,"tin":0,"tout":null,"fade":0}],"pin":{"Liberty Island":[300.0,1200.0]},"quelle":"bg-hafen-heute"},"frage":{"keys":[{"t":0.0,"Q":[1504.0,1257.0],"P":[540,960],"z":0.966738},{"t":2.56,"Q":[1504.0,1231.86],"P":[540,960],"z":1.018298}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-wolken-1905.jpg","o":[941,259],"r":1.0,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-wolken-1905"},"outro":{"keys":[{"t":0.0,"Q":[680.4,1144.5],"P":[540,960],"z":0.847267},{"t":5.64,"Q":[680.4,1098.72],"P":[540,960],"z":0.901929}],"infl":[[30,30],[30,30]],"ebenen":[{"rel":"archiv/bg-insel-luft.jpg","o":[38,6],"r":0.919844,"tin":0,"tout":null,"fade":0}],"pin":{},"quelle":"bg-insel-luft"}},"alpha":{"ki-farbeimer-frei.png":[6,6,672,682],"ki-kupfermuenze-frei.png":[6,6,680,577],"ki-statue-kupfer-frei.png":[6,6,420,719],"logo-ecke.png":[0,0,256,256]},"credits":{"paris-bau-1883":"Foto: A. Fernique 1883, LOC","paris-bau-1883-detail":"Foto: A. Fernique 1883, LOC","eiffel-geruest-1881":"Plan: G. Eiffel 1881, LOC","eiffel-portraet":"Foto: Bain News Service, LOC","eiffelturm-1889":"Foto 1889, LOC","statue-gruen-heute":"Foto: Carol M. Highsmith, LOC","zeitung-1906-wilmington":"Evening Journal 1906, LOC","ki-kupfermuenze":"KI-Bild","ki-farbeimer":"KI-Bild","ki-statue-kupfer":"KI-Rekonstruktion","ki-patina-makro":"KI-Bild","bg-hafen-heute":"Foto: Carol M. Highsmith, LOC","bg-bedloe-1886":"Druck 1886, LOC","bg-paris-kopf-1878":"Foto: Paris 1878, LOC","bg-werkstatt-paris":"Foto: Pierre Petit, LOC","bg-geruest-paris":"Foto: A. Fernique 1883, LOC","bg-insel-1890":"Foto: Detroit Publishing Co., LOC","bg-wolken-1910":"Foto: Detroit Publishing Co., LOC","bg-gewand-heute":"Foto: Carol M. Highsmith, LOC","bg-photochrom-1905":"Photochrom um 1905, LOC","bg-kapitol-1902":"Foto: Detroit Publishing Co. 1902, LOC","bg-zeitung-seite":"Evening Journal 1906, LOC","bg-statue-nah":"Foto: Carol M. Highsmith, LOC","bg-wolken-1905":"Foto: Detroit Publishing Co., LOC","bg-insel-luft":"Foto: Carol M. Highsmith, LOC","zeitung-1906-kongress":"Evening Journal 1906, LOC"},"audio":["audio/freiheit_mix.wav"]};
 // ===================== Vox-Bausteine (After Effects 2023, ES3) =====================
 // Werte aus podcast/stil-referenzen/vox-chrismoran/00-vox-handbuch.md (Chris Moran) + createdaley-Playlist.
 // Erwartet: D (Daten), BASE (Ordner mit tex/, archiv/, audio/), FPS, W, H.
@@ -1067,15 +1067,322 @@ function leisteNachOben(c) {
   for (var b = 0; b < T.length; b++) T[b].moveToBeginning();   // Text ueber seiner Leiste
 }
 
-// ===================== Szenen: Short 16.11.2026 "Die Freiheitsstatue war nicht immer gruen" (Hintergrund-Vox) =====================
-// Jede Szene: vollflaechiges Archivfoto (LOC) als Hintergrund mit langsamer Fahrt, dunkel + warm gegradet (grund()).
-// Darueber Vox-Vordergrund: Abzuege (weisser Rand, Schatten), Linien, Pfeile, Zahlen, Etiketten, Stempel, Textmarker, Bleistiftkreise,
-// Zeitungsausschnitt, Freisteller. Echte Menschen nur als echte Fotos (Gustave Eiffel). KI-Bilder nur fuer Gegenstaende
-// (Muenze, Farbeimer, Patina) und die als "KI-REKONSTRUKTION" beschriftete Kupfer-Statue (Leiste liegt immer obenauf).
-// k = Zeiten der Schluesselwoerter relativ zum Szenenanfang (gen_freiheit.py). Jede Animation endet >= 8 Frames vor dem Schnitt.
+// ===================== Runde 2 (16.11., enno: "zu viele Bilder, zu wenig Vox"): Vox-Geraete, die auf das Hintergrundfoto wirken =====================
+// Das Hintergrundfoto ist DAS Bild der Szene. Alles, was auf einen Punkt im Foto zeigt (Kreise, Pfeile, Kontrast-Callout, Farbsweep,
+// Textmarker auf der Zeitungsseite, Messlinie), haengt an der Null "Grund Anker": gleiche Keys/Ease wie die Fahrt des Fotos
+// (Anker = Quellpunkt Q, Position = P, Skalierung = z * 100). Kinder liegen in QUELL-PIXELN und kleben exakt am Foto.
+// Werte aus vox-chrismoran/00-vox-handbuch.md: Callout harter Schnitt ohne Blende, Maske weich gefedert; Highlighter Stroke 25-34,
+// Multiply, Trim ohne starkes Easing, Zeilen gestaffelt; Focal Blur = Fast Box Blur 6 mit invertierter, weicher Ellipsenmaske
+// (Saeule 6 "Randunschaerfe"); Focus Hunting Box Blur 0/4/2/0; Page Turn Fold Radius 50, Back Opacity 85, Posterize 8;
+// Burn Film Random Seed 180; Punch-Cut 7 Frames vor / 21 Frames nach dem Schnitt, Speed-Spitze auf dem Schnitt.
+// Jedes Geraet traegt im Ebenen-Kommentar "VOX:<art>" (Hauptgeraet der Szene zusaetzlich "|HAUPT"); der Probelauf prueft das (VOX).
+function voxTag(l, art, haupt) { if (!l) return l; var alt = String(l.comment || "").replace(/;?VOX:[^;]*/g, ""); l.comment = (alt ? alt + ";" : "") + "VOX:" + art + (haupt ? "|HAUPT" : ""); return l; }
+// Zustand der Fahrt zur Zeit t (wie AE: gleiche Key-Zeiten und Einfluesse fuer Anker, Position, Skalierung)
+function gZust(sid, t) {
+  var G = D.grund[sid], T = [], qx = [], qy = [], px = [], py = [], zz = [];
+  for (var j = 0; j < G.keys.length; j++) { var K = G.keys[j]; T.push(K.t); qx.push(K.Q[0]); qy.push(K.Q[1]); px.push(K.P[0]); py.push(K.P[1]); zz.push(K.z); }
+  if (T.length === 1) return { Q: [qx[0], qy[0]], P: [px[0], py[0]], z: zz[0] };
+  var inf = G.infl;
+  return { Q: [keyAt(T, qx, inf, t), keyAt(T, qy, inf, t)], P: [keyAt(T, px, inf, t), keyAt(T, py, inf, t)], z: keyAt(T, zz, inf, t) };
+}
+// Bildschirmpunkt (zur Zeit tr) -> Quellpixel, und zurueck
+function gQ(sid, s, tr) { var Z = gZust(sid, tr); return [Z.Q[0] + (s[0] - Z.P[0]) / Z.z, Z.Q[1] + (s[1] - Z.P[1]) / Z.z]; }
+function gS(sid, q, t) { var Z = gZust(sid, t); return [Z.P[0] + (q[0] - Z.Q[0]) * Z.z, Z.P[1] + (q[1] - Z.Q[1]) * Z.z]; }
+function gQs(sid, pts, tr) { var o = []; for (var i = 0; i < pts.length; i++) o.push(gQ(sid, pts[i], tr)); return o; }
+// Null, die sich wie das Hintergrundfoto bewegt (eine je Szene)
+function gAnker(c, sid) {
+  for (var i = 1; i <= c.numLayers; i++) if (c.layer(i).name === "Grund Anker") return c.layer(i);
+  var G = D.grund[sid], n = c.layers.addNull(c.duration); n.name = "Grund Anker";
+  var T = [], A = [], P = [], S = [];
+  for (var j = 0; j < G.keys.length; j++) { var K = G.keys[j]; T.push(K.t); A.push([K.Q[0], K.Q[1]]); P.push([K.P[0], K.P[1]]); S.push([K.z * 100, K.z * 100]); }
+  NOANIM = true;
+  stellen(n.anchorPoint, T, A, G.infl); linPath(n.anchorPoint);
+  stellen(n.position, T, P, G.infl); linPath(n.position);
+  stellen(n.scale, T, S, G.infl);
+  NOANIM = false;
+  return n;
+}
+function anHaengen(c, sid, l) { attach(l, gAnker(c, sid)); l.position.setValue([0, 0]); l.anchorPoint.setValue([0, 0]); l.scale.setValue([100, 100]); l.rotation.setValue(0); return l; }
+// Polygon / Ellipse (Bildschirm zur Zeit tr) als Pfad in Quellpixeln
+function gPoly(sid, pts, tr) { return line2(gQs(sid, pts, tr), true); }
+function gEll(sid, cx, cy, rx, ry, tr) { var q = gQ(sid, [cx, cy], tr), z = gZust(sid, tr).z; return ellP(q[0], q[1], rx / z, ry / z); }
+// Flaeche in Quellpixeln (am Anker), Formebene (vektoriell = billig, keine Riesen-Solids), deckt das ganze Bild in jedem Key (+ Rand)
+function gFlaeche(c, sid, name, color) {
+  var G = D.grund[sid], x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  for (var j = 0; j < G.keys.length; j++) {
+    var K = G.keys[j], m = 200 / K.z;
+    x0 = Math.min(x0, K.Q[0] - K.P[0] / K.z - m); x1 = Math.max(x1, K.Q[0] + (W - K.P[0]) / K.z + m);
+    y0 = Math.min(y0, K.Q[1] - K.P[1] / K.z - m); y1 = Math.max(y1, K.Q[1] + (H - K.P[1]) / K.z + m);
+  }
+  var l = shape(c, name), g = grp(l, "Flaeche"); addPath(g, line2([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], true)); fill(g, color);
+  anHaengen(c, sid, l);
+  l.gOff = [0, 0];
+  return l;
+}
+function maskeQ(l, p, feather, inv, mode) {   // Maske in Quellpixeln auf einer gFlaeche
+  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.property("ADBE Mask Shape").setValue(mkShape(p, -l.gOff[0], -l.gOff[1]));
+  if (feather) m.property("ADBE Mask Feather").setValue([feather, feather]);
+  if (inv) m.inverted = true;
+  if (mode) { try { m.maskMode = mode; } catch (e) {} }
+  return m;
+}
+// 1 Kontrast-Callout: alles ausser dem Ziel wird dunkel (harter Schnitt, keine Blende), Maske klebt am Foto
+//   ziel: {ell: [cx, cy, rx, ry]} oder {poly: [[x, y], ...]} in Bildschirm-px zur Zeit tr
+function spot(c, sid, name, ziel, tr, t0, t1, op, haupt) {
+  var z = gZust(sid, tr).z;
+  var l = gFlaeche(c, sid, "FIX Callout " + name, "#000000");
+  maskeQ(l, ziel.ell ? gEll(sid, ziel.ell[0], ziel.ell[1], ziel.ell[2], ziel.ell[3], tr) : gPoly(sid, ziel.poly, tr), (ziel.feder || 70) / z, true);
+  l.opacity.setValue(op || 58);
+  l.inPoint = t0; if (t1) l.outPoint = t1;
+  return voxTag(l, "callout", haupt);
+}
+// 2 Farb-Sweep: Farbflaeche im Mischmodus "Farbe" ueber einem Teil des echten Fotos (z. B. Statue kupferbraun / gruen).
+//   wisch: null (steht sofort) oder {t0, t1, von: "unten"|"oben"|"links", weg: true (Farbe zieht sich zurueck)}
+function farbSweep(c, sid, name, color, ziel, tr, t0, wisch, op, haupt) {
+  var z = gZust(sid, tr).z;
+  var l = gFlaeche(c, sid, "Farbe " + name, color);
+  l.blendingMode = BlendingMode.COLOR; l.opacity.setValue(op || 72);
+  if (ziel) maskeQ(l, ziel.poly ? gPoly(sid, ziel.poly, tr) : gEll(sid, ziel.ell[0], ziel.ell[1], ziel.ell[2], ziel.ell[3], tr), (ziel.feder || 24) / z, false);
+  if (ziel && ziel.halb) {   // nur eine Haelfte (x < oder > halb.x auf dem Bildschirm)
+    var hx = ziel.halb.x, rp = ziel.halb.seite === "links" ? [[-400, -400], [hx, -400], [hx, 2400], [-400, 2400]] : [[hx, -400], [1500, -400], [1500, 2400], [hx, 2400]];
+    maskeQ(l, gPoly(sid, rp, tr), 2 / z, false, MaskMode.INTERSECT);
+  }
+  if (wisch) {   // Wisch-Maske (Bildschirm zur Zeit tr, Kante weich): art "rein-oben" = Farbe waechst von oben, "weg-oben" = Farbe zieht sich nach oben zurueck
+    var Y0 = -300, Y1 = 2200, voll = [[-400, Y0], [1500, Y0], [1500, Y1], [-400, Y1]], null0 = [[-400, Y0], [1500, Y0], [1500, Y0], [-400, Y0]];
+    var a = wisch.art === "weg-oben" ? voll : null0, b = wisch.art === "weg-oben" ? null0 : voll;
+    var mw = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+    try { mw.maskMode = MaskMode.INTERSECT; } catch (e) {}
+    mw.property("ADBE Mask Feather").setValue([0, 160 / z]);
+    keys(mw.property("ADBE Mask Shape"), [wisch.t0, wisch.t1], [mkShape(gPoly(sid, a, tr)), mkShape(gPoly(sid, b, tr))], [[20, 20], [70, 70]]);
+    noteAnim(null, wisch.t1, l);
+  }
+  l.inPoint = t0;
+  return voxTag(l, "farbsweep", haupt);
+}
+// 3 Bleistift am Foto: Kreis/Ellipse oder Linienzug, zeichnet sich (Trim 0 -> 100), Strich in Bildschirm-px
+function gKreis(c, sid, name, ell, tr, t0, color, w, dur, haupt) {
+  var z = gZust(sid, tr).z;
+  var l = pencil(c, "Kreis " + name, [gEll(sid, ell[0], ell[1], ell[2], ell[3], tr)], color || LRED, (w || 8) / z, t0, dur || f2s(9));
+  anHaengen(c, sid, l); l.inPoint = t0;
+  return voxTag(l, "kreis", haupt);
+}
+function gStrich(c, sid, name, linien, tr, t0, color, w, dur, haupt) {
+  var z = gZust(sid, tr).z, P = [];
+  for (var i = 0; i < linien.length; i++) P.push(line2(gQs(sid, linien[i], tr)));
+  var l = pencil(c, "Strich " + name, P, color || CREAM, (w || 6) / z, t0, dur || f2s(10));
+  anHaengen(c, sid, l); l.inPoint = t0;
+  return voxTag(l, "strich", haupt);
+}
+// Pfeil von einem Label (Bildschirm) auf einen Punkt im Foto; klebt am Foto
+function gPfeil(c, sid, name, von, ziel, tr, t0, color, w) {
+  var z = gZust(sid, tr).z, a = gQ(sid, von, tr), b = gQ(sid, ziel, tr);
+  var mx = (a[0] + b[0]) / 2, my = Math.min(a[1], b[1]) - 30 / z;
+  var p = { v: [a, b], i: [[0, 0], [mx - b[0], my - b[1]]], o: [[mx - a[0], my - a[1]], [0, 0]], c: false };
+  var ang = Math.atan2(b[1] - my, b[0] - mx), L = 26 / z;
+  var head = line2([[b[0] - L * Math.cos(ang - 0.5), b[1] - L * Math.sin(ang - 0.5)], b, [b[0] - L * Math.cos(ang + 0.5), b[1] - L * Math.sin(ang + 0.5)]]);
+  var l = pencil(c, "Pfeil " + name, [p, head], color || CREAM, (w || 5) / z, t0, f2s(8));
+  anHaengen(c, sid, l); l.inPoint = t0;
+  return voxTag(l, "pfeil");
+}
+// Label (kursive Serif, getippt) + Pfeil auf einen Punkt im Foto
+function gLabel(c, sid, s, x, y, size, ziel, tr, t0, color) {
+  var l = txt(c, s, F_SERIF_BI, size || 60, color || CREAM, [x, y]); l.name = "Label " + s; schatten(l);
+  typeOn(l, t0, 32); l.inPoint = t0;
+  if (ziel) {
+    var sx = x + (ziel[0] > x ? 40 : -40), sy = ziel[1] < y ? y - (size || 60) * 0.95 : y + 18;
+    gPfeil(c, sid, s, [sx, sy], ziel, tr, t0 + 0.08, color);
+  }
+  return l;
+}
+// 4 Lupe: echter Ausschnitt (archiv/lupe-<sid>.jpg, volle Aufloesung) waechst ueber dem Punkt im Foto auf und vergroessert ihn
+function gLupe(c, sid, t0, haupt) {
+  var L = D.grund[sid].lupe, it = imp(L.rel); if (!it) return null;
+  var Z = gZust(sid, t0), S = gS(sid, L.D, t0), z = Z.z, m = L.m, R = L.R;
+  var l = c.layers.add(it); l.name = "Grund Lupe " + sid;
+  l.anchorPoint.setValue([L.D[0] - L.o[0], L.D[1] - L.o[1]]); l.position.setValue(S);
+  keys(l.scale, [t0, t0 + f2s(9)], [[z * 100, z * 100], [z * m * 100, z * m * 100]], [[10, 10], [85, 85]]);
+  var mk = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  mk.property("ADBE Mask Shape").setValue(mkShape(circPath(L.D[0] - L.o[0], L.D[1] - L.o[1], R / (z * m))));
+  mk.property("ADBE Mask Feather").setValue([1.5, 1.5]);
+  l.inPoint = t0;
+  var rg = shape(c, "Lupe Rand"), g1 = grp(rg, "Schatten"); ellipseG(g1, 2 * R + 10, 2 * R + 10, 0, 0); stroke(g1, "#000000", 16);
+  var g2 = grp(rg, "Rand"); ellipseG(g2, 2 * R, 2 * R, 0, 0); stroke(g2, CREAM, 8);
+  var g3 = grp(rg, "Griff"); addPath(g3, line2([[R * 0.72, R * 0.72], [R * 1.18, R * 1.18]])); stroke(g3, CREAM, 18);
+  rg.position.setValue(S);
+  keys(rg.scale, [t0, t0 + f2s(9)], [[100 / m, 100 / m], [100, 100]], [[10, 10], [85, 85]]);
+  rg.inPoint = t0;
+  voxTag(l, "lupe", haupt);
+  return { lupe: l, rand: rg, mitte: S, R: R };
+}
+// 5 Fokus: Fast Box Blur 6 (Iterationen 2) auf dem Rest, scharfe weiche Ellipse wandert A -> B (Saeule 4/6; kleiner Radius = billig)
+function gFokus(c, t0, t1, a, b, rx, ry, haupt) {
+  var ad = adj(c, "FIX Fokus-Unschaerfe");
+  var bb = addFx(ad, "ADBE Box Blur2", "Fokus Blur");
+  if (bb) {
+    setP(bb, ["Iterations"], 2); setP(bb, ["Repeat Edge Pixels"], 1);
+    var r = findP(bb, ["Blur Radius"]);
+    if (r) keys(r, [t0, t0 + f2s(4), t1 - f2s(4), t1], [0, 6, 6, 0], 50);
+  }
+  var m = ad.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.inverted = true; m.property("ADBE Mask Feather").setValue([260, 260]);
+  if (b) keys(m.property("ADBE Mask Shape"), [t0, Math.min(t1 - f2s(6), t0 + 1.0)], [mkShape(ellP(a[0], a[1], rx, ry)), mkShape(ellP(b[0], b[1], rx, ry))], [[15, 15], [95, 95]]);
+  else m.property("ADBE Mask Shape").setValue(mkShape(ellP(a[0], a[1], rx, ry)));
+  ad.inPoint = t0; ad.outPoint = t1 + f2s(1);
+  return voxTag(ad, "fokus", haupt);
+}
+// 6 Kopie des Hintergrundfotos (gleiche Fahrt), z. B. fuer Parallax-Teil oder Seite umblaettern
+function grundKopie(c, sid, name, idx) {
+  var G = D.grund[sid], e = G.ebenen[idx === undefined ? G.ebenen.length - 1 : idx], it = imp(e.rel); if (!it) return null;
+  var l = c.layers.add(it); l.name = "Grund " + name;
+  var T = [], A = [], P = [], S = [];
+  for (var j = 0; j < G.keys.length; j++) { var K = G.keys[j]; T.push(K.t); A.push([(K.Q[0] - e.o[0]) * e.r, (K.Q[1] - e.o[1]) * e.r]); P.push([K.P[0], K.P[1]]); S.push([K.z / e.r * 100, K.z / e.r * 100]); }
+  NOANIM = true;
+  stellen(l.anchorPoint, T, A, G.infl); linPath(l.anchorPoint); stellen(l.position, T, P, G.infl); linPath(l.position); stellen(l.scale, T, S, G.infl);
+  NOANIM = false;
+  l.gE = e;
+  return l;
+}
+function maskeBild(l, pQ, feather, inv) {   // Maske in Quellpixeln auf einer Grund-Kopie (Ebenenpixel = (Q - o) * r)
+  var e = l.gE, v = [], ii = [], oo = [];
+  for (var k = 0; k < pQ.v.length; k++) { v.push([(pQ.v[k][0] - e.o[0]) * e.r, (pQ.v[k][1] - e.o[1]) * e.r]); ii.push([pQ.i[k][0] * e.r, pQ.i[k][1] * e.r]); oo.push([pQ.o[k][0] * e.r, pQ.o[k][1] * e.r]); }
+  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
+  m.property("ADBE Mask Shape").setValue(mkShape({ v: v, i: ii, o: oo, c: true }));
+  if (feather) m.property("ADBE Mask Feather").setValue([feather, feather]);
+  if (inv) m.inverted = true;
+  return m;
+}
+// Parallax-Split: das Motiv (Maske) loest sich als eigene Ebene und waechst schneller als der Rest (Tiefe ohne 3D)
+function gParallax(c, sid, poly, tr, pivot, s1, haupt) {
+  var l = grundKopie(c, sid, "Parallax Motiv"); if (!l) return null;
+  maskeBild(l, gPoly(sid, poly, tr), 3);
+  var n = c.layers.addNull(c.duration); n.name = "Grund Parallax Null";
+  n.anchorPoint.setValue(pivot); n.position.setValue(pivot);
+  NOANIM = true; keys(n.scale, [0, c.duration], [[100, 100], [s1 * 100, s1 * 100]], [[30, 30], [60, 60]]); NOANIM = false;
+  attach(l, n);
+  addFx(l, "ADBE Drop Shadow", "Parallax Schatten");
+  var ds = fxGet(l, "Parallax Schatten"); if (ds) { setP(ds, ["Opacity"], 120); setP(ds, ["Distance"], 10); setP(ds, ["Softness"], 30); }
+  return voxTag(l, "parallax", haupt);
+}
+// Seite umblaettern: ein Stueck Foto (Rechteck) schaelt sich ab und gibt darunter etwas frei (CC Page Turn, Fold Radius 50, Back Opacity 85)
+function gSchaelen(c, sid, rect, tr, t0, dur, haupt) {
+  var l = grundKopie(c, sid, "Schale"); if (!l) return null;
+  var q0 = gQ(sid, [rect[0], rect[1]], tr), q1 = gQ(sid, [rect[2], rect[3]], tr), e = l.gE;
+  maskeBild(l, line2([q0, [q1[0], q0[1]], q1, [q0[0], q1[1]]], true), 0);
+  var pt = addFx(l, "CC Page Turn", "Seite umblaettern");
+  if (pt) {
+    setP(pt, ["Fold Radius"], 50); setP(pt, ["Back Opacity"], 85);
+    var bp = findP(pt, ["Back Page"]); if (bp) { try { bp.setValue(l.index); } catch (x) {} }
+    var x1 = (q1[0] - e.o[0]) * e.r, y1 = (q1[1] - e.o[1]) * e.r, x0 = (q0[0] - e.o[0]) * e.r, y0 = (q0[1] - e.o[1]) * e.r;
+    var fp = findP(pt, ["Fold Position"]);
+    if (fp) keys(fp, [t0, t0 + dur], [[x1 + 10, y1 + 10], [x0 - (x1 - x0) * 0.9, y0 - (y1 - y0) * 0.9]], [[20, 20], [70, 70]]);
+  }
+  var pz = addFx(l, "ADBE Posterize Time", "Papier 8"); if (pz) setP(pz, ["Frame Rate"], 8);
+  return voxTag(l, "seite", haupt);
+}
+// Brand-Uebergang: das Foto der vorigen Szene (Endbild) liegt obenauf und brennt weg (CC Burn Film 0 -> 100, Random Seed 180)
+function gBrand(c, sidVor, t0, dur, haupt) {
+  var G = D.grund[sidVor], e = G.ebenen[G.ebenen.length - 1], K = G.keys[G.keys.length - 1], it = imp(e.rel); if (!it) return null;
+  var l = c.layers.add(it); l.name = "Grund Uebergang " + sidVor;
+  l.anchorPoint.setValue([(K.Q[0] - e.o[0]) * e.r, (K.Q[1] - e.o[1]) * e.r]); l.position.setValue(K.P); l.scale.setValue([K.z / e.r * 100, K.z / e.r * 100]);
+  var bf = addFx(l, "CC Burn Film", "Brand-Reveal");
+  if (bf) { setP(bf, ["Random Seed"], 180); setP(bf, ["Center"], [CX, 700]); var b = findP(bf, ["Burn"]); if (b) keys(b, [t0, t0 + dur], [0, 100], [[30, 30], [60, 60]]); }
+  l.outPoint = t0 + dur + f2s(1);
+  return voxTag(l, "brand", haupt);
+}
+// Messlinie im Foto: Masslinie mit Endstrichen zwischen a und b, zeichnet sich (Bildschirm zur Zeit tr)
+function gMass(c, sid, a, b, tr, t0, color, haupt) {
+  var dx = b[0] - a[0], dy = b[1] - a[1], L = Math.sqrt(dx * dx + dy * dy), nx = -dy / L * 26, ny = dx / L * 26;
+  var linien = [[a, b], [[a[0] - nx, a[1] - ny], [a[0] + nx, a[1] + ny]], [[b[0] - nx, b[1] - ny], [b[0] + nx, b[1] + ny]]];
+  var l = gStrich(c, sid, "Masslinie", linien, tr, t0, color || YEL, 6, f2s(8));
+  return voxTag(l, "mass", haupt);
+}
+// Textmarker am Foto (z. B. Zeile auf der Zeitungsseite im Hintergrund): Quellpixel x0..x1, y; Stroke in Quellpixeln
+function gMarker(c, sid, name, x0, x1, y, h, t0, color, haupt) {
+  var l = shape(c, "Textmarker " + name), g = grp(l);
+  addPath(g, line2([[x0, y], [x1, y - 1]])); stroke(g, color || YEL, h);
+  var tr = g.addProperty("ADBE Vector Filter - Trim");
+  keys(tr.property("ADBE Vector Trim End"), [t0, t0 + 0.30], [0, 100], 20);
+  l.blendingMode = BlendingMode.MULTIPLY;
+  var td = addFx(l, "ADBE Turbulent Displace"); if (td) { setP(td, ["Amount"], 30); setP(td, ["Size"], 2); }
+  anHaengen(c, sid, l); l.inPoint = t0;
+  return voxTag(l, "marker", haupt);
+}
+// Zeitungsausschnitt (echte Zeitung 1906): gealtertes Papier (Tint auf Graustufen-Scan), gerissene Kanten, Schatten,
+// rutscht stufig (Hold-Keys, 2 Frames je Stufe = Stop-Motion) von unten ins Bild und rastet leicht gedreht ein
+function zeitung(c, rel, x, y, w, rot, t0, name) {
+  var it = imp(rel); if (!it) return null;
+  var l = c.layers.add(it); l.name = "Zeitung " + (name || rel.replace(/.*\//, ""));
+  var s = w / it.width * 100; l.scale.setValue([s, s]); l.position.setValue([x, y]); l.rotation.setValue(rot || 0);
+  var tn = addFx(l, "ADBE Tint", "Papier alt"); if (tn) { setP(tn, ["Map Black To"], rgb("#1E1A16")); setP(tn, ["Map White To"], rgb("#EFE5D0")); setP(tn, ["Amount to Tint"], 100); }
+  var rr = addFx(l, "ADBE Roughen Edges", "Papierriss");
+  if (rr) { setP(rr, ["Border"], 10 / (s / 100)); setP(rr, ["Edge Sharpness"], 1.4); setP(rr, ["Scale"], 28); setP(rr, ["Complexity"], 4); }
+  var ds = addFx(l, "ADBE Drop Shadow", "Papier Schatten"); if (ds) { setP(ds, ["Opacity"], 150); setP(ds, ["Distance"], 14); setP(ds, ["Softness"], 30); }
+  if (t0 !== undefined && t0 !== null) {
+    var y0 = y + 900, st = [y0, y + 260, y + 60, y - 14, y];
+    for (var i = 0; i < st.length; i++) hold(l.position, t0 + i * f2s(2), [x, st[i]]);
+    noteAnim(l.position, t0 + (st.length - 1) * f2s(2), l);
+    hold(l.rotation, t0, (rot || 0) + 6); hold(l.rotation, t0 + f2s(4), (rot || 0) - 1.5); hold(l.rotation, t0 + f2s(8), rot || 0);
+    noteAnim(l.rotation, t0 + f2s(8), l);
+    l.inPoint = t0;
+  }
+  return l;
+}
+// Punkt auf dem Zeitungsausschnitt (Bildpunkte der JPG) -> lokale Ebenen-Koordinaten fuer Kinder (Anker = Bildmitte)
+function zKind(z, l) { attach(l, z); l.position.setValue([0, 0]); l.anchorPoint.setValue([0, 0]); l.scale.setValue([100, 100]); l.rotation.setValue(0); return l; }
+function zMarker(c, z, name, x0, x1, y, h, t0, color) {   // Textmarker auf dem Ausschnitt (Bildpunkte)
+  var l = shape(c, "Textmarker " + name), g = grp(l);
+  addPath(g, line2([[x0, y], [x1, y - 1]])); stroke(g, color || YEL, h);
+  var tr = g.addProperty("ADBE Vector Filter - Trim");
+  keys(tr.property("ADBE Vector Trim End"), [t0, t0 + Math.max(0.28, (x1 - x0) / 1600)], [0, 100], 20);
+  l.blendingMode = BlendingMode.MULTIPLY; zKind(z, l); l.inPoint = t0; l.moveBefore(z);
+  return l;
+}
+function zKreis(c, z, name, cx, cy, rx, ry, t0, color, w) {   // Bleistiftkreis auf dem Ausschnitt (Bildpunkte)
+  var s = z.scale.value[0] / 100;
+  var l = pencil(c, "Kreis " + name, [ellP(cx, cy, rx, ry)], color || LRED, (w || 8) / s, t0, f2s(9));
+  zKind(c ? z : z, l); l.inPoint = t0; l.moveBefore(z);
+  return l;
+}
+// Tippen mit Cursor (linksbuendig, Cursor "|" blinkt waehrend des Tippens und 0,4 s danach)
+function tippen(c, s, x, y, font, size, color, t0, cps, name) {
+  cps = cps || 30;
+  var l = txt(c, s, font, size, color || CREAM, [x, y], ParagraphJustification.LEFT_JUSTIFY); l.name = name || ("Tipp " + s); schatten(l);
+  var tEnd = t0 + s.length / cps;
+  noteAnim(null, tEnd, l);
+  l.property("ADBE Text Properties").property("ADBE Text Document").expression =
+    "var s = value; var n = Math.max(0, Math.floor((time - " + t0 + ") * " + cps + ")); var t = n < s.length ? s.substr(0, n) : s;" +
+    " (time < " + (tEnd + 0.4) + " && Math.floor(time * 6) % 2 == 0) ? t + '|' : t;";
+  l.inPoint = t0;
+  return l;
+}
+// Punch-Cut auf dem Schnitt fuer das ganze Bild (Foto + Grafik): Transform-Effekt auf einer Einstellungsebene,
+// Skalierung 112 -> 100 % in 21 Frames ab dem Schnitt (Speed-Spitze auf dem Schnitt), optional 100 -> 107 % in den letzten 7 Frames
+function punchCut(c, amt, aus) {
+  var a = adj(c, "Kamera Punch (Transform)");
+  var tf = addFx(a, "ADBE Geometry2", "Punch");
+  if (tf) {
+    var sp = findP(tf, ["Scale Height", "Scale", "ADBE Geometry2-0003"]);
+    if (sp) {
+      var T = [0, f2s(21)], V = [(amt || 1.12) * 100, 100], E = [[10, 5], [90, 40]];
+      if (aus) { T.push(c.duration - f2s(7)); V.push(100); E.push([40, 40]); T.push(c.duration); V.push(107); E.push([5, 10]); }
+      NOANIM = true; keys(sp, T, V, E); NOANIM = false;
+    }
+  }
+  return a;
+}
+
+// ===================== Szenen: Short 16.11.2026 "Die Freiheitsstatue war nicht immer gruen" (Hintergrund-Vox, Runde 2) =====================
+// Runde 2 (enno nach dem Render: "zugepflastert mit Bildern, zu wenig Vox"): Das Hintergrundfoto ist DAS Bild der Szene.
+// Vordergrund-Abzuege sind raus bis auf das Portraet von Gustave Eiffel (echter Mensch) und EINEN KI-Freisteller (Kupfermuenze,
+// "wie eine neue Kupfermuenze"). Zeitungsausschnitte (echte Zeitung 1906) zaehlen als Vox, nicht als Foto.
+// Stattdessen wirken Vox-Geraete auf das Foto (grund_lib.jsx): Kontrast-Callout, Farbsweep (Kupfer/Gruen im Mischmodus Farbe ueber der
+// echten Statue), Bleistiftkreise und Pfeile auf echte Dinge, Lupe, Fokus-Unschaerfe, Messlinie, Parallax-Split, Seite umblaettern,
+// Brand-Uebergang, Textmarker auf der Zeitungsseite, Punch-Cut. Typografie: Tippen mit Cursor, Zaehler/Odometer, Chips, roter
+// Quellenbalken ("LAUT ..."), sauberer roter Strich durch ein getipptes Wort. Keine roten Stempel mehr (enno).
+// Kein Hauptgeraet zweimal hintereinander (VOX-Pruefung im Probelauf). k = Zeiten der Schluesselwoerter relativ zum Szenenanfang.
+// Koordinaten der Ziele im Foto: Bildschirm-px zur Zeit tr (die Geraete rechnen sie in Quellpixel um und kleben am Foto).
 var B = {};
-var ST_REL = "archiv/ki-statue-kupfer-frei.png", GR_REL = "archiv/statue-gruen-heute.jpg";
-var PH = { x: 680, y: 610, w: 500, h: 640, ecke: [446, 916] };      // Abzug "Statue heute" oben rechts, Ecke unten links fuer den Faden
 
 // Bildquellen unten rechts, eine Zeile je Quelle (gleiche Zeilen nur einmal), FIX: haengt nicht an der Kamera
 function credits(c, ks) {
@@ -1089,23 +1396,6 @@ function credits(c, ks) {
     y -= 30;
   }
 }
-// Hand-Label (kursive Serif, hell + Schatten) mit schnellem Pfeil (zeichnet sich in 8 Frames, startet 0,08 s nach dem Text); still = steht sofort
-function labelF(c, s, x, y, size, t0, color, to, still) {
-  var l = txt(c, s, F_SERIF_BI, size || 60, color || CREAM, [x, y]); l.name = "Label " + s;
-  schatten(l);
-  if (!still) typeOn(l, t0, 32);
-  l.inPoint = t0;
-  if (to) {
-    var sx = x + (to[0] > x ? 30 : -30), sy = to[1] < y ? y - (size || 60) * 0.95 : y + 16;
-    var mx = (sx + to[0]) / 2, my = Math.min(sy, to[1]) - 40;
-    var p = { v: [[sx, sy], to], i: [[0, 0], [mx - to[0], my - to[1]]], o: [[mx - sx, my - sy], [0, 0]], c: false };
-    var ang = Math.atan2(to[1] - my, to[0] - mx), L = 26;
-    var head = line2([[to[0] - L * Math.cos(ang - 0.5), to[1] - L * Math.sin(ang - 0.5)], to, [to[0] - L * Math.cos(ang + 0.5), to[1] - L * Math.sin(ang + 0.5)]]);
-    var a = pencil(c, "Pfeil " + s, [p, head], color || CREAM, 5, still ? null : t0 + 0.08, f2s(8));
-    a.inPoint = t0;
-  }
-  return l;
-}
 function hellTxt(c, s, font, size, color, pos, name) {   // Text direkt auf dem Foto: hell + Schatten
   var l = txt(c, s, font, size, color || CREAM, pos); l.name = name || ("Text " + s); schatten(l); return l;
 }
@@ -1113,286 +1403,251 @@ function ellP(cx, cy, rx, ry) {
   var kx = 0.5523 * rx, ky = 0.5523 * ry;
   return { v: [[cx, cy - ry], [cx + rx, cy], [cx, cy + ry], [cx - rx, cy]], i: [[-kx, 0], [0, -ky], [kx, 0], [0, ky]], o: [[kx, 0], [0, ky], [-kx, 0], [0, -ky]], c: true };
 }
-// Freisteller der Kupfer-Statue (KI-Rekonstruktion), mit Leiste ueber der Schnittkante
-var STAT = { x: 362, y: 700, h: 800 };
-function statue(c, t0, x, y, h) {
-  x = x || STAT.x; y = y || STAT.y; h = h || STAT.h;
-  var s = farbFrei(c, ST_REL, x, y, h, "Statue Kupfer (KI-Rekonstruktion)");
-  var it = imp(ST_REL), w = it ? it.width * h / it.height : 470;
-  var lb = rekoLeiste(c, x, y + h / 2 - 27, w + 10, null);
-  if (t0 !== undefined && t0 !== null) { popIn(s, t0, -4); setIn(lb, t0 + f2s(4)); }
-  return s;
-}
-// gruene Kopie der Statue: Tint + weiche Maske, die von unten nach oben waechst (t0 -> t1)
-function statueGruen(c, t0, t1, x, y, h) {
-  x = x || STAT.x; y = y || STAT.y; h = h || STAT.h;
-  var it = imp(ST_REL); if (!it) return null;
-  var l = c.layers.add(it); l.name = "Statue Patina (KI-Rekonstruktion)";
-  var s = h / it.height * 100; l.position.setValue([x, y]); l.scale.setValue([s, s]);
-  addFx(l, "ADBE Tint", "Patina Farbe");
-  var tn = fxGet(l, "Patina Farbe");
-  if (tn) { setP(tn, ["Map Black To"], rgb("#163A31")); setP(tn, ["Map White To"], rgb("#A9DDC6")); setP(tn, ["Amount to Tint"], 100); }
-  var W0 = it.width, H0 = it.height;
-  var a = mkShape(line2([[-30, H0 + 40], [W0 + 30, H0 + 40], [W0 + 30, H0 + 40], [-30, H0 + 40]], true));
-  var b = mkShape(line2([[-30, -60], [W0 + 30, -60], [W0 + 30, H0 + 40], [-30, H0 + 40]], true));
-  var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
-  m.property("ADBE Mask Feather").setValue([0, 70]);
-  keys(m.property("ADBE Mask Shape"), [t0, t1], [a, b], [[20, 20], [60, 60]]);
+// Hand-Label ohne Pfeil (steht sofort oder tippt sich)
+function labelF(c, s, x, y, size, t0, color, to, still) {
+  var l = txt(c, s, F_SERIF_BI, size || 60, color || CREAM, [x, y]); l.name = "Label " + s; schatten(l);
+  if (!still) typeOn(l, t0, 32);
+  l.inPoint = t0;
   return l;
 }
+// Kamera der Szene: nur noch langsame Drift (der Punch auf dem Schnitt ist punchCut und wirkt auf Foto + Grafik gleich)
+function kamera(c, s1) { return camRig(c, CX, FCY, { punchIn: false, punchOut: false, s0: 100, s1: s1 || 102 }); }
 
-// ---------- 1 Hook: Hafen von New York (Luftbild), Sturzflug auf die Statue, Abzug "heute", HEUTE: GRUEN durchgestrichen ----------
+// ---------- 1 Hook: Flug ueber den Hafen, Callout + LUPE auf die echte Statue, Etikett IMMER GRUEN wird durchgestrichen ----------
 B.hook = function (c, k) {
-  grund(c, "hook", { dunkel: 6 });
-  // grosser Ortstitel gleich zu Beginn (Flug ueber den Hafen), weicht dem Abzug "Statue heute"
-  var ny = hellTxt(c, "New York", F_SANS_B, 120, "#FFFFFF", [CX, 330], "Ort New York"); typeOn(ny, 0.04, 30); ny.inPoint = 0.04; ny.outPoint = k.statue + 0.04;
-  var pin = D.grund.hook.pin["Liberty Island"];
-  gPin(c, "hook", "Liberty Island", k.statue, VERD);
-  var ph = printPhoto(c, GR_REL, PH.x, PH.y, PH.w, PH.h, 3, null);
-  dropIn(ph, k.statue + 0.04, 180, 0.36);
-  faden(c, PH.ecke, [pin[0] + 12, pin[1] - 112], 2.30, CREAM);
-  var li = hellTxt(c, "Liberty Island", F_SERIF_I, 36, CREAM, [228, pin[1] + 52], "Ort Liberty Island"); typeOn(li, 2.30, 26); li.inPoint = 2.30;
-  // "Und sie war nicht immer gruen": Etikett HEUTE: GRUEN, roter Strich mittig durch (Fix 13.11.: lag unter dem Text), Fragezeichen
-  var ch = chip(c, "HEUTE: GRÜN", PH.x, 1052, VERD, "#FFFFFF", 42, k.und);
-  durchstreichen(c, ch, "Etikett Flaeche HEUTE: GRÜN", k.nicht, LRED, 10, k.und + 0.5);
-  var q2 = txt(c, "?", F_SERIF_BI, 210, LRED, [930, 1220]); q2.name = "Fragezeichen"; schatten(q2); slam(q2, k.gruen - 0.04);
-  credits(c, ["bg-hafen-heute", "statue-gruen-heute"]);
-  camRig(c, CX, FCY, { punchIn: false, s0: 100, s1: 103 });
+  grund(c, "hook", { dunkel: 4 });
+  var ny = tippen(c, "New York", 250, 330, F_SANS_B, 120, "#FFFFFF", 0.04, 26, "Ort New York"); ny.outPoint = k.statue;
+  spot(c, "hook", "Statue", { ell: [312, 930, 175, 330] }, 2.4, k.statue, null, 52);
+  gLupe(c, "hook", k.statue + 0.10, true);
+  tippen(c, "Liberty Island", 120, 1240, F_SERIF_I, 44, CREAM, k.statue + 0.50, 30, "Ort Liberty Island");
+  var ch = chip(c, "IMMER GRÜN", 760, 900, VERD, "#FFFFFF", 48, k.und);
+  durchstreichen(c, ch, "Etikett Flaeche IMMER GRÜN", k.nicht, LRED, 10, k.und + 0.5);
+  var q2 = txt(c, "?", F_SERIF_BI, 200, LRED, [930, 1130]); q2.name = "Fragezeichen"; schatten(q2); slam(q2, k.gruen - 0.04);
+  credits(c, ["bg-hafen-heute"]);
+  kamera(c, 102);
   voxSauce(c, "grafik");
 };
-// ---------- 2 Am Anfang braun: Kupfer-Statue (KI-Rekonstruktion) vor dem Aufbau 1886, Kupfermuenze ----------
+// ---------- 2 Am Anfang braun: FARBSWEEP kupferbraun ueber die echte Statue (Stich 1886), Glanz, eine Kupfermuenze (KI) ----------
+var BRAUN_POLY = [[60, 40], [230, 30], [330, 280], [470, 230], [640, 250], [820, 360], [960, 600], [1010, 880], [940, 1300], [930, 1940], [180, 1940], [150, 1300], [110, 820], [160, 460], [130, 300]];
 B.braun = function (c, k) {
   grund(c, "braun");
-  var y = odometer(c, "1886", F_NUM, 150, CREAM, [800, 380], k.anfang, f2s(14)); y.name = "Jahr 1886"; schatten(y);
-  statue(c, k.glaenzt - 0.04);
-  chip(c, "KUPFERBRAUN", 775, 1056, COPPER, "#FFFFFF", 36, k.braun);
-  var m = farbFrei(c, "archiv/ki-kupfermuenze-frei.png", 790, 720, 290, "Kupfermuenze (KI-Bild)");
+  var y = odometer(c, "1886", F_NUM, 150, CREAM, [790, 330], k.anfang, f2s(14)); y.name = "Jahr 1886"; schatten(y);
+  farbSweep(c, "braun", "Kupfer Statue", COPPER, { poly: BRAUN_POLY, feder: 30 }, 1.8, k.glaenzt - 0.06, { art: "rein-oben", t0: k.glaenzt - 0.06, t1: k.glaenzt + 0.50 }, 74, true);
+  // "glaenzt": heller Glanzstreifen laeuft diagonal ueber die Statue (Add, nur in der Statuen-Maske)
+  var gl = gFlaeche(c, "braun", "Farbe Glanz", "#FFE2B8"); gl.blendingMode = BlendingMode.ADD; gl.opacity.setValue(26);
+  maskeQ(gl, gPoly("braun", BRAUN_POLY, 1.8), 30 / gZust("braun", 1.8).z, false);
+  var mg = gl.property("ADBE Mask Parade").addProperty("ADBE Mask Atom"); try { mg.maskMode = MaskMode.INTERSECT; } catch (e) {}
+  mg.property("ADBE Mask Feather").setValue([90, 90]);
+  var band = function (dx) { return mkShape(gPoly("braun", [[-500 + dx, 0], [-300 + dx, 0], [-700 + dx, 1920], [-900 + dx, 1920]], 1.8)); };
+  keys(mg.property("ADBE Mask Shape"), [k.glaenzt + 0.10, k.glaenzt + 0.80], [band(0), band(2100)], [[30, 30], [60, 60]]);
+  noteAnim(null, k.glaenzt + 0.80, gl);
+  gl.inPoint = k.glaenzt + 0.10; gl.outPoint = k.glaenzt + 0.80 + f2s(9); voxTag(gl, "glanz");
+  chip(c, "KUPFERBRAUN", 760, 1120, COPPER, "#FFFFFF", 40, k.braun);
+  var m = farbFrei(c, "archiv/ki-kupfermuenze-frei.png", 800, 760, 260, "Kupfermuenze (KI-Bild)");
   popIn(m, k.muenze - 0.06, 12);
-  leisteNachOben(c);
-  credits(c, ["bg-bedloe-1886", "ki-statue-kupfer", "ki-kupfermuenze"]);
-  var cam = camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
-  punchAt(cam, k.braun - f2s(2), 1.03);
+  tippen(c, "neue Münze", 690, 950, F_SERIF_I, 44, LCOPPER, k.muenze + 0.12, 30, "Label neue Muenze");
+  credits(c, ["bg-bedloe-1886", "ki-kupfermuenze"]);
+  punchCut(c, 1.12);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 3 Geschenk von Frankreich: Kopf der Statue in Paris 1878 (schneller Zoom), Kupfer-Kachel, Abzug Paris 1883, Pfeil FRANKREICH -> USA ----------
+// ---------- 3 Geschenk von Frankreich: Kupfer-Kachel, Zoom auf den Kopf (Paris 1878), BLEISTIFTKREIS + Pfeil, FRANKREICH -> USA ----------
 B.geschenk = function (c, k) {
   grund(c, "geschenk");
-  var pa = hellTxt(c, "Paris, 1878", F_SERIF_BI, 56, CREAM, [CX, 330], "Ort Paris 1878"); typeOn(pa, 0.04, 30); pa.inPoint = 0.04;
-  var t0 = k.geschenk - 0.08; pa.outPoint = t0 + 0.30;   // Ortsangabe weicht dem Abzug
-  var kc = elementKachel(c, CX, 680, 380, k.kupfer - 0.04);
+  tippen(c, "Paris, 1878", 300, 330, F_SERIF_BI, 64, CREAM, 0.04, 30, "Ort Paris 1878");
+  var t0 = k.geschenk - 0.08;
+  var kc = elementKachel(c, CX, 700, 360, k.kupfer - 0.04);
   keys(kc.scale, [t0, t0 + f2s(5)], [[100, 100], [0, 0]], [[60, 10], [10, 60]]); kc.outPoint = t0 + f2s(14);
-  var ph = printPhoto(c, "archiv/paris-bau-1883.jpg", 540, 560, 380, 560, -3, null);
-  dropIn(ph, t0 + 0.30, 180, 0.36);
-  chip(c, "FRANKREICH", 290, 1080, NAVY, "#FFFFFF", 40, k.frankreich - 0.04);
-  routePfeil(c, [470, 1050], [650, 1050], 0.30, k.frankreich + 0.18, k.usa - 0.20, LRED);
-  var at = hellTxt(c, "Atlantik", F_SERIF_I, 36, LBLAU, [560, 965], "Label Atlantik"); typeOn(at, k.frankreich + 0.30, 30); at.inPoint = k.frankreich + 0.30;
-  chip(c, "USA", 800, 1080, NAVY, "#FFFFFF", 40, k.usa - 0.22);
-  sourceBar(c, "Paris 1883", "Bau der Statue", t0 + 0.40, 1480);
-  credits(c, ["bg-paris-kopf-1878", "paris-bau-1883"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 102 });
+  gKreis(c, "geschenk", "Kopf", [520, 820, 270, 340], 1.9, k.geschenk + 0.30, CREAM, 8, f2s(10), true);
+  gLabel(c, "geschenk", "aus Kupfer", 830, 470, 56, [690, 610], 1.9, k.geschenk + 0.46, LCOPPER);
+  chip(c, "FRANKREICH", 290, 1230, NAVY, "#FFFFFF", 40, k.frankreich - 0.04);
+  routePfeil(c, [470, 1200], [650, 1200], 0.30, k.frankreich + 0.18, k.usa - 0.20, LRED);
+  chip(c, "USA", 800, 1230, NAVY, "#FFFFFF", 40, k.usa - 0.22);
+  credits(c, ["bg-paris-kopf-1878"]);
+  kamera(c, 102);
   voxSauce(c, "archiv");
 };
-// ---------- 4 Kupferhaut so dick wie zwei Muenzen: Werkstatt in Paris, Abzug Kopf + Fackelhand, 2,4 mm ----------
+// ---------- 4 Kupferhaut so duenn wie zwei Muenzen: Werkstatt Paris, Callout auf das Kupferblech, MESSLINIE "~ 2,4 mm" ----------
 B.haut = function (c, k) {
   grund(c, "haut");
-  var ph = printPhoto(c, "archiv/paris-bau-1883-detail.jpg", 540, 600, 600, 600, 2, null);
-  dropIn(ph, 0.04, 160, 0.32);
-  labelF(c, "Kupferhaut", 330, 1010, 60, k.kupferhaut, LCOPPER, [640, 690]);
-  var mm = hellTxt(c, "≈ 2,4 mm", F_NUM, 92, CREAM, [300, 1180], "Mass 2,4 mm"); typeOn(mm, k.dick, 30); mm.inPoint = k.dick;
-  var m1 = farbFrei(c, "archiv/ki-kupfermuenze-frei.png", 680, 1130, 190, "Muenze 1 (KI-Bild)"); popIn(m1, k.zwei - 0.26, 10);
-  var m2 = farbFrei(c, "archiv/ki-kupfermuenze-frei.png", 800, 1150, 190, "Muenze 2 (KI-Bild)"); popIn(m2, k.zwei - 0.06, -8);
-  credits(c, ["bg-werkstatt-paris", "paris-bau-1883-detail", "ki-kupfermuenze"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  spot(c, "haut", "Kupferblech", { ell: [500, 860, 380, 270] }, 1.2, k.kupferhaut, null, 44);
+  gLabel(c, "haut", "Kupferhaut", 300, 470, 64, [430, 790], 1.2, k.kupferhaut + 0.06, LCOPPER);
+  gMass(c, "haut", [560, 930], [760, 930], 1.2, k.dick - 0.10, YEL, true);
+  tippen(c, "≈ 2,4 mm", 520, 1080, F_NUM, 96, YEL, k.dick, 30, "Mass 2,4 mm");
+  chip(c, "= 2 MÜNZEN", 680, 1210, COPPER, "#FFFFFF", 40, k.zwei - 0.08);
+  credits(c, ["bg-werkstatt-paris"]);
+  punchCut(c, 1.10);
+  kamera(c, 103);
   voxSauce(c, "archiv");
 };
-// ---------- 5 Geruest aus Eisen von Gustave Eiffel: Fahrt am Geruest hinauf, Plan 1881, Portraet, Eiffelturm 1889 ----------
+// ---------- 5 Eisengeruest von Gustave Eiffel: FOKUS faehrt am Geruest hoch, Linien zeichnen das Eisen nach, Portraet (einziger Mensch) ----------
 B.eiffel = function (c, k) {
   grund(c, "eiffel");
-  var gp = printPhoto(c, "archiv/eiffel-geruest-1881.jpg", 370, 670, 480, 640, -2, null);
-  dropIn(gp, k.geruest - 0.04, 180, 0.36);
-  labelF(c, "Eisen", 330, 1110, 64, k.eisen, CREAM, [372, 960]);
-  var pt = printPhoto(c, "archiv/eiffel-portraet.jpg", 770, 520, 320, 340, 3, null);
+  gFokus(c, k.geruest, k.gustave + 0.10, [540, 1350], [540, 820], 360, 440, true);
+  gLabel(c, "eiffel", "Eisen", 200, 470, 70, [330, 640], 2.8, k.eisen, CREAM);
+  var pt = printPhoto(c, "archiv/eiffel-portraet.jpg", 770, 600, 320, 360, 3, null);
   dropIn(pt, k.gustave - 0.04, 160, 0.34);
-  sourceBar(c, "Gustave Eiffel", "Ingenieur, Paris", k.gustave + 0.56, 1480);
-  pencil(c, "Unterstrich Eiffel", [line2([[625, 728], [770, 732], [915, 726]])], LRED, 8, k.mann, f2s(8));
-  var tw = printPhoto(c, "archiv/eiffelturm-1889.jpg", 770, 950, 310, 360, -3, null);
-  dropIn(tw, k.turm - 0.10, 160, 0.34);
-  var tl = hellTxt(c, "Eiffelturm, 1889", F_SERIF_I, 40, CREAM, [770, 1205], "Label Eiffelturm"); typeOn(tl, k.turm + 0.1, 30); tl.inPoint = k.turm + 0.1;
-  pencil(c, "Kreis Halt", [ellP(370, 670, 150, 290)], LRED, 8, k.gibt, f2s(9));
-  credits(c, ["bg-geruest-paris", "eiffel-geruest-1881", "eiffel-portraet", "eiffelturm-1889"]);
-  var cam = camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 102 });
-  punchAt(cam, k.turm - f2s(3), 1.03);
+  sourceBar(c, "Gustave Eiffel", "Ingenieur, Paris", k.gustave + 0.50, 1480);
+  tippen(c, "Eiffelturm, 1889", 600, 900, F_SERIF_I, 46, CREAM, k.turm - 0.10, 30, "Label Eiffelturm");
+  // "gibt ihr Halt": das eiserne Geruest wird mit gelben Linien nachgezeichnet (Linien kaufen Zeit)
+  gStrich(c, "eiffel", "Geruest", [[[252, 1240], [258, 960]], [[832, 1240], [826, 960]], [[252, 1240], [832, 1240]], [[255, 1100], [829, 1100]], [[258, 960], [826, 960]]], 4.0, k.gibt - 0.20, YEL, 7, f2s(10));
+  credits(c, ["bg-geruest-paris", "eiffel-portraet"]);
+  kamera(c, 102);
   voxSauce(c, "archiv");
 };
-// ---------- 6 Mitte-Aufruf: Statue im Hafen (um 1890), Folgen-Knopf wird geklickt ----------
+// ---------- 6 Mitte-Aufruf: Statue um 1890, PARALLAX-Split (Statue loest sich und kommt naeher), Folgen-Knopf ----------
 B.folge = function (c, k) {
-  grund(c, "folge", { dunkel: 18 });
-  followBtn(c, CX, 700, 0.06, k.schlauer + 0.30, 1.4);
+  grund(c, "folge", { dunkel: 12 });
+  gParallax(c, "folge", [[452, 26], [505, 26], [522, 200], [600, 236], [690, 420], [650, 560], [660, 820], [712, 832], [740, 1410], [362, 1410], [392, 832], [436, 820], [418, 500], [436, 300], [468, 200]], 0.76, [550, 1410], 1.07, true);
+  followBtn(c, CX, 1140, 0.06, k.schlauer + 0.30, 1.4);
   credits(c, ["bg-insel-1890"]);
-  camRig(c, CX, FCY, { punchIn: 106, s0: 100, s1: 102 });
+  kamera(c, 102);
   voxSauce(c, "grafik");
 };
-// ---------- 7 Kupfer reagiert mit Luft und Regen (Wolken ueber dem Hafen, um 1910) ----------
+// ---------- 7 Kupfer reagiert mit Luft und Regen: CALLOUT auf die Statue (um 1910), KUPFER, Luft-Pfeil, Regen-Striche ----------
 B.regen = function (c, k) {
   grund(c, "regen");
-  statue(c, null);
-  chip(c, "KUPFER", 780, 1056, COPPER, "#FFFFFF", 40, k.kupfer);
-  labelF(c, "Luft", 810, 470, 72, k.luft - 0.04, LBLAU, [560, 520]);
-  var rg = labelF(c, "Regen", 815, 800, 72, k.regen - 0.08, LBLAU, [575, 820], true);
-  slam(rg, k.regen - 0.08);
-  leisteNachOben(c);
-  credits(c, ["bg-wolken-1910", "ki-statue-kupfer"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  spot(c, "regen", "Statue", { ell: [512, 790, 175, 450] }, 1.2, k.kupfer, null, 58, true);
+  chip(c, "KUPFER", 800, 700, COPPER, "#FFFFFF", 40, k.kupfer + 0.04);
+  gPfeil(c, "regen", "Kupfer", [700, 690], [590, 640], 1.2, k.kupfer + 0.14, LCOPPER);
+  gLabel(c, "regen", "Luft", 250, 360, 72, [320, 500], 1.2, k.luft - 0.04, LBLAU);
+  var rg = labelF(c, "Regen", 820, 330, 72, k.regen - 0.08, LBLAU, null, true); slam(rg, k.regen - 0.08);
+  // Regen: gestrichelte Schraegstriche ueber dem Himmel, Marching Ants (Strich-Offset laeuft), stehen sofort
+  var rn = shape(c, "Strich Regen"), gr = grp(rn, "Regen");
+  for (var i = 0; i < 8; i++) { var x = 640 + i * 40 + (i % 2) * 14, y = 380 + (i % 3) * 40; addPath(gr, line2([[x, y], [x - 70, y + 260]])); }
+  var st = stroke(gr, LBLAU, 4, 22, 18); try { st.property("ADBE Vector Stroke Dashes").property("ADBE Vector Stroke Offset").expression = "time*-160"; } catch (e) {}
+  rn.inPoint = k.regen - 0.08; rn.opacity.setValue(80);
+  credits(c, ["bg-wolken-1910"]);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 8 Langsam die gruene Schicht, die Patina (Jahre laufen 1886 -> 1906), Hintergrund: Kupfer-Gewand heute ----------
+// ---------- 8 Langsam die gruene Schicht: FARBSWEEP Kupfer -> Patina auf dem echten Gewand (Jahre 1886 -> 1906), Patina-Pfeil ----------
 B.patina = function (c, k) {
-  grund(c, "patina", { dunkel: 16 });
-  statue(c, null);
-  statueGruen(c, 0.06, 1.70);
-  var n = counter(c, 1886, 1906, 0.10, 1.70, F_NUM, 150, CREAM, [780, 380]); n.name = "Jahre 1886-1906"; schatten(n);
-  chip(c, "GRÜN", 780, 1056, VERD, "#FFFFFF", 44, k.gruene);
-  var mk = printPhoto(c, "archiv/ki-patina-makro.jpg", 780, 760, 340, 200, 2, null);
-  dropIn(mk, k.patina - 0.14, 140, 0.34);
-  var pl = hellTxt(c, "Patina", F_SERIF_BI, 60, LVERD, [780, 962], "Label Patina"); typeOn(pl, k.patina, 30); pl.inPoint = k.patina;
-  leisteNachOben(c);   // Fix 13.11.: die gruene Statue lag ueber "KI-REKONSTRUKTION"
-  credits(c, ["bg-gewand-heute", "ki-statue-kupfer", "ki-patina-makro"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  grund(c, "patina", { dunkel: 11 });
+  farbSweep(c, "patina", "Kupfer weicht", COPPER, null, 1.4, 0, { art: "weg-oben", t0: 0.10, t1: 1.70 }, 78, true);
+  var n = counter(c, 1886, 1906, 0.10, 1.70, F_NUM, 150, CREAM, [780, 330]); n.name = "Jahre 1886-1906"; schatten(n);
+  chip(c, "GRÜN", 760, 1120, VERD, "#FFFFFF", 48, k.gruene);
+  gLabel(c, "patina", "Patina", 260, 560, 76, [420, 900], 2.2, k.patina - 0.04, LVERD);
+  credits(c, ["bg-gewand-heute"]);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 9 1906: so gruen, dass viele an Rost denken (Photochrom um 1905; Zeitung Wilmington 1906, Textmarker auf "Rusted") ----------
+// ---------- 9 1906 so gruen, dass viele an Rost denken: Callout + Kreis auf der Statue, ZEITUNG 1906 rutscht ein ("Rusted" eingekreist) ----------
+var ZW = "archiv/zeitung-1906-wilmington.jpg";
 B.rost = function (c, k) {
-  grund(c, "rost", { dunkel: 20 });
+  grund(c, "rost", { dunkel: 14 });
   var y = odometer(c, "1906", F_NUM, 130, CREAM, [CX, 300], 0.04, f2s(14)); y.name = "Jahr 1906"; schatten(y);
-  var ph = printPhoto(c, "archiv/zeitung-1906-wilmington.jpg", CX, 740, 860, 680, -1.5, null);
-  popIn(ph, 0.06, -3);
-  sourceBar(c, "Evening Journal", "Wilmington, 17.10.1906", k.statue + 0.30, 1480);
-  chip(c, "SO GRÜN", CX, 1180, VERD, "#FFFFFF", 42, k.gruen - 0.04);
-  // Textmarker auf "Rusted" (Bildpunkte x 196..520, y 355 in der Zeitung; Abzug-Massstab, Innen-Zoom ~1,10 bei 3 s; Drehung -1,5 Grad)
-  var ms = abzugMass("archiv/zeitung-1906-wilmington.jpg", 860, 680), z = ms[2] * (1.04 + 0.08 * 3.0 / c.duration);
-  var x0 = CX + (196 - 783.5) * z, x1 = CX + (520 - 783.5) * z, yy = 740 + (355 - 633) * z;
-  var a0 = -1.5 * Math.PI / 180, ys0 = yy + (x0 - CX) * Math.sin(a0), ys1 = yy + (x1 - CX) * Math.sin(a0);
-  var hl = highlighter(c, x0, x1, (ys0 + ys1) / 2, k.viele); hl.name = "Textmarker Rusted";
-  stempel(c, "ROST?", 820, 1190, -5, k.rost - 0.06, 64);
+  spot(c, "rost", "Statue", { ell: [488, 1010, 170, 440] }, 2.3, 0.40, k.viele, 56);
+  gKreis(c, "rost", "Statue", [488, 860, 140, 300], 2.3, k.statue + 0.08, LVERD, 8).outPoint = k.viele - 0.04;
+  chip(c, "SO GRÜN", 790, 860, VERD, "#FFFFFF", 44, k.gruen - 0.04);
+  var z = zeitung(c, ZW, CX, 720, 840, -2, k.viele - 0.10, "Evening Journal 1906"); voxTag(z, "zeitung", true);
+  // "Rusted" im Kopf der Seite: Bildpunkte x 370..780, y 300..410
+  zKreis(c, z, "Rusted", 575, 358, 250, 84, k.rost - 0.08, LRED, 8);
+  tippen(c, "verrostet?", 640, 1140, F_SERIF_BI, 64, CREAM, k.rost + 0.10, 40, "Label verrostet");
+  sourceBar(c, "Evening Journal 1906", null, k.viele + 0.10, 1480);
   credits(c, ["zeitung-1906-wilmington", "bg-photochrom-1905"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  kamera(c, 103);
   voxSauce(c, "archiv");
 };
-// ---------- 10 Der Kongress gibt Geld frei, um sie anzustreichen (Kapitol in Washington, 1902) ----------
-var EIMER = { x: 760, y: 1000, h: 340 };
+// ---------- 10 Kongress gibt Geld frei: CALLOUT auf die Kuppel (Kapitol 1902), echter Ausschnitt "$62,800" mit Textmarker ----------
+var ZK = "archiv/zeitung-1906-kongress.jpg";
 B.kongress = function (c, k) {
   grund(c, "kongress");
-  var ZK = "archiv/zeitung-1906-kongress.jpg", zx = CX, zy = 460, zr = -2;
-  var zp = printPhoto(c, ZK, zx, zy, 640, 300, zr, null); popIn(zp, 0.06, -4);
-  // Textmarker: Bildpunkte im Ausschnitt (684 x 190, ALTO-OCR): "Congress," x 339..483 y 80, "$62,800" x 556..650 y 111
-  var zm = abzugMass(ZK, 640, 300), zz = zm[2] * (1.04 + 0.08 * 1.2 / c.duration), za = zr * Math.PI / 180;
-  function zpt(px, py) { var dx = (px - 342) * zz, dy = (py - 95) * zz; return [zx + dx * Math.cos(za) - dy * Math.sin(za), zy + dx * Math.sin(za) + dy * Math.cos(za)]; }
-  var h0 = zpt(336, 80), h1 = zpt(486, 80); var hl = highlighter(c, h0[0], h1[0], (h0[1] + h1[1]) / 2, k.kongress); hl.name = "Textmarker Congress";
-  var g0 = zpt(553, 111), g1 = zpt(653, 111); var hg = highlighter(c, g0[0], g1[0], (g0[1] + g1[1]) / 2, k.geld - 0.10); hg.name = "Textmarker 62800";
-  gPin(c, "kongress", "Kapitol", k.kongress, NAVY);
-  var wl = hellTxt(c, "Washington", F_SERIF_BI, 48, CREAM, [800, 655], "Ort Washington"); typeOn(wl, k.kongress + 0.20, 26); wl.inPoint = k.kongress + 0.20;
-  chip(c, "US-KONGRESS", CX, 800, NAVY, "#FFFFFF", 40, k.kongress + 0.40);
-  var dl = hellTxt(c, "$", F_NUM, 230, LVERD, [260, 1030], "Dollar"); slam(dl, k.geld - 0.04);
-  var gf = hellTxt(c, "Geld frei", F_SERIF_BI, 56, CREAM, [270, 1140], "Label Geld frei"); typeOn(gf, k.geld + 0.12, 30); gf.inPoint = k.geld + 0.12;
-  var bk = farbFrei(c, "archiv/ki-farbeimer-frei.png", EIMER.x, EIMER.y, EIMER.h, "Farbeimer (KI-Bild)"); popIn(bk, k.streichen - 0.10, 8);
-  credits(c, ["zeitung-1906-kongress", "bg-kapitol-1902", "ki-farbeimer"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  spot(c, "kongress", "Kuppel", { ell: [500, 600, 200, 300] }, 1.5, k.kongress, null, 58, true);
+  chip(c, "US-KONGRESS", 790, 330, NAVY, "#FFFFFF", 40, k.kongress + 0.06);
+  gPfeil(c, "kongress", "Kongress", [700, 370], [600, 470], 1.5, k.kongress + 0.20, CREAM);
+  // Ausschnitt 684 x 190 (ALTO-OCR): "Congress," x 339..483 y 80, "$62,800" x 556..650 y 111
+  var z = zeitung(c, ZK, CX, 1030, 780, -1.5, k.geld - 0.16, "Kongress 1906");
+  zMarker(c, z, "Congress", 336, 486, 80, 30, k.geld + 0.12);
+  zMarker(c, z, "62800", 553, 653, 111, 30, k.geld + 0.40);
+  tippen(c, "NEU ANSTREICHEN", 120, 1250, F_SANS_B, 52, "#FFFFFF", k.streichen - 0.04, 40, "Tipp NEU ANSTREICHEN");
+  credits(c, ["zeitung-1906-kongress", "bg-kapitol-1902"]);
+  punchCut(c, 1.10);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 11 Aber die Menschen protestieren: Stempel schlagen ein (Hintergrund: Zeitungsseite 1906 ueber die Statue) ----------
+// ---------- 11 Aber die Menschen protestieren: BRAND-Uebergang in die Zeitungsseite 1906, TEXTMARKER direkt auf der Seite, LAUT ... ----------
 B.protest = function (c, k) {
-  grund(c, "protest", { dunkel: 18 });
-  farbFrei(c, "archiv/ki-farbeimer-frei.png", EIMER.x, EIMER.y, EIMER.h, "Farbeimer (KI-Bild)");
-  stempel(c, "NEIN!", 330, 520, -7, 0.06, 84);
-  stempel(c, "PROTEST!", 640, 330, 5, k.menschen - 0.04, 70);
-  stempel(c, "NICHT ANSTREICHEN!", 520, 1232, -2, k.protest - 0.04, 50);
-  credits(c, ["bg-zeitung-seite", "ki-farbeimer"]);
-  camRig(c, CX, FCY, { punchIn: 110, s0: 100, s1: 103 });
-  voxSauce(c, "grafik");
+  grund(c, "protest", { dunkel: 8 });
+  // Zeilen (Seite 5224 px, ALTO-OCR): "overwhelmed with letters." x 3158..3582 y 4405; "statue was to be painted." x 2924..3307 y 4497
+  gMarker(c, "protest", "overwhelmed with letters", 3150, 3590, 4405, 30, 0.26, YEL, true);
+  gMarker(c, "protest", "statue was to be painted", 2918, 3312, 4497, 30, 0.58);
+  sourceBar(c, "Laut Evening Journal", null, 0.08, 350);
+  chip(c, "BRIEFE ÜBER BRIEFE", CX, 1180, LRED, "#FFFFFF", 42, k.protest - 0.12);
+  gBrand(c, "kongress", 0, 0.36);
+  credits(c, ["bg-zeitung-seite"]);
+  kamera(c, 103);
+  voxSauce(c, "archiv");
 };
-// ---------- 12 Fachleute pruefen die gruene Schicht: Statue heute (Hintergrund), Patina-Makro (KI-Bild) + Lupen-Ausschnitt ----------
-var MK = { rel: "archiv/ki-patina-makro.jpg", x: CX, y: 600, mw: 860, mh: 500 };
+// ---------- 12 Fachleute pruefen die gruene Schicht: Fokus-Ruck, LUPE auf der echten Statue (Highsmith), GRUENE SCHICHT ----------
 B.pruefen = function (c, k) {
-  grund(c, "pruefen", { dunkel: 18 });
-  var ph = printPhoto(c, MK.rel, MK.x, MK.y, MK.mw, MK.mh, 0, null);
-  dropIn(ph, k.fachleute - 0.10, 160, 0.34);
-  chip(c, "GRÜNE SCHICHT", CX, 300, VERD, "#FFFFFF", 42, k.gruene - 0.04);
-  // Lupe: kleiner Kreis auf dem Abzug, grosser Kreis darunter mit Ausschnitt (105 % der echten Bildpunkte)
-  var ms = abzugMass(MK.rel, MK.mw, MK.mh), z = ms[2] * (1.04 + 0.08 * 0.9 / c.duration), it = imp(MK.rel);
-  var sx = 760, sy = 520, bx = CX, by = 1085, br = 160, sc = 1.05;
-  var ix = it.width / 2 + (sx - MK.x) / z, iy = it.height / 2 + (sy - MK.y) / z;
-  var lp = c.layers.add(it); lp.name = "Lupe Patina";
-  lp.anchorPoint.setValue([ix, iy]); lp.position.setValue([bx, by]); lp.scale.setValue([sc * 100, sc * 100]);
-  var mm = lp.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
-  mm.property("ADBE Mask Shape").setValue(mkShape(circPath(ix, iy, br / sc)));
-  popIn(lp, k.pruefen + 0.04, 0);
-  var rg = shape(c, "Lupe Rand"), gr = grp(rg, "Rand"); ellipseG(gr, br * 2, br * 2, bx, by); stroke(gr, CREAM, 7);
-  popIn(rg, k.pruefen + 0.04, 0); rg.anchorPoint.setValue([bx, by]); rg.position.setValue([bx, by]);
-  pencil(c, "Lupe Fang", [circPath(sx, sy, 56), line2([[sx - 40, sy + 40], [bx - br * 0.72, by - br * 0.7]]), line2([[sx + 40, sy + 40], [bx + br * 0.72, by - br * 0.7]])], CREAM, 5, k.pruefen - 0.08, f2s(8));
-  credits(c, ["ki-patina-makro", "bg-statue-nah"]);
-  camRig(c, CX, FCY, { punchIn: 106, s0: 100, s1: 102 });
+  grund(c, "pruefen", { dunkel: 12 });
+  focusHunt(c, 0.02, true);
+  gLupe(c, "pruefen", k.fachleute + 0.30, true);
+  tippen(c, "Fachleute prüfen", 140, 380, F_SERIF_BI, 62, CREAM, k.fachleute, 34, "Tipp Fachleute");
+  chip(c, "GRÜNE SCHICHT", 540, 1210, VERD, "#FFFFFF", 42, k.gruene - 0.04);
+  credits(c, ["bg-statue-nah"]);
+  punchCut(c, 1.10);
+  kamera(c, 102);
   voxSauce(c, "grafik");
 };
-// ---------- 13 Ergebnis: Die Patina schuetzt das Kupfer darunter (Hintergrund: Krone heute) ----------
+// ---------- 13 Ergebnis: Patina schuetzt das Kupfer darunter: Kreis auf die gruene Haut, die Haut SCHAELT sich ab -> Kupfer darunter ----------
+var SCHALE = [90, 1080, 400, 1290];   // Bildschirm zur Zeit 2.0: Stueck Wange/Auge
 B.ergebnis = function (c, k) {
-  grund(c, "ergebnis", { dunkel: 16 });
-  printPhoto(c, MK.rel, MK.x, MK.y, MK.mw, MK.mh, 0, null);
-  var e = hellTxt(c, "Ergebnis:", F_SERIF_B, 84, CREAM, [CX, 286], "Titel Ergebnis"); typeOn(e, k.ergebnis, 30); e.inPoint = k.ergebnis;
-  labelF(c, "Patina", 260, 1010, 66, k.patina - 0.04, LVERD, [330, 560]);
-  pencil(c, "Schutzlinie", [line2([[120, 782], [540, 786], [960, 780]])], LVERD, 12, k.schuetzt - 0.04, f2s(8));
-  chip(c, "SCHÜTZT", CX, 1150, VERD, "#FFFFFF", 42, k.schuetzt);
-  labelF(c, "Kupfer", 820, 1010, 66, k.kupfer - 0.16, LCOPPER, [760, 822]);
-  var hl = shape(c, "Textmarker darunter"), gh = grp(hl); addPath(gh, line2([[130, 822], [950, 824]])); stroke(gh, YEL, 30);
-  hl.blendingMode = BlendingMode.MULTIPLY; hl.opacity.setValue(70); hl.inPoint = k.darunter;   // steht sofort (8-Frames-Regel)
-  credits(c, ["ki-patina-makro", "bg-gewand-heute"]);
-  camRig(c, CX, FCY, { punchIn: 106, s0: 100, s1: 103 });
+  grund(c, "ergebnis", { dunkel: 11 });
+  tippen(c, "Ergebnis:", 520, 330, F_SERIF_B, 84, CREAM, k.ergebnis, 30, "Tipp Ergebnis");
+  gKreis(c, "ergebnis", "Patina", [275, 1185, 190, 150], 2.0, k.patina, LVERD, 8);
+  gLabel(c, "ergebnis", "Patina", 700, 640, 70, [420, 1060], 2.0, k.patina + 0.10, LVERD);
+  chip(c, "SCHÜTZT", 700, 860, VERD, "#FFFFFF", 44, k.schuetzt - 0.04);
+  // Kupfer darunter: Kupferfarbe liegt unter einem Stueck Haut, das sich abschaelt
+  farbSweep(c, "ergebnis", "Kupfer darunter", COPPER, { ell: [(SCHALE[0] + SCHALE[2]) / 2, (SCHALE[1] + SCHALE[3]) / 2, (SCHALE[2] - SCHALE[0]) / 2 - 12, (SCHALE[3] - SCHALE[1]) / 2 - 12], feder: 26 }, 2.0, k.kupfer - 0.30, null, 85);
+  gSchaelen(c, "ergebnis", SCHALE, 2.0, k.kupfer - 0.30, 0.50, true);
+  gLabel(c, "ergebnis", "Kupfer", 700, 1100, 70, [400, 1200], 2.0, k.kupfer, LCOPPER);
+  credits(c, ["bg-gewand-heute"]);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 14 Nichts gestrichen - sie bleibt bis heute gruen (Hafen heute, gleiche Ansicht wie im Einstieg) ----------
+// ---------- 14 Nichts gestrichen, bleibt bis heute gruen: getipptes STREICHEN, sauberer roter Strich, Callout + Kreis auf die Statue heute ----------
 B.bleibt = function (c, k) {
-  grund(c, "bleibt", { dunkel: 6 });
-  var tc = k.und;   // harter Schnitt im Bild: Eimer weg, Statue (heute) kommt
-  var bk = farbFrei(c, "archiv/ki-farbeimer-frei.png", CX, 760, 500, "Farbeimer (KI-Bild)"); bk.outPoint = tc;
-  var x = kreuz(c, bildRahmen(bk, "archiv/ki-farbeimer-frei.png"), "Farbeimer (KI-Bild)", k.nichts - 0.02, LRED, 16); x.outPoint = tc;
-  var sp = stempel(c, "NICHTS GESTRICHEN", CX, 1150, -3, k.gestrichen - 0.04, 52); sp.outPoint = tc;
-  for (var i = 1; i <= c.numLayers; i++) if (c.layer(i).name === "Stempel NICHTS GESTRICHEN") c.layer(i).outPoint = tc;
-  var pin = D.grund.bleibt.pin["Liberty Island"];
-  gPin(c, "bleibt", "Liberty Island", tc + 0.02, VERD);
-  var ph = printPhoto(c, GR_REL, PH.x, PH.y, PH.w, PH.h, 3, null);
-  dropIn(ph, k.statue - 0.06, 180, 0.34);
-  faden(c, PH.ecke, [pin[0] + 12, pin[1] - 112], k.statue + 0.36, CREAM);
-  pencil(c, "Kreis heute", [ellP(PH.x, PH.y, 290, 362)], LVERD, 9, k.bleibt, f2s(9));
-  chip(c, "BIS HEUTE: GRÜN", PH.x, 1052, VERD, "#FFFFFF", 40, k.heute - 0.04);
-  credits(c, ["bg-hafen-heute", "statue-gruen-heute", "ki-farbeimer"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 103 });
+  grund(c, "bleibt", { dunkel: 4 });
+  var w = tippen(c, "STREICHEN", 170, 420, F_BLACK, 110, CREAM, 0.06, 28, "Wort STREICHEN");
+  var sw = durchstreichen(c, w, "Wort STREICHEN", k.nichts, LRED, 14, k.nichts);
+  w.outPoint = k.und + 0.10; sw.outPoint = k.und + 0.10; voxTag(sw, "strich", true);
+  spot(c, "bleibt", "Statue", { ell: [305, 930, 160, 320] }, 2.4, k.statue, null, 52);
+  gKreis(c, "bleibt", "heute", [305, 900, 150, 270], 2.4, k.bleibt, LVERD, 9, f2s(9), false);
+  chip(c, "BIS HEUTE: GRÜN", 700, 640, VERD, "#FFFFFF", 42, k.heute - 0.04);
+  gPfeil(c, "bleibt", "heute", [620, 690], [400, 800], 2.4, k.heute - 0.04, LVERD);
+  credits(c, ["bg-hafen-heute"]);
+  punchCut(c, 1.10);
+  kamera(c, 103);
   voxSauce(c, "grafik");
 };
-// ---------- 15 Welche Farbe findest du schoener? braun | gruen (Wolken ueber dem Hafen, um 1905) ----------
+// ---------- 15 Welche Farbe findest du schoener? FARB-SPLIT der echten Statue (um 1905): links kupferbraun, rechts gruen ----------
+var FRAGE_POLY = [[446, 586], [474, 586], [486, 700], [566, 720], [616, 800], [644, 900], [624, 1100], [684, 1110], [704, 1500], [396, 1500], [416, 1110], [458, 1100], [450, 900], [454, 750]];
 B.frage = function (c, k) {
-  grund(c, "frage", { dunkel: 16 });
-  statue(c, 0.04, 300, 700, 680);
-  var ph = printPhoto(c, GR_REL, 770, 690, 360, 640, 2, null);
-  popIn(ph, 0.10, 4);
-  var q = txt(c, "?", F_SERIF_BI, 160, LRED, [545, 250]); q.name = "Fragezeichen"; schatten(q); slam(q, k.farbe - 0.04);
-  pencil(c, "Trennlinie", [line2([[533, 430], [530, 760], [534, 1090]])], CREAM, 6, k.schoener - 0.04, f2s(8));
-  chip(c, "BRAUN", 300, 1172, COPPER, "#FFFFFF", 46, k.braun - 0.04);
-  var g = chip(c, "GRÜN", 770, 1172, VERD, "#FFFFFF", 46, null); setIn(g, k.gruen - 0.02);   // steht sofort (8-Frames-Regel)
-  leisteNachOben(c);
-  credits(c, ["ki-statue-kupfer", "statue-gruen-heute", "bg-wolken-1905"]);
-  camRig(c, CX, FCY, { punchIn: 108, s0: 100, s1: 102 });
+  grund(c, "frage", { dunkel: 12 });
+  var q = txt(c, "?", F_SERIF_BI, 170, LRED, [CX, 400]); q.name = "Fragezeichen"; schatten(q); slam(q, k.farbe - 0.04);
+  gStrich(c, "frage", "Trennlinie", [[[541, 520], [538, 1000], [542, 1540]]], 1.5, 0.08, CREAM, 6, f2s(10));
+  farbSweep(c, "frage", "Statue braun", COPPER, { poly: FRAGE_POLY, feder: 10, halb: { x: 540, seite: "links" } }, 1.5, k.braun - 0.04, null, 80, true);
+  chip(c, "BRAUN", 290, 1180, COPPER, "#FFFFFF", 46, k.braun - 0.04);
+  farbSweep(c, "frage", "Statue gruen", "#3FA584", { poly: FRAGE_POLY, feder: 10, halb: { x: 540, seite: "rechts" } }, 1.5, k.gruen - 0.04, null, 80);
+  var g = chip(c, "GRÜN", 790, 1180, VERD, "#FFFFFF", 46, null); setIn(g, k.gruen - 0.04);   // steht sofort (8-Frames-Regel)
+  credits(c, ["bg-wolken-1905"]);
+  kamera(c, 102);
   voxSauce(c, "grafik");
 };
-// ---------- 16 Schluss: grosses Logo, "In der Bio", Folgen-Knopf ueber dem stark abgedunkelten Luftbild ----------
+// ---------- 16 Schluss: Brand-Uebergang ins Luftbild, grosses Logo (360 px im Kreis), "In der Bio" getippt, Folgen-Knopf ----------
 B.outro = function (c, k) {
-  grund(c, "outro", { dunkel: 30 });
-  pencil(c, "Kreis Logo", [ellP(CX, 640, 262, 262)], CREAM, 7, 0.04, f2s(14));
+  grund(c, "outro", { dunkel: 20 });
+  gBrand(c, "frage", 0, 0.50, true);
+  pencil(c, "Kreis Logo", [ellP(CX, 640, 262, 262)], CREAM, 7, 0.10, f2s(14));
   var lg = imp("archiv/logo.png");
-  if (lg) { var lo = addItem(c, lg, CX, 640, 420 / lg.width * 100); lo.name = "Logo gross"; popIn(lo, 0.08); }
-  var lk = hellTxt(c, "In der Bio", F_SERIF_BI, 84, CREAM, [CX, 1010], "Text In der Bio"); typeOn(lk, k.bio - f2s(4), 30); lk.inPoint = k.bio - f2s(4);
-  pencil(c, "Unterstrich Bio", [line2([[350, 1034], [540, 1040], [730, 1032]])], LRED, 7, k.bio + 0.45, f2s(10));
+  if (lg) { var lo = addItem(c, lg, CX, 640, 360 / lg.width * 100); lo.name = "Logo gross"; popIn(lo, 0.12); }
+  tippen(c, "In der Bio", 320, 1010, F_SERIF_BI, 84, CREAM, k.bio - f2s(4), 30, "Text In der Bio");
+  pencil(c, "Unterstrich Bio", [line2([[320, 1034], [530, 1040], [740, 1032]])], LRED, 7, k.bio + 0.45, f2s(10));
   followBtn(c, CX, 1160, k.bio + 0.6, k.folgen + f2s(3));
   credits(c, ["bg-insel-luft"]);
-  camRig(c, CX, 900, { punchIn: 112, s0: 100, s1: 103, punchOut: false });
+  camRig(c, CX, 900, { punchIn: false, s0: 100, s1: 103, punchOut: false });
   voxSauce(c, "grafik");
 };
 
