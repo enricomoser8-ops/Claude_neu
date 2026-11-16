@@ -1,0 +1,146 @@
+{
+ "bg-deck": {
+  "datei": "bg-deck.jpg",
+  "titel": "Scene on the upper deck of the \"Titanic\", showing life boats (Buch \"Sinking of the Titanic\", J. H. Mowbray, 1912, Tafel)",
+  "autor": "unbekannt (1912)",
+  "quelle": "https://archive.org/details/sinkingoftitanic00mowb/page/n56",
+  "lizenz": "gemeinfrei (1911/1912 veroeffentlicht; Internet Archive, Public Domain Mark)",
+  "kurz": "Foto: 1912, Internet Archive",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-stapel": {
+  "datei": "bg-stapel.jpg",
+  "titel": "The \"Titanic\" and \"Olympic\" on the stocks (The Shipbuilder, Sondernummer 1911, Fig. 34)",
+  "autor": "Frank & Sons, South Shields (1910)",
+  "quelle": "https://archive.org/details/the_shipbuilder_special_numbers_images_201909/page/n227",
+  "lizenz": "gemeinfrei (1911/1912 veroeffentlicht; Internet Archive, Public Domain Mark)",
+  "kurz": "Foto: Frank & Sons 1910, The Shipbuilder",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-saal": {
+  "datei": "bg-saal.jpg",
+  "titel": "The First-class Dining Saloon of the White Star Liner \"Olympic\" (The Shipbuilder 1911, Plate II)",
+  "autor": "The Shipbuilder (1911)",
+  "quelle": "https://archive.org/details/the_shipbuilder_special_numbers_images_201909/page/n266",
+  "lizenz": "gemeinfrei (1911/1912 veroeffentlicht; Internet Archive, Public Domain Mark)",
+  "kurz": "Foto: The Shipbuilder 1911",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-olympic-schlepper": {
+  "datei": "bg-olympic-schlepper.jpg",
+  "titel": "White Star S.S. Olympic, guided in by tugboats (1911)",
+  "autor": "Detroit Publishing Co. (1911)",
+  "quelle": "https://www.loc.gov/item/2016797108/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-olympic-see": {
+  "datei": "bg-olympic-see.jpg",
+  "titel": "OLYMPIC (Bain News Service)",
+  "autor": "Bain News Service (um 1911-1915)",
+  "quelle": "https://www.loc.gov/item/2014710983/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-zeitung-1912": {
+  "datei": "bg-zeitung-1912.jpg",
+  "titel": "Newark Evening Star, 15. April 1912, S. 1 (\"Titanic, biggest liner, doomed\")",
+  "autor": "Newark Evening Star",
+  "quelle": "https://www.loc.gov/resource/sn91064011/1912-04-15/ed-1/?sp=1",
+  "lizenz": "gemeinfrei (Zeitung vor 1929, Chronicling America / LOC)",
+  "kurz": "Newark Evening Star 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-boote": {
+  "datei": "bg-boote.jpg",
+  "titel": "TITANIC life boats on way to CARPATHIA (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014691299/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-postkarte": {
+  "datei": "bg-postkarte.jpg",
+  "titel": "White Star Line, triple screw steamer \"Olympic\" (Photochrom-Postkarte)",
+  "autor": "Detroit Publishing Co. (um 1910)",
+  "quelle": "https://www.loc.gov/item/2008680520/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-rotkreuz": {
+  "datei": "bg-rotkreuz.jpg",
+  "titel": "The huge \"Britannic\" used as a hospital ship (American National Red Cross, Karte No. 666)",
+  "autor": "American National Red Cross (1917)",
+  "quelle": "https://www.loc.gov/item/2017676684/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: American Red Cross, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-zeitung-1916": {
+  "datei": "bg-zeitung-1916.jpg",
+  "titel": "The Evening World (New York), 22. Nov. 1916, S. 1 (\"Liner Britannic ...\")",
+  "autor": "The Evening World",
+  "quelle": "https://www.loc.gov/resource/sn83030193/1916-11-22/ed-1/?sp=1",
+  "lizenz": "gemeinfrei (Zeitung vor 1929, Chronicling America / LOC)",
+  "kurz": "The Evening World 1916, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-schrauben": {
+  "datei": "bg-schrauben.jpg",
+  "titel": "TITANIC, to be launched (Schrauben im Dock, 31. Mai 1911)",
+  "autor": "unbekannt (1911), LOC",
+  "quelle": "https://www.loc.gov/item/2001704329/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: 1911, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-ueberlebende": {
+  "datei": "bg-ueberlebende.jpg",
+  "titel": "TITANIC survivors on way to rescue-ship CARPATHIA (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014690331/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-olympic-pier": {
+  "datei": "bg-olympic-pier.jpg",
+  "titel": "S.S. Olympic (1911)",
+  "autor": "Detroit Publishing Co. (1911)",
+  "quelle": "https://www.loc.gov/item/2016817999/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-plate": {
+  "datei": "bg-plate.jpg",
+  "titel": "The White Star Triple-screw Steamship \"Olympic\" (The Shipbuilder 1911, Plate I, Farbtafel)",
+  "autor": "The Shipbuilder (1911)",
+  "quelle": "https://archive.org/details/the_shipbuilder_special_numbers_images_201909/page/n189",
+  "lizenz": "gemeinfrei (1911/1912 veroeffentlicht; Internet Archive, Public Domain Mark)",
+  "kurz": "Farbtafel: The Shipbuilder 1911",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-olympic-hafen": {
+  "datei": "bg-olympic-hafen.jpg",
+  "titel": "White Star Line S.S. Olympic entering New York Harbor on first trip (1911)",
+  "autor": "Detroit Publishing Co. (1911)",
+  "quelle": "https://www.loc.gov/item/2016800142/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "zeitung-1911-hawke": {
+  "datei": "zeitung-1911-hawke.jpg",
+  "titel": "The Evening World (New York), 20. Sept. 1911, S. 1 (\"Panic on Olympic when cruiser Hawke crashes into liner\")",
+  "autor": "The Evening World",
+  "quelle": "https://www.loc.gov/resource/sn83030193/1911-09-20/ed-1/?sp=1",
+  "lizenz": "gemeinfrei (Zeitung vor 1929, Chronicling America / LOC)",
+  "kurz": "The Evening World 1911, LOC",
+  "verwendung": "Zeitungsausschnitt (1:1)"
+ }
+}
