@@ -1,0 +1,225 @@
+{
+ "paris-bau-1883": {
+  "datei": "paris-bau-1883.jpg",
+  "titel": "Assemblage of the Statue of Liberty in Paris (bottom half under scaffolding)",
+  "autor": "Albert Fernique (1883)",
+  "quelle": "https://www.loc.gov/item/2020634761/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: A. Fernique 1883, LOC"
+ },
+ "paris-bau-1883-detail": {
+  "datei": "paris-bau-1883-detail.jpg",
+  "titel": "Assemblage of the Statue of Liberty in Paris (Ausschnitt: Kopf und Fackelhand)",
+  "autor": "Albert Fernique (1883)",
+  "quelle": "https://www.loc.gov/item/2020634761/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: A. Fernique 1883, LOC"
+ },
+ "eiffel-geruest-1881": {
+  "datei": "eiffel-geruest-1881.jpg",
+  "titel": "Statue de la Liberte - Pile interieure (Framework. Elevations)",
+  "autor": "Gustave Eiffel (Buero Eiffel), 1881",
+  "quelle": "https://www.loc.gov/item/2010649598/",
+  "lizenz": "gemeinfrei (LOC)",
+  "kurz": "Plan: G. Eiffel 1881, LOC"
+ },
+ "eiffel-portraet": {
+  "datei": "eiffel-portraet.jpg",
+  "titel": "A. Gustave Eiffel",
+  "autor": "Bain News Service (vor 1921)",
+  "quelle": "https://www.loc.gov/item/2014712901/",
+  "lizenz": "gemeinfrei (No known restrictions, Bain Collection, LOC)",
+  "kurz": "Foto: Bain News Service, LOC"
+ },
+ "eiffelturm-1889": {
+  "datei": "eiffelturm-1889.jpg",
+  "titel": "Eiffel Tower, looking toward Trocadero Palace, Paris Exposition, 1889",
+  "autor": "unbekannt (1889)",
+  "quelle": "https://www.loc.gov/item/92519630/",
+  "lizenz": "gemeinfrei (LOC)",
+  "kurz": "Foto 1889, LOC"
+ },
+ "statue-gruen-heute": {
+  "datei": "statue-gruen-heute.jpg",
+  "titel": "Statue of Liberty, New York",
+  "autor": "Carol M. Highsmith (1980)",
+  "quelle": "https://www.loc.gov/item/2011632115/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC"
+ },
+ "zeitung-1906-wilmington": {
+  "datei": "zeitung-1906-wilmington.jpg",
+  "titel": "Evening Journal (Wilmington, Del.), 17. Okt. 1906, S. 3: \"America's Rusted Goddess\"",
+  "autor": "Evening Journal",
+  "quelle": "https://www.loc.gov/resource/sn85042354/1906-10-17/ed-1/?sp=3",
+  "lizenz": "gemeinfrei (US-Zeitung 1906, Chronicling America, LOC)",
+  "kurz": "Evening Journal 1906, LOC"
+ },
+ "ki-kupfermuenze": {
+  "datei": "ki-kupfermuenze-frei.png",
+  "titel": "Kupfermuenze (KI-Bild, Gegenstand)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell), erzeugt fuer den Kanal",
+  "quelle": "ki-bilder/ki-kupfermuenze.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "ki-farbeimer": {
+  "datei": "ki-farbeimer-frei.png",
+  "titel": "Farbeimer mit Pinsel (KI-Bild, Gegenstand)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-farbeimer.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "ki-statue-kupfer": {
+  "datei": "ki-statue-kupfer-frei.png",
+  "titel": "Freiheitsstatue in frischem Kupferbraun (KI-Rekonstruktion)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-statue-kupfer.png",
+  "lizenz": "eigenes KI-Bild, im Video als \"Rekonstruktion\" beschriftet",
+  "kurz": "KI-Rekonstruktion"
+ },
+ "ki-patina-makro": {
+  "datei": "ki-patina-makro.jpg",
+  "titel": "Gruene Patina auf Kupfer, Makro (KI-Bild)",
+  "autor": "KI-Bild (ElevenLabs Bildmodell)",
+  "quelle": "ki-bilder/ki-patina-makro.png",
+  "lizenz": "eigenes KI-Bild",
+  "kurz": "KI-Bild"
+ },
+ "bg-hafen-heute": {
+  "datei": "bg-hafen-heute-mittel.jpg, bg-hafen-heute-nah.jpg, bg-hafen-heute-weit.jpg",
+  "titel": "The Statue of Liberty on Liberty Island (Luftbild, Manhattan im Hintergrund)",
+  "autor": "Carol M. Highsmith (2017)",
+  "quelle": "https://www.loc.gov/item/2017882052/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-bedloe-1886": {
+  "datei": "bg-bedloe-1886.jpg",
+  "titel": "Re-constructing the statue on Bedloe's Island (Druck, 1886)",
+  "autor": "unbekannt (1886)",
+  "quelle": "https://www.loc.gov/item/99614141/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Druck 1886, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-paris-kopf-1878": {
+  "datei": "bg-paris-kopf-1878.jpg",
+  "titel": "Head of the Statue of Liberty on display at Champ-de-Mars, Paris 1878",
+  "autor": "unbekannt (1878/1883)",
+  "quelle": "https://www.loc.gov/item/97502744/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Paris 1878, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-werkstatt-paris": {
+  "datei": "bg-werkstatt-paris.jpg",
+  "titel": "Workmen constructing the Statue of Liberty, hammering copper (Gaget, Gauthier & Co., Paris)",
+  "autor": "Pierre Petit (1881-1883)",
+  "quelle": "https://www.loc.gov/item/97502750/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Pierre Petit, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-geruest-paris": {
+  "datei": "bg-geruest-paris.jpg",
+  "titel": "Assemblage of the Statue of Liberty in Paris (Geruest)",
+  "autor": "Albert Fernique (1883)",
+  "quelle": "https://www.loc.gov/item/2020634761/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: A. Fernique 1883, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-insel-1890": {
+  "datei": "bg-insel-1890.jpg",
+  "titel": "Statue of Liberty, New York harbor",
+  "autor": "Detroit Publishing Co. (um 1890)",
+  "quelle": "https://www.loc.gov/item/2016801649/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-wolken-1910": {
+  "datei": "bg-wolken-1910.jpg",
+  "titel": "Statue of Liberty, New York harbor (Wolken)",
+  "autor": "Detroit Publishing Co. (um 1910)",
+  "quelle": "https://www.loc.gov/item/2016814203/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-gewand-heute": {
+  "datei": "bg-gewand-heute-gewand.jpg, bg-gewand-heute-krone.jpg",
+  "titel": "Statue of Liberty, New York (Nahaufnahme)",
+  "autor": "Carol M. Highsmith (1980er)",
+  "quelle": "https://www.loc.gov/item/2011630662/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-photochrom-1905": {
+  "datei": "bg-photochrom-1905.jpg",
+  "titel": "Statue of Liberty, New York Harbor (Photochrom)",
+  "autor": "Detroit Photographic Co. (um 1905)",
+  "quelle": "https://www.loc.gov/item/2008679689/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Photochrom um 1905, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-kapitol-1902": {
+  "datei": "bg-kapitol-1902.jpg",
+  "titel": "The Capitol, Washington",
+  "autor": "Detroit Publishing Co. (1902)",
+  "quelle": "https://www.loc.gov/item/2025164878/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Detroit Publishing Co. 1902, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-zeitung-seite": {
+  "datei": "bg-zeitung-seite.jpg",
+  "titel": "Evening Journal (Wilmington, Del.), 17. Okt. 1906, S. 3 (ganze Seite)",
+  "autor": "Evening Journal",
+  "quelle": "https://www.loc.gov/resource/sn85042354/1906-10-17/ed-1/?sp=3",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Evening Journal 1906, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-statue-nah": {
+  "datei": "bg-statue-nah.jpg",
+  "titel": "The Statue of Liberty on Liberty Island (Luftbild nah)",
+  "autor": "Carol M. Highsmith (2017)",
+  "quelle": "https://www.loc.gov/item/2017882051/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-wolken-1905": {
+  "datei": "bg-wolken-1905.jpg",
+  "titel": "Statue of Liberty, New York harbor (Wolken)",
+  "autor": "Detroit Publishing Co. (um 1905)",
+  "quelle": "https://www.loc.gov/item/2016799950/",
+  "lizenz": "gemeinfrei (No known restrictions, LOC)",
+  "kurz": "Foto: Detroit Publishing Co., LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "bg-insel-luft": {
+  "datei": "bg-insel-luft.jpg",
+  "titel": "Statue of Liberty, New York (Luftbild)",
+  "autor": "Carol M. Highsmith (1980er)",
+  "quelle": "https://www.loc.gov/item/2011632948/",
+  "lizenz": "gemeinfrei (Carol M. Highsmith Archive, der Oeffentlichkeit gewidmet, LOC)",
+  "kurz": "Foto: Carol M. Highsmith, LOC",
+  "verwendung": "Hintergrund (abgedunkelt, warm gegradet, Ausschnitt)"
+ },
+ "zeitung-1906-kongress": {
+  "datei": "zeitung-1906-kongress.jpg",
+  "titel": "Evening Journal (Wilmington, Del.), 17. Okt. 1906, S. 3: \"America's Rusted Goddess\"",
+  "autor": "Evening Journal",
+  "quelle": "https://www.loc.gov/resource/sn85042354/1906-10-17/ed-1/?sp=3",
+  "lizenz": "gemeinfrei (US-Zeitung 1906, Chronicling America, LOC)",
+  "kurz": "Evening Journal 1906, LOC",
+  "verwendung": "Ausschnitt Spalte \"Congress ... $62,800\" (1:1)"
+ }
+}
