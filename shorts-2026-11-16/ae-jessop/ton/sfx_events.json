@@ -1,125 +1,1556 @@
 {
 "fps": 25,
+"hinweis": "f/t = sichtbares Ereignis (Sync-Punkt), start = Einsatz der Datei (J-Cut/Vorlauf), db = Pegel relativ (0 = Hauptereignis).",
+"gain_in_sfx_wav_db": -8.74,
 "events": [
 {
-"f": 1,
+"f": 0,
 "kind": "sfx",
-"id": "Callout Schornsteine + 1912",
-"t": 0.04
+"id": "Kamera-Verschluss: Portraet erscheint (minimal)",
+"t": 0.0,
+"start": 0.0,
+"db": -6,
+"src": "earshot:b_shutter1.wav",
+"event_f_sicht": 0
 },
 {
-"f": 50,
+"f": 11,
 "kind": "sfx",
-"id": "Punch auf \"sank\"",
-"t": 1.98
+"id": "Bleistift-Kreis: PC: roter Kreis zeichnet sich ums Gesicht (Key 0,32 s, 9 Frames; sichtbar 11-16)",
+"t": 0.44,
+"start": 0.44,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 11
 },
 {
-"f": 88,
+"f": 32,
 "kind": "sfx",
-"id": "Kreis um das Schild OLYMPIC",
-"t": 3.54
+"id": "tiefer Whoosh, J-Cut 3 Frames: PC: harter Schnitt vom Portraet aufs Deck 1912 (Portraet bis Frame 31)",
+"t": 1.28,
+"start": 1.16,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 32
 },
 {
-"f": 105,
+"f": 32,
 "kind": "sfx",
-"id": "Zaehler landet auf 3x",
-"t": 4.2
+"id": "Punch-Hit auf den ersten Deck-Frame",
+"t": 1.28,
+"start": 1.23,
+"db": -9,
+"src": "earshot:b_hit1.wav",
+"event_f_sicht": 32
 },
 {
-"f": 161,
+"f": 34,
 "kind": "sfx",
-"id": "Fokus wandert ueber die Tische (Spitze, wenn er steht)",
-"t": 6.44
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Odometer 1912 rollt ein",
+"t": 1.36,
+"start": 1.36,
+"db": -10,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 34
 },
 {
-"f": 216,
+"f": 34,
 "kind": "sfx",
-"id": "Odometer 1911",
-"t": 8.64
+"id": "Tippen TITANIC (Anschlag je sichtbarem Tipp-Schritt)",
+"t": 1.36,
+"start": 1.36,
+"db": -4,
+"src": "enno:typing.wav",
+"event_f_sicht": 34
 },
 {
-"f": 347,
+"f": 38,
 "kind": "sfx",
-"id": "Hawke kracht ins Heck + Ringe",
-"t": 13.88
+"id": "Bleistift (leise, das Label tippt gerade): Pfeil TITANIC zeichnet sich",
+"t": 1.52,
+"start": 1.52,
+"db": -10,
+"src": "code:pencil",
+"event_f_sicht": 36
 },
 {
-"f": 364,
+"f": 51,
 "kind": "sfx",
-"id": "Zeitung 1911 rutscht ein",
-"t": 14.58
+"id": "tiefer Whoosh: Punch-in auf das Wort",
+"t": 2.04,
+"start": 1.92,
+"db": -6,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 48
 },
 {
-"f": 500,
+"f": 63,
 "kind": "sfx",
-"id": "Reissschwenk zu ICEBERG",
-"t": 19.98
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf einzig",
+"t": 2.52,
+"start": 2.459,
+"db": 0,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 63
 },
 {
-"f": 507,
+"f": 90,
 "kind": "sfx",
-"id": "Textmarker ICEBERG",
-"t": 20.28
+"id": "Bleistift-Kreis: Kreis Schild OLYMPIC zeichnet sich",
+"t": 3.6,
+"start": 3.6,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 90
 },
 {
-"f": 568,
+"f": 98,
 "kind": "sfx",
-"id": "Lupe waechst auf",
-"t": 22.74
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 1 -> 3 (Zaehler 3x)",
+"t": 3.92,
+"start": 3.92,
+"db": -10,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 98
 },
 {
-"f": 664,
+"f": 128,
 "kind": "sfx",
-"id": "Folgen-Klick (Mitte)",
-"t": 26.58
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf gaeste",
+"t": 5.12,
+"start": 5.0,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 128
 },
 {
-"f": 764,
+"f": 138,
 "kind": "sfx",
-"id": "rotes Kreuz wird rot",
-"t": 30.58
+"id": "Fotoabzug-Flick (Papier)",
+"t": 5.52,
+"start": 5.52,
+"db": -5,
+"src": "earshot:b_paper1.wav",
+"event_f_sicht": 138
 },
 {
-"f": 856,
+"f": 140,
 "kind": "sfx",
-"id": "Brand-Uebergang, Mine (Boom auf \"Mine\")",
-"t": 34.24
+"id": "Abzug landet (weicher Tap, Frame 140)",
+"t": 5.6,
+"start": 5.6,
+"db": -5,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 138
 },
 {
-"f": 927,
+"f": 173,
 "kind": "sfx",
-"id": "Wirbel-Pfeile um die Nabe",
-"t": 37.08
+"id": "Chip springt auf (Tap)",
+"t": 6.92,
+"start": 6.92,
+"db": -8,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 173
 },
 {
-"f": 982,
+"f": 188,
 "kind": "sfx",
-"id": "Ringe im Wasser",
-"t": 39.3
+"id": "minimaler Verschluss: Kontrast-Callout springt an",
+"t": 7.52,
+"start": 7.52,
+"db": -10,
+"src": "earshot:b_shutter2.wav",
+"event_f_sicht": 188
 },
 {
-"f": 1110,
+"f": 215,
 "kind": "sfx",
-"id": "Messlinie zeichnet sich",
-"t": 44.38
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf olympic",
+"t": 8.6,
+"start": 8.5,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 215
 },
 {
-"f": 1196,
+"f": 217,
 "kind": "sfx",
-"id": "rotes ? knallt",
-"t": 47.86
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Odometer 1911 rollt ein",
+"t": 8.68,
+"start": 8.68,
+"db": -10,
+"src": "earshot:b_tick4.wav",
+"event_f_sicht": 217
+},
+{
+"f": 253,
+"kind": "sfx",
+"id": "Tippen OLYMPIC (Anschlag je sichtbarem Tipp-Schritt)",
+"t": 10.12,
+"start": 10.12,
+"db": -4,
+"src": "enno:typing.wav",
+"event_f_sicht": 253
+},
+{
+"f": 257,
+"kind": "sfx",
+"id": "Bleistift (leise, das Label tippt gerade): Pfeil OLYMPIC zeichnet sich",
+"t": 10.28,
+"start": 10.28,
+"db": -10,
+"src": "code:pencil",
+"event_f_sicht": 255
+},
+{
+"f": 321,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf hawke",
+"t": 12.84,
+"start": 12.72,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 321
+},
+{
+"f": 340,
+"kind": "sfx",
+"id": "Bleistift-Strich: Strich Anfahrt Hawke zeichnet sich",
+"t": 13.6,
+"start": 13.6,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 340
+},
+{
+"f": 348,
+"kind": "sfx",
+"id": "Aufprall: HMS Hawke kracht ins Heck (Ringe)",
+"t": 13.92,
+"start": 13.863,
+"db": -3,
+"src": "earshot:b_hit1.wav",
+"event_f_sicht": 348
+},
+{
+"f": 363,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 14.52,
+"start": 14.52,
+"db": -8,
+"src": "earshot:b_tap4.wav",
+"event_f_sicht": 363
+},
+{
+"f": 368,
+"kind": "sfx",
+"id": "Whoosh: Zeitung 1911 rutscht ein",
+"t": 14.72,
+"start": 14.6,
+"db": -3,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 365
+},
+{
+"f": 365,
+"kind": "sfx",
+"id": "Papier-Slide unter dem Whoosh",
+"t": 14.6,
+"start": 14.6,
+"db": -9,
+"src": "earshot:b_paper2.wav",
+"event_f_sicht": 365
+},
+{
+"f": 373,
+"kind": "sfx",
+"id": "Zeitung rastet ein (leiser Tap)",
+"t": 14.92,
+"start": 14.92,
+"db": -10,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 365
+},
+{
+"f": 375,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker HAWKE",
+"t": 15.0,
+"start": 15.0,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 375
+},
+{
+"f": 380,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker Quarter",
+"t": 15.2,
+"start": 15.2,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 380
+},
+{
+"f": 400,
+"kind": "sfx",
+"id": "Zeitung weg (leiser Flap mit Fade)",
+"t": 16.0,
+"start": 16.0,
+"db": -12,
+"src": "earshot:b_cloth1.wav",
+"event_f_sicht": 400
+},
+{
+"f": 403,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Olympic oben zeichnet sich",
+"t": 16.12,
+"start": 16.12,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 403
+},
+{
+"f": 442,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 17.68,
+"start": 17.68,
+"db": -8,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 442
+},
+{
+"f": 442,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf titanic",
+"t": 17.68,
+"start": 17.612,
+"db": 0,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 442
+},
+{
+"f": 442,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Whoosh (Zeitungsseite)",
+"t": 17.68,
+"start": 17.68,
+"db": -8,
+"src": "earshot:b_paper3.wav",
+"event_f_sicht": 442
+},
+{
+"f": 444,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 0 -> 7 (Etikett 7 MONATE)",
+"t": 17.76,
+"start": 17.76,
+"db": -10,
+"src": "earshot:b_tick3.wav",
+"event_f_sicht": 444
+},
+{
+"f": 478,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Titanic-Foto zeichnet sich",
+"t": 19.12,
+"start": 19.12,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 478
+},
+{
+"f": 497,
+"kind": "sfx",
+"id": "schneller Whoosh: Reissschwenk (setzt mit der Bewegung ein)",
+"t": 19.88,
+"start": 19.78,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 494
+},
+{
+"f": 494,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Schwenk (Zeitungsseite)",
+"t": 19.76,
+"start": 19.76,
+"db": -9,
+"src": "earshot:b_paper1.wav",
+"event_f_sicht": 494
+},
+{
+"f": 509,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker ICEBERG",
+"t": 20.36,
+"start": 20.36,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 509
+},
+{
+"f": 528,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf baby",
+"t": 21.12,
+"start": 21.0,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 528
+},
+{
+"f": 572,
+"kind": "sfx",
+"id": "kurzer Whoosh: Lupe waechst auf",
+"t": 22.88,
+"start": 22.775,
+"db": -5,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 569
+},
+{
+"f": 580,
+"kind": "sfx",
+"id": "Lupe rastet ein (Tick)",
+"t": 23.2,
+"start": 23.2,
+"db": -12,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 569
+},
+{
+"f": 613,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 24.52,
+"start": 24.52,
+"db": -8,
+"src": "earshot:b_tap4.wav",
+"event_f_sicht": 613
+},
+{
+"f": 640,
+"kind": "sfx",
+"id": "Folgen-Knopf springt auf",
+"t": 25.6,
+"start": 25.6,
+"db": -8,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 640
+},
+{
+"f": 640,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf folge",
+"t": 25.6,
+"start": 25.48,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 640
+},
+{
+"f": 665,
+"kind": "sfx",
+"id": "Mausklick: Folgen",
+"t": 26.6,
+"start": 26.6,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 665
+},
+{
+"f": 690,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf britannic",
+"t": 27.6,
+"start": 27.48,
+"db": 0,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 690
+},
+{
+"f": 746,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Odometer 1916 rollt ein",
+"t": 29.84,
+"start": 29.84,
+"db": -10,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 746
+},
+{
+"f": 769,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Rotes Kreuz zeichnet sich",
+"t": 30.76,
+"start": 30.76,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 769
+},
+{
+"f": 792,
+"kind": "sfx",
+"id": "Tippen BRITANNIC (Anschlag je sichtbarem Tipp-Schritt)",
+"t": 31.68,
+"start": 31.68,
+"db": -4,
+"src": "enno:typing.wav",
+"event_f_sicht": 792
+},
+{
+"f": 796,
+"kind": "sfx",
+"id": "Bleistift (leise, das Label tippt gerade): Pfeil BRITANNIC zeichnet sich",
+"t": 31.84,
+"start": 31.84,
+"db": -10,
+"src": "code:pencil",
+"event_f_sicht": 794
+},
+{
+"f": 853,
+"kind": "sfx",
+"id": "tiefer Whoosh auf den Brand-Uebergang (J-Cut)",
+"t": 34.12,
+"start": 34.065,
+"db": -1,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 850
+},
+{
+"f": 850,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Brand (9 dB unter dem Whoosh)",
+"t": 34.0,
+"start": 34.0,
+"db": -9,
+"src": "earshot:b_paper2.wav",
+"event_f_sicht": 850
+},
+{
+"f": 861,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker BRITANNIC",
+"t": 34.44,
+"start": 34.44,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 861
+},
+{
+"f": 890,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf schrauben",
+"t": 35.6,
+"start": 35.48,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 890
+},
+{
+"f": 911,
+"kind": "sfx",
+"id": "Bleistift-Strich: Route Pfeil zeichnet sich",
+"t": 36.44,
+"start": 36.44,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 911
+},
+{
+"f": 923,
+"kind": "sfx",
+"id": "Pfeilspitze springt auf",
+"t": 36.92,
+"start": 36.92,
+"db": -11,
+"src": "earshot:b_tick3.wav",
+"event_f_sicht": 923
+},
+{
+"f": 928,
+"kind": "sfx",
+"id": "Bleistift-Strich: Strich Wirbel zeichnet sich",
+"t": 37.12,
+"start": 37.12,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 928
+},
+{
+"f": 967,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf springt",
+"t": 38.68,
+"start": 38.588,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 967
+},
+{
+"f": 971,
+"kind": "sfx",
+"id": "Bleistift-Strich: Pfeil Sprung zeichnet sich",
+"t": 38.84,
+"start": 38.84,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 971
+},
+{
+"f": 984,
+"kind": "sfx",
+"id": "Wasser: sie springt (erster Ring)",
+"t": 39.36,
+"start": 39.36,
+"db": -5,
+"src": "earshot:b_water1.wav",
+"event_f_sicht": 984
+},
+{
+"f": 1013,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 40.52,
+"start": 40.52,
+"db": -8,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 1013
+},
+{
+"f": 1044,
+"kind": "sfx",
+"id": "minimaler Verschluss: Kontrast-Callout springt an",
+"t": 41.76,
+"start": 41.76,
+"db": -10,
+"src": "earshot:b_shutter3.wav",
+"event_f_sicht": 1044
+},
+{
+"f": 1071,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf twist",
+"t": 42.84,
+"start": 42.72,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 1071
+},
+{
+"f": 1111,
+"kind": "sfx",
+"id": "Bleistift-Strich: Messlinie",
+"t": 44.44,
+"start": 44.44,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 1111
+},
+{
+"f": 1111,
+"kind": "sfx",
+"id": "Stoppuhr-Ticks unter der Messlinie (Textur)",
+"t": 44.44,
+"start": 44.44,
+"db": -12,
+"src": "earshot:b_tick3.wav",
+"event_f_sicht": 1111
+},
+{
+"f": 1132,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 1920 -> 1950 (Zaehler 1920-1950)",
+"t": 45.28,
+"start": 45.28,
+"db": -10,
+"src": "earshot:b_tick3.wav",
+"event_f_sicht": 1132
+},
+{
+"f": 1178,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf frage",
+"t": 47.12,
+"start": 47.0,
+"db": 0,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 1178
+},
+{
+"f": 1198,
+"kind": "sfx",
+"id": "Fragezeichen knallt (Tap)",
+"t": 47.92,
+"start": 47.92,
+"db": -4,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 1198
+},
+{
+"f": 1224,
+"kind": "sfx",
+"id": "tiefer Whoosh auf den Brand-Uebergang (J-Cut)",
+"t": 48.96,
+"start": 48.894,
+"db": -1,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 1221
+},
+{
+"f": 1221,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Brand (9 dB unter dem Whoosh)",
+"t": 48.84,
+"start": 48.84,
+"db": -9,
+"src": "earshot:b_paper3.wav",
+"event_f_sicht": 1221
 },
 {
 "f": 1223,
 "kind": "sfx",
-"id": "grosses Logo",
-"t": 48.92
+"id": "Bleistift-Kreis: Kreis Logo zeichnet sich",
+"t": 48.92,
+"start": 48.92,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 1223
 },
 {
-"f": 1310,
+"f": 1225,
 "kind": "sfx",
-"id": "Folgen-Klick",
-"t": 52.42
+"id": "Logo springt auf (Tap; der Brand-Whoosh traegt die Bewegung)",
+"t": 49.0,
+"start": 49.0,
+"db": -7,
+"src": "earshot:b_tap4.wav",
+"event_f_sicht": 1225
+},
+{
+"f": 1278,
+"kind": "sfx",
+"id": "\"In der Bio\" springt auf",
+"t": 51.12,
+"start": 51.12,
+"db": -9,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 1278
+},
+{
+"f": 1290,
+"kind": "sfx",
+"id": "Folgen-Knopf springt auf",
+"t": 51.6,
+"start": 51.6,
+"db": -8,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 1290
+},
+{
+"f": 1290,
+"kind": "sfx",
+"id": "Bleistift-Strich: Unterstrich Bio zeichnet sich",
+"t": 51.6,
+"start": 51.6,
+"db": -8,
+"src": "code:pencil",
+"event_f_sicht": 1290
+},
+{
+"f": 1313,
+"kind": "sfx",
+"id": "Mausklick: Folgen",
+"t": 52.52,
+"start": 52.52,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 1313
+}
+],
+"alle_anschlaege": [
+{
+"t": 0.0,
+"db": -6,
+"src": "earshot:b_shutter1.wav"
+},
+{
+"t": 0.44,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 1.28,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 1.28,
+"db": -9,
+"src": "earshot:b_hit1.wav"
+},
+{
+"t": 1.36,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 1.44,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 1.52,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 1.6,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 1.68,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 1.76,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 1.36,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 1.44,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 1.52,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 1.52,
+"db": -10,
+"src": "code:pencil"
+},
+{
+"t": 2.04,
+"db": -6,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 2.52,
+"db": 0,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 3.6,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 3.92,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 4.2,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 5.12,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 5.52,
+"db": -5,
+"src": "earshot:b_paper1.wav"
+},
+{
+"t": 5.6,
+"db": -5,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 6.92,
+"db": -8,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 6.96,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 7.52,
+"db": -10,
+"src": "earshot:b_shutter2.wav"
+},
+{
+"t": 8.6,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 8.68,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 8.76,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 8.84,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 8.92,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 9.0,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 9.12,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 9.2,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 9.28,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 10.12,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 10.2,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 10.28,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 10.36,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 10.28,
+"db": -10,
+"src": "code:pencil"
+},
+{
+"t": 12.84,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 13.6,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 13.92,
+"db": -3,
+"src": "earshot:b_hit1.wav"
+},
+{
+"t": 13.92,
+"db": -6,
+"src": "earshot:b_impact1.wav"
+},
+{
+"t": 14.52,
+"db": -8,
+"src": "earshot:b_tap4.wav"
+},
+{
+"t": 14.56,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 14.72,
+"db": -3,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 14.6,
+"db": -9,
+"src": "earshot:b_paper2.wav"
+},
+{
+"t": 14.92,
+"db": -10,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 15.0,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 15.2,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 16.0,
+"db": -12,
+"src": "earshot:b_cloth1.wav"
+},
+{
+"t": 16.12,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 17.68,
+"db": -8,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 17.72,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 17.68,
+"db": 0,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 17.68,
+"db": -8,
+"src": "earshot:b_paper3.wav"
+},
+{
+"t": 17.76,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 17.84,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 17.92,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 18.0,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 18.12,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 19.12,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 19.88,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 19.76,
+"db": -9,
+"src": "earshot:b_paper1.wav"
+},
+{
+"t": 20.36,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 21.12,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 22.88,
+"db": -5,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 23.2,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 24.52,
+"db": -8,
+"src": "earshot:b_tap4.wav"
+},
+{
+"t": 24.56,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 25.6,
+"db": -8,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 25.6,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 26.6,
+"db": -3,
+"src": "enno:click_real.wav"
+},
+{
+"t": 27.6,
+"db": 0,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 29.84,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 29.92,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 30.0,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 30.12,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 30.2,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 30.28,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 30.36,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 30.76,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 31.68,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 31.76,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 31.84,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 31.92,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 32.0,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 31.84,
+"db": -10,
+"src": "code:pencil"
+},
+{
+"t": 34.12,
+"db": -1,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 34.0,
+"db": -9,
+"src": "earshot:b_paper2.wav"
+},
+{
+"t": 34.44,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 35.6,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 36.44,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 36.92,
+"db": -11,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 37.12,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 38.68,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 38.84,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 39.36,
+"db": -5,
+"src": "earshot:b_water1.wav"
+},
+{
+"t": 39.6,
+"db": -14,
+"src": "earshot:b_water2.wav"
+},
+{
+"t": 39.76,
+"db": -16,
+"src": "earshot:b_water1.wav"
+},
+{
+"t": 40.52,
+"db": -8,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 40.56,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 41.76,
+"db": -10,
+"src": "earshot:b_shutter3.wav"
+},
+{
+"t": 42.84,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 44.44,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 44.44,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 44.6,
+"db": -14,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 44.76,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 45.28,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 45.36,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 45.44,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 45.52,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 45.6,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 45.68,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 45.76,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 45.84,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 45.92,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 46.0,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 46.12,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 46.2,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 46.28,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 47.12,
+"db": 0,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 47.92,
+"db": -4,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 47.92,
+"db": -12,
+"src": "earshot:b_hit1.wav"
+},
+{
+"t": 48.96,
+"db": -1,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 48.84,
+"db": -9,
+"src": "earshot:b_paper3.wav"
+},
+{
+"t": 48.92,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 49.0,
+"db": -7,
+"src": "earshot:b_tap4.wav"
+},
+{
+"t": 51.12,
+"db": -9,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 51.6,
+"db": -8,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 51.6,
+"db": -8,
+"src": "code:pencil"
+},
+{
+"t": 52.52,
+"db": -3,
+"src": "enno:click_real.wav"
+}
+],
+"stumm": [
+{
+"f": 32,
+"ereignis": "Kontrast-Callout Schornsteine an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 63,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 65,
+"ereignis": "Kontrast-Callout Schild an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 138,
+"ereignis": "Fokus-Unschaerfe an, Blickpunkt wandert",
+"grund": "faellt mit Abzug-Fall (5,52 s) bzw. Schnitt-Whoosh (35,60 s) zusammen: Hierarchie"
+},
+{
+"f": 215,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 217,
+"ereignis": "Kontrast-Callout Schiff an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 321,
+"ereignis": "Kontrast-Callout Heck an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 367,
+"ereignis": "Kontrast-Callout Heck aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 442,
+"ereignis": "Kontrast-Callout Titanic-Foto an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 494,
+"ereignis": "Kontrast-Callout Titanic-Foto aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 528,
+"ereignis": "Kontrast-Callout Boot an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 528,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 644,
+"ereignis": "Mauszeiger faehrt zum Knopf",
+"grund": "Mauszeiger gleitet (Nebensache, der Klick ist das Ereignis)"
+},
+{
+"f": 690,
+"ereignis": "Kontrast-Callout Lazarettschiff an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 690,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 765,
+"ereignis": "Farbe Rotes Kreuz (Kreuz wird rot)",
+"grund": "Farbe steht sofort (keine Bewegung); 4 Frames spaeter zeichnet der Kreis mit Bleistift"
+},
+{
+"f": 861,
+"ereignis": "Punch-in (Kamera) auf das Wort",
+"grund": "gleicher Frame wie Textmarker BRITANNIC, Brand-Whoosh kurz davor: Marker hat Vorrang"
+},
+{
+"f": 890,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 892,
+"ereignis": "Fokus-Unschaerfe an, Blickpunkt wandert",
+"grund": "faellt mit Abzug-Fall (5,52 s) bzw. Schnitt-Whoosh (35,60 s) zusammen: Hierarchie"
+},
+{
+"f": 1071,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 1073,
+"ereignis": "Kontrast-Callout Schiff an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 1178,
+"ereignis": "Kontrast-Callout Schiff an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 1292,
+"ereignis": "Mauszeiger faehrt zum Knopf",
+"grund": "Mauszeiger gleitet (Nebensache, der Klick ist das Ereignis)"
 }
 ]
 }

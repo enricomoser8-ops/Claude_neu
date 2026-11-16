@@ -1,0 +1,125 @@
+{
+"fps": 25,
+"events": [
+{
+"f": 1,
+"kind": "sfx",
+"id": "Callout Schornsteine + 1912",
+"t": 0.04
+},
+{
+"f": 50,
+"kind": "sfx",
+"id": "Punch auf \"sank\"",
+"t": 1.98
+},
+{
+"f": 88,
+"kind": "sfx",
+"id": "Kreis um das Schild OLYMPIC",
+"t": 3.54
+},
+{
+"f": 105,
+"kind": "sfx",
+"id": "Zaehler landet auf 3x",
+"t": 4.2
+},
+{
+"f": 161,
+"kind": "sfx",
+"id": "Fokus wandert ueber die Tische (Spitze, wenn er steht)",
+"t": 6.44
+},
+{
+"f": 216,
+"kind": "sfx",
+"id": "Odometer 1911",
+"t": 8.64
+},
+{
+"f": 347,
+"kind": "sfx",
+"id": "Hawke kracht ins Heck + Ringe",
+"t": 13.88
+},
+{
+"f": 364,
+"kind": "sfx",
+"id": "Zeitung 1911 rutscht ein",
+"t": 14.58
+},
+{
+"f": 500,
+"kind": "sfx",
+"id": "Reissschwenk zu ICEBERG",
+"t": 19.98
+},
+{
+"f": 507,
+"kind": "sfx",
+"id": "Textmarker ICEBERG",
+"t": 20.28
+},
+{
+"f": 568,
+"kind": "sfx",
+"id": "Lupe waechst auf",
+"t": 22.74
+},
+{
+"f": 664,
+"kind": "sfx",
+"id": "Folgen-Klick (Mitte)",
+"t": 26.58
+},
+{
+"f": 764,
+"kind": "sfx",
+"id": "rotes Kreuz wird rot",
+"t": 30.58
+},
+{
+"f": 856,
+"kind": "sfx",
+"id": "Brand-Uebergang, Mine (Boom auf \"Mine\")",
+"t": 34.24
+},
+{
+"f": 927,
+"kind": "sfx",
+"id": "Wirbel-Pfeile um die Nabe",
+"t": 37.08
+},
+{
+"f": 982,
+"kind": "sfx",
+"id": "Ringe im Wasser",
+"t": 39.3
+},
+{
+"f": 1110,
+"kind": "sfx",
+"id": "Messlinie zeichnet sich",
+"t": 44.38
+},
+{
+"f": 1196,
+"kind": "sfx",
+"id": "rotes ? knallt",
+"t": 47.86
+},
+{
+"f": 1223,
+"kind": "sfx",
+"id": "grosses Logo",
+"t": 48.92
+},
+{
+"f": 1310,
+"kind": "sfx",
+"id": "Folgen-Klick",
+"t": 52.42
+}
+]
+}

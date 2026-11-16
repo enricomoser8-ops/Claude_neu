@@ -25,16 +25,30 @@ Master-Comp: **`Short 16.11. Titanic-Stewardess (jessop) (9x16)`**. Die Szenen-C
 Snap und Render rufen `app.purge(ALL_CACHES)` auf. Effekte: kein 3D, kein CC Sphere, kein Deep Glow. Quick Chromatic Aberration 3 liegt nur einmal oben im Master.
 Untertitel: ein Wort, Arial Bold 52, weiß, y 1370. Das Eck-Logo (98/196, 96 px) bleibt bis zum großen Logo (360 px) am Anfang des Outros.
 
-## Ton
-`audio/jessop_mix.wav` hat -14,0 LUFS und einen True Peak von -1,6 dBTP.
-- **Stimme**: `audio/jessop_voice.wav`, nur Stille am Anfang und Ende getrimmt. Keine Lücke ist geschnitten.
-- **Musik**: eigene Komposition `ton/music_jessop.py`, D-Moll, 80 bpm, Zupf-Ostinato, Pad und Vibraphon.
-  - Britannic bis Sprung dunkler, ab dem Twist F-Dur-Farbe, D-Dur-Schluss auf "Folgen".
-  - 17 LU unter der Stimme, Senke bei 1,9 kHz, −3 dB Ducking.
-- **SFX**: 20 Ereignisse aus der earshot-Bank (`ton/earshot/*.wav`, Befehle im Kopf von `ton/sfx_jessop.py`) plus `click_real` für die beiden Folgen-Klicks.
-  - Jedes Ereignis sitzt auf einem sichtbaren Ereignis (Liste: `ton/sfx_events.json`).
-  - Prüfung mit `earshot timeline`: 95 % der Cues haben eine Flanke im Umkreis von 100 ms, Median 30 ms.
-- Neu mischen: `python3 ton/music_jessop.py; python3 ton/sfx_jessop.py; python3 ton/mix_jessop.py`
+## Ton (Runde 2, taktiler Vox-Ton nach Chris Moran)
+`audio/jessop_mix.wav`: -14,0 LUFS, True Peak -1,3 dBTP, 48 kHz Stereo, exakt 54,68 s. Die alte Mischung liegt in `audio/jessop_mix_v1.wav` (Skripte `ton/*_v1.py`, `ton/sfx_events_v1.json`).
+- **Stimme**: `audio/jessop_voice.wav` unverändert. Kein Schnitt, kein Lückenschnitt.
+- **Musik**: eigene Komposition `ton/music_jessop.py`.
+  - Frequency Pocket: Peaking 1,9 kHz, Q 0,3, -8 dB.
+  - -3 dB Ducking beim Sprechen, 17,0 LU unter der Stimme.
+- **SFX**: 132 Anschläge auf 77 sichtbaren Ereignissen, jeweils auf dem *sichtbaren* Frame (Posterize 12).
+  - Ereignisliste: `ton/events_alle.json`, erzeugt mit `node ton/events_jessop.js`. Darin sind auch die PC-Frames: Gesichtskreis 11–16, Schnitt 32, TITANIC 34–38, 1912 34–44, Abzug 138–145.
+  - Platzierungen: `ton/sfx_events.json` (mit Liste `stumm` und Gründen). Quellen: `ton/credits_sfx.json`.
+  - Jeder Marker- und Bleistiftstrich klingt so lang, wie er sichtbar zeichnet; jeder Type-on tippt.
+  - Whooshes setzen 3 Frames vor dem Schnitt ein (J-Cut). Zeitungen bekommen Whoosh plus Papier 6–10 dB darunter.
+  - Nie zweimal dasselbe Sample hintereinander: Varianten oder ±4–7 % Rate.
+  - Hauptereignisse liegen im Median 8 dB unter den Stimmspitzen.
+  - Die SFX haben beim Sprechen eine Senke im Sprachband (1–4 kHz bis -6 dB).
+- **Quellen jetzt (Zwischenstand)**:
+  - enno-Echtaufnahmen (`ton/sfx_enno/`: typing, swipes, whoosh_real, click_real, pop_real)
+  - earshot-Bank (MIT, `ton/earshot/b_*.wav`) für Papier, Verschluss, Ticks, Tap, Wasser, Hit
+  - Marker und Bleistift sind noch Code-Platzhalter
+  - Freesound war aus der Cloud gesperrt (403)
+- **Echte Aufnahmen nachladen (PC)**:
+  1. Die 40 Dateien (39 CC0, 1 CC-BY) aus `ton/sfx_real_liste.json` (Feld `download`) unter dem Namen im Feld `datei` nach `ton/sfx_real/` legen.
+  2. Neu mischen. `sfx_jessop.py` nimmt pro Rolle automatisch zuerst `ton/sfx_real/<rolle>_*`.
+  - **CC-BY**: `photodrop_2` = "Paper Rustle and Plop on Wooden Table" von djlprojects (freesound.org, CC BY 3.0). Wenn diese Datei benutzt wird, muss sie in der Videobeschreibung genannt werden. Alle anderen sind CC0.
+- Neu mischen: `node ton/events_jessop.js; python3 ton/sfx_jessop.py; python3 ton/mix_jessop.py`. Messwerte stehen in `ton/mix_messung.json`.
 
 ## Szenen
 Jede Szene hat ein vollflächiges, warm gegradetes Archivfoto mit langsamer Fahrt. Alle Hilfsmittel wirken auf dieses Foto.
