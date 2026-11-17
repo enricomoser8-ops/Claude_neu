@@ -1,0 +1,128 @@
+{
+ "bg-stieler": {
+  "datei": "bg-stieler-frage.jpg, bg-stieler-hook.jpg",
+  "titel": "Ludwig van Beethoven (Chromolithografie nach dem Bildnis von J. K. Stieler)",
+  "autor": "unbekannt, um 1870 (LOC)",
+  "quelle": "https://www.loc.gov/item/2003663902/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC Prints & Photographs)",
+  "kurz": "Chromolithografie um 1870, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-litho": {
+  "datei": "bg-litho-name.jpg, bg-litho-taub.jpg",
+  "titel": "H. V. Beethoven [L. v. Beethoven] (Lithografie, Paris, Maurice Schlesinger)",
+  "autor": "Lithografie bei Maurice Schlesinger, Paris (19. Jh.)",
+  "quelle": "https://www.loc.gov/item/2003666857/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC Prints & Photographs)",
+  "kurz": "Lithografie, Paris (Schlesinger), LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-wien": {
+  "datei": "bg-wien.jpg, bg-wien-outro.jpg",
+  "titel": "Nieder=Oesterreich: Wien (kolorierte Lithografie)",
+  "autor": "Jakob Alt (gez.), zwischen 1825 und 1838",
+  "quelle": "https://www.loc.gov/item/2017646657/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC Prints & Photographs)",
+  "kurz": "Jakob Alt, Wien um 1830, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-buste": {
+  "datei": "bg-buste.jpg",
+  "titel": "Beethoven (Foto einer Buste)",
+  "autor": "unbekannt, um 1892 (LOC)",
+  "quelle": "https://www.loc.gov/item/2001700485/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC Prints & Photographs)",
+  "kurz": "Foto um 1892, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-titel": {
+  "datei": "bg-titel.jpg",
+  "titel": "Sinfonie mit Schluss-Chor ueber Schillers Ode \"An die Freude\", op. 125, Titelblatt der Erstausgabe (B. Schott's Soehne, Mainz 1826)",
+  "autor": "Ludwig van Beethoven / B. Schott's Soehne (1826); Exemplar Boston Public Library",
+  "quelle": "https://archive.org/details/sinfoniemitschlu00beet/page/n28",
+  "lizenz": "gemeinfrei (Erstausgabe Schott 1826; Internet Archive, Boston Public Library)",
+  "kurz": "Erstausgabe 1826, Boston Public Library",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-partitur1": {
+  "datei": "bg-partitur1.jpg",
+  "titel": "Sinfonie op. 125, Partitur der Erstausgabe (Schott 1826), S. 1",
+  "autor": "Ludwig van Beethoven / B. Schott's Soehne (1826); Bywaters Special Collections, Hamon Arts Library, SMU",
+  "quelle": "https://archive.org/details/VaultM1001B415Op1251826/page/n8",
+  "lizenz": "gemeinfrei (Erstausgabe Schott 1826; Internet Archive, Public Domain Mark (SMU))",
+  "kurz": "Partitur 1826, SMU Bywaters Special Collections",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-partitur103": {
+  "datei": "bg-partitur103.jpg",
+  "titel": "Sinfonie op. 125, Partitur der Erstausgabe (Schott 1826), S. 103",
+  "autor": "Ludwig van Beethoven / B. Schott's Soehne (1826); Bywaters Special Collections, Hamon Arts Library, SMU",
+  "quelle": "https://archive.org/details/VaultM1001B415Op1251826/page/n110",
+  "lizenz": "gemeinfrei (Erstausgabe Schott 1826; Internet Archive, Public Domain Mark (SMU))",
+  "kurz": "Partitur 1826, SMU Bywaters Special Collections",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-partitur113": {
+  "datei": "bg-partitur113.jpg",
+  "titel": "Sinfonie op. 125, Partitur der Erstausgabe (Schott 1826), S. 113 (\"Freude, schoener Goetterfunken\")",
+  "autor": "Ludwig van Beethoven / B. Schott's Soehne (1826); Bywaters Special Collections, Hamon Arts Library, SMU",
+  "quelle": "https://archive.org/details/VaultM1001B415Op1251826/page/n120",
+  "lizenz": "gemeinfrei (Erstausgabe Schott 1826; Internet Archive, Public Domain Mark (SMU))",
+  "kurz": "Partitur 1826, SMU Bywaters Special Collections",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-grant": {
+  "datei": "bg-grant-huete.jpg, bg-grant-jubel.jpg",
+  "titel": "Ovation to Lieutenant General Grant at the Cooper Institute, New York, June 7 (Holzstich, Harper's Weekly 1865)",
+  "autor": "Harper's Weekly (1865)",
+  "quelle": "https://www.loc.gov/item/2001695557/",
+  "lizenz": "gemeinfrei (Harper's Weekly 1865, US-Veroeffentlichung vor 1930; LOC: No known restrictions)",
+  "kurz": "Holzstich, Harper's Weekly 1865, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-brooklyn": {
+  "datei": "bg-brooklyn-ruecken.jpg, bg-brooklyn-saengerin.jpg",
+  "titel": "The Brooklyn Academy of Music - interior - opening concert, January 15, 1861 (Holzstich, Harper's Weekly 1861)",
+  "autor": "Harper's Weekly (1861)",
+  "quelle": "https://www.loc.gov/item/2004682222/",
+  "lizenz": "gemeinfrei (Harper's Weekly 1861, US-Veroeffentlichung vor 1930; LOC: No known restrictions)",
+  "kurz": "Holzstich, Harper's Weekly 1861, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "commons-konversationsheft": {
+  "datei": "archiv/commons/konversationsheft.jpg",
+  "titel": "Beethoven, Konversationsheft D. 10, fol. 44 f. (Eintrag ueber Julie Guicciardi)",
+  "autor": "Ludwig van Beethoven (1823)",
+  "quelle": "https://commons.wikimedia.org/wiki/File:Ludwig_van_Beethoven_%C3%BCber_Julie_Guicciardi_sp%C3%A4tere_Gallenberg.jpg",
+  "lizenz": "gemeinfrei (PD-old-100 / PD-Art laut Dateiseite) (auf dem PC pruefen)",
+  "kurz": "Konversationsheft 1823, Wikimedia Commons",
+  "verwendung": "Zeitungsausschnitt-Element (Papier, Textmarker auf der ersten Zeile)"
+ },
+ "commons-premiere": {
+  "datei": "archiv/commons/premiere-neunte.jpg",
+  "titel": "Die Urauffuehrung der 9. Sinfonie (Lithografie)",
+  "autor": "Carl Offterdinger (1879)",
+  "quelle": "https://commons.wikimedia.org/wiki/File:The_Premiere_of_Symphony_No._9.jpg",
+  "lizenz": "gemeinfrei (Autor gest. 1889; PD-old-100, PD-US laut Dateiseite) (auf dem PC pruefen)",
+  "kurz": "C. Offterdinger 1879, Wikimedia Commons",
+  "verwendung": "Ausschnitt-Element (Papier), Kreis um Beethoven, Pfeil zum Dirigenten"
+ },
+ "commons-unger": {
+  "datei": "archiv/commons/unger.jpg",
+  "titel": "Caroline Unger (Bildnis)",
+  "autor": "unbekannt (19. Jh.), Quelle laut Commons: Booklet \"Parisina\", Opera Rara",
+  "quelle": "https://commons.wikimedia.org/wiki/File:CarolineUngher.jpg",
+  "lizenz": "laut Dateiseite PD-old (Datum/Urheber unbekannt) - UNSICHER: Herkunft (CD-Booklet) pruefen; im Zweifel weglassen (Szene laeuft dann ohne Abzug weiter, siehe README) (auf dem PC pruefen)",
+  "kurz": "Bildnis C. Unger, Wikimedia Commons",
+  "verwendung": "Abzug (Druck) der Saengerin Caroline Unger, ohne Namen"
+ },
+ "europaflagge": {
+  "datei": "(in AE gezeichnet)",
+  "titel": "Europaflagge nach offizieller Geometrie (12 goldene Sterne auf Blau), selbst gezeichnet",
+  "autor": "eigene Grafik",
+  "quelle": "https://european-union.europa.eu/principles-countries-history/symbols/european-flag_de",
+  "lizenz": "Symbol, eigene Zeichnung",
+  "kurz": "Grafik: Europaflagge",
+  "verwendung": "Szene hymne"
+ }
+}
