@@ -1,0 +1,173 @@
+{
+ "bg-portrait-rede": {
+  "datei": "bg-portrait-rede.jpg",
+  "titel": "[Theodore Roosevelt, head-and-shoulders portrait, facing front, speaking] (1912)",
+  "autor": "unbekannt (1912), LOC",
+  "quelle": "https://www.loc.gov/item/2009633786/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-portrait-oval": {
+  "datei": "bg-portrait-oval.jpg",
+  "titel": "[Theodore Roosevelt : head up] (1912)",
+  "autor": "Geo. Prince (1912)",
+  "quelle": "https://www.loc.gov/item/2013648186/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Geo. Prince 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-menge": {
+  "datei": "bg-menge.jpg",
+  "titel": "Crowd listening to T.R. speak, Chicago (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014690550/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-auto": {
+  "datei": "bg-auto.jpg",
+  "titel": "Roosevelt (Bain, Glasnegativ beschriftet \"10/14/12\", kurz vor dem Attentat)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014690852/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-yonkers": {
+  "datei": "bg-yonkers.jpg",
+  "titel": "Roosevelt speaking, Yonkers, 10/17/12",
+  "autor": "George Grantham Bain (1912)",
+  "quelle": "https://www.loc.gov/item/2009633788/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: G. G. Bain 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-sitzend": {
+  "datei": "bg-sitzend.jpg",
+  "titel": "[Theodore Roosevelt, three-quarter length portrait, seated, facing right] (um 1912)",
+  "autor": "American Press Association (um 1912)",
+  "quelle": "https://www.loc.gov/item/93511353/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: American Press Association, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-halle": {
+  "datei": "bg-halle.jpg",
+  "titel": "The new auditorium, Milwaukee (Postkarte, um 1908)",
+  "autor": "unbekannt (Postkarte, um 1908)",
+  "quelle": "https://www.loc.gov/item/2013646928/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Postkarte um 1908, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-buehne": {
+  "datei": "bg-buehne.jpg",
+  "titel": "[Theodore Roosevelt, full-length portrait, standing, facing front, speaking at Carnegie Hall] (1912)",
+  "autor": "unbekannt (1912), LOC",
+  "quelle": "https://www.loc.gov/item/90712592/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-grit": {
+  "datei": "bg-grit.jpg",
+  "titel": "We are against his politics but we like his grit (Zeichnung, 1912)",
+  "autor": "W. A. Rogers (1912)",
+  "quelle": "https://www.loc.gov/item/2010717717/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Zeichnung: W. A. Rogers 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-martin": {
+  "datei": "bg-martin.jpg",
+  "titel": "Elbert Martin and bullet-pierced speech (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014690861/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt); Lupe archiv/lupe-tasche.jpg"
+ },
+ "bg-manuskript": {
+  "datei": "bg-manuskript.jpg",
+  "titel": "Page from Ex-President Roosevelt's Manuscript of Speech Showing Bullet Holes (Tafel im Buch \"The attempted assassination of ex-President Theodore Roosevelt\", Milwaukee 1912)",
+  "autor": "O. E. Remey, H. F. Cochems, W. P. Bloodgood (Hg., 1912)",
+  "quelle": "https://archive.org/details/attemptedassas00remerich/page/n33",
+  "lizenz": "gemeinfrei (Buch von 1912, Internet Archive: NOT_IN_COPYRIGHT)",
+  "kurz": "Buch 1912, Internet Archive",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-etui": {
+  "datei": "bg-etui.jpg",
+  "titel": "KI-Bild: Brillenetui aus Stahl mit Einschussloch auf gefalteten Redeseiten (Nachstellung, kein Originalfoto)",
+  "autor": "KI-generiert (ElevenLabs, gpt-image-2.5-sunburst, 17.11.2026)",
+  "quelle": "ElevenLabs Flow UmpNtfvLKY9bf4cEBvvP, Generation XPubIaNwV3Rwb05fpf3U",
+  "lizenz": "KI-generiert (eigene Generierung, 85 Credits)",
+  "kurz": "KI-Bild (ElevenLabs)",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-zeitung-lct": {
+  "datei": "bg-zeitung-lct.jpg",
+  "titel": "The Lake County Times (Hammond, Ind.), 15. Okt. 1912, S. 1 (\"Assassin's bullet lodges in breast\")",
+  "autor": "The Lake County Times",
+  "quelle": "https://www.loc.gov/resource/sn86058242/1912-10-15/ed-1/?sp=1",
+  "lizenz": "gemeinfrei (Zeitung von 1912, Chronicling America / LOC)",
+  "kurz": "Lake County Times 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-xray": {
+  "datei": "bg-xray.jpg",
+  "titel": "X-Ray of Roosevelt [shows bullet] (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014690853/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-profil": {
+  "datei": "bg-profil.jpg",
+  "titel": "Roosevelt speaking (1912)",
+  "autor": "unbekannt (1912), LOC",
+  "quelle": "https://www.loc.gov/item/2013651235/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "bg-konvent": {
+  "datei": "bg-konvent.jpg",
+  "titel": "Roosevelt speaking in convention hall, Chicago (1912)",
+  "autor": "Bain News Service (1912)",
+  "quelle": "https://www.loc.gov/item/2014691372/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Foto: Bain News Service 1912, LOC",
+  "verwendung": "Hintergrund (warm gegradet, Ausschnitt, langsame Fahrt)"
+ },
+ "zeitung-teddy": {
+  "datei": "zeitung-teddy.jpg",
+  "titel": "Drawing the line in Mississippi (Karikatur, Washington Post, 16. Nov. 1902)",
+  "autor": "Clifford K. Berryman (1902)",
+  "quelle": "https://www.loc.gov/item/2008678324/",
+  "lizenz": "gemeinfrei (No known restrictions on publication, LOC)",
+  "kurz": "Karikatur: C. K. Berryman 1902, LOC",
+  "verwendung": "Ausschnitt (Zeitungs-Element, 1:1)"
+ },
+ "zeitung-missoulian": {
+  "datei": "zeitung-missoulian.jpg",
+  "titel": "The Daily Missoulian, 15. Okt. 1912, S. 1 (\"Despite a wound in the breast, he makes his talk\")",
+  "autor": "The Daily Missoulian",
+  "quelle": "https://www.loc.gov/resource/sn83025316/1912-10-15/ed-1/?sp=1",
+  "lizenz": "gemeinfrei (Zeitung von 1912, Chronicling America / LOC)",
+  "kurz": "Daily Missoulian 1912, LOC",
+  "verwendung": "Zeitungsausschnitt Schlagzeile (1:1)"
+ },
+ "zeitung-hemd": {
+  "datei": "zeitung-hemd.jpg",
+  "titel": "Shirts Worn by Ex-President Roosevelt Showing Extent of Bleeding (Tafel im Buch \"The attempted assassination of ex-President Theodore Roosevelt\", Milwaukee 1912)",
+  "autor": "O. E. Remey, H. F. Cochems, W. P. Bloodgood (Hg., 1912)",
+  "quelle": "https://archive.org/details/attemptedassas00remerich/page/n27",
+  "lizenz": "gemeinfrei (Buch von 1912, Internet Archive: NOT_IN_COPYRIGHT)",
+  "kurz": "Buch 1912, Internet Archive",
+  "verwendung": "Ausschnitt (untere Tafel, Zeitungs-Element, 1:1)"
+ }
+}

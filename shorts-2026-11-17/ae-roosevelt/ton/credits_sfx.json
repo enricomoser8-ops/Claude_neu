@@ -1,0 +1,229 @@
+{
+ "stand": "automatisch von ton/sfx_roosevelt.py",
+ "dateien": [
+  {
+   "datei": null,
+   "einsaetze": 3,
+   "art": "Code-PLATZHALTER (Reibungsrauschen) bis echte Aufnahmen in ton/sfx_real/ liegen",
+   "titel": "marker",
+   "autor": "sfx_roosevelt.py",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": null,
+   "einsaetze": 13,
+   "art": "Code-PLATZHALTER (Reibungsrauschen) bis echte Aufnahmen in ton/sfx_real/ liegen",
+   "titel": "pencil",
+   "autor": "sfx_roosevelt.py",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/earshot/b_cloth1.wav",
+   "einsaetze": 1,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_cloth1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render swipe/cloth --dur 0.6 --apex 0.15 -o b_cloth1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_cloth2.wav",
+   "einsaetze": 1,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_cloth2.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render swipe/cloth --dur 0.5 --apex 0.12 --seed 4 -o b_cloth2.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_hit1.wav",
+   "einsaetze": 2,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_hit1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render cut_hit/punch -o b_hit1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_impact1.wav",
+   "einsaetze": 1,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_impact1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render pro_impact/deep -o b_impact1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_paper1.wav",
+   "einsaetze": 3,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_paper1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render swipe/paper --dur 0.5 --apex 0.12 --seed 1 -o b_paper1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_paper2.wav",
+   "einsaetze": 2,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_paper2.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render swipe/paper --dur 0.5 --apex 0.12 --seed 2 -o b_paper2.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_paper3.wav",
+   "einsaetze": 2,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_paper3.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render swipe/paper --dur 0.5 --apex 0.12 --seed 3 -o b_paper3.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_shutter1.wav",
+   "einsaetze": 2,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_shutter1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render shutter/film -o b_shutter1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_shutter2.wav",
+   "einsaetze": 1,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_shutter2.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render shutter/mirror -o b_shutter2.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_shutter3.wav",
+   "einsaetze": 1,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_shutter3.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render shutter/quick -o b_shutter3.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tap1.wav",
+   "einsaetze": 3,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tap1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render fit/land.light/fingertip_book -o b_tap1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tap2.wav",
+   "einsaetze": 3,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tap2.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render fit/land.light/finger_wood -o b_tap2.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tap4.wav",
+   "einsaetze": 2,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tap4.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render knock/wood -o b_tap4.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tick1.wav",
+   "einsaetze": 9,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tick1.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render fit/tick/domino -o b_tick1.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tick3.wav",
+   "einsaetze": 7,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tick3.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render fit/click/floss_lid -o b_tick3.wav --peak -3"
+  },
+  {
+   "datei": "ton/earshot/b_tick4.wav",
+   "einsaetze": 7,
+   "art": "earshot-Bank (im Code gerendert)",
+   "titel": "b_tick4.wav",
+   "autor": "earshot 0.4.1 (Leonxlnx/earshot)",
+   "lizenz": "MIT",
+   "befehl": "earshot sfx render pro_hover_tick/detent -o b_tick4.wav --peak -3"
+  },
+  {
+   "datei": "ton/sfx_enno/click_real.wav",
+   "einsaetze": 2,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "click_real.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/pop_real.wav",
+   "einsaetze": 7,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "pop_real.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/swipe1.wav",
+   "einsaetze": 4,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "swipe1.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/swipe3.wav",
+   "einsaetze": 5,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "swipe3.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/swipe4.wav",
+   "einsaetze": 5,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "swipe4.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/swipe7.wav",
+   "einsaetze": 5,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "swipe7.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/typing.wav",
+   "einsaetze": 13,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "typing.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_enno/whoosh_real.wav",
+   "einsaetze": 5,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "whoosh_real.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  }
+ ]
+}

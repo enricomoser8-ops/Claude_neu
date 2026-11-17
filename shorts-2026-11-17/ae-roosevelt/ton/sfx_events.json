@@ -1,0 +1,1386 @@
+{
+"fps": 25,
+"hinweis": "f/t = sichtbares Ereignis (Sync-Punkt), start = Einsatz der Datei (J-Cut/Vorlauf), db = Pegel relativ (0 = Hauptereignis).",
+"gain_in_sfx_wav_db": -7.91,
+"events": [
+{
+"f": 0,
+"kind": "sfx",
+"id": "Kamera-Verschluss: Roosevelt erscheint (erster Frame)",
+"t": 0.0,
+"start": 0.0,
+"db": -6,
+"src": "earshot:b_shutter1.wav",
+"event_f_sicht": 0
+},
+{
+"f": 3,
+"kind": "sfx",
+"id": "minimaler Verschluss: Kontrast-Callout springt an",
+"t": 0.12,
+"start": 0.12,
+"db": -10,
+"src": "earshot:b_shutter2.wav",
+"event_f_sicht": 3
+},
+{
+"f": 10,
+"kind": "sfx",
+"id": "tiefer Whoosh: Punch-in auf das Wort",
+"t": 0.4,
+"start": 0.28,
+"db": -7,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 7
+},
+{
+"f": 28,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Brust zeichnet sich",
+"t": 1.12,
+"start": 1.12,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 28
+},
+{
+"f": 75,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 0 -> 60 (Zaehler Minuten)",
+"t": 3.0,
+"start": 3.0,
+"db": -10,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 75
+},
+{
+"f": 115,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf name",
+"t": 4.6,
+"start": 4.48,
+"db": 0,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 115
+},
+{
+"f": 123,
+"kind": "sfx",
+"id": "Tippen THEODORE ROOSEVELT (Anschlag je sichtbarem Tipp-Schritt)",
+"t": 4.92,
+"start": 4.92,
+"db": -4,
+"src": "enno:typing.wav",
+"event_f_sicht": 123
+},
+{
+"f": 168,
+"kind": "sfx",
+"id": "Whoosh: Zeitung Berryman 1902 rutscht ein",
+"t": 6.72,
+"start": 6.659,
+"db": -3,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 165
+},
+{
+"f": 165,
+"kind": "sfx",
+"id": "Papier-Slide unter dem Whoosh",
+"t": 6.6,
+"start": 6.6,
+"db": -9,
+"src": "earshot:b_paper1.wav",
+"event_f_sicht": 165
+},
+{
+"f": 173,
+"kind": "sfx",
+"id": "Ausschnitt rastet ein (leiser Tap)",
+"t": 6.92,
+"start": 6.92,
+"db": -10,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 165
+},
+{
+"f": 173,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 6.92,
+"start": 6.92,
+"db": -8,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 173
+},
+{
+"f": 175,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Teddy zeichnet sich",
+"t": 7.0,
+"start": 7.0,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 175
+},
+{
+"f": 205,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf wahl",
+"t": 8.2,
+"start": 8.08,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 205
+},
+{
+"f": 207,
+"kind": "sfx",
+"id": "Tippen 1912 (Anschlag je sichtbarem Tipp-Schritt)",
+"t": 8.28,
+"start": 8.28,
+"db": -4,
+"src": "enno:typing.wav",
+"event_f_sicht": 207
+},
+{
+"f": 238,
+"kind": "sfx",
+"id": "weicher Wisch: Farbe Menge faerbt sich (Wisch)",
+"t": 9.52,
+"start": 9.52,
+"db": -13,
+"src": "earshot:b_cloth1.wav",
+"event_f_sicht": 238
+},
+{
+"f": 284,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf auto",
+"t": 11.36,
+"start": 11.26,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 284
+},
+{
+"f": 290,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Kopf zeichnet sich",
+"t": 11.6,
+"start": 11.6,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 290
+},
+{
+"f": 351,
+"kind": "sfx",
+"id": "tiefer Whoosh auf den Brand-Uebergang (J-Cut)",
+"t": 14.04,
+"start": 13.88,
+"db": -1,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 348
+},
+{
+"f": 348,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Brand (9 dB unter dem Whoosh)",
+"t": 13.92,
+"start": 13.92,
+"db": -9,
+"src": "earshot:b_paper2.wav",
+"event_f_sicht": 348
+},
+{
+"f": 355,
+"kind": "sfx",
+"id": "Schuss: tiefer Einschlag auf dem Muendungsblitz (kein Revolver-Knall, Vox-Stil)",
+"t": 14.2,
+"start": 13.997,
+"db": 0,
+"src": "earshot:b_impact1.wav",
+"event_f_sicht": 355
+},
+{
+"f": 357,
+"kind": "sfx",
+"id": "minimaler Verschluss: Kontrast-Callout springt an",
+"t": 14.28,
+"start": 14.28,
+"db": -10,
+"src": "earshot:b_shutter3.wav",
+"event_f_sicht": 357
+},
+{
+"f": 403,
+"kind": "sfx",
+"id": "kurzer tiefer Whoosh: Bild wankt (Focus Hunting)",
+"t": 16.12,
+"start": 16.0,
+"db": -9,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 400
+},
+{
+"f": 437,
+"kind": "sfx",
+"id": "tiefer Whoosh: Punch-in auf das Wort",
+"t": 17.48,
+"start": 17.412,
+"db": -7,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 434
+},
+{
+"f": 459,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf folge",
+"t": 18.36,
+"start": 18.24,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 459
+},
+{
+"f": 461,
+"kind": "sfx",
+"id": "Folgen-Knopf springt auf",
+"t": 18.44,
+"start": 18.44,
+"db": -8,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 461
+},
+{
+"f": 486,
+"kind": "sfx",
+"id": "Mausklick: Folgen",
+"t": 19.44,
+"start": 19.44,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 486
+},
+{
+"f": 509,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf halle",
+"t": 20.36,
+"start": 20.255,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 509
+},
+{
+"f": 569,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 22.76,
+"start": 22.76,
+"db": -8,
+"src": "earshot:b_tap4.wav",
+"event_f_sicht": 569
+},
+{
+"f": 578,
+"kind": "sfx",
+"id": "Bleistift-Strich: Strich durch Etikett Flaeche KRANKENHAUS zeichnet sich",
+"t": 23.12,
+"start": 23.12,
+"db": -7,
+"src": "code:pencil",
+"event_f_sicht": 578
+},
+{
+"f": 596,
+"kind": "sfx",
+"id": "Bleistift-Strich: Strich Zur Halle zeichnet sich",
+"t": 23.84,
+"start": 23.84,
+"db": -7,
+"src": "code:pencil",
+"event_f_sicht": 596
+},
+{
+"f": 615,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf buehne",
+"t": 24.6,
+"start": 24.48,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 615
+},
+{
+"f": 633,
+"kind": "sfx",
+"id": "Whoosh: Zeitung Daily Missoulian 1912 rutscht ein",
+"t": 25.32,
+"start": 25.2,
+"db": -3,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 630
+},
+{
+"f": 630,
+"kind": "sfx",
+"id": "Papier-Slide unter dem Whoosh",
+"t": 25.2,
+"start": 25.2,
+"db": -9,
+"src": "earshot:b_paper3.wav",
+"event_f_sicht": 630
+},
+{
+"f": 636,
+"kind": "sfx",
+"id": "Ausschnitt rastet ein (leiser Tap)",
+"t": 25.44,
+"start": 25.44,
+"db": -10,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 630
+},
+{
+"f": 665,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker WOUND",
+"t": 26.6,
+"start": 26.6,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 665
+},
+{
+"f": 692,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf hemd",
+"t": 27.68,
+"start": 27.625,
+"db": 0,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 692
+},
+{
+"f": 717,
+"kind": "sfx",
+"id": "weicher Wisch: Farbe Blut faerbt sich (Wisch)",
+"t": 28.68,
+"start": 28.68,
+"db": -13,
+"src": "earshot:b_cloth2.wav",
+"event_f_sicht": 717
+},
+{
+"f": 743,
+"kind": "sfx",
+"id": "Whoosh: Zeitung Buchtafel 1912 rutscht ein",
+"t": 29.72,
+"start": 29.6,
+"db": -3,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 740
+},
+{
+"f": 740,
+"kind": "sfx",
+"id": "Papier-Slide unter dem Whoosh",
+"t": 29.6,
+"start": 29.6,
+"db": -9,
+"src": "earshot:b_paper1.wav",
+"event_f_sicht": 740
+},
+{
+"f": 746,
+"kind": "sfx",
+"id": "Foto des Hemds rastet ein (Verschluss)",
+"t": 29.84,
+"start": 29.84,
+"db": -9,
+"src": "earshot:b_shutter1.wav",
+"event_f_sicht": 740
+},
+{
+"f": 753,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Blut zeichnet sich",
+"t": 30.12,
+"start": 30.12,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 753
+},
+{
+"f": 773,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf tasche",
+"t": 30.92,
+"start": 30.828,
+"db": 0,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 773
+},
+{
+"f": 785,
+"kind": "sfx",
+"id": "tiefer Whoosh: Punch-in auf das Wort",
+"t": 31.4,
+"start": 31.28,
+"db": -7,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 782
+},
+{
+"f": 845,
+"kind": "sfx",
+"id": "kurzer Whoosh: Lupe waechst auf",
+"t": 33.8,
+"start": 33.68,
+"db": -5,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 842
+},
+{
+"f": 850,
+"kind": "sfx",
+"id": "Lupe rastet ein (Tick)",
+"t": 34.0,
+"start": 34.0,
+"db": -12,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 842
+},
+{
+"f": 869,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 34.76,
+"start": 34.76,
+"db": -8,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 869
+},
+{
+"f": 869,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf seiten",
+"t": 34.76,
+"start": 34.694,
+"db": 0,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 869
+},
+{
+"f": 869,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Whoosh (Zeitungs-/Manuskriptseite)",
+"t": 34.76,
+"start": 34.76,
+"db": -8,
+"src": "earshot:b_paper2.wav",
+"event_f_sicht": 869
+},
+{
+"f": 871,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 0 -> 50 (Etikett 50 SEITEN)",
+"t": 34.84,
+"start": 34.84,
+"db": -10,
+"src": "earshot:b_tick4.wav",
+"event_f_sicht": 871
+},
+{
+"f": 873,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Loch oben zeichnet sich",
+"t": 34.92,
+"start": 34.92,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 873
+},
+{
+"f": 898,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Loch unten zeichnet sich",
+"t": 35.92,
+"start": 35.92,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 898
+},
+{
+"f": 917,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf etui",
+"t": 36.68,
+"start": 36.56,
+"db": 0,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 917
+},
+{
+"f": 932,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Etui zeichnet sich",
+"t": 37.28,
+"start": 37.28,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 932
+},
+{
+"f": 955,
+"kind": "sfx",
+"id": "Chip springt auf (Tap)",
+"t": 38.2,
+"start": 38.2,
+"db": -8,
+"src": "earshot:b_tap4.wav",
+"event_f_sicht": 955
+},
+{
+"f": 986,
+"kind": "sfx",
+"id": "Bleistift-Strich: Strich Kugelbahn zeichnet sich",
+"t": 39.44,
+"start": 39.44,
+"db": -7,
+"src": "code:pencil",
+"event_f_sicht": 986
+},
+{
+"f": 999,
+"kind": "sfx",
+"id": "tiefer Whoosh: Punch-in auf das Wort",
+"t": 39.96,
+"start": 39.857,
+"db": -7,
+"src": "enno:swipe1.wav",
+"event_f_sicht": 996
+},
+{
+"f": 1023,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf gerettet",
+"t": 40.92,
+"start": 40.8,
+"db": 0,
+"src": "enno:swipe4.wav",
+"event_f_sicht": 1023
+},
+{
+"f": 1023,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Whoosh (Zeitungs-/Manuskriptseite)",
+"t": 40.92,
+"start": 40.92,
+"db": -8,
+"src": "earshot:b_paper3.wav",
+"event_f_sicht": 1023
+},
+{
+"f": 1030,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker Manuskript",
+"t": 41.2,
+"start": 41.2,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 1030
+},
+{
+"f": 1050,
+"kind": "sfx",
+"id": "Filzstift-Strich: Textmarker Instant Death",
+"t": 42.0,
+"start": 42.0,
+"db": -4,
+"src": "code:marker",
+"event_f_sicht": 1050
+},
+{
+"f": 1080,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf kugel",
+"t": 43.2,
+"start": 43.08,
+"db": 0,
+"src": "enno:swipe3.wav",
+"event_f_sicht": 1080
+},
+{
+"f": 1084,
+"kind": "sfx",
+"id": "Bleistift-Kreis: Kreis Kugel zeichnet sich",
+"t": 43.36,
+"start": 43.36,
+"db": -6,
+"src": "code:pencil",
+"event_f_sicht": 1084
+},
+{
+"f": 1111,
+"kind": "sfx",
+"id": "Uhr-Ticks je sichtbarem Zahlenwechsel: Zaehler 1912 -> 1919 (Zaehler 1912-1919)",
+"t": 44.44,
+"start": 44.44,
+"db": -10,
+"src": "earshot:b_tick1.wav",
+"event_f_sicht": 1111
+},
+{
+"f": 1159,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf frage",
+"t": 46.36,
+"start": 46.304,
+"db": 0,
+"src": "enno:whoosh_real.wav",
+"event_f_sicht": 1159
+},
+{
+"f": 1169,
+"kind": "sfx",
+"id": "Fragezeichen knallt (Tap)",
+"t": 46.76,
+"start": 46.76,
+"db": -4,
+"src": "earshot:b_tap1.wav",
+"event_f_sicht": 1169
+},
+{
+"f": 1203,
+"kind": "sfx",
+"id": "tiefer Whoosh auf den Brand-Uebergang (J-Cut)",
+"t": 48.12,
+"start": 47.96,
+"db": -1,
+"src": "enno:swipe7.wav",
+"event_f_sicht": 1200
+},
+{
+"f": 1200,
+"kind": "sfx",
+"id": "Papier-Textur unter dem Brand (9 dB unter dem Whoosh)",
+"t": 48.0,
+"start": 48.0,
+"db": -9,
+"src": "earshot:b_paper1.wav",
+"event_f_sicht": 1200
+},
+{
+"f": 1203,
+"kind": "sfx",
+"id": "Bleistift-Kreis (leise unter dem Logo-Tap): Kreis Logo zeichnet sich",
+"t": 48.12,
+"start": 48.12,
+"db": -12,
+"src": "code:pencil",
+"event_f_sicht": 1203
+},
+{
+"f": 1203,
+"kind": "sfx",
+"id": "Logo springt auf (Tap; der Brand-Whoosh traegt die Bewegung)",
+"t": 48.12,
+"start": 48.12,
+"db": -7,
+"src": "earshot:b_tap2.wav",
+"event_f_sicht": 1203
+},
+{
+"f": 1257,
+"kind": "sfx",
+"id": "\"In der Bio\" springt auf",
+"t": 50.28,
+"start": 50.28,
+"db": -9,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 1257
+},
+{
+"f": 1269,
+"kind": "sfx",
+"id": "Folgen-Knopf springt auf",
+"t": 50.76,
+"start": 50.76,
+"db": -8,
+"src": "enno:pop_real.wav",
+"event_f_sicht": 1269
+},
+{
+"f": 1269,
+"kind": "sfx",
+"id": "Bleistift-Strich: Unterstrich Bio zeichnet sich",
+"t": 50.76,
+"start": 50.76,
+"db": -7,
+"src": "code:pencil",
+"event_f_sicht": 1269
+},
+{
+"f": 1290,
+"kind": "sfx",
+"id": "Mausklick: Folgen",
+"t": 51.6,
+"start": 51.6,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 1290
+}
+],
+"alle_anschlaege": [
+{
+"t": 0.0,
+"db": -6,
+"src": "earshot:b_shutter1.wav"
+},
+{
+"t": 0.12,
+"db": -10,
+"src": "earshot:b_shutter2.wav"
+},
+{
+"t": 0.4,
+"db": -7,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 1.12,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 3.0,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 3.12,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 3.2,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 3.28,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 3.36,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 3.44,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 3.52,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 3.6,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 4.6,
+"db": 0,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 4.92,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.0,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.12,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.2,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.28,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.36,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.44,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 5.52,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 6.72,
+"db": -3,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 6.6,
+"db": -9,
+"src": "earshot:b_paper1.wav"
+},
+{
+"t": 6.92,
+"db": -10,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 6.92,
+"db": -8,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 6.96,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 7.0,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 8.2,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 8.28,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 8.36,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 8.44,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 8.52,
+"db": -6,
+"src": "enno:typing.wav"
+},
+{
+"t": 8.6,
+"db": -4,
+"src": "enno:typing.wav"
+},
+{
+"t": 9.52,
+"db": -13,
+"src": "earshot:b_cloth1.wav"
+},
+{
+"t": 11.36,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 11.6,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 14.04,
+"db": -1,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 13.92,
+"db": -9,
+"src": "earshot:b_paper2.wav"
+},
+{
+"t": 14.2,
+"db": 0,
+"src": "earshot:b_impact1.wav"
+},
+{
+"t": 14.2,
+"db": -5,
+"src": "earshot:b_hit1.wav"
+},
+{
+"t": 14.28,
+"db": -10,
+"src": "earshot:b_shutter3.wav"
+},
+{
+"t": 16.12,
+"db": -9,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 17.48,
+"db": -7,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 18.36,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 18.44,
+"db": -8,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 19.44,
+"db": -3,
+"src": "enno:click_real.wav"
+},
+{
+"t": 20.36,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 22.76,
+"db": -8,
+"src": "earshot:b_tap4.wav"
+},
+{
+"t": 22.8,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 23.12,
+"db": -7,
+"src": "code:pencil"
+},
+{
+"t": 23.84,
+"db": -7,
+"src": "code:pencil"
+},
+{
+"t": 24.6,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 25.32,
+"db": -3,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 25.2,
+"db": -9,
+"src": "earshot:b_paper3.wav"
+},
+{
+"t": 25.44,
+"db": -10,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 26.6,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 27.68,
+"db": 0,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 28.68,
+"db": -13,
+"src": "earshot:b_cloth2.wav"
+},
+{
+"t": 29.72,
+"db": -3,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 29.6,
+"db": -9,
+"src": "earshot:b_paper1.wav"
+},
+{
+"t": 29.84,
+"db": -9,
+"src": "earshot:b_shutter1.wav"
+},
+{
+"t": 30.12,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 30.92,
+"db": 0,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 31.4,
+"db": -7,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 33.8,
+"db": -5,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 34.0,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 34.76,
+"db": -8,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 34.8,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 34.76,
+"db": 0,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 34.76,
+"db": -8,
+"src": "earshot:b_paper2.wav"
+},
+{
+"t": 34.84,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 34.92,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 35.0,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 35.12,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 35.2,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 35.28,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 35.36,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 34.92,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 35.92,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 36.68,
+"db": 0,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 37.28,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 38.2,
+"db": -8,
+"src": "earshot:b_tap4.wav"
+},
+{
+"t": 38.24,
+"db": -12,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 39.44,
+"db": -7,
+"src": "code:pencil"
+},
+{
+"t": 39.96,
+"db": -7,
+"src": "enno:swipe1.wav"
+},
+{
+"t": 40.92,
+"db": 0,
+"src": "enno:swipe4.wav"
+},
+{
+"t": 40.92,
+"db": -8,
+"src": "earshot:b_paper3.wav"
+},
+{
+"t": 41.2,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 42.0,
+"db": -4,
+"src": "code:marker"
+},
+{
+"t": 43.2,
+"db": 0,
+"src": "enno:swipe3.wav"
+},
+{
+"t": 43.36,
+"db": -6,
+"src": "code:pencil"
+},
+{
+"t": 44.44,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 44.52,
+"db": -12,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 44.68,
+"db": -10,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 44.76,
+"db": -12,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 44.84,
+"db": -10,
+"src": "earshot:b_tick3.wav"
+},
+{
+"t": 44.92,
+"db": -12,
+"src": "earshot:b_tick4.wav"
+},
+{
+"t": 45.0,
+"db": -10,
+"src": "earshot:b_tick1.wav"
+},
+{
+"t": 46.36,
+"db": 0,
+"src": "enno:whoosh_real.wav"
+},
+{
+"t": 46.76,
+"db": -4,
+"src": "earshot:b_tap1.wav"
+},
+{
+"t": 46.76,
+"db": -12,
+"src": "earshot:b_hit1.wav"
+},
+{
+"t": 48.12,
+"db": -1,
+"src": "enno:swipe7.wav"
+},
+{
+"t": 48.0,
+"db": -9,
+"src": "earshot:b_paper1.wav"
+},
+{
+"t": 48.12,
+"db": -12,
+"src": "code:pencil"
+},
+{
+"t": 48.12,
+"db": -7,
+"src": "earshot:b_tap2.wav"
+},
+{
+"t": 50.28,
+"db": -9,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 50.76,
+"db": -8,
+"src": "enno:pop_real.wav"
+},
+{
+"t": 50.76,
+"db": -7,
+"src": "code:pencil"
+},
+{
+"t": 51.6,
+"db": -3,
+"src": "enno:click_real.wav"
+}
+],
+"stumm": [
+{
+"f": 28,
+"ereignis": "Kontrast-Callout Gesicht aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 117,
+"ereignis": "Kontrast-Callout Gesicht an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 167,
+"ereignis": "Kontrast-Callout Gesicht aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 205,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 284,
+"ereignis": "Kontrast-Callout Roosevelt an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 284,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 355,
+"ereignis": "Ringe breiten sich aus (3)",
+"grund": "gleicher Frame wie der Schuss: der Einschlag traegt die Ringe"
+},
+{
+"f": 400,
+"ereignis": "Kamera wankt",
+"grund": "gleicher Frame wie Focus Hunting, der Whoosh traegt es"
+},
+{
+"f": 463,
+"ereignis": "Mauszeiger faehrt zum Knopf",
+"grund": "Mauszeiger gleitet (Nebensache, der Klick ist das Ereignis)"
+},
+{
+"f": 509,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 511,
+"ereignis": "Kontrast-Callout Halle an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 615,
+"ereignis": "Kontrast-Callout Roosevelt an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 694,
+"ereignis": "Kontrast-Callout Roosevelt an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 740,
+"ereignis": "Kontrast-Callout Roosevelt aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 775,
+"ereignis": "Kontrast-Callout Papiere an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 842,
+"ereignis": "Kontrast-Callout Papiere aus",
+"grund": "Abdunklung geht nur weg (Nebensache)"
+},
+{
+"f": 919,
+"ereignis": "Kontrast-Callout Etui an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 1080,
+"ereignis": "Punch-Cut 110->100 % (21 Frames)",
+"grund": "gleicher Frame wie der Schnitt: der Schnitt-Whoosh ist der Punch"
+},
+{
+"f": 1161,
+"ereignis": "Kontrast-Callout Gesicht an (harter Schnitt)",
+"grund": "kommt mit dem Schnitt, der Whoosh traegt es"
+},
+{
+"f": 1271,
+"ereignis": "Mauszeiger faehrt zum Knopf",
+"grund": "Mauszeiger gleitet (Nebensache, der Klick ist das Ereignis)"
+}
+]
+}
