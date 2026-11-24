@@ -1,0 +1,27 @@
+{
+ "stand": "24.11.2026",
+ "hinweis": "Nur Wunschliste: diese Bilder sind NICHT erzeugt. Bild als PNG/JPG (9:16, mind. 1080x1920) nach archiv/roh/<name>.png legen, dann python3 gen/bilder_apollo.py && python3 gen/gen_apollo.py. Ohne Bild baut das Paket mit Platzhaltern (Hilfsebene \"KI Platzhalter <name>\", rendert nicht).",
+ "bilder": [
+  {
+   "name": "ki-band",
+   "szene": "02 klebeband (Slam, unten rechts neben dem Crew-Portrait)",
+   "format": "9:16",
+   "platzhalter_jetzt": "echter NASA-Ausschnitt p-band.jpg (graues Klebeband am Adapter-Schlauch, AS13-62-8929)",
+   "prompt": "A single roll of grey silver duct tape lying on a plain light grey laboratory table, seen from slightly above, the loose end of the tape curling off the roll, centered with lots of empty space around it, authentic 1970 NASA press photograph, Kodak Ektachrome color film, soft film grain, slightly faded colors, realistic, no text, no logos, no people, vertical 9:16 format"
+  },
+  {
+   "name": "ki-loch",
+   "szene": "12 eckig (rechts neben dem eckigen Filter, Bleistift-Kreis + rotes Kreuz)",
+   "format": "9:16",
+   "platzhalter_jetzt": "saubere Vox-Form: dunkle runde Oeffnung (Shape \"Form Loch\") + Hilfsebene \"KI Platzhalter ki-loch\"",
+   "prompt": "Close-up of a round cylindrical air filter receptacle opening in a white spacecraft cabin wall, Apollo lunar module interior, circular metal socket with a dark round hole in the middle, centered, flat frontal view, authentic 1970 NASA press photograph, Kodak Ektachrome color film, soft film grain, slightly faded colors, realistic, no text, no logos, no people, vertical 9:16 format"
+  },
+  {
+   "name": "ki-handbuch",
+   "szene": "14 bauplan (kleiner Abzug rechts, auf \"Handbuch-Deckeln\")",
+   "format": "9:16",
+   "platzhalter_jetzt": "nur Hilfsebene \"KI Platzhalter ki-handbuch\" (im echten Foto ist der Deckel nicht sichtbar, deshalb kein Kreis darauf)",
+   "prompt": "A stiff cardboard cover torn off a spiral-bound NASA flight checklist manual from 1970, plain off-white cover with faint unreadable typewriter marks, lying on a grey table next to a short piece of grey duct tape, centered, authentic 1970 NASA press photograph, Kodak Ektachrome color film, soft film grain, slightly faded colors, realistic, no text, no logos, no people, vertical 9:16 format"
+  }
+ ]
+}

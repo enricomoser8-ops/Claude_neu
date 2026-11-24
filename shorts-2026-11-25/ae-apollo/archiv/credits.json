@@ -1,0 +1,333 @@
+{
+ "p-start.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34852",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34852",
+  "original": "https://images-assets.nasa.gov/image/S70-34852/S70-34852~large.jpg",
+  "motiv": "Start der Saturn V mit Apollo 13, 11.04.1970",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-crew.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-36485",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-36485",
+  "original": "https://images-assets.nasa.gov/image/S70-36485/S70-36485~large.jpg",
+  "motiv": "Crew-Portrait Lovell, Swigert, Haise",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-sm.jpg": {
+  "kurz": "Foto: NASA/MSFC, gemeinfrei",
+  "nasa_id": "7010516",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/7010516",
+  "original": "https://images-assets.nasa.gov/image/7010516/7010516~large.jpg",
+  "motiv": "NASA/MSFC: beschaedigtes Servicemodul nach der Abtrennung (vergroessertes Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-mcc.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35139",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35139",
+  "original": "https://images-assets.nasa.gov/image/S70-35139/S70-35139~large.jpg",
+  "motiv": "Mission Control Houston, Fernsehuebertragung aus dem Raumschiff",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-lm.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-59-8562",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-59-8562",
+  "original": "https://images-assets.nasa.gov/image/AS13-59-8562/AS13-59-8562~large.jpg",
+  "motiv": "Mondfaehre Aquarius vor dem Abtrennen (Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-sim.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34412",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34412",
+  "original": "https://images-assets.nasa.gov/image/S70-34412/S70-34412~large.jpg",
+  "motiv": "Fred Haise im Mondfaehren-Simulator",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-lovell.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-59-8484",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-59-8484",
+  "original": "https://images-assets.nasa.gov/image/as13-59-8484/as13-59-8484~large.jpg",
+  "motiv": "Jim Lovell in der Mondfaehre (Bordfoto, gedreht)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-filter.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-62-8929",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-62-8929",
+  "original": "https://images-assets.nasa.gov/image/as13-62-8929/as13-62-8929~large.jpg",
+  "motiv": "Ausschnitt: eckiger Lithiumhydroxid-Filter des Kommandomoduls (Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-proto.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35013",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35013",
+  "original": "https://images-assets.nasa.gov/image/S70-35013/S70-35013~large.jpg",
+  "motiv": "Mission Control: Ingenieure mit dem Prototyp des Adapters (\"mailbox\")",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-mailbox.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-62-8929",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-62-8929",
+  "original": "https://images-assets.nasa.gov/image/as13-62-8929/as13-62-8929~large.jpg",
+  "motiv": "der gebastelte Adapter (\"mailbox\") in der Mondfaehre (Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-band.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-62-8929",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-62-8929",
+  "original": "https://images-assets.nasa.gov/image/as13-62-8929/as13-62-8929~large.jpg",
+  "motiv": "Ausschnitt: Klebeband am Schlauch des Adapters",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-capcom.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34902",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34902",
+  "original": "https://images-assets.nasa.gov/image/S70-34902/S70-34902~large.jpg",
+  "motiv": "Mission Control: Funker (CAPCOM) mit Checklisten",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-splash.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35638",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35638",
+  "original": "https://images-assets.nasa.gov/image/S70-35638/S70-35638~large.jpg",
+  "motiv": "Wasserung im Suedpazifik, 17.04.1970",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "p-iwo.jpg": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35614",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35614",
+  "original": "https://images-assets.nasa.gov/image/S70-35614/S70-35614~large.jpg",
+  "motiv": "Crew kommt an Bord der USS Iwo Jima",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "f-mond.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-60-8703",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-60-8703",
+  "original": "https://images-assets.nasa.gov/image/as13-60-8703/as13-60-8703~large.jpg",
+  "motiv": "Mond (Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "f-erde.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-60-8588",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-60-8588",
+  "original": "https://images-assets.nasa.gov/image/as13-60-8588/as13-60-8588~large.jpg",
+  "motiv": "Erde (Bordfoto)",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "f-patch.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S69-60662",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S69-60662",
+  "original": "https://images-assets.nasa.gov/image/S69-60662/S69-60662~large.jpg",
+  "motiv": "Missionsabzeichen Apollo 13",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-orange-rakete.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-32990",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-32990",
+  "original": "https://images-assets.nasa.gov/image/S70-32990/S70-32990~large.jpg",
+  "motiv": "Saturn V auf der Startrampe",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-ocker-rakete.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-32990",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-32990",
+  "original": "https://images-assets.nasa.gov/image/S70-32990/S70-32990~large.jpg",
+  "motiv": "Saturn V auf der Startrampe",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-orange-sm.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-59-8500",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-59-8500",
+  "original": "https://images-assets.nasa.gov/image/as13-59-8500/as13-59-8500~large.jpg",
+  "motiv": "Servicemodul durch das Fenster",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-violett-sm.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-59-8500",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-59-8500",
+  "original": "https://images-assets.nasa.gov/image/as13-59-8500/as13-59-8500~large.jpg",
+  "motiv": "Servicemodul durch das Fenster",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-orange-mond.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-60-8703",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-60-8703",
+  "original": "https://images-assets.nasa.gov/image/as13-60-8703/as13-60-8703~large.jpg",
+  "motiv": "Mond",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-papier-mond.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-60-8703",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-60-8703",
+  "original": "https://images-assets.nasa.gov/image/as13-60-8703/as13-60-8703~large.jpg",
+  "motiv": "Mond",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-teal-mcc.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34986",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34986",
+  "original": "https://images-assets.nasa.gov/image/s70-34986/s70-34986~large.jpg",
+  "motiv": "Mission Control",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-ocker-mcc.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34986",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34986",
+  "original": "https://images-assets.nasa.gov/image/s70-34986/s70-34986~large.jpg",
+  "motiv": "Mission Control",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-teal-wolken.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35652",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35652",
+  "original": "https://images-assets.nasa.gov/image/s70-35652/s70-35652~large.jpg",
+  "motiv": "Fallschirme in den Wolken",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-teal-crew.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "7008011",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/7008011",
+  "original": "https://images-assets.nasa.gov/image/7008011/7008011~large.jpg",
+  "motiv": "Crew auf der USS Iwo Jima",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-blau-erde.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "AS13-60-8588",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/AS13-60-8588",
+  "original": "https://images-assets.nasa.gov/image/as13-60-8588/as13-60-8588~large.jpg",
+  "motiv": "Erde",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-blau-meer.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35644",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35644",
+  "original": "https://images-assets.nasa.gov/image/s70-35644/s70-35644~large.jpg",
+  "motiv": "Wasserung",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-blau-capcom.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-34904",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-34904",
+  "original": "https://images-assets.nasa.gov/image/S70-34904/S70-34904~large.jpg",
+  "motiv": "Mission Control, Funker",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-violett-mcc.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35145",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35145",
+  "original": "https://images-assets.nasa.gov/image/S70-35145/S70-35145~large.jpg",
+  "motiv": "Mission Control nach der Landung",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-violett-jubel.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35148",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35148",
+  "original": "https://images-assets.nasa.gov/image/S70-35148/S70-35148~large.jpg",
+  "motiv": "Jubel in Mission Control",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-papier-jubel.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-35148",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-35148",
+  "original": "https://images-assets.nasa.gov/image/S70-35148/S70-35148~large.jpg",
+  "motiv": "Jubel in Mission Control",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-ocker-training.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S70-24009",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S70-24009",
+  "original": "https://images-assets.nasa.gov/image/S70-24009/S70-24009~large.jpg",
+  "motiv": "Crew-Training",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "s-papier-patch.png": {
+  "kurz": "Foto: NASA, gemeinfrei",
+  "nasa_id": "S69-60662",
+  "lizenz": "NASA, gemeinfrei (US-Regierungswerk, keine Urheberrechte)",
+  "quelle": "https://images.nasa.gov/details/S69-60662",
+  "original": "https://images-assets.nasa.gov/image/S69-60662/S69-60662~large.jpg",
+  "motiv": "Missionsabzeichen",
+  "geprueft": "angesehen 24.11.2026"
+ },
+ "logo.png": {
+  "kurz": null,
+  "motiv": "Kanal-Logo Allgemeinwissen klar und deutlich (eigen)"
+ },
+ "p-ki-band.jpg": {
+  "kurz": "Bild: KI (ElevenLabs)",
+  "motiv": "Klebebandrolle (KI-Wunschbild, siehe data/ki_wunsch.json; nur wenn geliefert)"
+ },
+ "p-ki-loch.jpg": {
+  "kurz": "Bild: KI (ElevenLabs)",
+  "motiv": "runde Filteraufnahme der Mondfaehre (KI-Wunschbild, siehe data/ki_wunsch.json; nur wenn geliefert)"
+ },
+ "p-ki-handbuch.jpg": {
+  "kurz": "Bild: KI (ElevenLabs)",
+  "motiv": "Handbuch-Deckel (KI-Wunschbild, siehe data/ki_wunsch.json; nur wenn geliefert)"
+ }
+}
