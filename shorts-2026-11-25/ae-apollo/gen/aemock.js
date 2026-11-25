@@ -250,7 +250,7 @@ function comp(name, w, h, par, dur, fps) {
   compCount++; COMPS.push(c); return c;
 }
 global.app = { version: 'mock', effects: [{ displayName: 'Quick Chromatic Aberration 3', matchName: 'PEQCAGL' }], purge() {}, beginSuppressDialogs() {}, endSuppressDialogs() {}, beginUndoGroup() {}, endUndoGroup() {}, open() {}, newProject() {},
-  project: { file: null, numItems: 0, item() {}, rootFolder: {}, items: { addFolder(n) { return { name: n }; }, addComp: comp },
+  project: { file: { name: 'Kurzvideos.aep', fsName: 'C:\\Users\\Enrico\\Videos\\Kurzvideos.aep' }, numItems: 0, item() {}, rootFolder: {}, items: { addFolder(n) { return { name: n }; }, addComp: comp },
     importFile(io) { const nm = io.f.name, i = IMG[nm]; return { name: nm, width: i ? i[0] : 1200, height: i ? i[1] : 1500, _alpha: i ? i[2] : null, _sat: i ? i[3] : null }; }, save() {}, close() {} } };
 global.QCA_OK = true;
 global.PurgeTarget = { ALL_CACHES: 1, ALL_MEMORY_CACHES: 2, IMAGE_CACHES: 3 };

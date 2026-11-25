@@ -61,28 +61,24 @@ def asr():
     wj = os.path.join(ROOT, 'data', 'words_whisper.json')   # von gen/asr_apollo.py
     if not os.path.exists(wj): wj = os.path.join(ROOT, '..', 'audio-apollo', 'words_whisper.json')
     ASR = json.load(open(wj, encoding='utf-8'))
-    # Whisper schreibt Zahlen oft als Ziffern: auf die Skriptwoerter abbilden
-    MAP = {'1970': ['neunzehnhundertsiebzig'], '13': ['dreizehn'], '300000': ['dreihunderttausend'], '300': ['dreihunderttausend'], '2': ['zwei'], '3': ['drei']}
+    # enno 25.11.: der GESPROCHENE Text zaehlt (er hat den Text leicht veraendert) -> Woerter + Zeiten direkt aus der ASR,
+    # nur Ziffern-Splitter zusammengefuegt ("300 .000" -> "300.000"). Abweichungen zum Skript nur als Bericht (data/text_abweichungen.json).
     W2 = []
     for w in ASR:
-        t = norm(w['w'])
+        t = w['w'].strip()
         if not t: continue
-        W2.append([MAP.get(t, [t])[0], w['s'] - OFF, w['e'] - OFF, w['w']])
-    A = [norm(w) for w in W]; B = [w[0] for w in W2]
-    sm = difflib.SequenceMatcher(None, A, B, autojunk=False)
-    S = [None] * len(W); E = [None] * len(W); diff = []
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag == 'equal' or (tag == 'replace' and i2 - i1 == j2 - j1):
-            for q in range(i2 - i1):
-                S[i1 + q] = W2[j1 + q][1]; E[i1 + q] = W2[j1 + q][2]
-                if tag == 'replace': diff.append((W[i1 + q], W2[j1 + q][3]))
-        else: diff.append(('OP ' + tag, ' '.join(W[i1:i2]) + ' | ' + ' '.join(B[j1:j2])))
-    for q in range(len(W)):   # Luecken (z. B. "dreihunderttausend" als zwei ASR-Woerter) interpolieren
-        if S[q] is None:
-            p = max([j for j in range(q) if E[j] is not None] or [0]); r = min([j for j in range(q + 1, len(W)) if S[j] is not None] or [len(W) - 1])
-            S[q] = E[p] if E[p] is not None else 0; E[q] = S[r] if S[r] is not None else dur
-    words = [{'w': W[q], 's': round(max(0, S[q]), 3), 'e': round(max(E[q], S[q] + 0.05), 3)} for q in range(len(W))]
-    print('Abweichungen Whisper/Skript:', diff or 'keine')
+        if W2 and re.match(r'^[.,]\d', t) and re.search(r'\d$', W2[-1]['w']):
+            W2[-1]['w'] += t; W2[-1]['e'] = w['e']; continue
+        W2.append({'w': t, 's': w['s'], 'e': w['e']})
+    words = [{'w': w['w'], 's': round(max(0, w['s'] - OFF), 3), 'e': round(max(w['e'] - OFF, w['s'] - OFF + 0.05), 3)} for w in W2]
+    SP = [w['w'] for w in words]
+    A = [norm(w) for w in W]; B = [norm(w) for w in SP]
+    diff = []
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, A, B, autojunk=False).get_opcodes():
+        if tag != 'equal': diff.append({'art': tag, 'skript': ' '.join(W[i1:i2]), 'gesprochen': ' '.join(SP[j1:j2]), 'zeit': words[min(j1, len(words) - 1)]['s']})
+    json.dump(diff, open(os.path.join(ROOT, 'data', 'text_abweichungen.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print('Abweichungen Skript -> gesprochen:'); [print('  %-8s %6.2f s  "%s" -> "%s"' % (d['art'], d['zeit'], d['skript'], d['gesprochen'])) for d in diff]
+    W = SP
     return W, words, dur
 
 if __name__ == '__main__':

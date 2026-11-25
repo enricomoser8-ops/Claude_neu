@@ -1,16 +1,14 @@
 // ===================== Aufbau: Projekt, Szenen, Master, Untertitel, Logo, Ton (25 fps) =====================
-// Baut in das offene Projekt (enno oeffnet es selbst; sonst ApolloShort.aep) und ersetzt NUR den eigenen Ordner D.title (andere Shorts bleiben unberuehrt).
-var PROJNAME = "ApolloShort.aep";   // ein offenes, gespeichertes Projekt wird benutzt (nur der eigene Ordner D.title wird ersetzt)
+// Baut wie die Vorlage in das GERADE OFFENE Projekt (am PC: C:\\Users\\Enrico\\Videos\\Kurzvideos.aep) und ersetzt NUR den eigenen Top-Ordner D.title
+// (andere Shorts bleiben unberuehrt). Vorher Backup: Podcast-Shorts\\Backups\\Kurzvideos_BACKUP_vor_apollo_2511.aep.
+var PROJNAME = "Kurzvideos.aep";   // erwartetes Zielprojekt (es wird immer das offene, gespeicherte Projekt benutzt; nur der eigene Ordner D.title wird ersetzt)
 new Folder(BASE + "out").create();
 app.beginSuppressDialogs();
 plog("Start " + D.title);
 var cur = app.project;
-if (cur.file === null) {
-  if (cur.numItems > 0) { app.endSuppressDialogs(false); return "ABGEBROCHEN: Ein ungespeichertes Projekt ist offen. Bitte das Zielprojekt oeffnen (oder alles schliessen: dann entsteht ApolloShort.aep im Paketordner)."; }
-  var pf = new File(BASE + PROJNAME);
-  if (pf.exists) app.open(pf); else app.project.save(pf);
-}
+if (cur.file === null) { app.endSuppressDialogs(false); return "ABGEBROCHEN: kein gespeichertes Projekt offen. Bitte " + PROJNAME + " oeffnen (vorher Backup) und neu starten."; }
 proj = app.project;
+if (proj.file.name !== PROJNAME) log.push("HINWEIS: offen ist " + proj.file.name + " (erwartet " + PROJNAME + "), gebaut wird trotzdem nur in den eigenen Ordner " + D.title);
 for (var i = proj.numItems; i >= 1; i--) { var fi = proj.item(i); if (fi instanceof FolderItem && fi.parentFolder === proj.rootFolder && fi.name === D.title) fi.remove(); }
 app.beginUndoGroup(D.title);
 var fRoot = proj.items.addFolder(D.title);

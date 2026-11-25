@@ -30,7 +30,7 @@ B.hook = function (c, k) {
   var M = kindBild(c, A, "f-mond.png", [810, 450], 250, 0); popIn(M.l, 0.30, 8);
   focusHunt(c, 0.02, true);
   aKreis(c, A, "Rakete", A.P("rakete"), 125, 440, bis(c, k.astro - 0.02, f2s(9)), YEL, 9, true);
-  aPfeil(c, A, "zum Mond", [A.P("nase")[0] + 40, A.P("nase")[1] - 60], aQ(A, [700, 520]), -0.22, bis(c, k.weg - 0.08, f2s(9)), f2s(9), CREAM, 9);
+  aPfeil(c, A, "zum Mond", [A.P("nase")[0] + 40, A.P("nase")[1] - 60], aQ(A, [700, 520]), -0.22, bis(c, k.weg - 0.08, f2s(9)), f2s(9), LINIE, 9);
   credits(c, ["p-start.jpg", "f-mond.png"]);
   var cam = kamera(c, 103); punchAt(cam, k.mond - 0.02, 1.04); voxTag(cam, "punch");
   voxSauce(c, "archiv");
@@ -65,7 +65,7 @@ B.weg = function (c, k) {
   var E = abz(c, "f-erde.png", 300, 1000, 340, 0, 0.0, "pop", { prot: -6 });
   var M = kindBild(c, E, "f-mond.png", [770, 440], 230, 0); popIn(M.l, 0.20, 6);
   var r = D.bilder["f-erde.png"].r, m = E.P("mitte");
-  aBahn(c, E, "Erde Mond", [m[0] + r * 0.62, m[1] - r * 0.80], aQ(E, [700, 540]), -0.18, bis(c, k.apollo + 0.15, 1.2), bis(c, k.km + 0.70, 0), CREAM, 8, true);
+  aBahn(c, E, "Erde Mond", [m[0] + r * 0.62, m[1] - r * 0.80], aQ(E, [700, 540]), -0.18, bis(c, k.apollo + 0.15, 1.2), bis(c, k.km + 0.70, 0), LINIE, 8, true);
   var t0 = bis(c, k.km - 0.04, 1.0);
   aZaehler(c, E, 0, 330000, " km", aQ(E, [650, 905]), 76, t0, t0 + 0.95, CREAM, "#151515");
   credits(c, ["f-erde.png", "f-mond.png"]);
@@ -77,11 +77,11 @@ B.explosion = function (c, k) {
   schichten(c, "explosion");
   var A = abz(c, "p-sm.jpg", 466, 700, 720, -2, 0.0, "pop", { prot: 4 });
   focusHunt(c, k.explodiert - 0.04, false);
-  aRing(c, A, A.P("schaden"), k.explodiert, CREAM, 520, 0.45);
+  aRing(c, A, A.P("schaden"), k.explodiert, LINIE, 520, 0.45);
   aCalloutF(c, A, "Schaden", A.P("schaden"), 160, 120, bis(c, k.tank - 0.04, 0), 58, "#0E0D0C", true);
   aChip(c, A, "SAUERSTOFF", px(A, 0.80, 0.12), bis(c, k.tank + 0.04, f2s(9)), INK, "#FFFFFF", 40);
   credits(c, ["p-sm.jpg"]);
-  var cam = kamera(c, 103); punchAt(cam, k.explodiert - 0.02, 1.05); voxTag(cam, "punch");
+  var cam = kamera(c, 103); punchAt(cam, Math.max(0.16, k.explodiert - 0.02), 1.05); voxTag(cam, "punch");
   voxSauce(c, "archiv");
 };
 // ---------- 6 Houston, wir haben ein Problem: Mission Control, Kreis um den Bildschirm, Funk-Ringe, Etikett HOUSTON ----------
@@ -91,7 +91,7 @@ B.houston = function (c, k) {
   var s = A.P("schirm");
   aKreis(c, A, "Schirm", s, 105, 82, bis(c, k.crew - 0.02, f2s(9)), YEL, 8);
   var t0 = bis(c, k.houston - 0.02, 0.9);
-  for (var i = 0; i < 3; i++) { var rg = aRing(c, A, s, t0 + i * 0.18, CREAM, 380, 0.5); if (i === 0) voxTag(rg, "ringe", true); }
+  for (var i = 0; i < 3; i++) { var rg = aRing(c, A, s, t0 + i * 0.18, LINIE, 380, 0.5); if (i === 0) voxTag(rg, "ringe", true); }
   aChip(c, A, "HOUSTON", px(A, 0.24, 0.84), bis(c, k.houston + 0.10, f2s(9)), "#2E4C6D", "#FFFFFF", 44);
   credits(c, ["p-mcc.jpg"]);
   var cam = kamera(c, 103); punchAt(cam, k.problem - 0.02, 1.04);
@@ -172,11 +172,11 @@ B.eckig = function (c, k) {
     var gi = grp(lo, "Rand innen"); ellipseG(gi, 1.6 * hr, 1.6 * hr, 0, 0); stroke(gi, "#4A443C", 6 / F.s);
     anAbz(F, lo); lo.position.setValue(hp); popIn(lo, 0.15);
   }
-  aRechteck(c, F, "eckig", [-6, -6, F.iw + 6, F.ih + 6], bis(c, k.eckig - 0.04, f2s(9)), YEL);
-  var kr = aKreis(c, H, "rund", hp, hr * 1.18, hr * 1.18, bis(c, k.loch - 0.02, f2s(9)), YEL, 9); voxTag(kr, "formen");
+  aRechteck(c, F, "eckig", [-6, -6, F.iw + 6, F.ih + 6], bis(c, k.eckig - 0.04, f2s(9)), MARK);
+  var kr = aKreis(c, H, "rund", hp, hr * 1.18, hr * 1.18, bis(c, k.loch - 0.02, f2s(9)), MARK, 9); voxTag(kr, "formen");
   var a = aQ(F, [470, 840]), b = H === F ? aQ(F, [600, 840]) : aQ(H, [600, 840]);
-  var pf = aPfeil(c, F, "passt", a, aQ(F, [598, 812]), -0.35, bis(c, k.loch + 0.45, f2s(9)), f2s(9), CREAM, 9);
-  aKreuz(c, F, "passt nicht", [aQ(F, [455, 700])[0], aQ(F, [455, 700])[1], aQ(F, [625, 870])[0], aQ(F, [625, 870])[1]], bis(c, k.rund - 0.04, f2s(7)), LRED, true);
+  var pf = aPfeil(c, F, "passt", a, aQ(F, [598, 812]), -0.35, bis(c, k.loch + 0.45, f2s(12)), f2s(9), LINIE, 9);
+  aKreuz(c, F, "passt nicht", [aQ(F, [455, 700])[0], aQ(F, [455, 700])[1], aQ(F, [625, 870])[0], aQ(F, [625, 870])[1]], bis(c, k.rund - 0.04, f2s(9)), LRED, true);
   credits(c, ["p-filter.jpg"].concat(H !== F ? [H.file] : []));
   kamera(c, 103);
   voxSauce(c, "grafik");
@@ -192,28 +192,28 @@ B.adapter = function (c, k) {
   kamera(c, 102);
   voxSauce(c, "archiv");
 };
-// ---------- 14 Aus Schlaeuchen, Handbuch-Deckeln und Klebeband: der echte Adapter in der Faehre, Fokus wandert, Kreise nacheinander ----------
+// ---------- 14 Aus Schlaeuchen, Plastiktueten, Karton und Klebeband (enno 25.11. gesprochen): der echte Adapter in der Faehre, Fokus wandert ----------
 B.bauplan = function (c, k) {
   schichten(c, "bauplan");
   var A = abz(c, "p-mailbox.jpg", 450, 690, 590, -2, 0.0, "pop", { prot: -4 });
-  aFokus(c, A, [A.P("kasten"), A.P("schlauch"), A.P("band")], [0.12, 0.45, 1.70], 150, 170, bis(c, 2.0, 0));
+  aFokus(c, A, [A.P("schlauch"), A.P("tuete"), A.P("kasten")], [0.12, Math.max(0.5, k.tueten - 0.08), Math.max(1.0, Math.min(1.72, k.karton - 0.1))], 150, 170, bis(c, Math.min(1.98, k.band - 0.12), 0));
   aKreis(c, A, "Schlauch", A.P("schlauch"), 85, 130, bis(c, k.schlaeuche - 0.02, f2s(9)), YEL, 9);
-  kiPlatz(c, "ki-handbuch", 790, 900, 190, 250, 6, bis(c, k.deckel - 0.04, 0.4), "pop");   // Handbuch-Deckel ist im Foto nicht sichtbar: nicht einkreisen
   aKreis(c, A, "Klebeband", A.P("band"), 95, 70, bis(c, k.band - 0.04, f2s(9)), YEL, 9, true);
-  credits(c, ["p-mailbox.jpg"].concat(D.ki && D.ki["ki-handbuch"] ? ["p-ki-handbuch.jpg"] : []));
+  credits(c, ["p-mailbox.jpg"]);
   kamera(c, 103);
   voxSauce(c, "archiv");
 };
-// ---------- 15 Per Funk erklaeren sie jeden Schritt: CAPCOM am Mikrofon, Funk-Ringe, drei Haken auf den Checklisten ----------
+// ---------- 15 Per Funk erklaeren sie den Astronauten jeden einzelnen Schritt. Die Crew baut den Adapter nach: Funk-Ringe, drei Haken, Etikett NACHGEBAUT ----------
 B.funk = function (c, k) {
   schichten(c, "funk");
   var A = abz(c, "p-capcom.jpg", 466, 680, 720, 2, 0.0, "slide");
   var m = A.P("mikro"), t0 = bis(c, k.funk - 0.02, 0.9);
-  for (var i = 0; i < 3; i++) { var rg = aRing(c, A, m, t0 + i * 0.18, CREAM, 300, 0.5); if (i === 0) voxTag(rg, "ringe", true); }
+  for (var i = 0; i < 3; i++) { var rg = aRing(c, A, m, t0 + i * 0.18, LINIE, 300, 0.5); if (i === 0) voxTag(rg, "ringe", true); }
   var p = A.P("papiere"), ts = bis(c, k.schritt - 0.5, 0.5 + f2s(6));
   aHaken(c, A, "Schritt 1", [p[0] - 70, p[1] - 70], 0.6, ts, GRUEN);
   aHaken(c, A, "Schritt 2", [p[0], p[1] - 10], 0.6, ts + 0.25, GRUEN);
   aHaken(c, A, "Schritt 3", [p[0] + 70, p[1] + 50], 0.6, ts + 0.5, GRUEN);
+  aChip(c, A, "NACHGEBAUT", px(A, 0.30, 0.86), bis(c, k.baut - 0.04, f2s(9)), INK, "#FFFFFF", 44);
   credits(c, ["p-capcom.jpg"]);
   punchCut(c, 1.06);
   kamera(c, 103);

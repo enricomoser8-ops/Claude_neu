@@ -339,148 +339,106 @@
    ]
   }
  },
- "b-teal.jpg": {
+ "g-rakete.png": {
+  "size": [
+   1528,
+   2013
+  ]
+ },
+ "g-sm.png": {
+  "size": [
+   1528,
+   1129
+  ]
+ },
+ "g-mond.png": {
+  "size": [
+   1528,
+   1551
+  ]
+ },
+ "g-mcc.png": {
+  "size": [
+   1528,
+   996
+  ]
+ },
+ "g-wolken.png": {
+  "size": [
+   1528,
+   1155
+  ]
+ },
+ "g-crew.png": {
+  "size": [
+   1528,
+   1170
+  ]
+ },
+ "g-erde.png": {
+  "size": [
+   1528,
+   1528
+  ]
+ },
+ "g-meer.png": {
+  "size": [
+   1528,
+   1004
+  ]
+ },
+ "g-capcom.png": {
+  "size": [
+   1528,
+   1217
+  ]
+ },
+ "g-mcc2.png": {
+  "size": [
+   1528,
+   1008
+  ]
+ },
+ "g-jubel.png": {
+  "size": [
+   1528,
+   1019
+  ]
+ },
+ "g-training.png": {
+  "size": [
+   1528,
+   1019
+  ]
+ },
+ "g-patch.png": {
+  "size": [
+   1528,
+   1528
+  ]
+ },
+ "b-schwarz.jpg": {
   "size": [
    1300,
    2300
   ]
  },
- "b-orange.jpg": {
+ "b-weiss.jpg": {
   "size": [
    1300,
    2300
   ]
  },
- "b-blau.jpg": {
+ "t-grunge-hell.jpg": {
   "size": [
-   1300,
-   2300
+   1080,
+   1920
   ]
  },
- "b-violett.jpg": {
+ "t-grunge-dunkel.jpg": {
   "size": [
-   1300,
-   2300
-  ]
- },
- "b-ocker.jpg": {
-  "size": [
-   1300,
-   2300
-  ]
- },
- "b-papier.jpg": {
-  "size": [
-   1300,
-   2300
-  ]
- },
- "s-orange-rakete.png": {
-  "size": [
-   932,
-   1223
-  ]
- },
- "s-orange-sm.png": {
-  "size": [
-   1132,
-   839
-  ]
- },
- "s-orange-mond.png": {
-  "size": [
-   932,
-   946
-  ]
- },
- "s-teal-mcc.png": {
-  "size": [
-   1182,
-   774
-  ]
- },
- "s-teal-wolken.png": {
-  "size": [
-   1132,
-   859
-  ]
- },
- "s-teal-crew.png": {
-  "size": [
-   1132,
-   870
-  ]
- },
- "s-blau-erde.png": {
-  "size": [
-   982,
-   982
-  ]
- },
- "s-blau-meer.png": {
-  "size": [
-   1182,
-   780
-  ]
- },
- "s-blau-capcom.png": {
-  "size": [
-   1082,
-   864
-  ]
- },
- "s-violett-mcc.png": {
-  "size": [
-   1182,
-   784
-  ]
- },
- "s-violett-jubel.png": {
-  "size": [
-   1182,
-   791
-  ]
- },
- "s-violett-sm.png": {
-  "size": [
-   1132,
-   839
-  ]
- },
- "s-ocker-training.png": {
-  "size": [
-   1132,
-   759
-  ]
- },
- "s-ocker-mcc.png": {
-  "size": [
-   1182,
-   774
-  ]
- },
- "s-ocker-rakete.png": {
-  "size": [
-   932,
-   1223
-  ]
- },
- "s-papier-patch.png": {
-  "size": [
-   932,
-   932
-  ]
- },
- "s-papier-mond.png": {
-  "size": [
-   932,
-   946
-  ]
- },
- "s-papier-jubel.png": {
-  "size": [
-   1182,
-   791
+   1080,
+   1920
   ]
  }
 }

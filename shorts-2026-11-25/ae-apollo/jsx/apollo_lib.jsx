@@ -15,7 +15,7 @@ function credits(c, ks) {
     var l = txt(c, L[j], "ArialMT", 20, "#FFFFFF", [76, y], ParagraphJustification.LEFT_JUSTIFY, 10); l.name = "FIX Bildquelle";
     var rc = l.sourceRectAtTime(0, false);
     var pl = shape(c, "FIX Bildquelle Schild"), g = grp(pl); rectG(g, rc.width + 20, rc.height + 10, 0, 0, 4); fill(g, "#141210");
-    pl.position.setValue([76 + rc.left + rc.width / 2, y + rc.top + rc.height / 2]); pl.opacity.setValue(60); pl.moveAfter(l);
+    pl.position.setValue([76 + rc.left + rc.width / 2, y + rc.top + rc.height / 2]); pl.opacity.setValue(60); l.moveToBeginning();   // Text sicher ueber seinem Schild (25.11.)
     y -= 30;
   }
 }
@@ -214,4 +214,54 @@ function followBtn(c, x, y, tIn, tClick, sz) {
   keys(btn.scale, [tClick - f2s(1), tClick + f2s(2), tClick + f2s(6)], [[100, 100], [93, 93], [100, 100]], 50);
   voxTag(btn, "klick");
   return btn;
+}
+
+// ---------- Hintergrund 25.11. (enno: Chris Moran TikTok 13, ersetzt die Farbfamilien) ----------
+// Grundplatte b-schwarz|weiss.jpg ('Grund Foto', deckt immer), darueber die Precomp 'BG <szene>' mit 2-3 Graustufen-Themenbildern
+// (schraeg, angeschnitten, jedes driftet anders), auf der Precomp-Ebene Tint (Map Black/White To aus D.schicht[sid].tint, Bildkontrast ~30 %),
+// darueber Grunge (Kratzer/Staub aus echtem Tafel-Scan) niedrig deckend: Screen auf Schwarz, Multiply auf Weiss. Platte + Collage driften/zoomen.
+// HELL = weisse Szene: Linien, Pfeile, Ringe und Formen auf dem Hintergrund dunkel (LINIE / MARK), sonst hell/gelb.
+var HELL = false, LINIE = CREAM, MARK = YEL;
+function schichten(c, sid, opt) {
+  opt = opt || {};
+  var S = D.schicht[sid], d = c.duration, out = [];
+  SCH_REL = [];
+  if (!S) { log.push("FEHLER Schicht fehlt: " + sid); return out; }
+  HELL = S.mode === "weiss"; LINIE = HELL ? "#1C1B19" : CREAM; MARK = HELL ? "#1C1B19" : YEL;
+  NOANIM = true;   // die Drift laeuft bewusst bis zum Schnitt
+  var it = imp(S.grund);
+  if (it) {
+    var g = c.layers.add(it); g.name = "Grund Foto " + S.mode;
+    keys(g.position, [0, d], [[540, 960], [540 - 22, 960 - 30]], 30);
+    keys(g.scale, [0, d], [[100, 100], [103, 103]], 30);
+    out.push(g);
+  }
+  var PW = 1200, PH = 2100, ox = (PW - 1080) / 2, oy = (PH - 1920) / 2;
+  var pc = mkComp("BG " + sid, PW, PH, d, fPre);
+  for (var i = 0; i < S.ebenen.length; i++) {
+    var e = S.ebenen[i], im = imp(e.rel); if (!im) continue;
+    var l = pc.layers.add(im); l.name = "Grund Schicht " + e.rel.replace(/.*\//, ""); SCH_REL.push(e.rel.replace(/.*\//, ""));
+    var s = e.w / im.width * 100;
+    keys(l.scale, [0, d], [[s, s], [s * 1.04, s * 1.04]], 30);
+    keys(l.position, [0, d], [[e.x + ox, e.y + oy], [e.x + ox + e.dx, e.y + oy + e.dy]], 30);
+    keys(l.rotation, [0, d], [e.rot, e.rot + e.drot], 30);
+    l.opacity.setValue(e.op);
+    var ds = addFx(l, "ADBE Drop Shadow", "Schicht Schatten");
+    if (ds) { setP(ds, ["Opacity"], 110); setP(ds, ["Distance"], 12); setP(ds, ["Softness"], 34); }
+  }
+  var bl = c.layers.add(pc); bl.name = "Grund Collage " + S.mode;
+  keys(bl.position, [0, d], [[540, 960], [540 + 18, 960 - 24]], 30);
+  keys(bl.scale, [0, d], [[100, 100], [104, 104]], 30);
+  var tn = addFx(bl, "ADBE Tint", "BG Tint " + S.mode);
+  if (tn) { setP(tn, ["Map Black To"], rgb(S.tint[0])); setP(tn, ["Map White To"], rgb(S.tint[1])); setP(tn, ["Amount to Tint"], 100); }
+  out.push(bl);
+  var gt = imp(S.grunge);
+  if (gt) {
+    var gl = cover(c, gt, 1.06); gl.name = "Grund Grunge " + S.mode;
+    gl.blendingMode = HELL ? BlendingMode.MULTIPLY : BlendingMode.SCREEN; gl.opacity.setValue(HELL ? 16 : 20);
+    keys(gl.position, [0, d], [[540, 960], [540 - 14, 960 + 20]], 30);
+  }
+  NOANIM = false;
+  if (!HELL) subShade(c, opt.ut || 42);
+  return out;
 }

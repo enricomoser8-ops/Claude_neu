@@ -1,6 +1,7 @@
 # Bilder fuer das Apollo-13-Short (key apollo, 25.11.2026): nur echte NASA-Fotos (images.nasa.gov, gemeinfrei), Rohdateien in archiv/roh/<NASA-ID>.jpg.
 # Bausteine aus bilder_lib.py (Abzug, Sticker-Freisteller, Duotone-Collage, Grundflaeche) wie in den Shorts zur Folge 42.
-# Ausgang: archiv/p-*.jpg (Abzuege), archiv/f-*.png (Freisteller), archiv/s-<familie>-*.png (Collage), archiv/b-*.jpg, data/bilder.json.
+# Ausgang: archiv/p-*.jpg (Abzuege), archiv/f-*.png (Freisteller), archiv/g-*.png (Graustufen-Collage), archiv/b-schwarz|weiss.jpg,
+#         archiv/t-grunge-hell|dunkel.jpg (Textur), data/bilder.json. (Bis 24.11.: Duotone-Farbfamilien s-*/b-<farbe>, ersetzt.)
 # KI-Wunschbilder (data/ki_wunsch.json): liegt archiv/roh/ki-<name>.png da, wird es benutzt, sonst baut gen/gen_apollo.py
 # einen Platzhalter (echter NASA-Ausschnitt oder Hilfsebene "KI Platzhalter ..."). Nichts davon wird hier erzeugt.
 # Punkte (pts) stehen als Bruchteile des GANZEN Rohbilds (wie beim Ansehen mit Raster notiert) und werden auf den Ausschnitt umgerechnet.
@@ -58,6 +59,33 @@ def ki(name, w, pts, crop=None):
     if not os.path.exists(p): return False
     L.abzug(name, p, crop=crop, w=w, pts=pts, hell=1.03); return True
 
+def grau_schicht(name, src, crop=None, w=1500, seed=1):
+    """Collage-Ebene fuer den Tint-Hintergrund: Graustufen, Kontrast auf 1..99 % gestreckt, heller Papierrand mit Riss"""
+    im = Image.open(src).convert('L')
+    if crop: W0, H0 = im.size; im = im.crop((int(crop[0] * W0), int(crop[1] * H0), int(crop[2] * W0), int(crop[3] * H0)))
+    im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+    a = np.asarray(im).astype(np.float32); lo, hi = np.percentile(a, 1), np.percentile(a, 99)
+    a = np.clip((a - lo) / max(1, hi - lo), 0, 1) * 255
+    t = Image.fromarray(a.astype(np.uint8)).convert('RGBA')
+    pad = 14; big = Image.new('RGBA', (t.width + 2 * pad, t.height + 2 * pad), (225, 225, 225, 255)); big.paste(t, (pad, pad)); t = big
+    t.putalpha(L.riss(t.width, t.height, 9, seed))
+    fn = 'g-%s.png' % name; t.save(os.path.join(L.OUT, fn)); L.META[fn] = {'size': list(t.size)}
+
+def platten_und_grunge(w=1300, h=2300):
+    """Grundplatten b-schwarz.jpg (#111 mit feiner Papierfaser) / b-weiss.jpg (#F4F1EA mit Faser) und Grunge-Texturen aus dem
+    echten Kreidetafel-Scan tex/lensfx216.jpg: t-grunge-hell.jpg (helle Kratzer auf Schwarz, Blend Screen) und t-grunge-dunkel.jpg (invertiert, Multiply)"""
+    pap = Image.open(os.path.join(L.ROOT, 'tex', 'paper338.jpg')).convert('L').rotate(90, expand=True).resize((w, h), Image.LANCZOS)
+    f = np.asarray(pap).astype(np.float32) / 255; f = f - ndimage.gaussian_filter(f, 40); f = f / max(1e-6, np.abs(f).max())
+    for nm, base, amp in (('schwarz', (17, 17, 17), 7.0), ('weiss', (244, 241, 234), 6.0)):
+        a = np.array(base, np.float32)[None, None, :] + amp * f[..., None]
+        fn = 'b-%s.jpg' % nm; Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)).save(os.path.join(L.OUT, fn), quality=92); L.META[fn] = {'size': [w, h]}
+    g = Image.open(os.path.join(L.ROOT, 'tex', 'lensfx216.jpg')).convert('L')   # hochkant-Streifen rechts (ohne den grossen Wischfleck links)
+    sw = round(g.height * 1080 / 1920); x0 = g.width - sw - 40; g = g.crop((x0, 0, x0 + sw, g.height)).resize((1080, 1920), Image.LANCZOS)
+    a = np.asarray(g).astype(np.float32); lo, hi = np.percentile(a, 35), np.percentile(a, 99.7)
+    a = np.clip((a - lo) / max(1, hi - lo), 0, 1) ** 1.2 * 255   # Grund schwarz, Kratzer/Wischer hell
+    for nm, arr in (('hell', a), ('dunkel', 255 - a)):
+        fn = 't-grunge-%s.jpg' % nm; Image.fromarray(arr.astype(np.uint8)).convert('RGB').save(os.path.join(L.OUT, fn), quality=90); L.META[fn] = {'size': [1080, 1920]}
+
 def alles():
     # ---------- Abzuege (echte NASA-Fotos) ----------
     ab('start', R('S70-34852.jpg'), (0.05, 0.25, 0.95, 0.84), 780, {'nase': (0.45, 0.385), 'rakete': (0.445, 0.60), 'himmel': (0.80, 0.30)})
@@ -83,28 +111,23 @@ def alles():
     # ---------- KI-Wunschbilder, nur wenn vorhanden ----------
     ki('ki-band', 520, {'mitte': (0.5, 0.5)})
     ki('ki-loch', 520, {'loch': (0.5, 0.5)})
-    ki('ki-handbuch', 420, {'mitte': (0.5, 0.5)})
-    # ---------- Grundflaechen + Collage-Ebenen (Duotone je Farbfamilie) ----------
-    for f in L.FAM: L.grundflaeche(f)
-    S = L.schicht
-    S('rakete', R('S70-32990.jpg'), 'orange', crop=(0.1, 0.05, 0.95, 0.95), w=900, seed=1)
-    S('sm', R('as13-59-8500.jpg'), 'orange', crop=(0.0, 0.25, 1.0, 1.0), w=1100, seed=2, kontrast=1.3)
-    S('mond', R('as13-60-8703.jpg'), 'orange', w=900, seed=3)
-    S('mcc', R('s70-34986.jpg'), 'teal', w=1150, seed=4)
-    S('wolken', R('s70-35652.jpg'), 'teal', w=1100, seed=5)
-    S('crew', R('7008011.jpg'), 'teal', w=1100, seed=6)
-    S('erde', R('as13-60-8588.jpg'), 'blau', w=950, seed=7)
-    S('meer', R('s70-35644.jpg'), 'blau', w=1150, seed=8)
-    S('capcom', R('S70-34904.jpg'), 'blau', w=1050, seed=9)
-    S('mcc', R('S70-35145.jpg'), 'violett', w=1150, seed=10)
-    S('jubel', R('S70-35148.jpg'), 'violett', w=1150, seed=11)
-    S('sm', R('as13-59-8500.jpg'), 'violett', crop=(0.0, 0.25, 1.0, 1.0), w=1100, seed=12, kontrast=1.3)
-    S('training', R('S70-24009.jpg'), 'ocker', w=1100, seed=13)
-    S('mcc', R('s70-34986.jpg'), 'ocker', w=1150, seed=14)
-    S('rakete', R('S70-32990.jpg'), 'ocker', crop=(0.1, 0.05, 0.95, 0.95), w=900, seed=15)
-    S('patch', R('S69-60662.jpg'), 'papier', crop=(0.04, 0.04, 0.96, 0.96), w=900, seed=16, kontrast=0.9)
-    S('mond', R('as13-60-8703.jpg'), 'papier', w=900, seed=17, kontrast=0.9)
-    S('jubel', R('S70-35148.jpg'), 'papier', w=1150, seed=18, kontrast=0.9)
+    # ---------- Hintergrund-Stil 25.11. (enno, Chris Moran TikTok 13): Graustufen-Collage + Tint im Build, Schwarz/Weiss je Abschnitt ----------
+    # g-*.png: Graustufen (Kontrast gestreckt), Papierrand + Riss; die Farbe (Map Black/White To) kommt erst im Build per Tint auf die Precomp.
+    G = grau_schicht
+    G('rakete', R('S70-32990.jpg'), crop=(0.1, 0.05, 0.95, 0.95), seed=1)
+    G('sm', R('as13-59-8500.jpg'), crop=(0.0, 0.25, 1.0, 1.0), seed=2)
+    G('mond', R('as13-60-8703.jpg'), seed=3)
+    G('mcc', R('s70-34986.jpg'), seed=4)
+    G('wolken', R('s70-35652.jpg'), seed=5)
+    G('crew', R('7008011.jpg'), seed=6)
+    G('erde', R('as13-60-8588.jpg'), seed=7)
+    G('meer', R('s70-35644.jpg'), seed=8)
+    G('capcom', R('S70-34904.jpg'), seed=9)
+    G('mcc2', R('S70-35145.jpg'), seed=10)
+    G('jubel', R('S70-35148.jpg'), seed=11)
+    G('training', R('S70-24009.jpg'), seed=13)
+    G('patch', R('S69-60662.jpg'), crop=(0.04, 0.04, 0.96, 0.96), seed=16)
+    platten_und_grunge()
     json.dump(L.META, open(os.path.join(L.ROOT, 'data', 'bilder.json'), 'w'), indent=1)
     print(len(L.META), 'Bilder:', ', '.join(sorted(L.META)))
 

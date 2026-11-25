@@ -1,6 +1,6 @@
 # Baut jsx/build_apollo.jsx (Short 25.11.2026 "Apollo 13: Gerettet mit Klebeband", key apollo) aus Daten:
 # data/words.json (Wortzeiten: gen/words_apollo.py, Platzhalter oder ASR), data/bilder.json (gen/bilder_apollo.py), archiv/credits.json. 25 fps.
-# Stil wie die Shorts zur Folge 42: lebendiger Vox nach Chris Moran, GESCHICHTETE, BEWEGTE, FARBIGE Hintergruende (TikTok 13),
+# Stil: lebendiger Vox nach Chris Moran, Hintergrund nach TikTok 13 (Graustufen-Collage + Tint, Schwarz/Weiss im Wechsel, Grunge, Drift),
 # davor Abzug/Freisteller in echten Farben, >= 2 Vox-Geraete je Szene am echten Bildpunkt. KEINE Untertitel (enno macht sie in CapCut).
 # Szenenzeiten kommen NUR aus data/words.json (Szene beginnt 0,07 s vor ihrem ersten Wort) -> nach neuer Stimme nur words + gen neu laufen lassen.
 # Aufruf: python3 gen/gen_apollo.py [--timeline] [--cloud]
@@ -30,8 +30,8 @@ i_die2 = C('Die', i_folge); i_doch = C('Doch'); i_bald = C('Bald'); i_neue = C('
 i_aus = C('Aus', i_also); i_per = C('Per'); i_es = C('Es'); i_haett = C('Hättest'); i_du = C('Du', i_haett)
 sc('hook', 0, astro=f('Astronauten'), weg=f('Weg'), mond=f('Mond'))
 sc('klebeband', i_und, ende=f('Ende'), rettet=f('rettet'), band=f('Klebeband'))
-sc('april', i_april, april=i_april, jahr=f('neunzehnhundertsiebzig'))
-sc('weg', i_apollo, apollo=i_apollo, km=f('dreihunderttausend'), erde=f('Erde'), entfernt=f('entfernt'))
+sc('april', i_april, april=i_april, jahr=f('1970'))
+sc('weg', i_apollo, apollo=i_apollo, km=f('300.000'), erde=f('Erde'), entfernt=f('entfernt'))
 sc('explosion', i_da, explodiert=f('explodiert'), tank=f('Sauerstofftank'))
 sc('houston', i_die, crew=f('Crew'), funkt=f('funkt'), houston=f('Houston'), problem=f('Problem'))
 sc('folge', i_folge, schlauer=f('schlauer'))
@@ -41,8 +41,8 @@ sc('luft', i_bald, luft=f('Luft'), schlecht=f('schlecht'))
 sc('filter', i_neue, filter=f('Luftfilter'), genug=f('genug'))
 sc('eckig', i_aber, eckig=f('eckig'), loch=f('Loch'), rund=f('rund'))
 sc('adapter', i_also, ingenieure=f('Ingenieure'), erde=f('Erde', i_also), adapter=f('Adapter'))
-sc('bauplan', i_aus, schlaeuche=f('Schläuchen'), deckel=f('Handbuch-Deckeln'), band=f('Klebeband', i_aus))
-sc('funk', i_per, funk=f('Funk'), schritt=f('Schritt'))
+sc('bauplan', i_aus, schlaeuche=f('Schläuchen'), tueten=f('Plastiktüten'), karton=f('Karton'), band=f('Klebeband', i_aus))
+sc('funk', i_per, funk=f('Funk'), schritt=f('Schritt'), crew=f('Crew', i_per), baut=f('baut'), nach=f('nach', f('baut')))
 sc('landung', i_es, funktioniert=f('funktioniert'), alle=f('Alle'), landen=f('landen'), pazifik=f('Pazifik'))
 sc('frage', i_haett, ruhig=f('ruhig'), gebastelt=f('gebastelt'))
 sc('outro', i_du, allgemein=f('Allgemeinwissen'), bio=f('Bio'), folgen=f('Folgen', f('Bio')))
@@ -64,40 +64,46 @@ if '--timeline' in sys.argv:
     for s in scenes: print('  %-10s %6.2f-%6.2f (%4.2f)  %s' % (s['id'], s['start'], s['end'], s['dur'], s['k']))
     sys.exit(0)
 
-# ---------- Geschichtete Hintergruende (TikTok 13): Grundflaeche + 3 getoente NASA-Bild-Ebenen, schraeg, jede driftet anders ----------
-FAMSZ = {'hook': 'orange', 'klebeband': 'teal', 'april': 'papier', 'weg': 'blau', 'explosion': 'orange', 'houston': 'violett', 'folge': 'ocker',
-         'faehre': 'teal', 'zwei': 'violett', 'luft': 'orange', 'filter': 'ocker', 'eckig': 'papier', 'adapter': 'blau', 'bauplan': 'teal',
-         'funk': 'violett', 'landung': 'blau', 'frage': 'ocker', 'outro': 'papier'}
-POOL = {'orange': ['s-orange-rakete', 's-orange-sm', 's-orange-mond'], 'teal': ['s-teal-mcc', 's-teal-wolken', 's-teal-crew'],
-        'blau': ['s-blau-erde', 's-blau-meer', 's-blau-capcom'], 'violett': ['s-violett-mcc', 's-violett-jubel', 's-violett-sm'],
-        'ocker': ['s-ocker-training', 's-ocker-mcc', 's-ocker-rakete'], 'papier': ['s-papier-patch', 's-papier-mond', 's-papier-jubel']}
-LAGEN = [
-    [(-60, 300, 1080, -9), (760, 1050, 900, 11), (200, 1720, 1000, -4)],
-    [(820, 260, 1000, 8), (150, 900, 900, -13), (620, 1650, 1100, 5)],
-    [(300, 360, 1150, 5), (900, 1180, 800, -15), (80, 1640, 900, 9)],
+# ---------- Hintergrund 25.11. (enno, Chris Moran TikTok 13): Graustufen-Collage (2-3 Themenbilder, schraeg, angeschnitten) in einer Precomp,
+# darueber Tint (Schwarz: Map Black #111111 / Map White #615E59, Weiss: Map Black #A9A6A0 / Map White #F4F1EA = Bildkontrast ~30 %),
+# Grunge-Textur niedrig deckend, Grundplatte + Collage driften/zoomen langsam. KEINE Farbfamilien mehr: Schwarz/Weiss im Wechsel je 2 Szenen.
+MODE = {}
+for n, sid in enumerate(['hook', 'klebeband', 'april', 'weg', 'explosion', 'houston', 'folge', 'faehre', 'zwei', 'luft', 'filter', 'eckig',
+                         'adapter', 'bauplan', 'funk', 'landung', 'frage', 'outro']):
+    MODE[sid] = 'schwarz' if (n // 2) % 2 == 0 else 'weiss'
+THEMEN = {'hook': ['rakete', 'mond', 'erde'], 'klebeband': ['crew', 'training', 'mcc'], 'april': ['patch', 'rakete'], 'weg': ['erde', 'mond', 'rakete'],
+          'explosion': ['sm', 'mond'], 'houston': ['mcc', 'capcom', 'mcc2'], 'folge': ['erde', 'mond', 'jubel'], 'faehre': ['sm', 'mond', 'training'],
+          'zwei': ['training', 'crew'], 'luft': ['sm', 'mcc'], 'filter': ['training', 'capcom'], 'eckig': ['patch', 'sm'],
+          'adapter': ['mcc', 'capcom', 'training'], 'bauplan': ['training', 'mcc2'], 'funk': ['capcom', 'mcc', 'jubel'],
+          'landung': ['meer', 'wolken', 'crew'], 'frage': ['jubel', 'crew', 'meer'], 'outro': ['patch', 'mond', 'erde']}
+TINT = {'schwarz': ('#111111', '#615E59'), 'weiss': ('#A9A6A0', '#F4F1EA')}
+LAGEN = [   # (x, y, Breite, Drehung) in Bildschirm-Koordinaten; bewusst ueber den Rand angeschnitten
+    [(250, 330, 1050, -14), (840, 1080, 1000, 11), (330, 1700, 1100, -5)],
+    [(820, 300, 1100, 9), (220, 980, 1000, -16), (700, 1680, 1150, 6)],
+    [(380, 420, 1150, 6), (880, 1250, 950, -18), (120, 1650, 1000, 12)],
 ]
 rnd = random.Random(25)
 SCHICHT = {}
 for n, s in enumerate(scenes):
-    fam = FAMSZ[s['id']]; pool = POOL[fam][:]; rnd.shuffle(pool); lage = LAGEN[n % 3]
-    eb = []
-    for j, (x, y, w, r) in enumerate(lage):
-        fn = pool[j % len(pool)]; d = s['dur']; sp = 22 + 10 * j; ang = rnd.uniform(0, 6.283)
-        pw = Image.open(os.path.join(ROOT, 'archiv', fn + '.png')).size[0]; w = min(w, int(pw * 1.06 / 1.035))
-        eb.append({'rel': 'archiv/%s.png' % fn, 'x': x, 'y': y, 'w': w, 'rot': r, 'dx': round(math.cos(ang) * sp * d, 1), 'dy': round(math.sin(ang) * sp * d, 1),
-                   'drot': round(rnd.uniform(-1.6, 1.6), 2), 'op': [82, 74, 68][j]})
-    SCHICHT[s['id']] = {'fam': fam, 'grund': 'archiv/b-%s.jpg' % fam, 'ebenen': eb}
+    th = THEMEN[s['id']]; lage = LAGEN[n % 3]; eb = []
+    for j, fn in enumerate(th):
+        x, y, w, r = lage[j]; d = s['dur']; sp = 14 + 8 * j; ang = rnd.uniform(0, 6.283)
+        pw = Image.open(os.path.join(ROOT, 'archiv', 'g-%s.png' % fn)).size[0]; w = min(w, int(pw * 0.94))   # Drift 104 % x Precomp 104 % x Kamera/Punch: unter 110 % der echten Pixel
+        eb.append({'rel': 'archiv/g-%s.png' % fn, 'x': x, 'y': y, 'w': w, 'rot': r, 'dx': round(math.cos(ang) * sp * d, 1), 'dy': round(math.sin(ang) * sp * d, 1),
+                   'drot': round(rnd.uniform(-1.2, 1.2), 2), 'op': [100, 94, 88][j]})
+    m = MODE[s['id']]
+    SCHICHT[s['id']] = {'mode': m, 'tint': TINT[m], 'grund': 'archiv/b-%s.jpg' % m, 'grunge': 'archiv/t-grunge-%s.jpg' % ('hell' if m == 'schwarz' else 'dunkel'), 'ebenen': eb}
 
 cred = json.load(open(os.path.join(ROOT, 'archiv', 'credits.json'), encoding='utf-8'))
 BILDER = json.load(open(os.path.join(ROOT, 'data', 'bilder.json')))
 # KI-Wunschbilder (data/ki_wunsch.json): true, wenn enno sie geliefert hat (dann baut bilder_apollo.py p-ki-*.jpg), sonst Platzhalter im Build
-KI = {k: ('p-%s.jpg' % k) in BILDER for k in ('ki-band', 'ki-loch', 'ki-handbuch')}
+KI = {k: ('p-%s.jpg' % k) in BILDER for k in ('ki-band', 'ki-loch')}
 TITLE = 'Short 25.11. Apollo 13 (apollo)'
 D = {'title': TITLE, 'key': KEY, 'end': END, 'scenes': scenes, 'words': [],   # keine Untertitel (CapCut)
      'schicht': SCHICHT, 'bilder': BILDER, 'alpha': {k: v['alpha'] for k, v in BILDER.items() if 'alpha' in v}, 'ki': KI,
      'credits': {k: v['kurz'] for k, v in cred.items()}, 'audio': ['audio/apollo_mix.wav']}
 base = PC_BASE if '--cloud' not in sys.argv else os.path.abspath(ROOT).replace('\\', '/') + '/'
-head = ('// Short 25.11.2026 "Apollo 13: Gerettet mit Klebeband" (key apollo), lebendiger Vox mit geschichteten Farb-Hintergruenden (After Effects 2023, 25 fps)\n'
+head = ('// Short 25.11.2026 "Apollo 13: Gerettet mit Klebeband" (key apollo), lebendiger Vox, Tint-Collage-Hintergruende Schwarz/Weiss (After Effects 2023, 25 fps)\n'
         '// erzeugt von gen/gen_apollo.py, nicht von Hand aendern. Lauf ueber die Bridge: node edit-tools\\ae.mjs <diese Datei> 900000\n'
         'var BASE = %s;\nvar FPS = %d, W = 1080, H = 1920;\nvar D = %s;\n') % (json.dumps(base), FPS, json.dumps(D, ensure_ascii=False, separators=(',', ':')))
 libs = ''.join(open(os.path.join(ROOT, 'jsx', f), encoding='utf-8').read() + '\n' for f in ('vox_lib.jsx', 'vox_plus.jsx', 'grund_lib.jsx', 'bitcoin_lib.jsx', 'apollo_lib.jsx', 'scenes_apollo.jsx', 'main_apollo.jsx'))

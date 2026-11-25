@@ -5,20 +5,24 @@
 Das Paket ist eine Kopie der Vorlage `folge-42-bitcoin/short/ae-pizza`. Ueberall wurde pizza zu apollo umbenannt, und die Szenen sind neu.
 
 **Stil: lebendiger Vox nach Chris Moran**
-- Jede Szene hat einen geschichteten, bewegten, farbigen Hintergrund: eine Farbfamilie mit drei Duotone-Collagen und Papiertextur.
+- Hintergrund (enno 25.11., Chris Moran TikTok 13, ersetzt die Farbfamilien): je Szene eine Precomp `BG <szene>` mit 2-3 Graustufen-Themenbildern (`archiv/g-*.png`, schraeg, angeschnitten), darueber Tint, dazu Grunge-Kratzer niedrig deckend; Grundplatte und Collage driften und zoomen langsam.
+  - SCHWARZ und WEISS im Wechsel je 2 Szenen (hook+klebeband schwarz, april+weg weiss, explosion+houston schwarz, folge+faehre weiss, zwei+luft schwarz, filter+eckig weiss, adapter+bauplan schwarz, funk+landung weiss, frage+outro schwarz).
+  - Schwarz: Map Black To #111111, Map White To #615E59, Grunge Screen 20 %. Weiss: Map Black To #A9A6A0, Map White To #F4F1EA, Grunge Multiply 16 %. Bildkontrast ~30 % (etwas sichtbarer als bei Chris Moran).
+  - Auf weissen Szenen sind Linien, Pfeile, Ringe und Formen auf dem Hintergrund dunkel (#1C1B19) statt hell.
 - Davor steht ein Abzug oder Freisteller in echten Farben.
 - Je Szene laufen mindestens 2 Vox-Geraete nacheinander, jedes an einem echten Bildpunkt.
 
 **Keine Untertitel:** Die macht CapCut. Das Band y 1290-1460 bleibt frei.
 
-**Stand:** Es gibt noch **keine Stimme**. Alle Zeiten sind Platzhalter aus `data/words.json`:
-- 2,3 Woerter/s
-- [short pause] = 0,35 s, [pause] = 0,7 s
-- Satzende + 0,15 s
+**Stand 25.11.:** ennos Stimme ist da (`../audio-apollo/voice.mp3`, 48,7 s). Master 49,32 s. Alle Szenen-Anker kommen aus dem GESPROCHENEN Text (`data/text_gesprochen.txt`, aus der ASR); Abweichungen zum Skript stehen in `data/text_abweichungen.json`:
+- „basteln“ -> „entwickeln“ (Szene adapter, keine Aenderung noetig)
+- „Handbuch-Deckeln“ -> „Plastiktueten, Karton“: Szene bauplan angepasst (Fokus Schlauch -> Tuete -> Karton am echten Foto, KI-Wunsch ki-handbuch gestrichen)
+- neu „... den Astronauten jeden einzelnen Schritt. Die Crew baut den Adapter nach.“: Szene funk laenger, neues Etikett NACHGEBAUT auf „baut“
+- Zahlen als Ziffern (1970, 13, 300.000): Anker angepasst
 
-Die Szenenzeiten kommen nur aus `data/words.json`. Die Platzhalter-Laenge ist 65,56 s.
+Fertig: `audio/apollo_mix.wav` (-14,0 LUFS, True Peak -1,3 dBTP, Musik 14,5 LU unter der Stimme).
 
-## Wenn das Audio da ist
+## Wenn das Audio da ist (oder eine neue Aufnahme kommt)
 
 Die Stimme als `../audio-apollo/voice.mp3` ablegen (oder bei jedem Schritt den Pfad mitgeben). Dann in dieser Reihenfolge:
 
@@ -28,7 +32,7 @@ Die Stimme als `../audio-apollo/voice.mp3` ablegen (oder bei jedem Schritt den P
    - Ergebnis: `data/words_whisper.json`
 2. **words.json**
    - `python3 gen/words_apollo.py --asr [stimme.mp3]`
-   - Abgleich Whisper mit dem Skript.
+   - Woerter und Zeiten kommen direkt aus der ASR (gesprochener Text zaehlt, -> `data/text_gesprochen.txt`); Abweichungen zum Skript -> `data/text_abweichungen.json`. Passt ein Anker nicht mehr, meldet `gen_apollo.py` „Wort nicht gefunden“: dann die Szene anpassen, nicht den Text erzwingen.
    - Ergebnis: `audio/apollo_voice.wav` (Stille vorn und hinten weg), `data/words.json`, `data/laenge.json`
 3. **gen neu**
    - `python3 gen/gen_apollo.py && python3 gen/gen_apollo.py --cloud`
@@ -40,15 +44,18 @@ Die Stimme als `../audio-apollo/voice.mp3` ablegen (oder bei jedem Schritt den P
 
 ## Bauen in After Effects (AE 2023)
 
-1. `jsx/HAND_plugin_check.jsx`: prueft die Effekte (Posterize Time, Gate Weave usw.).
-2. `jsx/HAND_build_apollo.jsx` (oder `build_apollo.jsx` per RC):
-   - Projekt `ApolloShort.aep`
-   - Master `Short 25.11. Apollo 13 (apollo)`
-   - Ordner `(apollo)`, PC-Pfad `C:/Users/Enrico/Claude/Podcast-Shorts/tage/2026-11-25/ae-apollo/`
+Zielprojekt ist das am PC offene **`C:\Users\Enrico\Videos\Kurzvideos.aep`** (nicht ein eigenes Apollo-Projekt). Der Build baut wie die Vorlage in das gerade offene Projekt und ersetzt nur seinen eigenen Top-Ordner `Short 25.11. Apollo 13 (apollo)`; andere Shorts bleiben unberuehrt. Ohne gespeichertes offenes Projekt bricht er ab.
+
+0. Backup: `Kurzvideos.aep` nach `Podcast-Shorts\Backups\Kurzvideos_BACKUP_vor_apollo_2511.aep` kopieren.
+1. `jsx/HAND_plugin_check.jsx`: prueft die Effekte (Posterize Time, Gate Weave, Tint usw.).
+2. `jsx/HAND_build_apollo.jsx` (oder `node edit-tools\ae.mjs Podcast-Shorts\tage\2026-11-25\ae-apollo\jsx\build_apollo.jsx 900000` per RC):
+   - Top-Ordner und Master `Short 25.11. Apollo 13 (apollo)`, Precomps `BG <szene>` unter `Bausteine (apollo)`
+   - PC-Pfad `C:/Users/Enrico/Claude/Podcast-Shorts/tage/2026-11-25/ae-apollo/`
+   - Ergebnis muss 0 Fehler / 0 ABGESCHNITTEN / 0 KNAPP melden
 3. `jsx/HAND_snap_apollo.jsx`: Standbilder zur Kontrolle.
 4. `jsx/HAND_render_apollo.jsx`: Gesamt-Render (oder `HAND_render_apollo_teile.jsx`).
 
-Der Master hat Posterize Time 12, Grain, CA und das runde Logo oben links bis zum Outro. Die Audio-Ebene ist `audio/apollo_mix.wav` (erst nach der Mischung da).
+Der Master hat Posterize Time 12, Grain, CA und das runde Logo oben links bis zum Outro. Die Audio-Ebene ist `audio/apollo_mix.wav`.
 
 ## Szenen (18)
 
@@ -67,8 +74,8 @@ Der Master hat Posterize Time 12, Grain, CA und das runde Logo oben links bis zu
 | 11 | filter | Filter-Stapel, Haken |
 | 12 | eckig | eckig vs. rund, Pfeil, Kreuz |
 | 13 | adapter | Prototyp, Lupe Kiste -> Schlauch |
-| 14 | bauplan | Mailbox, Fokus, Kreis aufs Klebeband |
-| 15 | funk | CAPCOM, Ringe vom Mikro, Haken Schritt fuer Schritt |
+| 14 | bauplan | Mailbox, Fokus Schlauch -> Tuete -> Karton, Kreis aufs Klebeband |
+| 15 | funk | CAPCOM, Ringe vom Mikro, Haken Schritt fuer Schritt, NACHGEBAUT |
 | 16 | landung | Wasserung, Haken, Kreis um die Schirme, PAZIFIK |
 | 17 | frage | Crew auf der Iwo Jima, rotes ? |
 | 18 | outro | Logo, Folgen -> „Gefolgt“, „In der Bio“ |
@@ -82,11 +89,12 @@ Details stehen in `vox-plan.md`.
 - aufbereitet: `archiv/`, ueber `python3 gen/bilder_apollo.py` -> `data/bilder.json` mit Bildpunkten
 - Nachweise: `archiv/credits.json`, je Datei NASA-ID, „NASA, gemeinfrei“, Quelle und Original-URL
 - Im Video steht der Nachweis klein unten links.
+- Hintergrund: `archiv/g-*.png` (Graustufen aus denselben NASA-Rohbildern), `archiv/b-schwarz|weiss.jpg` (Grundplatten), `archiv/t-grunge-hell|dunkel.jpg` (aus der Vorlagen-Textur `tex/lensfx216.jpg`). Die alten Farb-Collagen `s-*` und `b-<farbe>` sind entfernt.
 
 **Fehlende Bilder:** In `data/ki_wunsch.json` stehen Prompts (9:16, Fotostil 1970). Sie sind NICHT erzeugt.
 - `ki-band`: Klebebandrolle. Jetzt: echter NASA-Ausschnitt `p-band.jpg`.
 - `ki-loch`: runde Filteraufnahme. Jetzt: saubere Vox-Form „Form Loch“ und Hilfsebene „KI Platzhalter ki-loch“.
-- `ki-handbuch`: Handbuch-Deckel. Jetzt: nur Hilfsebene „KI Platzhalter ki-handbuch“.
+- (`ki-handbuch` gestrichen: enno spricht jetzt „Plastiktueten, Karton“, das echte Foto zeigt beides.)
 
 So kommt ein geliefertes Bild ins Paket:
 1. Bild als `archiv/roh/ki-<name>.png` ablegen.
@@ -125,19 +133,23 @@ python3 ton/mix_apollo.py          # NUR mit echter Stimme -> audio/apollo_mix.w
 - EQ-Senke 1,9 kHz
 - kuerzbar mit `--laenge`
 - Fassung 1 (ruhig, 76 bpm) liegt als `ton/music_apollo_v1.wav` daneben; earshot hoerte sie als „sad and melancholic“.
-- earshot-Pruefung Fassung 2 (65,56 s):
+- Auf die echte Laenge 49,32 s gerendert, Schluss-Akkord bei 46,72 s, sauberer Ausklang bis zum Ende.
+- earshot-Pruefung Fassung 2 (Platzhalter-Laenge 65,56 s):
   - -15,4 LUFS, True Peak -1,0 dBTP
   - Stimmung gesamt: nur „uplifting and hopeful“ (z 2,22) in den Hinweisen, „sad“ nicht mehr dabei
   - Abfragen: bright/cheerful z 2,17, happy/uplifting 2,07, sad 1,90, Schlagzeug -0,25 (keins)
   - erkannt als music box / glockenspiel / cheerful ukulele / marimba
   - Nur im Explosionsteil (14,6-21 s, absichtlich zurueckgenommen) steht „sad“ auf Platz 5 (z 2,12).
 
-**Mischung:** `mix_apollo.py` bricht ohne `audio/apollo_voice.wav` ab. Eine Testmischung mit stummer Stimme gibt es nicht.
+**Mischung (25.11.):** `audio/apollo_mix.wav`, 49,32 s, -14,0 LUFS, True Peak -1,3 dBTP, Musik 14,5 LU unter der Stimme, SFX-Hauptereignisse im Median 8 dB unter den Stimmspitzen (Messung `ton/mix_messung.json`).
+- earshot-Check der SFX (`timeline` mit allen 35 Ereignissen als Cues): kein Ereignis ohne Ton; 60 % liegen innerhalb eines Frames (Zufall waere 15 %), 77 % innerhalb von 100 ms (Zufall 28 %). Die 6 „near“-Treffer sind 5 Whooshes, deren Spitze 40-100 ms vor dem Schnitt liegt (J-Cut), und ein Bleistift 55 ms spaet.
+- Kein Ton beginnt vor seiner Szene (ausser den Whoosh-J-Cuts, hoechstens 3 Frames), keiner reicht ueber das Szenenende (geprueft aus `ton/sfx_events.json`).
+- `mix_apollo.py` bricht ohne `audio/apollo_voice.wav` ab (keine Testmischung mit stummer Stimme).
 
 ## Pruefen
 
 - `node gen/aemock.js`: Fehler, ABGESCHNITTEN, KNAPP, TEXT, RAND, SAFE und PFEIL muessen 0 sein, VIELFALT ok.
 - Vorschau:
-  1. `node gen/aemock.js --render out/anz.json 2.95,12.9,...`
+  1. `node gen/aemock.js --render out/anz.json 1.62,6.36,...`
   2. `python3 gen/vorschau_render.py out/anz.json out/v 0.5`
-- Kontaktbogen: `out/vorschau.jpg`
+- Kontaktbogen: `out/vorschau_v2.jpg` (neuer Stil, echte Zeiten; `out/vorschau.jpg` ist der alte Farbstil mit Platzhalterzeiten)

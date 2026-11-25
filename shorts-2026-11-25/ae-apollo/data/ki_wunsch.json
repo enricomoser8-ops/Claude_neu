@@ -1,6 +1,6 @@
 {
- "stand": "24.11.2026",
- "hinweis": "Nur Wunschliste: diese Bilder sind NICHT erzeugt. Bild als PNG/JPG (9:16, mind. 1080x1920) nach archiv/roh/<name>.png legen, dann python3 gen/bilder_apollo.py && python3 gen/gen_apollo.py. Ohne Bild baut das Paket mit Platzhaltern (Hilfsebene \"KI Platzhalter <name>\", rendert nicht).",
+ "stand": "25.11.2026",
+ "hinweis": "Nur Wunschliste: diese Bilder sind NICHT erzeugt. Bild als PNG/JPG (9:16, mind. 1080x1920) nach archiv/roh/<name>.png legen, dann python3 gen/bilder_apollo.py && python3 gen/gen_apollo.py. Ohne Bild baut das Paket mit Platzhaltern (Hilfsebene \"KI Platzhalter <name>\", rendert nicht). 25.11.: ki-handbuch gestrichen (enno spricht jetzt \"Plastiktueten, Karton\" statt \"Handbuch-Deckeln\").",
  "bilder": [
   {
    "name": "ki-band",
@@ -15,13 +15,6 @@
    "format": "9:16",
    "platzhalter_jetzt": "saubere Vox-Form: dunkle runde Oeffnung (Shape \"Form Loch\") + Hilfsebene \"KI Platzhalter ki-loch\"",
    "prompt": "Close-up of a round cylindrical air filter receptacle opening in a white spacecraft cabin wall, Apollo lunar module interior, circular metal socket with a dark round hole in the middle, centered, flat frontal view, authentic 1970 NASA press photograph, Kodak Ektachrome color film, soft film grain, slightly faded colors, realistic, no text, no logos, no people, vertical 9:16 format"
-  },
-  {
-   "name": "ki-handbuch",
-   "szene": "14 bauplan (kleiner Abzug rechts, auf \"Handbuch-Deckeln\")",
-   "format": "9:16",
-   "platzhalter_jetzt": "nur Hilfsebene \"KI Platzhalter ki-handbuch\" (im echten Foto ist der Deckel nicht sichtbar, deshalb kein Kreis darauf)",
-   "prompt": "A stiff cardboard cover torn off a spiral-bound NASA flight checklist manual from 1970, plain off-white cover with faint unreadable typewriter marks, lying on a grey table next to a short piece of grey duct tape, centered, authentic 1970 NASA press photograph, Kodak Ektachrome color film, soft film grain, slightly faded colors, realistic, no text, no logos, no people, vertical 9:16 format"
   }
  ]
 }

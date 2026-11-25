@@ -1,0 +1,50 @@
+[
+ {
+  "art": "replace",
+  "skript": "neunzehnhundertsiebzig.",
+  "gesprochen": "1970.",
+  "zeit": 5.55
+ },
+ {
+  "art": "replace",
+  "skript": "dreizehn",
+  "gesprochen": "13",
+  "zeit": 7.21
+ },
+ {
+  "art": "replace",
+  "skript": "dreihunderttausend",
+  "gesprochen": "300.000",
+  "zeit": 8.21
+ },
+ {
+  "art": "replace",
+  "skript": "basteln",
+  "gesprochen": "entwickeln",
+  "zeit": 28.93
+ },
+ {
+  "art": "replace",
+  "skript": "Handbuch-Deckeln",
+  "gesprochen": "Plastiktüten, Karton",
+  "zeit": 32.43
+ },
+ {
+  "art": "insert",
+  "skript": "",
+  "gesprochen": "den Astronauten",
+  "zeit": 35.81
+ },
+ {
+  "art": "insert",
+  "skript": "",
+  "gesprochen": "einzelnen",
+  "zeit": 36.91
+ },
+ {
+  "art": "insert",
+  "skript": "",
+  "gesprochen": "Die Crew baut den Adapter nach.",
+  "zeit": 38.01
+ }
+]

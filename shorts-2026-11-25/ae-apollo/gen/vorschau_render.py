@@ -183,7 +183,7 @@ def layer_rgba(L, Mc, size, t):
             n = noise((w, h), 7, 6) * 26; a = a * (ed > n); src = src.copy(); src.putalpha(Image.fromarray((a * 255).astype(np.uint8)))
         return warp(src, Mc, size)
     if k == 'comp':
-        sub = render_comp(L['layers'], L['w'], L['h'], t)
+        sub = tint(render_comp(L['layers'], L['w'], L['h'], t), L)   # Tint auch auf Precomps (Hintergrund-Collage 25.11.)
         return warp(sub, mul(Mc, [1 / SK, 0, 0, 1 / SK, 0, 0]), size)
     if k == 'text': return draw_text(L, Mc, size)
     if k == 'shape': return draw_shape(L, Mc, size)

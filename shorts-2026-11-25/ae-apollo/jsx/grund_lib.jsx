@@ -511,7 +511,7 @@ function tippen(c, s, x, y, font, size, color, t0, cps, name) {
 // Skalierung 112 -> 100 % in 21 Frames ab dem Schnitt (Speed-Spitze auf dem Schnitt), optional 100 -> 107 % in den letzten 7 Frames
 function punchCut(c, amt, aus) {
   var a = adj(c, "Kamera Punch (Transform)");
-  var qL = []; for (var qi = 1; qi <= c.numLayers; qi++) { var ql = c.layer(qi); if (ql !== a && ql.name.indexOf("FIX Bildquelle") === 0) qL.push(ql); } for (var qj = qL.length - 1; qj >= 0; qj--) qL[qj].moveBefore(a); /* FIX PC: Quellzeile nicht mitzoomen */
+  var qL = []; for (var qi = 1; qi <= c.numLayers; qi++) { var ql = c.layer(qi); if (ql !== a && ql.name.indexOf("FIX Bildquelle") === 0) qL.push(ql); } for (var qj = 0; qj < qL.length; qj++) qL[qj].moveBefore(a); /* FIX PC: Quellzeile nicht mitzoomen; 25.11.: Reihenfolge behalten (Text ueber Schild) */
   var tf = addFx(a, "ADBE Geometry2", "Punch");
   if (tf) {
     var sp = findP(tf, ["Scale Height", "Scale", "ADBE Geometry2-0003"]);
