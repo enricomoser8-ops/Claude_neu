@@ -1,0 +1,7 @@
+--- a/jsx/bitcoin_lib.jsx
++++ b/jsx/bitcoin_lib.jsx
+@@ -69,3 +69,3 @@
+ function abz(c, file, x, y, w, rot, t0, mode, opt) {
+-  opt = opt || {}; y += ABZ_DY;
++  opt = opt || {}; y += ABZ_DY; if (typeof ABZ_DX !== 'undefined') x += ABZ_DX;
+   var rel = "archiv/" + file, it = imp(rel); if (!it) return null;

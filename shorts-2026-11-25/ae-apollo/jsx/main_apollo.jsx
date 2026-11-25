@@ -36,7 +36,19 @@ step("Master", function () {
     L.startTime = s.start; L.inPoint = s.start; L.outPoint = Math.min(D.end, s.end);
   }
   masterSauce(m);
-  // KEINE Untertitel (enno macht sie in CapCut); Band y 1290-1460 bleibt frei
+  // Untertitel (enno 12.11.): ein Wort, weiss, halbfett (Arial Bold) 52 px, keine Kontur, Mitte y 1370,
+  // zwei Schatten: weich (230 / 135 Grad / 3 / 16) + weiter dunkler Schein (90 / 0 / 40)
+  for (var w = 0; w < D.words.length; w++) {
+    var wd = D.words[w];
+    var t = txt(m, wd.w, F_SANS_B, 52, "#FFFFFF", [W / 2, 1370]);
+    addFx(t, "ADBE Drop Shadow", "UT Schatten"); addFx(t, "ADBE Drop Shadow", "UT Schein");
+    var d1 = fxGet(t, "UT Schatten");
+    if (d1) { setP(d1, ["Shadow Color"], [0, 0, 0]); setP(d1, ["Opacity"], 230); setP(d1, ["Direction"], 135); setP(d1, ["Distance"], 3); setP(d1, ["Softness"], 16); }
+    var d2 = fxGet(t, "UT Schein");
+    if (d2) { setP(d2, ["Shadow Color"], [0, 0, 0]); setP(d2, ["Opacity"], 90); setP(d2, ["Direction"], 135); setP(d2, ["Distance"], 0); setP(d2, ["Softness"], 40); }
+    var wr = t.sourceRectAtTime(wd.s, false); if (wr.width > 960) t.scale.setValue([96000 / wr.width, 96000 / wr.width]);
+    t.name = "UT " + wd.w; t.inPoint = wd.s; t.outPoint = Math.min(D.end, wd.e2);
+  }
   // rundes Kanal-Logo oben links; weg, sobald im Schluss das grosse Logo kommt
   var so = D.scenes[D.scenes.length - 1];
   cornerLogo(m, "archiv/logo-ecke.png", 98, 196, 96, 0, so.start + 0.08);   // 16.11.: grosses Logo kommt gleich zu Beginn der Schluss-Szene

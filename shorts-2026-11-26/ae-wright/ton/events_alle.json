@@ -1,0 +1,1247 @@
+{
+ "fps": 25,
+ "end": 60.84,
+ "quelle": "node ton/events_wright.js (aemock-Trockenlauf von jsx/build_wright_cloud.jsx)",
+ "hinweis": "ton=true: dieses Ereignis bekommt den einzigen Ton der Szene. f_sicht/t_sicht = erster sichtbarer Frame im Master (Posterize 12). f_ende = letzter Frame, den ein Ton der Szene erreichen darf.",
+ "szenen": [
+  {
+   "id": "hook",
+   "start": 0,
+   "end": 3.72,
+   "ton": "kreis"
+  },
+  {
+   "id": "jumbo",
+   "start": 3.72,
+   "end": 8.04,
+   "ton": "marker"
+  },
+  {
+   "id": "ort",
+   "start": 8.04,
+   "end": 11.96,
+   "ton": "lupe"
+  },
+  {
+   "id": "brueder",
+   "start": 11.96,
+   "end": 14.28,
+   "ton": "kreis"
+  },
+  {
+   "id": "gebaut",
+   "start": 14.28,
+   "end": 17.12,
+   "ton": "callout"
+  },
+  {
+   "id": "muenze",
+   "start": 17.12,
+   "end": 21.72,
+   "ton": "muenze"
+  },
+  {
+   "id": "absturz",
+   "start": 21.72,
+   "end": 26.12,
+   "ton": "pfeil"
+  },
+  {
+   "id": "folge",
+   "start": 26.12,
+   "end": 28.4,
+   "ton": "klick"
+  },
+  {
+   "id": "foto",
+   "start": 28.4,
+   "end": 35.24,
+   "ton": "blitz"
+  },
+  {
+   "id": "dreimal",
+   "start": 35.24,
+   "end": 37.28,
+   "ton": "punkte"
+  },
+  {
+   "id": "letzter",
+   "start": 37.28,
+   "end": 40.72,
+   "ton": "bahn"
+  },
+  {
+   "id": "wind",
+   "start": 40.72,
+   "end": 45.4,
+   "ton": "wind"
+  },
+  {
+   "id": "mond",
+   "start": 45.4,
+   "end": 50.84,
+   "ton": "pfeil"
+  },
+  {
+   "id": "mars",
+   "start": 50.84,
+   "end": 54.12,
+   "ton": "lupe"
+  },
+  {
+   "id": "outro",
+   "start": 54.12,
+   "end": 60.84,
+   "ton": "logo"
+  }
+ ],
+ "events": [
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "punch",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kamera",
+   "t": 0,
+   "t1": 3.72,
+   "hits": [
+    0
+   ],
+   "steps": null,
+   "scene_end": 3.72,
+   "f": 0,
+   "f_sicht": 0,
+   "t_sicht": 0,
+   "f1_sicht": 94,
+   "t1_sicht": 3.76,
+   "hits_sicht": [
+    0
+   ],
+   "f_ende": 91
+  },
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Flyer",
+   "t": 0.399,
+   "t1": 0.759,
+   "hits": [
+    0.399
+   ],
+   "steps": null,
+   "scene_end": 3.72,
+   "f": 10,
+   "f_sicht": 11,
+   "t_sicht": 0.44,
+   "f1_sicht": 21,
+   "t1_sicht": 0.84,
+   "hits_sicht": [
+    0.44
+   ],
+   "f_ende": 91
+  },
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche 17.12.1903",
+   "t": 2.553,
+   "t1": 2.913,
+   "hits": [
+    2.553
+   ],
+   "steps": null,
+   "scene_end": 3.72,
+   "f": 64,
+   "f_sicht": 65,
+   "t_sicht": 2.6,
+   "f1_sicht": 73,
+   "t1_sicht": 2.92,
+   "hits_sicht": [
+    2.6
+   ],
+   "f_ende": 91
+  },
+  {
+   "typ": "cut",
+   "scene": "jumbo",
+   "t": 3.72,
+   "what": "Schnitt auf jumbo",
+   "f": 93,
+   "f_sicht": 94,
+   "t_sicht": 3.76
+  },
+  {
+   "typ": "geraet",
+   "scene": "jumbo",
+   "art": "marker",
+   "haupt": true,
+   "ton": true,
+   "rolle": "marker",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Textmarker 37 m",
+   "t": 4.03,
+   "t1": 4.31,
+   "hits": [
+    4.03
+   ],
+   "steps": null,
+   "scene_end": 8.04,
+   "f": 101,
+   "f_sicht": 103,
+   "t_sicht": 4.12,
+   "f1_sicht": 109,
+   "t1_sicht": 4.36,
+   "hits_sicht": [
+    4.12
+   ],
+   "f_ende": 199
+  },
+  {
+   "typ": "geraet",
+   "scene": "jumbo",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche 37 m",
+   "t": 4.763,
+   "t1": 7.023,
+   "hits": [
+    4.763,
+    6.663
+   ],
+   "steps": null,
+   "scene_end": 8.04,
+   "f": 119,
+   "f_sicht": 121,
+   "t_sicht": 4.84,
+   "f1_sicht": 178,
+   "t1_sicht": 7.12,
+   "hits_sicht": [
+    4.84,
+    6.68
+   ],
+   "f_ende": 199
+  },
+  {
+   "typ": "geraet",
+   "scene": "jumbo",
+   "art": "strich",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Strich Spannweite",
+   "t": 5.795,
+   "t1": 6.115,
+   "hits": [
+    5.795
+   ],
+   "steps": null,
+   "scene_end": 8.04,
+   "f": 145,
+   "f_sicht": 146,
+   "t_sicht": 5.84,
+   "f1_sicht": 155,
+   "t1_sicht": 6.2,
+   "hits_sicht": [
+    5.84
+   ],
+   "f_ende": 199
+  },
+  {
+   "typ": "cut",
+   "scene": "ort",
+   "t": 8.04,
+   "what": "Schnitt auf ort",
+   "f": 201,
+   "f_sicht": 203,
+   "t_sicht": 8.12
+  },
+  {
+   "typ": "geraet",
+   "scene": "ort",
+   "art": "lupe",
+   "haupt": true,
+   "ton": true,
+   "rolle": "paper",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Lupe Bild p-lager.jpg",
+   "t": 8.59,
+   "t1": 9.99,
+   "hits": [
+    8.59
+   ],
+   "steps": null,
+   "scene_end": 11.96,
+   "f": 215,
+   "f_sicht": 217,
+   "t_sicht": 8.68,
+   "f1_sicht": 250,
+   "t1_sicht": 10,
+   "hits_sicht": [
+    8.68
+   ],
+   "f_ende": 297
+  },
+  {
+   "typ": "geraet",
+   "scene": "ort",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche KILL DEVIL HILLS",
+   "t": 11.058,
+   "t1": 11.418,
+   "hits": [
+    11.058
+   ],
+   "steps": null,
+   "scene_end": 11.96,
+   "f": 276,
+   "f_sicht": 278,
+   "t_sicht": 11.12,
+   "f1_sicht": 288,
+   "t1_sicht": 11.52,
+   "hits_sicht": [
+    11.12
+   ],
+   "f_ende": 297
+  },
+  {
+   "typ": "cut",
+   "scene": "brueder",
+   "t": 11.96,
+   "what": "Schnitt auf brueder",
+   "f": 299,
+   "f_sicht": 300,
+   "t_sicht": 12
+  },
+  {
+   "typ": "geraet",
+   "scene": "brueder",
+   "art": "punch",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kamera",
+   "t": 11.96,
+   "t1": 14.586,
+   "hits": [
+    11.96
+   ],
+   "steps": null,
+   "scene_end": 14.28,
+   "f": 299,
+   "f_sicht": 300,
+   "t_sicht": 12,
+   "f1_sicht": 367,
+   "t1_sicht": 14.68,
+   "hits_sicht": [
+    12
+   ],
+   "f_ende": 355
+  },
+  {
+   "typ": "geraet",
+   "scene": "brueder",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Orville",
+   "t": 12.705,
+   "t1": 13.798,
+   "hits": [
+    13.438,
+    12.705
+   ],
+   "steps": null,
+   "scene_end": 14.28,
+   "f": 318,
+   "f_sicht": 319,
+   "t_sicht": 12.76,
+   "f1_sicht": 346,
+   "t1_sicht": 13.84,
+   "hits_sicht": [
+    13.52,
+    12.76
+   ],
+   "f_ende": 355
+  },
+  {
+   "typ": "cut",
+   "scene": "gebaut",
+   "t": 14.28,
+   "what": "Schnitt auf gebaut",
+   "f": 357,
+   "f_sicht": 359,
+   "t_sicht": 14.36
+  },
+  {
+   "typ": "geraet",
+   "scene": "gebaut",
+   "art": "callout",
+   "haupt": true,
+   "ton": true,
+   "rolle": "marker",
+   "grund": "Hauptgeraet der Szene",
+   "what": "FIX Callout Motor",
+   "t": 15.751,
+   "t1": 15.951,
+   "hits": [
+    15.751
+   ],
+   "steps": null,
+   "scene_end": 17.12,
+   "f": 394,
+   "f_sicht": 396,
+   "t_sicht": 15.84,
+   "f1_sicht": 400,
+   "t1_sicht": 16,
+   "hits_sicht": [
+    15.84
+   ],
+   "f_ende": 426
+  },
+  {
+   "typ": "geraet",
+   "scene": "gebaut",
+   "art": "pfeil",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Pfeil Kette",
+   "t": 16.145,
+   "t1": 16.585,
+   "hits": [
+    16.145
+   ],
+   "steps": null,
+   "scene_end": 17.12,
+   "f": 404,
+   "f_sicht": 405,
+   "t_sicht": 16.2,
+   "f1_sicht": 417,
+   "t1_sicht": 16.68,
+   "hits_sicht": [
+    16.2
+   ],
+   "f_ende": 426
+  },
+  {
+   "typ": "cut",
+   "scene": "muenze",
+   "t": 17.12,
+   "what": "Schnitt auf muenze",
+   "f": 428,
+   "f_sicht": 430,
+   "t_sicht": 17.2
+  },
+  {
+   "typ": "geraet",
+   "scene": "muenze",
+   "art": "slam",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche ?",
+   "t": 17.738,
+   "t1": 17.898,
+   "hits": [
+    17.738
+   ],
+   "steps": null,
+   "scene_end": 21.72,
+   "f": 443,
+   "f_sicht": 444,
+   "t_sicht": 17.76,
+   "f1_sicht": 448,
+   "t1_sicht": 17.92,
+   "hits_sicht": [
+    17.76
+   ],
+   "f_ende": 541
+  },
+  {
+   "typ": "geraet",
+   "scene": "muenze",
+   "art": "muenze",
+   "haupt": true,
+   "ton": true,
+   "rolle": "coin",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Muenze",
+   "t": 19.29,
+   "t1": 20.39,
+   "hits": [
+    19.29
+   ],
+   "steps": null,
+   "scene_end": 21.72,
+   "f": 482,
+   "f_sicht": 484,
+   "t_sicht": 19.36,
+   "f1_sicht": 511,
+   "t1_sicht": 20.44,
+   "hits_sicht": [
+    19.36
+   ],
+   "f_ende": 541
+  },
+  {
+   "typ": "geraet",
+   "scene": "muenze",
+   "art": "haken",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Haken gewinnt",
+   "t": 21.12,
+   "t1": 21.36,
+   "hits": [
+    21.12
+   ],
+   "steps": null,
+   "scene_end": 21.72,
+   "f": 528,
+   "f_sicht": 530,
+   "t_sicht": 21.2,
+   "f1_sicht": 536,
+   "t1_sicht": 21.44,
+   "hits_sicht": [
+    21.2
+   ],
+   "f_ende": 541
+  },
+  {
+   "typ": "cut",
+   "scene": "absturz",
+   "t": 21.72,
+   "what": "Schnitt auf absturz",
+   "f": 543,
+   "f_sicht": 544,
+   "t_sicht": 21.76
+  },
+  {
+   "typ": "geraet",
+   "scene": "absturz",
+   "art": "pfeil",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Pfeil steil hoch",
+   "t": 22.876,
+   "t1": 23.516,
+   "hits": [
+    22.876
+   ],
+   "steps": null,
+   "scene_end": 26.12,
+   "f": 572,
+   "f_sicht": 573,
+   "t_sicht": 22.92,
+   "f1_sicht": 590,
+   "t1_sicht": 23.6,
+   "hits_sicht": [
+    22.92
+   ],
+   "f_ende": 651
+  },
+  {
+   "typ": "geraet",
+   "scene": "absturz",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche 14.12.1903",
+   "t": 23.834,
+   "t1": 24.194,
+   "hits": [
+    23.834
+   ],
+   "steps": null,
+   "scene_end": 26.12,
+   "f": 596,
+   "f_sicht": 598,
+   "t_sicht": 23.92,
+   "f1_sicht": 607,
+   "t1_sicht": 24.28,
+   "hits_sicht": [
+    23.92
+   ],
+   "f_ende": 651
+  },
+  {
+   "typ": "geraet",
+   "scene": "absturz",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Wilbur",
+   "t": 25,
+   "t1": 25.36,
+   "hits": [
+    25
+   ],
+   "steps": null,
+   "scene_end": 26.12,
+   "f": 625,
+   "f_sicht": 625,
+   "t_sicht": 25,
+   "f1_sicht": 636,
+   "t1_sicht": 25.44,
+   "hits_sicht": [
+    25
+   ],
+   "f_ende": 651
+  },
+  {
+   "typ": "cut",
+   "scene": "folge",
+   "t": 26.12,
+   "what": "Schnitt auf folge",
+   "f": 653,
+   "f_sicht": 655,
+   "t_sicht": 26.2
+  },
+  {
+   "typ": "geraet",
+   "scene": "folge",
+   "art": "parallax",
+   "haupt": true,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Abzug p-front.jpg",
+   "t": 26.12,
+   "t1": 26.12,
+   "hits": [
+    26.12
+   ],
+   "steps": null,
+   "scene_end": 28.4,
+   "f": 653,
+   "f_sicht": 655,
+   "t_sicht": 26.2,
+   "f1_sicht": 655,
+   "t1_sicht": 26.2,
+   "hits_sicht": [
+    26.2
+   ],
+   "f_ende": 708
+  },
+  {
+   "typ": "geraet",
+   "scene": "folge",
+   "art": "klick",
+   "haupt": false,
+   "ton": true,
+   "rolle": "click",
+   "grund": "Hauptgeraet parallax ist Dauerbewegung, naechstes klares Ereignis",
+   "what": "FIX Folgen-Knopf",
+   "t": 27.223,
+   "t1": 27.223,
+   "hits": [
+    27.223
+   ],
+   "steps": null,
+   "scene_end": 28.4,
+   "f": 681,
+   "f_sicht": 682,
+   "t_sicht": 27.28,
+   "f1_sicht": 682,
+   "t1_sicht": 27.28,
+   "hits_sicht": [
+    27.28
+   ],
+   "f_ende": 708
+  },
+  {
+   "typ": "cut",
+   "scene": "foto",
+   "t": 28.4,
+   "what": "Schnitt auf foto",
+   "f": 710,
+   "f_sicht": 711,
+   "t_sicht": 28.44
+  },
+  {
+   "typ": "geraet",
+   "scene": "foto",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Orville",
+   "t": 29.881,
+   "t1": 30.241,
+   "hits": [
+    29.881
+   ],
+   "steps": null,
+   "scene_end": 35.24,
+   "f": 747,
+   "f_sicht": 748,
+   "t_sicht": 29.92,
+   "f1_sicht": 757,
+   "t1_sicht": 30.28,
+   "hits_sicht": [
+    29.92
+   ],
+   "f_ende": 879
+  },
+  {
+   "typ": "geraet",
+   "scene": "foto",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche J. T. DANIELS",
+   "t": 31.338,
+   "t1": 31.698,
+   "hits": [
+    31.338
+   ],
+   "steps": null,
+   "scene_end": 35.24,
+   "f": 783,
+   "f_sicht": 786,
+   "t_sicht": 31.44,
+   "f1_sicht": 794,
+   "t1_sicht": 31.76,
+   "hits_sicht": [
+    31.44
+   ],
+   "f_ende": 879
+  },
+  {
+   "typ": "geraet",
+   "scene": "foto",
+   "art": "blitz",
+   "haupt": true,
+   "ton": true,
+   "rolle": "shutter",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Blitz p-erstflug.jpg",
+   "t": 32.684,
+   "t1": 32.964,
+   "hits": [
+    32.684
+   ],
+   "steps": null,
+   "scene_end": 35.24,
+   "f": 817,
+   "f_sicht": 819,
+   "t_sicht": 32.76,
+   "f1_sicht": 825,
+   "t1_sicht": 33,
+   "hits_sicht": [
+    32.76
+   ],
+   "f_ende": 879
+  },
+  {
+   "typ": "geraet",
+   "scene": "foto",
+   "art": "stapel",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Stapel p-erstflug.jpg 1",
+   "t": 33.826,
+   "t1": 34.546,
+   "hits": [
+    33.826,
+    34.006,
+    34.186
+   ],
+   "steps": null,
+   "scene_end": 35.24,
+   "f": 846,
+   "f_sicht": 846,
+   "t_sicht": 33.84,
+   "f1_sicht": 865,
+   "t1_sicht": 34.6,
+   "hits_sicht": [
+    33.84,
+    34.12,
+    34.28
+   ],
+   "f_ende": 879
+  },
+  {
+   "typ": "cut",
+   "scene": "dreimal",
+   "t": 35.24,
+   "what": "Schnitt auf dreimal",
+   "f": 881,
+   "f_sicht": 882,
+   "t_sicht": 35.28
+  },
+  {
+   "typ": "geraet",
+   "scene": "dreimal",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Flyer",
+   "t": 35.699,
+   "t1": 36.059,
+   "hits": [
+    35.699
+   ],
+   "steps": null,
+   "scene_end": 37.28,
+   "f": 892,
+   "f_sicht": 894,
+   "t_sicht": 35.76,
+   "f1_sicht": 903,
+   "t1_sicht": 36.12,
+   "hits_sicht": [
+    35.76
+   ],
+   "f_ende": 930
+  },
+  {
+   "typ": "geraet",
+   "scene": "dreimal",
+   "art": "punkte",
+   "haupt": true,
+   "ton": true,
+   "rolle": "tap",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Punkt Flug 1",
+   "t": 36.28,
+   "t1": 36.88,
+   "hits": [
+    36.28,
+    36.4,
+    36.52
+   ],
+   "steps": null,
+   "scene_end": 37.28,
+   "f": 907,
+   "f_sicht": 909,
+   "t_sicht": 36.36,
+   "f1_sicht": 923,
+   "t1_sicht": 36.92,
+   "hits_sicht": [
+    36.36,
+    36.44,
+    36.6
+   ],
+   "f_ende": 930
+  },
+  {
+   "typ": "cut",
+   "scene": "letzter",
+   "t": 37.28,
+   "what": "Schnitt auf letzter",
+   "f": 932,
+   "f_sicht": 934,
+   "t_sicht": 37.36
+  },
+  {
+   "typ": "geraet",
+   "scene": "letzter",
+   "art": "bahn",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Bahn letzter Flug",
+   "t": 37.614,
+   "t1": 38.734,
+   "hits": [
+    37.614
+   ],
+   "steps": null,
+   "scene_end": 40.72,
+   "f": 940,
+   "f_sicht": 942,
+   "t_sicht": 37.68,
+   "f1_sicht": 969,
+   "t1_sicht": 38.76,
+   "hits_sicht": [
+    37.68
+   ],
+   "f_ende": 1016
+  },
+  {
+   "typ": "geraet",
+   "scene": "letzter",
+   "art": "zaehler",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Zaehler 59",
+   "t": 39.319,
+   "t1": 40.219,
+   "hits": [
+    39.319
+   ],
+   "steps": [
+    39.56,
+    39.72,
+    39.8,
+    39.88,
+    39.96,
+    40.12
+   ],
+   "scene_end": 40.72,
+   "f": 983,
+   "f_sicht": 984,
+   "t_sicht": 39.36,
+   "f1_sicht": 1007,
+   "t1_sicht": 40.28,
+   "hits_sicht": [
+    39.36
+   ],
+   "steps_sicht": [
+    39.6,
+    39.76,
+    39.84,
+    39.92,
+    40,
+    40.2
+   ],
+   "f_ende": 1016
+  },
+  {
+   "typ": "geraet",
+   "scene": "letzter",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche 260 m",
+   "t": 39.919,
+   "t1": 40.279,
+   "hits": [
+    39.919
+   ],
+   "steps": null,
+   "scene_end": 40.72,
+   "f": 998,
+   "f_sicht": 1000,
+   "t_sicht": 40,
+   "f1_sicht": 1009,
+   "t1_sicht": 40.36,
+   "hits_sicht": [
+    40
+   ],
+   "f_ende": 1016
+  },
+  {
+   "typ": "cut",
+   "scene": "wind",
+   "t": 40.72,
+   "what": "Schnitt auf wind",
+   "f": 1018,
+   "f_sicht": 1019,
+   "t_sicht": 40.76
+  },
+  {
+   "typ": "geraet",
+   "scene": "wind",
+   "art": "wind",
+   "haupt": true,
+   "ton": true,
+   "rolle": "wind",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Strich Wind 1",
+   "t": 41.585,
+   "t1": 42.025,
+   "hits": [
+    41.585,
+    41.665,
+    41.745
+   ],
+   "steps": null,
+   "scene_end": 45.4,
+   "f": 1040,
+   "f_sicht": 1042,
+   "t_sicht": 41.68,
+   "f1_sicht": 1053,
+   "t1_sicht": 42.12,
+   "hits_sicht": [
+    41.68,
+    41.68,
+    41.76
+   ],
+   "f_ende": 1133
+  },
+  {
+   "typ": "geraet",
+   "scene": "wind",
+   "art": "kreuz",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreuz nie wieder",
+   "t": 43.859,
+   "t1": 44.139,
+   "hits": [
+    43.859
+   ],
+   "steps": null,
+   "scene_end": 45.4,
+   "f": 1096,
+   "f_sicht": 1098,
+   "t_sicht": 43.92,
+   "f1_sicht": 1105,
+   "t1_sicht": 44.2,
+   "hits_sicht": [
+    43.92
+   ],
+   "f_ende": 1133
+  },
+  {
+   "typ": "cut",
+   "scene": "mond",
+   "t": 45.4,
+   "what": "Schnitt auf mond",
+   "f": 1135,
+   "f_sicht": 1136,
+   "t_sicht": 45.44
+  },
+  {
+   "typ": "geraet",
+   "scene": "mond",
+   "art": "pfeil",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Pfeil zur Faehre",
+   "t": 47.647,
+   "t1": 48.207,
+   "hits": [
+    47.647
+   ],
+   "steps": null,
+   "scene_end": 50.84,
+   "f": 1191,
+   "f_sicht": 1192,
+   "t_sicht": 47.68,
+   "f1_sicht": 1207,
+   "t1_sicht": 48.28,
+   "hits_sicht": [
+    47.68
+   ],
+   "f_ende": 1269
+  },
+  {
+   "typ": "geraet",
+   "scene": "mond",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche APOLLO 11",
+   "t": 48.58,
+   "t1": 48.94,
+   "hits": [
+    48.58
+   ],
+   "steps": null,
+   "scene_end": 50.84,
+   "f": 1215,
+   "f_sicht": 1215,
+   "t_sicht": 48.6,
+   "f1_sicht": 1225,
+   "t1_sicht": 49,
+   "hits_sicht": [
+    48.6
+   ],
+   "f_ende": 1269
+  },
+  {
+   "typ": "cut",
+   "scene": "mars",
+   "t": 50.84,
+   "what": "Schnitt auf mars",
+   "f": 1271,
+   "f_sicht": 1273,
+   "t_sicht": 50.92
+  },
+  {
+   "typ": "geraet",
+   "scene": "mars",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche INGENUITY",
+   "t": 50.96,
+   "t1": 53.519,
+   "hits": [
+    50.96,
+    53.159
+   ],
+   "steps": null,
+   "scene_end": 54.12,
+   "f": 1274,
+   "f_sicht": 1275,
+   "t_sicht": 51,
+   "f1_sicht": 1340,
+   "t1_sicht": 53.6,
+   "hits_sicht": [
+    51,
+    53.2
+   ],
+   "f_ende": 1351
+  },
+  {
+   "typ": "geraet",
+   "scene": "mars",
+   "art": "lupe",
+   "haupt": true,
+   "ton": true,
+   "rolle": "paper",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Lupe Bild p-mars.jpg",
+   "t": 51.168,
+   "t1": 52.368,
+   "hits": [
+    51.168
+   ],
+   "steps": null,
+   "scene_end": 54.12,
+   "f": 1279,
+   "f_sicht": 1282,
+   "t_sicht": 51.28,
+   "f1_sicht": 1311,
+   "t1_sicht": 52.44,
+   "hits_sicht": [
+    51.28
+   ],
+   "f_ende": 1351
+  },
+  {
+   "typ": "cut",
+   "scene": "outro",
+   "t": 54.12,
+   "what": "Schnitt auf outro",
+   "f": 1353,
+   "f_sicht": 1355,
+   "t_sicht": 54.2
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "logo",
+   "haupt": true,
+   "ton": true,
+   "rolle": "tap",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Abzug logo.png",
+   "t": 54.2,
+   "t1": 54.56,
+   "hits": [
+    54.2
+   ],
+   "steps": null,
+   "scene_end": 60.84,
+   "f": 1355,
+   "f_sicht": 1357,
+   "t_sicht": 54.28,
+   "f1_sicht": 1365,
+   "t1_sicht": 54.6,
+   "hits_sicht": [
+    54.28
+   ],
+   "f_ende": 1519
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Logo",
+   "t": 54.42,
+   "t1": 54.78,
+   "hits": [
+    54.42
+   ],
+   "steps": null,
+   "scene_end": 60.84,
+   "f": 1361,
+   "f_sicht": 1363,
+   "t_sicht": 54.52,
+   "f1_sicht": 1371,
+   "t1_sicht": 54.84,
+   "hits_sicht": [
+    54.52
+   ],
+   "f_ende": 1519
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "klick",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "FIX Folgen-Knopf",
+   "t": 55.905,
+   "t1": 55.905,
+   "hits": [
+    55.905
+   ],
+   "steps": null,
+   "scene_end": 60.84,
+   "f": 1398,
+   "f_sicht": 1398,
+   "t_sicht": 55.92,
+   "f1_sicht": 1398,
+   "t1_sicht": 55.92,
+   "hits_sicht": [
+    55.92
+   ],
+   "f_ende": 1519
+  }
+ ]
+}

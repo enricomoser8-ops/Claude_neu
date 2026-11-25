@@ -5,22 +5,25 @@
 // Band y 1290-1460 frei (Untertitel macht enno in CapCut). Bildquellen deshalb unten LINKS (x 60, y ~1515).
 var GRUEN = "#2E9E5B";
 ABZ_DY = 45;
+var ABZ_DX = 70;   // enno 25.11.: Abzuege/Bilder mittig (vorher nach links gerueckt)
 
-// Bildquellen unten links in der Sicherheitszone (ueberschreibt credits() aus bitcoin_lib.jsx), FIX: haengt nicht an der Kamera
+// Bildquellen senkrecht am linken Rand (enno 25.11.: wie im TikTok-Beispiel, um 90 Grad gedreht, liest sich von oben nach unten), Monospace, dezent
 function credits(c, ks) {
   ks = ks.concat(SCH_REL);
-  var y = 1515, seen = {}, L = [];
+  var seen = {}, L = [];
   for (var i = 0; i < ks.length; i++) { var s = D.credits[ks[i]]; if (s === undefined) { log.push("FEHLER Bildnachweis fehlt: " + ks[i]); continue; } if (s && !seen[s]) { seen[s] = 1; L.push(s); } }
-  for (var j = L.length - 1; j >= 0 && y > 1470; j--) {
-    var l = txt(c, L[j], "ArialMT", 20, "#FFFFFF", [76, y], ParagraphJustification.LEFT_JUSTIFY, 10); l.name = "FIX Bildquelle";
-    var rc = l.sourceRectAtTime(0, false);
-    var pl = shape(c, "FIX Bildquelle Schild"), g = grp(pl); rectG(g, rc.width + 20, rc.height + 10, 0, 0, 4); fill(g, "#141210");
-    pl.position.setValue([76 + rc.left + rc.width / 2, y + rc.top + rc.height / 2]); pl.opacity.setValue(60); l.moveToBeginning();   // Text sicher ueber seinem Schild (25.11.)
-    y -= 30;
-  }
-}
-// Bildschirmpunkt -> Bildpixel eines Abzugs (ohne Fahrt), Gegenstueck zu A.S
-function aQ(A, s) { var dx = s[0] - A.x, dy = s[1] - A.y, r = -A.rot * Math.PI / 180; return [A.iw / 2 + (dx * Math.cos(r) - dy * Math.sin(r)) / A.s, A.ih / 2 + (dx * Math.sin(r) + dy * Math.cos(r)) / A.s]; }
+  if (!L.length) return;
+  var S = D.schicht && CURSCENE ? D.schicht[CURSCENE] : null, dunkel = !S || S.mode !== "weiss";
+  var l = txt(c, "Quelle: " + L.join("  /  "), "CourierNewPSMT", 28, dunkel ? "#D8D8D8" : "#2A2A2A", [0, 0], ParagraphJustification.CENTER_JUSTIFY, 0);
+  l.name = "FIX Bildquelle";
+  var rc = l.sourceRectAtTime(0, false);
+  l.anchorPoint.setValue([rc.left + rc.width / 2, rc.top + rc.height / 2]);
+  l.position.setValue([30, 960]); l.rotation.setValue(90); l.opacity.setValue(80);
+  if (rc.width > 1500) l.scale.setValue([150000 / rc.width, 150000 / rc.width]);
+  if (!dunkel) { var w = solid(c, "FIX UT-Abdunklung", "#000000"); var mk = w.property("ADBE Mask Parade").addProperty("ADBE Mask Atom"); mk.property("ADBE Mask Shape").setValue(mkShape(ellP(540, 1362, 330, 92))); mk.property("ADBE Mask Feather").setValue([150, 150]); w.opacity.setValue(28); }   /* PC: weisse Untertitel auf hellen Szenen lesbar */
+  l.moveToBeginning();
+}// Bildschirmpunkt -> Bildpixel eines Abzugs (ohne Fahrt), Gegenstueck zu A.S
+function aQ(A, s) { var dx = s[0] + ABZ_DX - A.x, dy = s[1] - A.y, r = -A.rot * Math.PI / 180; return [A.iw / 2 + (dx * Math.cos(r) - dy * Math.sin(r)) / A.s, A.ih / 2 + (dx * Math.sin(r) + dy * Math.cos(r)) / A.s]; }
 // Bild als Kind eines Abzugs (z. B. Mond am Erd-Freisteller): Mitte am Bildschirmpunkt s, Breite w (Bildschirm)
 function kindBild(c, A, file, s, w, rot) {
   var it = imp("archiv/" + file); if (!it) return null;
@@ -73,7 +76,7 @@ function aFokus(c, A, P, T, rx, ry, t1, haupt) {
   var t0 = T[0], bb = addFx(l, "ADBE Box Blur2", "Fokus Blur");
   if (bb) { setP(bb, ["Iterations"], 2); setP(bb, ["Repeat Edge Pixels"], 1); var r = findP(bb, ["Blur Radius"]); if (r) keys(r, [t0, t0 + f2s(4), t1 - f2s(4), t1], [0, 6, 6, 0], 50); }
   var m = l.property("ADBE Mask Parade").addProperty("ADBE Mask Atom");
-  m.inverted = true; m.property("ADBE Mask Feather").setValue([180 / A.s, 180 / A.s]);
+  m.inverted = true; var fe = Math.min(180 / A.s, 0.45 * Math.min(rx, ry)); m.property("ADBE Mask Feather").setValue([fe, fe]); /* PC: Feder kleiner als der Radius, sonst bleibt nichts scharf */
   if (P.length > 1) { var V = []; for (var i = 0; i < P.length; i++) V.push(mkShape(ellP(P[i][0], P[i][1], rx, ry))); keys(m.property("ADBE Mask Shape"), T, V, 70); }
   else m.property("ADBE Mask Shape").setValue(mkShape(ellP(P[0][0], P[0][1], rx, ry)));
   l.inPoint = t0; l.outPoint = t1 + f2s(1);

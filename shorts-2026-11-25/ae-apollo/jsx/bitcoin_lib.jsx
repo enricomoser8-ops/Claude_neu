@@ -67,7 +67,7 @@ function schichten(c, sid, opt) {
 var ABZ = {};
 var ABZ_DY = 0;   // Apollo 25.11.: alle Abzuege ein Stueck tiefer (Inhalt mittig zwischen Logo und freiem Untertitel-Band)
 function abz(c, file, x, y, w, rot, t0, mode, opt) {
-  opt = opt || {}; y += ABZ_DY;
+  opt = opt || {}; y += ABZ_DY; if (typeof ABZ_DX !== 'undefined') x += ABZ_DX;
   var rel = "archiv/" + file, it = imp(rel); if (!it) return null;
   var l = c.layers.add(it); l.name = (file.indexOf("f-") === 0 ? "Freisteller " : "Abzug ") + file;
   var s = w / it.width;

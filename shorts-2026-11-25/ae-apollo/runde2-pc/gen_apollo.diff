@@ -1,0 +1,15 @@
+--- a/gen/gen_apollo.py
++++ b/gen/gen_apollo.py
+@@ -101,3 +101,11 @@
+ TITLE = 'Short 25.11. Apollo 13 (apollo)'
+-D = {'title': TITLE, 'key': KEY, 'end': END, 'scenes': scenes, 'words': [],   # keine Untertitel (CapCut)
++_WJ = json.load(open(os.path.join(ROOT, 'data', 'words.json'), encoding='utf-8'))
++UTW = []   # PC 25.11. (enno): Untertitel wieder von uns, Stil wie Beethoven 17.11.: ein Wort, Zeitraum bis zum naechsten Wort
++for _i, _w in enumerate(_WJ):
++    _t = re.sub(r'^[\"„“‚‘(]+|[\"“”’).,;:!?…]+$', '', _w['w'].strip())
++    if not _t: continue
++    _nx = _WJ[_i + 1]['s'] if _i + 1 < len(_WJ) else END
++    _e2 = _nx if _nx - _w['e'] < 0.45 else _w['e'] + 0.2
++    UTW.append({'w': _t, 's': round(_w['s'], 3), 'e2': round(min(_e2, END), 3)})
++D = {'title': TITLE, 'key': KEY, 'end': END, 'scenes': scenes, 'words': UTW,
+      'schicht': SCHICHT, 'bilder': BILDER, 'alpha': {k: v['alpha'] for k, v in BILDER.items() if 'alpha' in v}, 'ki': KI,

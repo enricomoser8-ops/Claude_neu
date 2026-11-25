@@ -8,7 +8,9 @@
 //   VIELFALT >= 15 verschiedene Vox-Geraetearten im Short, je Szene >= 2 verschiedene, genau 1 Hauptgeraet, nie dasselbe Hauptgeraet
 //            zweimal hintereinander; ANKER: jedes Geraet haengt (Eltern-Kette) an einem 'Abzug ...'/'Freisteller ...' (oder ist selbst eines),
 //            ausgenommen klick (Folgen-Knopf) und punch (Kamera)
-//   STIL     Eck-Logo wie bisher; KEINE Untertitel im Master (enno macht sie in CapCut)
+//   STIL     Eck-Logo wie bisher; Untertitel im Master PFLICHT (enno 25.11.: wieder von uns, Stil Beethoven 17.11.)
+//   SAFE 25.11. Runde 2: Band y 1290..1460 nicht mehr frei (Untertitel von uns, UT/UTNAH pruefen die Zone), rechts unter y 956 bis x 930,
+//            unten bis y 1620; Bildquelle senkrecht am linken Rand (x 6..62); UT-Abdunklung entschuldigt nur Fotos, keine Chips/Kreise
 //   FOTO     hoechstens 3 Abzuege/Freisteller je Szene (Stapel-Kopien, Lupe zaehlen nicht)
 //   Masken mit Keyframes werden zur jeweiligen Zeit ausgewertet (Lupe)
 // Titanic-Stewardess 16.11. (Kopie aus ae-freiheit, Runde 2) (Hintergrund-Vox, 25 fps; Globus/Karte entfallen):
@@ -384,8 +386,8 @@ const scenes = master ? master.layers.filter(l => l.kind === 'comp').map(l => ({
 const W = 1080, Hh = 1920, F = 25, out = { SAFE: [], PFEIL: [], VIELFALT: [], GRUND: [], STIL: [], LEISTUNG: [], STRICH: [], LEISTE: [], FARBE: [], FPS: [], RAND: [], LEER: [], KLEIN: [], LOGO: [], UT: [], UTNAH: [], SCHWENK: [], BLASS: [], KOLLISION: [] };
 function safeWhy(b) {   // Sicherheitszone (Bildschirm nach Gate Weave): '' = in Ordnung
   if (b.x1 > 313 && b.x0 < 763 && b.y0 < 216) return 'oben Mitte (x 313..763) ueber y 216';
-  if (b.y1 > 956 && b.x1 > 887) return 'unter y 956 rechts ueber x 887';
-  if (b.y1 > 1290 && b.y0 < 1460) return 'im freien Band y 1290..1460';
+  if (b.y1 > 956 && b.x1 > 930) return 'unter y 956 rechts ueber x 930';   // 25.11. (enno): Rotstellen rechts nur grob beachten, Inhalt mittig
+  if (b.y1 > 1620) return 'unten ueber y 1620';   // TikTok-Leiste unten
   return '';
 }
 function runs(map, kind, sc, minLen) {
@@ -428,7 +430,7 @@ for (const sc of scenes) {
     mainMin = Math.min(mainMin, tr ? 1e9 : main);
     if (main < 60000 && cov < 0.15 && !tr && !whip && !vf) klein.push(f);
     if (tr) continue;
-    for (const L of c.layers) if (/^FIX Bildquelle/.test(L.name) && visible(L, t)) { const b = screenBox(L, t); const w = b && (safeWhy(b) || ((b.x0 < 45 || b.x1 > 1031 || b.y0 < 114 || b.y1 > 1543) ? 'ausserhalb x 45..1031 / y 114..1543' : '')); if (w) (safe[L.name + ': ' + w] = safe[L.name + ': ' + w] || { f: [], why: () => '' }).f.push(f); }
+    for (const L of c.layers) if (/^FIX Bildquelle/.test(L.name) && visible(L, t)) { const b = screenBox(L, t); const w = b && ((b.x0 < 6 || b.x1 > 62 || b.y0 < 114 || b.y1 > 1806) ? 'senkrechte Quelle nicht am linken Rand (x 6..62 / y 114..1806)' : ''); if (w) (safe[L.name + ': ' + w] = safe[L.name + ': ' + w] || { f: [], why: () => '' }).f.push(f); }
     for (const { L, b, vis } of boxes) {
       const b2 = screenBox(L, Math.min(c.duration, t + 1 / F));
       if (vis === 'fade') {   // EDGEFADE-Text halb ausgeblendet und ruhig = sichtbar blasses / angeschnittenes Label
@@ -441,7 +443,7 @@ for (const sc of scenes) {
       if (!bleed && (b.x0 < 45 || b.x1 > 1031 || b.y0 < 114 || b.y1 > 1543) && !fast && !fastY) { const r = rand[L.name] = rand[L.name] || { f: [], b: null, why() { return 'x ' + Math.round(this.b[0]) + '..' + Math.round(this.b[1]) + ' y ' + Math.round(this.b[2]) + '..' + Math.round(this.b[3]); } }; r.f.push(f); r.b = r.b ? [Math.min(r.b[0], b.x0), Math.max(r.b[1], b.x1), Math.min(r.b[2], b.y0), Math.max(r.b[3], b.y1)] : [b.x0, b.x1, b.y0, b.y1]; }
       if (!bleed && !fast && !fastY) { const w = safeWhy(b); if (w) (safe[L.name + ': ' + w] = safe[L.name + ': ' + w] || { f: [], why: () => '' }).f.push(f); }
       if (!bleed && b.x0 < 162 && b.y0 < 262 && b.x1 > 34 && b.y1 > 132 && !fast && !fastY) (logo[L.name] = logo[L.name] || { f: [], why: () => 'im Logo-Bereich' }).f.push(f);
-      if (!shade && !UTOK.test(L.name) && L.kind !== 'text' && !/^FIX /.test(L.name) && b.x0 < 780 && b.x1 > 300 && b.y0 < 1405 && b.y1 > 1325 && !fast && !fastY) (ut[L.name] = ut[L.name] || { f: [], why: () => 'in der Untertitelzone' }).f.push(f);
+      if ((!shade || !/^(Abzug|Freisteller|Grund) /.test(L.name)) && !UTOK.test(L.name) && L.kind !== 'text' && !/^FIX /.test(L.name) && b.x0 < 780 && b.x1 > 300 && b.y0 < 1405 && b.y1 > 1325 && !fast && !fastY) (ut[L.name] = ut[L.name] || { f: [], why: () => 'in der Untertitelzone' }).f.push(f);
       if (L.kind === 'text' && !/^FIX (Bildquelle|Quelle)/.test(L.name) && b.x0 < 780 && b.x1 > 300 && b.y0 < 1405 && b.y1 > 1285 && !fast && !fastY) (utn[L.name] = utn[L.name] || { f: [], why: () => 'Text klebt an den Untertiteln' }).f.push(f);
     }
     // Text auf eigener Unterlage (Leiste, Etikett, Stempel) liegt bewusst ueber dem Bild
@@ -508,7 +510,7 @@ else {
       out.STIL.push('STIL Eck-Logo: Position ' + p.map(Math.round) + ', ' + Math.round(w) + ' x ' + Math.round(h) + ' px, ab ' + L.inPoint + ' s (soll 98/196, 96 px, ab 0)');
   }
   const ut = master.layers.filter(L => /^UT /.test(L.name));
-  if (ut.length) out.STIL.push('STIL: ' + ut.length + ' Untertitel im Master (sollen nicht rein, CapCut)');
+  if (!ut.length) out.STIL.push('STIL: keine Untertitel im Master (25.11.: Untertitel macht wieder Claude, Stil Beethoven)');
   const SOLL = [[230, 135, 3, 16], [90, 135, 0, 40]]; let bad = 0, erstes = '';
   for (const L of ut) {
     const d = L._doc(), p = L.position._v, ds = L._fx.filter(e => e.matchName === 'ADBE Drop Shadow');
