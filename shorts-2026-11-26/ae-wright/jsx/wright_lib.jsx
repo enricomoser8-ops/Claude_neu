@@ -121,6 +121,7 @@ function aOdo(c, A, s, p, size, t0, dur, fg, bg, haupt) {
 function aZaehler(c, A, from, to, pre, p, size, t0, t1, fg, bg, haupt) {
   var t = counterF(c, from, to, t0, t1, F_NUM, size, fg || CREAM, [0, 0], ""); t.name = "Zaehler " + to;
   if (pre) t.property("ADBE Text Properties").property("ADBE Text Document").expression = t.property("ADBE Text Properties").property("ADBE Text Document").expression.replace("'' + s;", "s + '" + pre + "';");
+  if (to < 100) { var tp = t.property("ADBE Text Properties").property("ADBE Text Document"); tp.expression = tp.expression.replace(") / 10) * 10;", "));"); }   /* PC: kleine Zahlen nicht auf Zehner runden (59 s statt 60 s) */
   var r = platte(c, A, t, String(to), p, size, bg, t1 + 0.1);
   popIn(r, t0 - 0.08);
   voxTag(t, "zaehler", haupt); return r;

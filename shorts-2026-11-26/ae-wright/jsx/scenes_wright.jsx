@@ -123,9 +123,9 @@ B.absturz = function (c, k) {
   schichten(c, "absturz", { ut: 52 });
   var A = abz(c, "p-sand.jpg", 470, 690, 700, -2, 0.0, "slide", { von: "links" });
   var s = A.P("sand");
-  aPfeil(c, A, "steil hoch", [A.iw * 0.10, A.ih * 0.58], [s[0] - 30, s[1] - 20], -0.85, bis(c, k.steil - 0.10, f2s(14)), f2s(14), LINIE, 10, true);
+  var pf = aPfeil(c, A, "steil hoch", [A.iw * 0.10, A.ih * 0.58], [s[0] - 30, s[1] - 20], 0.85, bis(c, k.steil - 0.10, f2s(14)), f2s(14), LINIE, 10, true);
   aChip(c, A, "14.12.1903", px(A, 0.80, 0.88), bis(c, k.landet - 0.04, f2s(9)), INK, "#FFFFFF", 44);
-  aKreis(c, A, "Wilbur", A.P("wilbur"), 120, 90, bis(c, k.sand - 0.04, f2s(9)), MARK, 9);
+  var kw = aKreis(c, A, "Wilbur", A.P("wilbur"), 120, 90, bis(c, k.sand - 0.04, f2s(9)), MARK, 9); if (pf) ende(pf, Math.max(pf.inPoint + 0.9, kw.inPoint - 0.04)); /* PC: ein Fokus */
   credits(c, ["p-sand.jpg"]);
   var cam = kamera(c, 103); punchAt(cam, k.landet - 0.02, 1.04);
   voxSauce(c, "archiv");
@@ -144,7 +144,7 @@ B.foto = function (c, k) {
   schichten(c, "foto");
   var A = abz(c, "p-erstflug.jpg", 470, 680, 740, 2, 0.0, "pop", { prot: -4 });
   ende(aKreis(c, A, "Orville", A.P("orville"), 150, 90, bis(c, k.orville - 0.04, f2s(9)), YEL, 9), k.helfer - 0.06);
-  aChip(c, A, "J. T. DANIELS", px(A, 0.24, 0.88), bis(c, k.helfer + 0.10, f2s(9)), INK, "#FFFFFF", 40);
+  aChip(c, A, "FOTO: J. T. DANIELS", px(A, 0.24, 0.88), bis(c, k.helfer + 0.10, f2s(9)), INK, "#FFFFFF", 40);
   aBlitz(c, A, bis(c, k.foto - 0.02, f2s(8)), true);
   var t = bis(c, k.welt - 0.06, 0.6);
   aStapel(c, A, 3, [t, t + 0.18, t + 0.36], 22, -38);
@@ -172,7 +172,7 @@ B.letzter = function (c, k) {
   aBahn(c, A, "letzter Flug", [s[0], s[1] - 30], [z[0] + 30, z[1] - 20], 0.22, bis(c, k.letzte - 0.04, 1.0), bis(c, k.letzte + 1.0, 0), LINIE, 8, true);
   var t0 = bis(c, k.minute - 0.40, 1.0);
   aZaehler(c, A, 0, 59, " s", px(A, 0.50, 0.80), 76, t0, t0 + 0.9, CREAM, "#151515");
-  aChip(c, A, "260 m", px(A, 0.30, 0.22), bis(c, k.minute + 0.20, f2s(9)), INK, "#FFFFFF", 44);
+  aChip(c, A, "260 m", px(A, 0.55, 0.10), bis(c, t0 + 1.0, f2s(9)), INK, "#FFFFFF", 44);
   credits(c, ["p-weit.jpg"]);
   kamera(c, 102);
   voxSauce(c, "archiv");
