@@ -1,0 +1,1058 @@
+{
+ "fps": 25,
+ "end": 38.16,
+ "quelle": "node ton/events_penicillin.js (aemock-Trockenlauf von jsx/build_penicillin_cloud.jsx)",
+ "hinweis": "ton=true: dieses Ereignis bekommt den einzigen Ton der Szene. f_sicht/t_sicht = erster sichtbarer Frame im Master (Posterize 12). f_ende = letzter Frame, den ein Ton der Szene erreichen darf.",
+ "szenen": [
+  {
+   "id": "hook",
+   "start": 0,
+   "end": 3.56,
+   "ton": "kreis"
+  },
+  {
+   "id": "london",
+   "start": 3.56,
+   "end": 5.12,
+   "ton": "chip"
+  },
+  {
+   "id": "labor",
+   "start": 5.12,
+   "end": 10.2,
+   "ton": "kreis"
+  },
+  {
+   "id": "schale",
+   "start": 10.2,
+   "end": 14.08,
+   "ton": "callout"
+  },
+  {
+   "id": "neugierig",
+   "start": 14.08,
+   "end": 17,
+   "ton": "slam"
+  },
+  {
+   "id": "folge",
+   "start": 17,
+   "end": 18.2,
+   "ton": "klick"
+  },
+  {
+   "id": "kaum",
+   "start": 18.2,
+   "end": 22.4,
+   "ton": "callout"
+  },
+  {
+   "id": "oxford",
+   "start": 22.4,
+   "end": 24.92,
+   "ton": "kreis"
+  },
+  {
+   "id": "krieg",
+   "start": 24.92,
+   "end": 27.88,
+   "ton": "pfeil"
+  },
+  {
+   "id": "nobel",
+   "start": 27.88,
+   "end": 31.52,
+   "ton": "kreis"
+  },
+  {
+   "id": "frage",
+   "start": 31.52,
+   "end": 33.28,
+   "ton": "slam"
+  },
+  {
+   "id": "outro",
+   "start": 33.28,
+   "end": 38.16,
+   "ton": "logo"
+  }
+ ],
+ "events": [
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "punch",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kamera",
+   "t": 0,
+   "t1": 3.786,
+   "hits": [
+    0
+   ],
+   "steps": null,
+   "scene_end": 3.56,
+   "f": 0,
+   "f_sicht": 0,
+   "t_sicht": 0,
+   "f1_sicht": 96,
+   "t1_sicht": 3.84,
+   "hits_sicht": [
+    0
+   ],
+   "f_ende": 87
+  },
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche ALEXANDER FLEMING",
+   "t": 0.425,
+   "t1": 0.785,
+   "hits": [
+    0.425
+   ],
+   "steps": null,
+   "scene_end": 3.56,
+   "f": 11,
+   "f_sicht": 13,
+   "t_sicht": 0.52,
+   "f1_sicht": 21,
+   "t1_sicht": 0.84,
+   "hits_sicht": [
+    0.52
+   ],
+   "f_ende": 87
+  },
+  {
+   "typ": "geraet",
+   "scene": "hook",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Schale",
+   "t": 0.992,
+   "t1": 1.352,
+   "hits": [
+    0.992
+   ],
+   "steps": null,
+   "scene_end": 3.56,
+   "f": 25,
+   "f_sicht": 25,
+   "t_sicht": 1,
+   "f1_sicht": 36,
+   "t1_sicht": 1.44,
+   "hits_sicht": [
+    1
+   ],
+   "f_ende": 87
+  },
+  {
+   "typ": "cut",
+   "scene": "london",
+   "t": 3.56,
+   "what": "Schnitt auf london",
+   "f": 89,
+   "f_sicht": 90,
+   "t_sicht": 3.6
+  },
+  {
+   "typ": "geraet",
+   "scene": "london",
+   "art": "nadel",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Nadel St Marys",
+   "t": 3.68,
+   "t1": 4,
+   "hits": [
+    3.68
+   ],
+   "steps": null,
+   "scene_end": 5.12,
+   "f": 92,
+   "f_sicht": 94,
+   "t_sicht": 3.76,
+   "f1_sicht": 100,
+   "t1_sicht": 4,
+   "hits_sicht": [
+    3.76
+   ],
+   "f_ende": 126
+  },
+  {
+   "typ": "geraet",
+   "scene": "london",
+   "art": "chip",
+   "haupt": true,
+   "ton": true,
+   "rolle": "tap",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Etikett Flaeche 03.09.1928",
+   "t": 4.282,
+   "t1": 4.642,
+   "hits": [
+    4.282
+   ],
+   "steps": null,
+   "scene_end": 5.12,
+   "f": 107,
+   "f_sicht": 109,
+   "t_sicht": 4.36,
+   "f1_sicht": 117,
+   "t1_sicht": 4.68,
+   "hits_sicht": [
+    4.36
+   ],
+   "f_ende": 126
+  },
+  {
+   "typ": "cut",
+   "scene": "labor",
+   "t": 5.12,
+   "what": "Schnitt auf labor",
+   "f": 128,
+   "f_sicht": 130,
+   "t_sicht": 5.2
+  },
+  {
+   "typ": "geraet",
+   "scene": "labor",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Fleming",
+   "t": 5.32,
+   "t1": 5.68,
+   "hits": [
+    5.32
+   ],
+   "steps": null,
+   "scene_end": 10.2,
+   "f": 133,
+   "f_sicht": 134,
+   "t_sicht": 5.36,
+   "f1_sicht": 144,
+   "t1_sicht": 5.76,
+   "hits_sicht": [
+    5.36
+   ],
+   "f_ende": 253
+  },
+  {
+   "typ": "geraet",
+   "scene": "labor",
+   "art": "pfeil",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Pfeil zurueck",
+   "t": 6.546,
+   "t1": 7.106,
+   "hits": [
+    6.546
+   ],
+   "steps": null,
+   "scene_end": 10.2,
+   "f": 164,
+   "f_sicht": 165,
+   "t_sicht": 6.6,
+   "f1_sicht": 180,
+   "t1_sicht": 7.2,
+   "hits_sicht": [
+    6.6
+   ],
+   "f_ende": 253
+  },
+  {
+   "typ": "geraet",
+   "scene": "labor",
+   "art": "callout",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "FIX Callout Schalen",
+   "t": 8.237,
+   "t1": 8.437,
+   "hits": [
+    8.237
+   ],
+   "steps": null,
+   "scene_end": 10.2,
+   "f": 206,
+   "f_sicht": 207,
+   "t_sicht": 8.28,
+   "f1_sicht": 213,
+   "t1_sicht": 8.52,
+   "hits_sicht": [
+    8.28
+   ],
+   "f_ende": 253
+  },
+  {
+   "typ": "geraet",
+   "scene": "labor",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche STAPHYLOKOKKEN",
+   "t": 9.48,
+   "t1": 9.84,
+   "hits": [
+    9.48
+   ],
+   "steps": null,
+   "scene_end": 10.2,
+   "f": 237,
+   "f_sicht": 238,
+   "t_sicht": 9.52,
+   "f1_sicht": 248,
+   "t1_sicht": 9.92,
+   "hits_sicht": [
+    9.52
+   ],
+   "f_ende": 253
+  },
+  {
+   "typ": "cut",
+   "scene": "schale",
+   "t": 10.2,
+   "what": "Schnitt auf schale",
+   "f": 255,
+   "f_sicht": 257,
+   "t_sicht": 10.28
+  },
+  {
+   "typ": "geraet",
+   "scene": "schale",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Schale",
+   "t": 10.34,
+   "t1": 10.7,
+   "hits": [
+    10.34
+   ],
+   "steps": null,
+   "scene_end": 14.08,
+   "f": 259,
+   "f_sicht": 261,
+   "t_sicht": 10.44,
+   "f1_sicht": 269,
+   "t1_sicht": 10.76,
+   "hits_sicht": [
+    10.44
+   ],
+   "f_ende": 350
+  },
+  {
+   "typ": "geraet",
+   "scene": "schale",
+   "art": "callout",
+   "haupt": true,
+   "ton": true,
+   "rolle": "marker",
+   "grund": "Hauptgeraet der Szene",
+   "what": "FIX Callout Schimmel",
+   "t": 11.415,
+   "t1": 11.615,
+   "hits": [
+    11.415
+   ],
+   "steps": null,
+   "scene_end": 14.08,
+   "f": 285,
+   "f_sicht": 286,
+   "t_sicht": 11.44,
+   "f1_sicht": 292,
+   "t1_sicht": 11.68,
+   "hits_sicht": [
+    11.44
+   ],
+   "f_ende": 350
+  },
+  {
+   "typ": "geraet",
+   "scene": "schale",
+   "art": "ringe",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Ring p-schale.jpg",
+   "t": 12.029,
+   "t1": 12.779,
+   "hits": [
+    12.029,
+    12.229
+   ],
+   "steps": null,
+   "scene_end": 14.08,
+   "f": 301,
+   "f_sicht": 303,
+   "t_sicht": 12.12,
+   "f1_sicht": 321,
+   "t1_sicht": 12.84,
+   "hits_sicht": [
+    12.12,
+    12.28
+   ],
+   "f_ende": 350
+  },
+  {
+   "typ": "geraet",
+   "scene": "schale",
+   "art": "pfeil",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Pfeil weg",
+   "t": 13.16,
+   "t1": 13.64,
+   "hits": [
+    13.16
+   ],
+   "steps": null,
+   "scene_end": 14.08,
+   "f": 329,
+   "f_sicht": 330,
+   "t_sicht": 13.2,
+   "f1_sicht": 342,
+   "t1_sicht": 13.68,
+   "hits_sicht": [
+    13.2
+   ],
+   "f_ende": 350
+  },
+  {
+   "typ": "cut",
+   "scene": "neugierig",
+   "t": 14.08,
+   "what": "Schnitt auf neugierig",
+   "f": 352,
+   "f_sicht": 353,
+   "t_sicht": 14.12
+  },
+  {
+   "typ": "geraet",
+   "scene": "neugierig",
+   "art": "slam",
+   "haupt": true,
+   "ton": true,
+   "rolle": "impact",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Etikett Flaeche ?",
+   "t": 14.24,
+   "t1": 14.4,
+   "hits": [
+    14.24
+   ],
+   "steps": null,
+   "scene_end": 17,
+   "f": 356,
+   "f_sicht": 357,
+   "t_sicht": 14.28,
+   "f1_sicht": 361,
+   "t1_sicht": 14.44,
+   "hits_sicht": [
+    14.28
+   ],
+   "f_ende": 423
+  },
+  {
+   "typ": "geraet",
+   "scene": "neugierig",
+   "art": "callout",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "FIX Callout Stoff",
+   "t": 15.227,
+   "t1": 15.427,
+   "hits": [
+    15.227
+   ],
+   "steps": null,
+   "scene_end": 17,
+   "f": 381,
+   "f_sicht": 382,
+   "t_sicht": 15.28,
+   "f1_sicht": 388,
+   "t1_sicht": 15.52,
+   "hits_sicht": [
+    15.28
+   ],
+   "f_ende": 423
+  },
+  {
+   "typ": "geraet",
+   "scene": "neugierig",
+   "art": "zaehler",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Odometer 1929",
+   "t": 16.19,
+   "t1": 16.64,
+   "hits": [
+    16.19
+   ],
+   "steps": [
+    16.28,
+    16.36,
+    16.44,
+    16.52,
+    16.6
+   ],
+   "scene_end": 17,
+   "f": 405,
+   "f_sicht": 407,
+   "t_sicht": 16.28,
+   "f1_sicht": 417,
+   "t1_sicht": 16.68,
+   "hits_sicht": [
+    16.28
+   ],
+   "steps_sicht": [
+    16.36,
+    16.44,
+    16.52,
+    16.6,
+    16.68
+   ],
+   "f_ende": 423
+  },
+  {
+   "typ": "cut",
+   "scene": "folge",
+   "t": 17,
+   "what": "Schnitt auf folge",
+   "f": 425,
+   "f_sicht": 425,
+   "t_sicht": 17
+  },
+  {
+   "typ": "geraet",
+   "scene": "folge",
+   "art": "parallax",
+   "haupt": true,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Abzug p-flaschen.jpg",
+   "t": 17,
+   "t1": 17,
+   "hits": [
+    17
+   ],
+   "steps": null,
+   "scene_end": 18.2,
+   "f": 425,
+   "f_sicht": 425,
+   "t_sicht": 17,
+   "f1_sicht": 425,
+   "t1_sicht": 17,
+   "hits_sicht": [
+    17
+   ],
+   "f_ende": 453
+  },
+  {
+   "typ": "geraet",
+   "scene": "folge",
+   "art": "klick",
+   "haupt": false,
+   "ton": true,
+   "rolle": "click",
+   "grund": "Hauptgeraet parallax ist Dauerbewegung, naechstes klares Ereignis",
+   "what": "FIX Folgen-Knopf",
+   "t": 17.72,
+   "t1": 17.72,
+   "hits": [
+    17.72
+   ],
+   "steps": null,
+   "scene_end": 18.2,
+   "f": 443,
+   "f_sicht": 444,
+   "t_sicht": 17.76,
+   "f1_sicht": 444,
+   "t1_sicht": 17.76,
+   "hits_sicht": [
+    17.76
+   ],
+   "f_ende": 453
+  },
+  {
+   "typ": "cut",
+   "scene": "kaum",
+   "t": 18.2,
+   "what": "Schnitt auf kaum",
+   "f": 455,
+   "f_sicht": 457,
+   "t_sicht": 18.28
+  },
+  {
+   "typ": "geraet",
+   "scene": "kaum",
+   "art": "callout",
+   "haupt": true,
+   "ton": true,
+   "rolle": "marker",
+   "grund": "Hauptgeraet der Szene",
+   "what": "FIX Callout Fleming",
+   "t": 18.425,
+   "t1": 18.625,
+   "hits": [
+    18.425
+   ],
+   "steps": null,
+   "scene_end": 22.4,
+   "f": 461,
+   "f_sicht": 463,
+   "t_sicht": 18.52,
+   "f1_sicht": 467,
+   "t1_sicht": 18.68,
+   "hits_sicht": [
+    18.52
+   ],
+   "f_ende": 558
+  },
+  {
+   "typ": "geraet",
+   "scene": "kaum",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche AUFSATZ 1929",
+   "t": 19.087,
+   "t1": 19.447,
+   "hits": [
+    19.087
+   ],
+   "steps": null,
+   "scene_end": 22.4,
+   "f": 477,
+   "f_sicht": 480,
+   "t_sicht": 19.2,
+   "f1_sicht": 488,
+   "t1_sicht": 19.52,
+   "hits_sicht": [
+    19.2
+   ],
+   "f_ende": 558
+  },
+  {
+   "typ": "geraet",
+   "scene": "kaum",
+   "art": "kreuz",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreuz Mengen",
+   "t": 21.68,
+   "t1": 21.96,
+   "hits": [
+    21.68
+   ],
+   "steps": null,
+   "scene_end": 22.4,
+   "f": 542,
+   "f_sicht": 544,
+   "t_sicht": 21.76,
+   "f1_sicht": 550,
+   "t1_sicht": 22,
+   "hits_sicht": [
+    21.76
+   ],
+   "f_ende": 558
+  },
+  {
+   "typ": "cut",
+   "scene": "oxford",
+   "t": 22.4,
+   "what": "Schnitt auf oxford",
+   "f": 560,
+   "f_sicht": 561,
+   "t_sicht": 22.44
+  },
+  {
+   "typ": "geraet",
+   "scene": "oxford",
+   "art": "punch",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kamera",
+   "t": 22.4,
+   "t1": 24.92,
+   "hits": [
+    22.4
+   ],
+   "steps": null,
+   "scene_end": 24.92,
+   "f": 560,
+   "f_sicht": 561,
+   "t_sicht": 22.44,
+   "f1_sicht": 625,
+   "t1_sicht": 25,
+   "hits_sicht": [
+    22.44
+   ],
+   "f_ende": 621
+  },
+  {
+   "typ": "geraet",
+   "scene": "oxford",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Florey",
+   "t": 22.851,
+   "t1": 24.56,
+   "hits": [
+    22.851,
+    24.2
+   ],
+   "steps": null,
+   "scene_end": 24.92,
+   "f": 571,
+   "f_sicht": 573,
+   "t_sicht": 22.92,
+   "f1_sicht": 615,
+   "t1_sicht": 24.6,
+   "hits_sicht": [
+    22.92,
+    24.28
+   ],
+   "f_ende": 621
+  },
+  {
+   "typ": "cut",
+   "scene": "krieg",
+   "t": 24.92,
+   "what": "Schnitt auf krieg",
+   "f": 623,
+   "f_sicht": 625,
+   "t_sicht": 25
+  },
+  {
+   "typ": "geraet",
+   "scene": "krieg",
+   "art": "chip",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Etikett Flaeche 1944",
+   "t": 25.454,
+   "t1": 25.814,
+   "hits": [
+    25.454
+   ],
+   "steps": null,
+   "scene_end": 27.88,
+   "f": 636,
+   "f_sicht": 638,
+   "t_sicht": 25.52,
+   "f1_sicht": 646,
+   "t1_sicht": 25.84,
+   "hits_sicht": [
+    25.52
+   ],
+   "f_ende": 695
+  },
+  {
+   "typ": "geraet",
+   "scene": "krieg",
+   "art": "pfeil",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Pfeil rettet",
+   "t": 25.752,
+   "t1": 26.392,
+   "hits": [
+    25.752
+   ],
+   "steps": null,
+   "scene_end": 27.88,
+   "f": 644,
+   "f_sicht": 646,
+   "t_sicht": 25.84,
+   "f1_sicht": 661,
+   "t1_sicht": 26.44,
+   "hits_sicht": [
+    25.84
+   ],
+   "f_ende": 695
+  },
+  {
+   "typ": "geraet",
+   "scene": "krieg",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Soldat",
+   "t": 27.16,
+   "t1": 27.52,
+   "hits": [
+    27.16
+   ],
+   "steps": null,
+   "scene_end": 27.88,
+   "f": 679,
+   "f_sicht": 680,
+   "t_sicht": 27.2,
+   "f1_sicht": 690,
+   "t1_sicht": 27.6,
+   "hits_sicht": [
+    27.2
+   ],
+   "f_ende": 695
+  },
+  {
+   "typ": "cut",
+   "scene": "nobel",
+   "t": 27.88,
+   "what": "Schnitt auf nobel",
+   "f": 697,
+   "f_sicht": 698,
+   "t_sicht": 27.92
+  },
+  {
+   "typ": "geraet",
+   "scene": "nobel",
+   "art": "kreis",
+   "haupt": true,
+   "ton": true,
+   "rolle": "pencil",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Kreis Fleming",
+   "t": 28.18,
+   "t1": 28.54,
+   "hits": [
+    28.18
+   ],
+   "steps": null,
+   "scene_end": 31.52,
+   "f": 705,
+   "f_sicht": 707,
+   "t_sicht": 28.28,
+   "f1_sicht": 715,
+   "t1_sicht": 28.6,
+   "hits_sicht": [
+    28.28
+   ],
+   "f_ende": 786
+  },
+  {
+   "typ": "geraet",
+   "scene": "nobel",
+   "art": "haken",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Haken Florey",
+   "t": 30.72,
+   "t1": 31.16,
+   "hits": [
+    30.72,
+    30.92
+   ],
+   "steps": null,
+   "scene_end": 31.52,
+   "f": 768,
+   "f_sicht": 769,
+   "t_sicht": 30.76,
+   "f1_sicht": 780,
+   "t1_sicht": 31.2,
+   "hits_sicht": [
+    30.76,
+    31
+   ],
+   "f_ende": 786
+  },
+  {
+   "typ": "cut",
+   "scene": "frage",
+   "t": 31.52,
+   "what": "Schnitt auf frage",
+   "f": 788,
+   "f_sicht": 790,
+   "t_sicht": 31.6
+  },
+  {
+   "typ": "geraet",
+   "scene": "frage",
+   "art": "slam",
+   "haupt": true,
+   "ton": true,
+   "rolle": "impact",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Etikett Flaeche ?",
+   "t": 31.72,
+   "t1": 31.88,
+   "hits": [
+    31.72
+   ],
+   "steps": null,
+   "scene_end": 33.28,
+   "f": 793,
+   "f_sicht": 794,
+   "t_sicht": 31.76,
+   "f1_sicht": 798,
+   "t1_sicht": 31.92,
+   "hits_sicht": [
+    31.76
+   ],
+   "f_ende": 830
+  },
+  {
+   "typ": "geraet",
+   "scene": "frage",
+   "art": "bahn",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Bahn Wurf",
+   "t": 32.22,
+   "t1": 32.9,
+   "hits": [
+    32.22
+   ],
+   "steps": null,
+   "scene_end": 33.28,
+   "f": 806,
+   "f_sicht": 807,
+   "t_sicht": 32.28,
+   "f1_sicht": 823,
+   "t1_sicht": 32.92,
+   "hits_sicht": [
+    32.28
+   ],
+   "f_ende": 830
+  },
+  {
+   "typ": "cut",
+   "scene": "outro",
+   "t": 33.28,
+   "what": "Schnitt auf outro",
+   "f": 832,
+   "f_sicht": 834,
+   "t_sicht": 33.36
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "logo",
+   "haupt": true,
+   "ton": true,
+   "rolle": "tap",
+   "grund": "Hauptgeraet der Szene",
+   "what": "Abzug logo.png",
+   "t": 33.36,
+   "t1": 33.72,
+   "hits": [
+    33.36
+   ],
+   "steps": null,
+   "scene_end": 38.16,
+   "f": 834,
+   "f_sicht": 836,
+   "t_sicht": 33.44,
+   "f1_sicht": 844,
+   "t1_sicht": 33.76,
+   "hits_sicht": [
+    33.44
+   ],
+   "f_ende": 952
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "kreis",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "Kreis Logo",
+   "t": 33.58,
+   "t1": 33.94,
+   "hits": [
+    33.58
+   ],
+   "steps": null,
+   "scene_end": 38.16,
+   "f": 840,
+   "f_sicht": 840,
+   "t_sicht": 33.6,
+   "f1_sicht": 850,
+   "t1_sicht": 34,
+   "hits_sicht": [
+    33.6
+   ],
+   "f_ende": 952
+  },
+  {
+   "typ": "geraet",
+   "scene": "outro",
+   "art": "klick",
+   "haupt": false,
+   "ton": false,
+   "rolle": null,
+   "grund": "nicht das wichtigste Ereignis der Szene: stumm",
+   "what": "FIX Folgen-Knopf",
+   "t": 34.78,
+   "t1": 34.78,
+   "hits": [
+    34.78
+   ],
+   "steps": null,
+   "scene_end": 38.16,
+   "f": 870,
+   "f_sicht": 871,
+   "t_sicht": 34.84,
+   "f1_sicht": 871,
+   "t1_sicht": 34.84,
+   "hits_sicht": [
+    34.84
+   ],
+   "f_ende": 952
+  }
+ ]
+}

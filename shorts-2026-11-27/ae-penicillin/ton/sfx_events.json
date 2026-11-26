@@ -1,0 +1,484 @@
+{
+"fps": 25,
+"hinweis": "f/t = sichtbares Ereignis (Sync-Punkt), start = Einsatz der Datei (J-Cut/Vorlauf), db = Pegel relativ, bis_f = letzter Frame der Szene (Ton endet davor).",
+"gain_in_sfx_wav_db": -6.6,
+"events": [
+{
+"f": 25,
+"kind": "sfx",
+"id": "Bleistift (kreis): Kreis Schale",
+"t": 1.0,
+"start": 1.0,
+"db": -6,
+"src": "real:pencil_1.mp3",
+"event_f_sicht": 25,
+"bis_f": 87
+},
+{
+"f": 90,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf london",
+"t": 3.6,
+"start": 3.48,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 90,
+"bis_f": null
+},
+{
+"f": 109,
+"kind": "sfx",
+"id": "Tap je Einsatz (chip): Etikett Flaeche 03.09.1928",
+"t": 4.36,
+"start": 4.36,
+"db": -7,
+"src": "real:tap_1.mp3",
+"event_f_sicht": 109,
+"bis_f": 126
+},
+{
+"f": 130,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf labor",
+"t": 5.2,
+"start": 5.08,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 130,
+"bis_f": null
+},
+{
+"f": 134,
+"kind": "sfx",
+"id": "Bleistift (kreis): Kreis Fleming",
+"t": 5.36,
+"start": 5.36,
+"db": -6,
+"src": "real:pencil_2.mp3",
+"event_f_sicht": 134,
+"bis_f": 253
+},
+{
+"f": 257,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf schale",
+"t": 10.28,
+"start": 10.16,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 257,
+"bis_f": null
+},
+{
+"f": 286,
+"kind": "sfx",
+"id": "Filzstift-Hervorhebung (callout): FIX Callout Schimmel",
+"t": 11.44,
+"start": 11.44,
+"db": -4,
+"src": "real:marker_1.mp3",
+"event_f_sicht": 286,
+"bis_f": 350
+},
+{
+"f": 353,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf neugierig",
+"t": 14.12,
+"start": 14.0,
+"db": -8,
+"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 353,
+"bis_f": null
+},
+{
+"f": 357,
+"kind": "sfx",
+"id": "dumpfer Schlag (Slam): Etikett Flaeche ?",
+"t": 14.28,
+"start": 14.238,
+"db": -5,
+"src": "real:impact_1.mp3",
+"event_f_sicht": 357,
+"bis_f": 423
+},
+{
+"f": 425,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf folge",
+"t": 17.0,
+"start": 16.88,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 425,
+"bis_f": null
+},
+{
+"f": 444,
+"kind": "sfx",
+"id": "Mausklick: Folgen -> Gefolgt",
+"t": 17.76,
+"start": 17.76,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 444,
+"bis_f": 453
+},
+{
+"f": 457,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf kaum",
+"t": 18.28,
+"start": 18.16,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 457,
+"bis_f": null
+},
+{
+"f": 463,
+"kind": "sfx",
+"id": "Filzstift-Hervorhebung (callout): FIX Callout Fleming",
+"t": 18.52,
+"start": 18.52,
+"db": -4,
+"src": "real:marker_2.mp3",
+"event_f_sicht": 463,
+"bis_f": 558
+},
+{
+"f": 561,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf oxford",
+"t": 22.44,
+"start": 22.32,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 561,
+"bis_f": null
+},
+{
+"f": 573,
+"kind": "sfx",
+"id": "Bleistift (kreis): Kreis Florey",
+"t": 22.92,
+"start": 22.92,
+"db": -6,
+"src": "real:pencil_3.mp3",
+"event_f_sicht": 573,
+"bis_f": 621
+},
+{
+"f": 625,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf krieg",
+"t": 25.0,
+"start": 24.88,
+"db": -8,
+"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 625,
+"bis_f": null
+},
+{
+"f": 646,
+"kind": "sfx",
+"id": "Bleistift (pfeil): Pfeil rettet",
+"t": 25.84,
+"start": 25.84,
+"db": -6,
+"src": "real:pencil_4.mp3",
+"event_f_sicht": 646,
+"bis_f": 695
+},
+{
+"f": 698,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf nobel",
+"t": 27.92,
+"start": 27.8,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 698,
+"bis_f": null
+},
+{
+"f": 707,
+"kind": "sfx",
+"id": "Bleistift (kreis): Kreis Fleming",
+"t": 28.28,
+"start": 28.28,
+"db": -6,
+"src": "real:pencil_1.mp3",
+"event_f_sicht": 707,
+"bis_f": 786
+},
+{
+"f": 790,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf frage",
+"t": 31.6,
+"start": 31.48,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 790,
+"bis_f": null
+},
+{
+"f": 794,
+"kind": "sfx",
+"id": "dumpfer Schlag (Slam): Etikett Flaeche ?",
+"t": 31.76,
+"start": 31.713,
+"db": -5,
+"src": "real:impact_1.mp3",
+"event_f_sicht": 794,
+"bis_f": 830
+},
+{
+"f": 834,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf outro",
+"t": 33.36,
+"start": 33.24,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 834,
+"bis_f": null
+},
+{
+"f": 836,
+"kind": "sfx",
+"id": "Tap je Einsatz (logo): Abzug logo.png",
+"t": 33.44,
+"start": 33.44,
+"db": -7,
+"src": "real:tap_1.mp3",
+"event_f_sicht": 836,
+"bis_f": 952
+}
+],
+"alle_anschlaege": [
+{
+"t": 1.0,
+"db": -6,
+"src": "real:pencil_1.mp3"
+},
+{
+"t": 3.6,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 4.36,
+"db": -7,
+"src": "real:tap_1.mp3"
+},
+{
+"t": 5.2,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 5.36,
+"db": -6,
+"src": "real:pencil_2.mp3"
+},
+{
+"t": 10.28,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 11.44,
+"db": -4,
+"src": "real:marker_1.mp3"
+},
+{
+"t": 14.12,
+"db": -8,
+"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 14.28,
+"db": -5,
+"src": "real:impact_1.mp3"
+},
+{
+"t": 17.0,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 17.76,
+"db": -3,
+"src": "enno:click_real.wav"
+},
+{
+"t": 18.28,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 18.52,
+"db": -4,
+"src": "real:marker_2.mp3"
+},
+{
+"t": 22.44,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 22.92,
+"db": -6,
+"src": "real:pencil_3.mp3"
+},
+{
+"t": 25.0,
+"db": -8,
+"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 25.84,
+"db": -6,
+"src": "real:pencil_4.mp3"
+},
+{
+"t": 27.92,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 28.28,
+"db": -6,
+"src": "real:pencil_1.mp3"
+},
+{
+"t": 31.6,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 31.76,
+"db": -5,
+"src": "real:impact_1.mp3"
+},
+{
+"t": 33.36,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
+},
+{
+"t": 33.44,
+"db": -7,
+"src": "real:tap_1.mp3"
+}
+],
+"stumm": [
+{
+"f": 0,
+"ereignis": "hook: Kamera",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 13,
+"ereignis": "hook: Etikett Flaeche ALEXANDER FLEMING",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 94,
+"ereignis": "london: Nadel St Marys",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 165,
+"ereignis": "labor: Pfeil zurueck",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 207,
+"ereignis": "labor: FIX Callout Schalen",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 238,
+"ereignis": "labor: Etikett Flaeche STAPHYLOKOKKEN",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 261,
+"ereignis": "schale: Kreis Schale",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 303,
+"ereignis": "schale: Ring p-schale.jpg",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 330,
+"ereignis": "schale: Pfeil weg",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 382,
+"ereignis": "neugierig: FIX Callout Stoff",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 407,
+"ereignis": "neugierig: Odometer 1929",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 425,
+"ereignis": "folge: Abzug p-flaschen.jpg",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 480,
+"ereignis": "kaum: Etikett Flaeche AUFSATZ 1929",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 544,
+"ereignis": "kaum: Kreuz Mengen",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 561,
+"ereignis": "oxford: Kamera",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 638,
+"ereignis": "krieg: Etikett Flaeche 1944",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 680,
+"ereignis": "krieg: Kreis Soldat",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 769,
+"ereignis": "nobel: Haken Florey",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 807,
+"ereignis": "frage: Bahn Wurf",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 840,
+"ereignis": "outro: Kreis Logo",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+},
+{
+"f": 871,
+"ereignis": "outro: FIX Folgen-Knopf",
+"grund": "nicht das wichtigste Ereignis der Szene: stumm"
+}
+]
+}

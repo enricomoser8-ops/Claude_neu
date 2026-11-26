@@ -1,0 +1,133 @@
+{
+ "stand": "automatisch von ton/sfx_penicillin.py",
+ "dateien": [
+  {
+   "datei": "ton/sfx_enno/click_real.wav",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (ennos eigene SFX, shorts-wissen/sfx)",
+   "titel": "click_real.wav",
+   "autor": "enno",
+   "lizenz": "eigen"
+  },
+  {
+   "datei": "ton/sfx_real/impact_1.mp3",
+   "einsaetze": 2,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Metal Container Impact Wood Deep 1",
+   "autor": "Sheyvan",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/Sheyvan/sounds/569464",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/marker_1.mp3",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Marker Writing on Paper.aif",
+   "autor": "ftpalad",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/ftpalad/sounds/119926",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/marker_2.mp3",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "fast and slow marker strokes",
+   "autor": "MBPiM",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/MBPiM/sounds/351145",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/pencil_1.mp3",
+   "einsaetze": 2,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Underlining Stroke on Paper",
+   "autor": "zembacraftworks",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/zembacraftworks/sounds/428338",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/pencil_2.mp3",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Pencil Writing on Paper",
+   "autor": "elliotlp",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/elliotlp/sounds/277312",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/pencil_3.mp3",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "pencil scribble",
+   "autor": "odilonmarcenaro",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/odilonmarcenaro/sounds/615052",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/pencil_4.mp3",
+   "einsaetze": 1,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Pencil Scribbling.aif",
+   "autor": "esperri",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/esperri/sounds/119144",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/tap_1.mp3",
+   "einsaetze": 2,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Thump.mp3",
+   "autor": "mpuffenbarger",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/mpuffenbarger/sounds/683031",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/whoosh_1.mp3",
+   "einsaetze": 3,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Deep Whoosh #1",
+   "autor": "Kinoton",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/Kinoton/sounds/351256",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/whoosh_2.mp3",
+   "einsaetze": 3,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Deep Whoosh #5",
+   "autor": "Kinoton",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/Kinoton/sounds/558827",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/whoosh_3.mp3",
+   "einsaetze": 3,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "Deep Whoosh #6",
+   "autor": "Kinoton",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/Kinoton/sounds/558826",
+   "namensnennung": null
+  },
+  {
+   "datei": "ton/sfx_real/whoosh_4.mp3",
+   "einsaetze": 2,
+   "art": "echte Aufnahme (Freesound)",
+   "titel": "whoosh_short_low.wav",
+   "autor": "DJT4NN3R",
+   "lizenz": "CC0 1.0",
+   "url": "https://freesound.org/people/DJT4NN3R/sounds/449992",
+   "namensnennung": null
+  }
+ ]
+}
