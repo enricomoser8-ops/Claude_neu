@@ -65,7 +65,7 @@ B.london = function (c, k) {
   var A = abz(c, "p-hospital.jpg", 470, 700, 690, 2, 0.0, "slide", { von: "rechts" });
   aNadel(c, A, "St Marys", A.P("haus"), 0.12, LRED);
   // Chip "ST MARY'S HOSPITAL" gestrichen (enno 26.11.: ultra schnelle Stimme, Szene nur ~1,5 s)
-  aChip(c, A, "03.09.1928", px(A, 0.66, 0.90), bis(c, k.jahr - 0.04, f2s(9)), "#7A1E16", "#FFFFFF", 46, null, null, true);
+  aChip(c, A, "ST MARY'S HOSPITAL", px(A, 0.66, 0.90), bis(c, k.jahr - 0.04, f2s(9)), "#7A1E16", "#FFFFFF", 46, null, null, true);
   credits(c, ["p-hospital.jpg"]);
   var cam = kamera(c, 103); punchAt(cam, k.jahr - 0.02, 1.04);
   voxSauce(c, "archiv");
