@@ -4,478 +4,478 @@
 "gain_in_sfx_wav_db": -7.79,
 "events": [
 {
-"f": 11,
+"f": 3,
 "kind": "sfx",
 "id": "Bleistift (kreis): Kreis Flyer",
-"t": 0.44,
-"start": 0.44,
+"t": 0.12,
+"start": 0.12,
 "db": -6,
 "src": "real:pencil_1.mp3",
-"event_f_sicht": 11,
-"bis_f": 91
+"event_f_sicht": 3,
+"bis_f": 80
 },
 {
-"f": 94,
+"f": 84,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf jumbo",
-"t": 3.76,
-"start": 3.64,
+"t": 3.36,
+"start": 3.24,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 94,
+"event_f_sicht": 84,
 "bis_f": null
 },
 {
-"f": 103,
+"f": 86,
 "kind": "sfx",
 "id": "Filzstift-Hervorhebung (marker): Textmarker 37 m",
-"t": 4.12,
-"start": 4.12,
+"t": 3.44,
+"start": 3.44,
 "db": -4,
 "src": "real:marker_1.mp3",
-"event_f_sicht": 103,
-"bis_f": 199
+"event_f_sicht": 86,
+"bis_f": 148
 },
 {
-"f": 203,
+"f": 150,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf ort",
-"t": 8.12,
-"start": 8.0,
+"t": 6.0,
+"start": 5.88,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 203,
+"event_f_sicht": 150,
 "bis_f": null
 },
 {
-"f": 217,
+"f": 161,
 "kind": "sfx",
 "id": "Lupe gleitet (leise Papier-Reibung): Lupe Bild p-lager.jpg",
-"t": 8.68,
-"start": 8.68,
+"t": 6.44,
+"start": 6.44,
 "db": -8,
 "src": "real:paper_1.mp3",
-"event_f_sicht": 217,
-"bis_f": 297
+"event_f_sicht": 161,
+"bis_f": 239
 },
 {
-"f": 300,
+"f": 242,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf brueder",
-"t": 12.0,
-"start": 11.88,
+"t": 9.68,
+"start": 9.56,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 300,
+"event_f_sicht": 242,
 "bis_f": null
 },
 {
-"f": 319,
+"f": 250,
 "kind": "sfx",
 "id": "Bleistift (kreis): Kreis Orville",
-"t": 12.76,
-"start": 12.76,
+"t": 10.0,
+"start": 10.0,
 "db": -6,
 "src": "real:pencil_2.mp3",
-"event_f_sicht": 319,
-"bis_f": 355
+"event_f_sicht": 250,
+"bis_f": 280
 },
 {
-"f": 359,
+"f": 284,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf gebaut",
-"t": 14.36,
-"start": 14.24,
+"t": 11.36,
+"start": 11.24,
 "db": -8,
 "src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 359,
+"event_f_sicht": 284,
 "bis_f": null
 },
 {
-"f": 396,
+"f": 313,
 "kind": "sfx",
 "id": "Filzstift-Hervorhebung (callout): FIX Callout Motor",
-"t": 15.84,
-"start": 15.84,
+"t": 12.52,
+"start": 12.52,
 "db": -4,
 "src": "real:marker_2.mp3",
-"event_f_sicht": 396,
-"bis_f": 426
+"event_f_sicht": 313,
+"bis_f": 334
 },
 {
-"f": 430,
+"f": 338,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf muenze",
-"t": 17.2,
-"start": 17.08,
+"t": 13.52,
+"start": 13.4,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 430,
+"event_f_sicht": 338,
 "bis_f": null
 },
 {
-"f": 484,
+"f": 373,
 "kind": "sfx",
 "id": "Muenze wird geworfen (echte Muenze): Muenze",
-"t": 19.36,
-"start": 19.36,
+"t": 14.92,
+"start": 14.92,
 "db": -6,
 "src": "real:coin_1.mp3",
-"event_f_sicht": 484,
-"bis_f": 541
+"event_f_sicht": 373,
+"bis_f": 419
+},
+{
+"f": 423,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf absturz",
+"t": 16.92,
+"start": 16.8,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 423,
+"bis_f": null
+},
+{
+"f": 438,
+"kind": "sfx",
+"id": "Bleistift (pfeil): Pfeil steil hoch",
+"t": 17.52,
+"start": 17.52,
+"db": -6,
+"src": "real:pencil_3.mp3",
+"event_f_sicht": 438,
+"bis_f": 495
+},
+{
+"f": 498,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf folge",
+"t": 19.92,
+"start": 19.8,
+"db": -8,
+"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 498,
+"bis_f": null
+},
+{
+"f": 525,
+"kind": "sfx",
+"id": "Mausklick: Folgen -> Gefolgt",
+"t": 21.0,
+"start": 21.0,
+"db": -3,
+"src": "enno:click_real.wav",
+"event_f_sicht": 525,
+"bis_f": 540
 },
 {
 "f": 544,
 "kind": "sfx",
-"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf absturz",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf foto",
 "t": 21.76,
 "start": 21.64,
 "db": -8,
-"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
 "event_f_sicht": 544,
 "bis_f": null
 },
 {
-"f": 573,
-"kind": "sfx",
-"id": "Bleistift (pfeil): Pfeil steil hoch",
-"t": 22.92,
-"start": 22.92,
-"db": -6,
-"src": "real:pencil_3.mp3",
-"event_f_sicht": 573,
-"bis_f": 651
-},
-{
-"f": 655,
-"kind": "sfx",
-"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf folge",
-"t": 26.2,
-"start": 26.08,
-"db": -8,
-"src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 655,
-"bis_f": null
-},
-{
-"f": 682,
-"kind": "sfx",
-"id": "Mausklick: Folgen -> Gefolgt",
-"t": 27.28,
-"start": 27.28,
-"db": -3,
-"src": "enno:click_real.wav",
-"event_f_sicht": 682,
-"bis_f": 708
-},
-{
-"f": 711,
-"kind": "sfx",
-"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf foto",
-"t": 28.44,
-"start": 28.32,
-"db": -8,
-"src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 711,
-"bis_f": null
-},
-{
-"f": 819,
+"f": 619,
 "kind": "sfx",
 "id": "Kamera-Ausloeser auf dem Blitz: Blitz p-erstflug.jpg",
-"t": 32.76,
-"start": 32.341,
+"t": 24.76,
+"start": 24.341,
 "db": -5,
 "src": "real:shutter_1.mp3",
-"event_f_sicht": 819,
-"bis_f": 879
+"event_f_sicht": 619,
+"bis_f": 668
 },
 {
-"f": 882,
+"f": 671,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf dreimal",
-"t": 35.28,
-"start": 35.16,
+"t": 26.84,
+"start": 26.72,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 882,
+"event_f_sicht": 671,
 "bis_f": null
 },
 {
-"f": 909,
+"f": 680,
 "kind": "sfx",
 "id": "Tap je Einsatz (punkte): Punkt Flug 1",
-"t": 36.36,
-"start": 36.36,
+"t": 27.2,
+"start": 27.2,
 "db": -7,
 "src": "real:tap_1.mp3",
-"event_f_sicht": 909,
-"bis_f": 930
+"event_f_sicht": 680,
+"bis_f": 702
 },
 {
-"f": 934,
+"f": 705,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf letzter",
-"t": 37.36,
-"start": 37.24,
+"t": 28.2,
+"start": 28.08,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 934,
+"event_f_sicht": 705,
 "bis_f": null
 },
 {
-"f": 942,
+"f": 715,
 "kind": "sfx",
 "id": "Bleistift (bahn): Bahn letzter Flug",
-"t": 37.68,
-"start": 37.68,
+"t": 28.6,
+"start": 28.6,
 "db": -6,
 "src": "real:pencil_4.mp3",
-"event_f_sicht": 942,
-"bis_f": 1016
+"event_f_sicht": 715,
+"bis_f": 774
 },
 {
-"f": 1019,
+"f": 778,
 "kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf wind",
-"t": 40.76,
-"start": 40.64,
+"t": 31.12,
+"start": 31.0,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 1019,
+"event_f_sicht": 778,
 "bis_f": null
+},
+{
+"f": 792,
+"kind": "sfx",
+"id": "Windstoss (echter Whoosh) auf den Wind-Strichen: Strich Wind 1",
+"t": 31.68,
+"start": 31.68,
+"db": -7,
+"src": "real:whoosh_4.mp3",
+"event_f_sicht": 792,
+"bis_f": 858
+},
+{
+"f": 861,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf mond",
+"t": 34.44,
+"start": 34.32,
+"db": -8,
+"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 861,
+"bis_f": null
+},
+{
+"f": 896,
+"kind": "sfx",
+"id": "Bleistift (pfeil): Pfeil zur Faehre",
+"t": 35.84,
+"start": 35.84,
+"db": -6,
+"src": "real:pencil_1.mp3",
+"event_f_sicht": 896,
+"bis_f": 963
+},
+{
+"f": 967,
+"kind": "sfx",
+"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf mars",
+"t": 38.68,
+"start": 38.56,
+"db": -8,
+"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
+"event_f_sicht": 967,
+"bis_f": null
+},
+{
+"f": 975,
+"kind": "sfx",
+"id": "Lupe gleitet (leise Papier-Reibung): Lupe Bild p-mars.jpg",
+"t": 39.0,
+"start": 39.0,
+"db": -8,
+"src": "real:paper_2.mp3",
+"event_f_sicht": 975,
+"bis_f": 1038
 },
 {
 "f": 1042,
 "kind": "sfx",
-"id": "Windstoss (echter Whoosh) auf den Wind-Strichen: Strich Wind 1",
-"t": 41.68,
-"start": 41.68,
-"db": -7,
-"src": "real:whoosh_4.mp3",
-"event_f_sicht": 1042,
-"bis_f": 1133
-},
-{
-"f": 1136,
-"kind": "sfx",
-"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf mond",
-"t": 45.44,
-"start": 45.32,
-"db": -8,
-"src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 1136,
-"bis_f": null
-},
-{
-"f": 1192,
-"kind": "sfx",
-"id": "Bleistift (pfeil): Pfeil zur Faehre",
-"t": 47.68,
-"start": 47.68,
-"db": -6,
-"src": "real:pencil_1.mp3",
-"event_f_sicht": 1192,
-"bis_f": 1269
-},
-{
-"f": 1273,
-"kind": "sfx",
-"id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf mars",
-"t": 50.92,
-"start": 50.8,
-"db": -8,
-"src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 1273,
-"bis_f": null
-},
-{
-"f": 1282,
-"kind": "sfx",
-"id": "Lupe gleitet (leise Papier-Reibung): Lupe Bild p-mars.jpg",
-"t": 51.28,
-"start": 51.28,
-"db": -8,
-"src": "real:paper_2.mp3",
-"event_f_sicht": 1282,
-"bis_f": 1351
-},
-{
-"f": 1355,
-"kind": "sfx",
 "id": "tiefer Whoosh, J-Cut 3 Frames: Schnitt auf outro",
-"t": 54.2,
-"start": 54.08,
+"t": 41.68,
+"start": 41.56,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)",
-"event_f_sicht": 1355,
+"event_f_sicht": 1042,
 "bis_f": null
 },
 {
-"f": 1357,
+"f": 1044,
 "kind": "sfx",
 "id": "Tap je Einsatz (logo): Abzug logo.png",
-"t": 54.28,
-"start": 54.28,
+"t": 41.76,
+"start": 41.76,
 "db": -7,
 "src": "real:tap_1.mp3",
-"event_f_sicht": 1357,
-"bis_f": 1519
+"event_f_sicht": 1044,
+"bis_f": 1164
 }
 ],
 "alle_anschlaege": [
 {
-"t": 0.44,
+"t": 0.12,
 "db": -6,
 "src": "real:pencil_1.mp3"
 },
 {
-"t": 3.76,
+"t": 3.36,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 4.12,
+"t": 3.44,
 "db": -4,
 "src": "real:marker_1.mp3"
 },
 {
-"t": 8.12,
+"t": 6.0,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 8.68,
+"t": 6.44,
 "db": -8,
 "src": "real:paper_1.mp3"
 },
 {
-"t": 12.0,
+"t": 9.68,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 12.76,
+"t": 10.0,
 "db": -6,
 "src": "real:pencil_2.mp3"
 },
 {
-"t": 14.36,
+"t": 11.36,
 "db": -8,
 "src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 15.84,
+"t": 12.52,
 "db": -4,
 "src": "real:marker_2.mp3"
 },
 {
-"t": 17.2,
+"t": 13.52,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 19.36,
+"t": 14.92,
 "db": -6,
 "src": "real:coin_1.mp3"
 },
 {
-"t": 21.76,
+"t": 16.92,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 22.92,
+"t": 17.52,
 "db": -6,
 "src": "real:pencil_3.mp3"
 },
 {
-"t": 26.2,
+"t": 19.92,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 27.28,
+"t": 21.0,
 "db": -3,
 "src": "enno:click_real.wav"
 },
 {
-"t": 28.44,
+"t": 21.76,
 "db": -8,
 "src": "real:whoosh_4.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 32.76,
+"t": 24.76,
 "db": -5,
 "src": "real:shutter_1.mp3"
 },
 {
-"t": 35.28,
+"t": 26.84,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 36.36,
+"t": 27.2,
 "db": -7,
 "src": "real:tap_1.mp3"
 },
 {
-"t": 36.44,
+"t": 27.36,
 "db": -9,
 "src": "real:tap_1.mp3"
 },
 {
-"t": 36.6,
+"t": 27.44,
 "db": -7,
 "src": "real:tap_2.mp3"
 },
 {
-"t": 37.36,
+"t": 28.2,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 37.68,
+"t": 28.6,
 "db": -6,
 "src": "real:pencil_4.mp3"
 },
 {
-"t": 40.76,
+"t": 31.12,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 41.68,
+"t": 31.68,
 "db": -7,
 "src": "real:whoosh_4.mp3"
 },
 {
-"t": 45.44,
+"t": 34.44,
 "db": -8,
 "src": "real:whoosh_1.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 47.68,
+"t": 35.84,
 "db": -6,
 "src": "real:pencil_1.mp3"
 },
 {
-"t": 50.92,
+"t": 38.68,
 "db": -8,
 "src": "real:whoosh_2.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 51.28,
+"t": 39.0,
 "db": -8,
 "src": "real:paper_2.mp3"
 },
 {
-"t": 54.2,
+"t": 41.68,
 "db": -8,
 "src": "real:whoosh_3.mp3 (Rate 0.8, Tiefpass 2.5 kHz)"
 },
 {
-"t": 54.28,
+"t": 41.76,
 "db": -7,
 "src": "real:tap_1.mp3"
 }
@@ -487,112 +487,112 @@
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 65,
+"f": 48,
 "ereignis": "hook: Etikett Flaeche 17.12.1903",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 121,
+"f": 98,
 "ereignis": "jumbo: Etikett Flaeche 37 m",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 146,
+"f": 115,
 "ereignis": "jumbo: Strich Spannweite",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 278,
+"f": 219,
 "ereignis": "ort: Etikett Flaeche KILL DEVIL HILLS",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 300,
+"f": 242,
 "ereignis": "brueder: Kamera",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 405,
+"f": 315,
 "ereignis": "gebaut: Pfeil Kette",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 444,
+"f": 346,
 "ereignis": "muenze: Etikett Flaeche ?",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 530,
+"f": 407,
 "ereignis": "muenze: Haken gewinnt",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 598,
+"f": 461,
 "ereignis": "absturz: Etikett Flaeche 14.12.1903",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 625,
+"f": 480,
 "ereignis": "absturz: Kreis Wilbur",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 655,
+"f": 498,
 "ereignis": "folge: Abzug p-front.jpg",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 748,
+"f": 569,
 "ereignis": "foto: Kreis Orville",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 786,
+"f": 600,
 "ereignis": "foto: Etikett Flaeche J. T. DANIELS",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 846,
+"f": 646,
 "ereignis": "foto: Stapel p-erstflug.jpg 1",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 894,
+"f": 680,
 "ereignis": "dreimal: Kreis Flyer",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 984,
+"f": 744,
 "ereignis": "letzter: Zaehler 59",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1000,
+"f": 759,
 "ereignis": "letzter: Etikett Flaeche 260 m",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1098,
+"f": 844,
 "ereignis": "wind: Kreuz nie wieder",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1215,
+"f": 921,
 "ereignis": "mond: Etikett Flaeche APOLLO 11",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1275,
+"f": 969,
 "ereignis": "mars: Etikett Flaeche INGENUITY",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1363,
+"f": 1048,
 "ereignis": "outro: Kreis Logo",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 },
 {
-"f": 1398,
+"f": 1075,
 "ereignis": "outro: FIX Folgen-Knopf",
 "grund": "nicht das wichtigste Ereignis der Szene: stumm"
 }

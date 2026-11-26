@@ -29,7 +29,7 @@ def sc(id, start, **k): S.append((id, start, k))
 f = find
 C = findC
 J1903 = ['neunzehnhundertdrei', '1903']; J1969 = ['neunzehnhundertneunundsechzig', '1969']; J2021 = ['zweitausendeinundzwanzig', '2021']
-i_die = C('Die'); i_dez = C('Dezember'); i_die2 = C('Die', i_dez); i_haben = f('haben', i_die2); i_wer = C('Wer'); i_doch = C('Doch')
+i_die = C('Die'); i_dez = C('Dezember'); i_die2 = C('Die', i_dez); i_haben = f('haben', i_die2); i_wer = C('Wer'); i_doch = C(['Doch', 'doch'])
 i_folge = C('Folge'); i_drei = C('Drei', i_folge); i_danach = C('Danach'); i_der = C('Der', i_danach); i_dann = C('Dann', i_der); i_aber = C('Aber')
 i_und = C('Und', i_aber); i_du = C('Du', i_und)
 sc('hook', 0, erste=f('erste'), welt=f('Welt'), zwoelf=f(['zwölf', '12']), sek=f('Sekunden'))

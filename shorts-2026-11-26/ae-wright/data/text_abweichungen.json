@@ -1,0 +1,26 @@
+[
+ {
+  "art": "replace",
+  "skript": "Jumbojets.",
+  "gesprochen": "Jumbo -Jets.",
+  "zeit": 5.14
+ },
+ {
+  "art": "replace",
+  "skript": "neunzehnhundertdrei,",
+  "gesprochen": "1903,",
+  "zeit": 6.46
+ },
+ {
+  "art": "replace",
+  "skript": "neunzehnhundertneunundsechzig",
+  "gesprochen": "1969",
+  "zeit": 36.52
+ },
+ {
+  "art": "replace",
+  "skript": "zweitausendeinundzwanzig",
+  "gesprochen": "2021",
+  "zeit": 39.04
+ }
+]

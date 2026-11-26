@@ -99,7 +99,7 @@ B.gebaut = function (c, k) {
   var A = abz(c, "p-werkstatt.jpg", 470, 700, 700, -2, 0.0, "pop", { prot: 4 });
   aCalloutF(c, A, "Motor", A.P("motor"), 260, 200, bis(c, k.motor - 0.06, 0), 58, "#0E0D0C", true);
   var m = A.P("motor"), kt = A.P("kette");
-  aPfeil(c, A, "Kette", [m[0] + 140, m[1] - 120], [kt[0] - 10, kt[1] - 50], -0.30, bis(c, k.gebaut - 0.10, f2s(9)), f2s(9), LINIE, 9);
+  aPfeil(c, A, "Kette", [m[0] + 140, m[1] - 120], [kt[0] - 10, kt[1] - 50], -0.30, bis(c, k.gebaut - 0.28, f2s(9)), f2s(9), LINIE, 9);
   credits(c, ["p-werkstatt.jpg"]);
   punchCut(c, 1.06);
   kamera(c, 103);
@@ -111,7 +111,7 @@ B.muenze = function (c, k) {
   var A = abz(c, "p-schiene.jpg", 470, 690, 740, 2, 0.0, "slide");
   ende(aChip(c, A, "?", A.P("himmel"), bis(c, k.zuerst - 0.04, f2s(5)), LRED, "#FFFFFF", 100, "slam", "slam"), k.werfen - 0.05);
   var f = A.P("flyer"), t0 = bis(c, k.werfen - 0.02, 1.0);
-  ende(aMuenze(c, A, [f[0], f[1] - 150], t0, Math.min(k.muenze + 0.55, t0 + 1.1), true), k.wilbur - 0.04);
+  ende(aMuenze(c, A, [f[0], f[1] - 150], t0, Math.min(k.muenze + 0.20, t0 + 1.1), true), k.wilbur - 0.04);
   var Wk = kindBild(c, A, "f-wilbur.png", [700, 600], 190, 4);
   if (Wk) { popIn(Wk.l, bis(c, k.wilbur - 0.06, f2s(9)), 6); aHaken(c, Wk, "gewinnt", Wk.P("gesicht"), 1.3, bis(c, k.gewinnt - 0.02, f2s(6)), GRUEN); }
   credits(c, ["p-schiene.jpg", "f-wilbur.png"]);
